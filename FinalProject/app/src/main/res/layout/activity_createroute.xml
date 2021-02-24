@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="7">
+
+        <!-- Logo -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_weight="1">
+
+            <!-- Logo Image -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="90dp"
+                android:maxHeight="90dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bikelogo" />
+        </TableRow>
+
+        <!-- Map Navigation Tabs-->
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.2"
+            android:background="#4D8FAC"
+            android:paddingTop="20dp"
+            android:paddingBottom="0dp">
+
+            <!-- Landmarks -->
+            <TextView
+                android:id="@+id/landmarksNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Landmarks"
+                android:textSize="12dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal"/>
+
+            <!-- Create Route -->
+            <TextView
+                android:id="@+id/createRouteNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Create Route"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal"/>
+
+            <!-- Popular Routes -->
+            <TextView
+                android:id="@+id/popularRoutesNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Popular Routes"
+                android:textSize="12dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal"/>
+        </TableRow>
+
+        <!-- Activity Content-->
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="5">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="6">
+
+                <!-- Start Point Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.25">
+
+                    <!-- Start Point Label -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="First Name"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <!-- start Point Input -->
+                    <EditText
+                        android:id="@+id/firstNameInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="20dp"
+                        android:textSize="24dp"/>
+                </TableRow>
+
+                <!-- End Point Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.25">
+
+                    <!-- End Point Label -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Last Name"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <!-- End Point Input -->
+                    <EditText
+                        android:id="@+id/lastNameInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="20dp"
+                        android:textSize="24dp"/>
+                </TableRow>
+
+                <!-- Available Routes Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.25">
+
+                    <!-- Available Routes Label -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Available Routes"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <!-- Available Routes -->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="5.25">
+
+                    <!-- RecyclerView -->
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+            </TableLayout>
+
+        </TableRow>
+
+
+        <!-- Navigation -->
+
+
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.8"
+            android:background="#FFFFFF">
+
+            <Button
+                android:id="@+id/mapNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Landmarks"
+                android:textSize="10dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal"/>
+
+            <Button
+                android:id="@+id/checklistNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Create Route"
+                android:textSize="10dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal"/>
+
+            <Button
+                android:id="@+id/accountNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Popular Route"
+                android:textSize="10dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal"/>
+
+            <Button
+                android:id="@+id/resourcesNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Popular Route"
+                android:textSize="10dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal"/>
+        </TableRow>
+
+    </TableLayout>
+
+
+</LinearLayout>

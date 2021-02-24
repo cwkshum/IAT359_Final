@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="5">
+
+        <TableRow
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#4D8FAC">
+
+            <!-- App Name -->
+            <TextView
+                android:id="@+id/activityHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="VanCity Cycling"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"/>
+        </TableRow>
+
+
+        <TableRow
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+          <!-- Logo -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="200dp"
+                android:maxHeight="200dp"
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/bikelogo" />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="60dp">
+
+            <!-- Username Label -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="20dp"
+                android:text="Username"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <!-- Username Input -->
+            <EditText
+                android:id="@+id/usernameInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="20dp"
+                android:textSize="24dp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:paddingRight="50dp">
+
+            <!-- Password Label -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="20dp"
+                android:text="Password"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <!-- password Input -->
+            <EditText
+                android:id="@+id/passwordInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="20dp"
+                android:textSize="24dp"/>
+        </TableRow>
+
+        <!-- Buttons -->
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1" >
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp">
+
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/loginButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Login"
+                        android:textSize="10dp"
+                        android:backgroundTint="#4D8FAC"
+                        android:textColor="@android:color/white"/>
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/signupButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sign up"
+                        android:textSize="10dp"
+                        android:textColor="@android:color/white"
+                        android:backgroundTint="#67BD24"/>
+                </TableRow>
+            </TableLayout>
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>

@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:gravity="center_horizontal|center_vertical"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             >
 
             <!-- Logo Image -->
@@ -34,7 +34,7 @@
         <TableRow
             android:gravity="center_horizontal|center_vertical"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:background="#4D8FAC">
 
         <!-- App Name -->
@@ -45,7 +45,7 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="VanCity Cycling"
-                android:textSize="40dp"
+                android:textSize="35dp"
                 android:textStyle="bold"
                 android:textColor="#ffffff"/>
 
@@ -55,7 +55,7 @@
         <!-- Signup Section-->
         <TableRow
             android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:paddingLeft="50dp"
             android:paddingRight="50dp">
 
@@ -86,7 +86,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="20dp"
-                        android:textSize="24dp"/>
+                        android:textSize="14dp"/>
                 </TableRow>
 
                 <!-- Last Name Section-->
@@ -111,7 +111,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="20dp"
-                        android:textSize="24dp"/>
+                        android:textSize="14dp"/>
                 </TableRow>
 
                 <!-- Email Section-->
@@ -136,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="20dp"
-                        android:textSize="24dp"/>
+                        android:textSize="14dp"/>
                 </TableRow>
 
                 <!-- Username Section-->
@@ -161,7 +161,7 @@
                       android:layout_height="wrap_content"
                       android:layout_weight="1"
                       android:paddingLeft="20dp"
-                      android:textSize="24dp"/>
+                      android:textSize="14dp"/>
                 </TableRow>
 
                 <!-- Password Section-->
@@ -186,7 +186,7 @@
                       android:layout_height="wrap_content"
                       android:layout_weight="1"
                       android:paddingLeft="20dp"
-                      android:textSize="24dp"/>
+                      android:textSize="14dp"/>
                 </TableRow>
 
                 <!-- Confirm Password Section-->
@@ -210,7 +210,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="20dp"
-                        android:textSize="24dp"/>
+                        android:textSize="14dp"/>
                 </TableRow>
             </TableLayout>
         </TableRow>
@@ -239,7 +239,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Login"
+                        android:text="Sign up"
                         android:textSize="10dp"
                         android:backgroundTint="#4D8FAC"
                         android:textColor="@android:color/white"/>
@@ -255,7 +255,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Sign up"
+                        android:text="Login"
                         android:textSize="10dp"
                         android:textColor="@android:color/white"
                         android:backgroundTint="#67BD24"/>

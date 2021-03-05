@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".LandingActivity"></activity>
+        <activity android:name=".LandmarksActivity"></activity>
+        <activity android:name=".CreateRouteActivity"></activity>
+        <activity android:name=".PopularRoutesActivity"></activity>
     </application>
 
 </manifest>

@@ -75,14 +75,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="20dp"
-                android:textSize="24dp"/>
+                android:textSize="14dp"/>
         </TableRow>
 
         <TableRow
             android:layout_height="0dp"
             android:layout_weight="1"
             android:paddingLeft="20dp"
-            android:paddingRight="50dp">
+            android:paddingRight="60dp">
 
             <!-- Password Label -->
             <TextView
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="20dp"
-                android:textSize="24dp"/>
+                android:textSize="14dp"/>
         </TableRow>
 
         <!-- Buttons -->

@@ -15,12 +15,31 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBHwEGiH30D6obR-lk-bZtfkfPZ4NW5n2Y" />
         </activity>
         <activity android:name=".SignupActivity"></activity>
         <activity android:name=".LandingActivity"></activity>
         <activity android:name=".LandmarksActivity"></activity>
         <activity android:name=".CreateRouteActivity"></activity>
         <activity android:name=".PopularRoutesActivity"></activity>
+
+        <activity android:name=".ResourcesActivity"></activity>
     </application>
+
+
+    <!-- EXTERNAL_STORAGE permissions are optional for Android 6.0 onwards. -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="22" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
 </manifest>

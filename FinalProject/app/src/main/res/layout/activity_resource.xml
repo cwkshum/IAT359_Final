@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.3">
+
+        <!-- Logo -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_weight="0.5">
+
+            <!-- Logo Image -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="90dp"
+                android:maxHeight="90dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bikelogo"/>
+        </TableRow>
+    </TableLayout>
+
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Sensor Data"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:paddingBottom="10dp"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Current Temperature"
+        android:paddingTop="10dp"
+        android:textStyle="italic|bold"
+        android:paddingBottom="10dp"
+        android:textSize="16dp"
+        android:textColor="@android:color/black"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/tempSensorValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:text="ºC"
+        android:textColor="@android:color/black"
+        android:textSize="14dp" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Current Speed"
+        android:textStyle="italic|bold"
+        android:textSize="16dp"
+        android:textColor="@android:color/black"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/accelSensorValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+        android:text="m/s"
+        android:textSize="14dp"
+        android:textColor="@android:color/black"
+        android:gravity="center_horizontal"/>
+
+</TableLayout>
+    <!-- Sensor Headings -->
+    <!-- Current Sensor Text Display Section -->
+<!--    <TableRow-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="0.0">-->
+
+<!--        &lt;!&ndash; Current Temperature Value &ndash;&gt;-->
+<!--      -->
+
+<!--        &lt;!&ndash; Current Speed Value &ndash;&gt;-->
+<!--      -->
+<!--    </TableRow>-->
+
+    <!-- Resource Links Section -->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Resources"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"/>
+
+        <!-- Bike Safety -->
+
+        <!-- Bike Laws -->
+        <TableRow
+            android:id="@+id/bikeSafety"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.0"
+            android:background="#008039"
+            android:paddingTop="20dp"
+            android:paddingBottom="0dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="90dp"
+                android:maxHeight="100dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bikelogo"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="6dp"
+                    android:text="Bike Safety"
+                    android:paddingLeft="5dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="Bike Safety is important. Please take a min to educate \nyourself this nonsense"
+                    android:textColor="@android:color/white"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/bikeLaws"
+            android:layout_width="match_parent"
+            android:layout_height="123dp"
+            android:layout_weight="0.0"
+            android:background="#01959A"
+            android:paddingTop="20dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="90dp"
+                android:maxHeight="100dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bikelogo" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:paddingBottom="6dp"
+                    android:text="Bike Laws"
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="Please get familiar with the bike laws in the city of \nvancouver"
+                    android:textColor="@android:color/white"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+
+        <!-- City of Vancouver -->
+        <TableRow
+            android:id="@+id/cityVan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.0"
+            android:background="#FF8C8C"
+            android:paddingTop="20dp"
+            android:paddingBottom="0dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="90dp"
+                android:maxHeight="100dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bikelogo"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="6dp"
+                    android:text="City of Vancouver"
+                    android:paddingLeft="5dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="Visit the city of Vancouver website to learn more \nabout this city"
+                    android:textColor="@android:color/white"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+
+
+<!--        &lt;!&ndash; Navigation &ndash;&gt;-->
+
+
+<!--        <TableRow-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_weight="0.8"-->
+<!--            android:background="#FFFFFF">-->
+
+<!--            <Button-->
+<!--                android:id="@+id/mapNavigation"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Landmarks"-->
+<!--                android:textSize="10dp"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:gravity="center_horizontal"/>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/checklistNavigation"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Create Route"-->
+<!--                android:textSize="10dp"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:gravity="center_horizontal"/>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/accountNavigation"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Popular Route"-->
+<!--                android:textSize="10dp"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:gravity="center_horizontal"/>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/resourcesNavigation"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Popular Route"-->
+<!--                android:textSize="10dp"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:gravity="center_horizontal"/>-->
+<!--        </TableRow>-->
+    </TableLayout>
+</LinearLayout>

@@ -49,7 +49,7 @@ public class SignupActivity extends Activity implements View.OnClickListener {
         if(view.getId() == R.id.signupButton) {
             if(checkInput()){
                 // start explicit intent to go to landing page activity
-                Intent i = new Intent(view.getContext(), SignupActivity.class);
+                Intent i = new Intent(view.getContext(), LandingActivity.class);
                 view.getContext().startActivity(i);
             }
 

@@ -9,7 +9,6 @@
     android:orientation="vertical">
 
 
-
     <TableLayout
     android:layout_width="match_parent"
     android:layout_height="0dip"
@@ -83,23 +82,87 @@
             android:layout_weight="5"
             android:background="#aaaaaa">
 
+    <!--      <LinearLayout-->
+    <!--    android:orientation="horizontal"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    >-->
+
+    <!--    <EditText-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_weight="1"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:id="@+id/locationEditText"-->
+    <!--        android:hint="location" />-->
+
+    <!--    <Button-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Search"-->
+    <!--        android:id="@+id/locationButton"-->
+    <!--        android:onClick="geolocate"-->
+    <!--        android:nestedScrollingEnabled="false" />-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+    <!--    android:orientation="horizontal"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    >-->
+
+    <!--    <EditText-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_weight="1"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:id="@+id/latEditText"-->
+    <!--        android:hint="lat"-->
+    <!--        android:inputType="numberDecimal|numberSigned" />-->
+
+    <!--    <EditText-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_weight="1"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:id="@+id/lngEditText"-->
+    <!--        android:hint="lng"-->
+    <!--        android:inputType="numberDecimal|numberSigned" />-->
+
+    <!--    <Button-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Search"-->
+    <!--        android:id="@+id/latLngButton"-->
+    <!--        android:onClick="geolocate" />-->
+    <!--</LinearLayout>-->
+
+    <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:map ="http://schemas.android.com/apk/res-auto"-->
+    <!--    android:name="com.google.android.gms.maps.MapFragment"-->
+    <!--    android:id="@+id/map"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent" />-->
+<!--        map:mapType = "satellite" />-->
+<!--        map:cameraTargetLat = "49.1817465"-->
+<!--        map:cameraTargetLng = "-122.849651"-->
+<!--        map:cameraZoom = "15" />-->
+
         </TableRow>
 
-        <TableRow
-            android:id="@+id/fl_wrapper"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <!--<TableRow-->
+        <!--    android:id="@+id/tr_wrapper"-->
+        <!--    android:layout_width="match_parent"-->
+        <!--    android:layout_height="match_parent">-->
 
-<!--            <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_alignParetnBottom="true"-->
-<!--                app:itemBackground="@color/black"-->
-<!--                app:itemIconTint="#fff"-->
-<!--                app:menu="@menu/nav_menu"-->
+        <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+        <!--        android:id="@+id/bottom_nav"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_alignParentBottom="true"-->
+        <!--        app:itemBackground="@color/black"-->
+        <!--        app:itemIconTint="#fff"-->
+        <!--        app:menu="@menu/nav_menu"-->
 
-<!--                />-->
-        </TableRow>
+        <!--        />-->
+        <!--</TableRow>-->
 
     </TableLayout>
 
@@ -108,54 +171,54 @@
 
 
 
-      
+<!--      -->
 
-        <!--<TableRow-->
-        <!--    android:layout_height="0dp"-->
-        <!--    android:layout_width="wrap_content"-->
-        <!--    android:layout_weight="0.8"-->
-        <!--    android:background="#FFFFFF">-->
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.8"
+            android:background="#FFFFFF">
 
-        <!--    <Button-->
-        <!--        android:id="@+id/mapNavigation"-->
-        <!--        android:layout_width="0dp"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_weight="1"-->
-        <!--        android:text="Landmarks"-->
-        <!--        android:textSize="10dp"-->
-        <!--        android:textColor="@android:color/white"-->
-        <!--        android:gravity="center_horizontal"/>-->
+            <Button
+                android:id="@+id/mapNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Landmarks"
+                android:textSize="10dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal"/>
 
-        <!--    <Button-->
-        <!--        android:id="@+id/checklistNavigation"-->
-        <!--        android:layout_width="0dp"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_weight="1"-->
-        <!--        android:text="Create Route"-->
-        <!--        android:textSize="10dp"-->
-        <!--        android:textColor="@android:color/white"-->
-        <!--        android:gravity="center_horizontal"/>-->
+            <Button
+                android:id="@+id/checklistNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Create Route"
+                android:textSize="10dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal"/>
 
-        <!--    <Button-->
-        <!--        android:id="@+id/accountNavigation"-->
-        <!--        android:layout_width="0dp"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_weight="1"-->
-        <!--        android:text="Popular Route"-->
-        <!--        android:textSize="10dp"-->
-        <!--        android:textColor="@android:color/white"-->
-        <!--        android:gravity="center_horizontal"/>-->
+            <Button
+                android:id="@+id/accountNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Popular Route"
+                android:textSize="10dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal"/>
 
-        <!--    <Button-->
-        <!--        android:id="@+id/resourcesNavigation"-->
-        <!--        android:layout_width="0dp"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_weight="1"-->
-        <!--        android:text="Popular Route"-->
-        <!--        android:textSize="10dp"-->
-        <!--        android:textColor="@android:color/white"-->
-        <!--        android:gravity="center_horizontal"/>-->
-        <!--</TableRow>-->
+            <Button
+                android:id="@+id/resourcesNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Resources"
+                android:textSize="10dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal"/>
+        </TableRow>
 
     </LinearLayout>
 

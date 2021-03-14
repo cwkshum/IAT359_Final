@@ -10,16 +10,16 @@
 
 
     <TableLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dip"
-    android:layout_weight="7">
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="7.5">
 
         <!-- Logo -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:gravity="center_horizontal|center_vertical"
-            android:layout_weight="0.5">
+            android:layout_weight="0.2">
 
             <!-- Logo Image -->
             <ImageView
@@ -34,12 +34,13 @@
 
         <!-- Map Navigation Tabs-->
         <TableRow
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:layout_width="wrap_content"
             android:layout_weight="0.2"
             android:background="#4D8FAC"
-            android:paddingTop="20dp"
-            android:paddingBottom="0dp">
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginBottom="5dp">
 
             <!-- Landmarks -->
             <TextView
@@ -79,104 +80,95 @@
         <TableRow
             android:layout_height="0dp"
             android:layout_width="wrap_content"
-            android:layout_weight="5"
-            android:background="#aaaaaa">
+            android:layout_weight="6.9"
+            android:background="#4D8FAC">
 
-    <!--      <LinearLayout-->
-    <!--    android:orientation="horizontal"-->
-    <!--    android:layout_width="match_parent"-->
-    <!--    android:layout_height="wrap_content"-->
-    <!--    >-->
+<!--          <LinearLayout-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        >-->
 
-    <!--    <EditText-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_weight="1"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:id="@+id/locationEditText"-->
-    <!--        android:hint="location" />-->
+<!--        <EditText-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/locationEditText"-->
+<!--            android:hint="location" />-->
 
-    <!--    <Button-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Search"-->
-    <!--        android:id="@+id/locationButton"-->
-    <!--        android:onClick="geolocate"-->
-    <!--        android:nestedScrollingEnabled="false" />-->
-    <!--</LinearLayout>-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Search"-->
+<!--            android:id="@+id/locationButton"-->
+<!--            android:onClick="geolocate"-->
+<!--            android:nestedScrollingEnabled="false" />-->
+<!--    </LinearLayout>-->
 
-    <!--<LinearLayout-->
-    <!--    android:orientation="horizontal"-->
-    <!--    android:layout_width="match_parent"-->
-    <!--    android:layout_height="wrap_content"-->
-    <!--    >-->
+<!--    <LinearLayout-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        >-->
 
-    <!--    <EditText-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_weight="1"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:id="@+id/latEditText"-->
-    <!--        android:hint="lat"-->
-    <!--        android:inputType="numberDecimal|numberSigned" />-->
+<!--        <EditText-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/latEditText"-->
+<!--            android:hint="lat"-->
+<!--            android:inputType="numberDecimal|numberSigned" />-->
 
-    <!--    <EditText-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_weight="1"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:id="@+id/lngEditText"-->
-    <!--        android:hint="lng"-->
-    <!--        android:inputType="numberDecimal|numberSigned" />-->
+<!--        <EditText-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/lngEditText"-->
+<!--            android:hint="lng"-->
+<!--            android:inputType="numberDecimal|numberSigned" />-->
 
-    <!--    <Button-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Search"-->
-    <!--        android:id="@+id/latLngButton"-->
-    <!--        android:onClick="geolocate" />-->
-    <!--</LinearLayout>-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Search"-->
+<!--            android:id="@+id/latLngButton"-->
+<!--            android:onClick="geolocate" />-->
+<!--    </LinearLayout>-->
 
-    <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--    xmlns:map ="http://schemas.android.com/apk/res-auto"-->
-    <!--    android:name="com.google.android.gms.maps.MapFragment"-->
-    <!--    android:id="@+id/map"-->
-    <!--    android:layout_width="match_parent"-->
-    <!--    android:layout_height="match_parent" />-->
-<!--        map:mapType = "satellite" />-->
-<!--        map:cameraTargetLat = "49.1817465"-->
-<!--        map:cameraTargetLng = "-122.849651"-->
-<!--        map:cameraZoom = "15" />-->
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map ="http://schemas.android.com/apk/res-auto"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:id="@+id/map"
+        android:layout_width="200dp"
+        android:layout_height="500dp"
 
+        android:layout_weight="1"/>
+
+
+<!--        map:mapType = "hybrid"/>-->
+
+<!--            map:cameraTargetLat = "49.1817465"-->
+<!--            map:cameraTargetLng = "-122.849651"-->
+<!--            map:cameraZoom = "15"-->
+            <!--        map:mapType = "satellite" />-->
+
+
+            <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--    xmlns:tools="http://schemas.android.com/tools"-->
+            <!--    android:layout_width="0dp"-->
+            <!--    android:layout_height="match_parent"-->
+            <!--    android:layout_weight="1"-->
+            <!--    android:layout_marginTop="10dp"-->
+            <!--    android:id="@+id/map"-->
+            <!--    android:name="com.google.android.gms.maps.SupportMapFragment" />-->
         </TableRow>
 
-        <!--<TableRow-->
-        <!--    android:id="@+id/tr_wrapper"-->
-        <!--    android:layout_width="match_parent"-->
-        <!--    android:layout_height="match_parent">-->
 
-        <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-        <!--        android:id="@+id/bottom_nav"-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_alignParentBottom="true"-->
-        <!--        app:itemBackground="@color/black"-->
-        <!--        app:itemIconTint="#fff"-->
-        <!--        app:menu="@menu/nav_menu"-->
-
-        <!--        />-->
-        <!--</TableRow>-->
-
-    </TableLayout>
-
-
-         <!--Navigation -->
-
-
-
-<!--      -->
-
+        <!-- Navigation -->
         <TableRow
             android:layout_height="0dp"
             android:layout_width="wrap_content"
-            android:layout_weight="0.8"
+            android:layout_weight="0.2"
             android:background="#FFFFFF">
 
             <Button
@@ -194,7 +186,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Create Route"
+                android:text="Checklist"
                 android:textSize="10dp"
                 android:textColor="@android:color/white"
                 android:gravity="center_horizontal"/>
@@ -220,6 +212,22 @@
                 android:gravity="center_horizontal"/>
         </TableRow>
 
-    </LinearLayout>
+    </TableLayout>
+</LinearLayout>
 
+    <!--<TableRow-->
+    <!--    android:id="@+id/tr_wrapper"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent">-->
 
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+    <!--        android:id="@+id/bottom_nav"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        app:itemBackground="@color/black"-->
+    <!--        app:itemIconTint="#fff"-->
+    <!--        app:menu="@menu/nav_menu"-->
+
+    <!--        />-->
+    <!--</TableRow>-->

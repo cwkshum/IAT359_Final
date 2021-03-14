@@ -96,13 +96,13 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="First Name"
+                        android:text="Start Point"
                         android:textSize="14dp"
                         android:textStyle="bold" />
 
                     <!-- start Point Input -->
                     <EditText
-                        android:id="@+id/firstNameInput"
+                        android:id="@+id/startPointInput"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -121,19 +121,35 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Last Name"
+                        android:text="End Point"
                         android:textSize="14dp"
                         android:textStyle="bold" />
 
                     <!-- End Point Input -->
                     <EditText
-                        android:id="@+id/lastNameInput"
+                        android:id="@+id/endPointInput"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="20dp"
                         android:textSize="24dp"/>
                 </TableRow>
+
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.25">
+
+                    <Button
+                        android:id="@+id/findRouteButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Find Route"
+                        android:textSize="10dp"
+                        android:textColor="@android:color/white"/>
+                </TableRow>
+
 
                 <!-- Available Routes Section-->
                 <TableRow
@@ -182,7 +198,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Landmarks"
+                android:text="Map"
                 android:textSize="10dp"
                 android:textColor="@android:color/white"
                 android:gravity="center_horizontal"/>
@@ -192,7 +208,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Create Route"
+                android:text="Checklist"
                 android:textSize="10dp"
                 android:textColor="@android:color/white"
                 android:gravity="center_horizontal"/>
@@ -202,7 +218,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Popular Route"
+                android:text="Account"
                 android:textSize="10dp"
                 android:textColor="@android:color/white"
                 android:gravity="center_horizontal"/>
@@ -212,7 +228,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Popular Route"
+                android:text="Resources"
                 android:textSize="10dp"
                 android:textColor="@android:color/white"
                 android:gravity="center_horizontal"/>

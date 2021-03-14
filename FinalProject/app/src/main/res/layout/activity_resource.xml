@@ -72,22 +72,22 @@
         android:layout_weight="1"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:text="Current Speed"
+        android:text="Current Air Pressure"
         android:textStyle="italic|bold"
         android:textSize="16dp"
         android:textColor="@android:color/black"
         android:gravity="center_horizontal"/>
 
     <TextView
-        android:id="@+id/accelSensorValue"
+        android:id="@+id/pressureSensorValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
 
-        android:text="m/s"
-        android:textSize="14dp"
+        android:gravity="center_horizontal"
+        android:text="hPa"
         android:textColor="@android:color/black"
-        android:gravity="center_horizontal"/>
+        android:textSize="14dp" />
 
 </TableLayout>
     <!-- Sensor Headings -->

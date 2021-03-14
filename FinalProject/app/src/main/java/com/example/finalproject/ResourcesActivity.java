@@ -24,13 +24,13 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
     // Sensors
     private SensorManager sensorManager = null;
     private Sensor tempSensor = null;
-    private Sensor accelSensor = null;
+    private Sensor pressureSensor = null;
 
     private boolean tempSensorAvailable = true;
-    private boolean accelSensorAvailable = true;
+    private boolean pressureSensorAvailable = true;
 
     // Sensor Text Display
-    private TextView tempSensorValue, accelSensorValue;
+    private TextView tempSensorValue, pressureSensorValue;
 
     // Resource Link Sections
     private TableRow bikeSafety, bikeLaws, cityVan;
@@ -42,7 +42,7 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
 
         // Sensor value text display
         tempSensorValue = (TextView) findViewById(R.id.tempSensorValue);
-        accelSensorValue = (TextView) findViewById(R.id.accelSensorValue);
+        pressureSensorValue = (TextView) findViewById(R.id.pressureSensorValue);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
@@ -57,13 +57,13 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
         }
 
         // Get accelerometer sensor
-        if(sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
-            accelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE) != null) {
+            pressureSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
 
         } else{
             // current acceleration level is not available
-            accelSensorAvailable = false;
-            tempSensorValue.setText("Speed Not Available");
+            pressureSensorAvailable = false;
+            tempSensorValue.setText("Pressure Not Available");
         }
 
         // Resource Links display
@@ -87,9 +87,9 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
             sensorManager.registerListener(this, tempSensor, SensorManager.SENSOR_DELAY_NORMAL);
         }
 
-        if(accelSensorAvailable) {
+        if(pressureSensorAvailable) {
             // register accelerometer sensor
-            sensorManager.registerListener(this, accelSensor, SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(this, pressureSensor, SensorManager.SENSOR_DELAY_NORMAL);
         }
     }
 
@@ -111,14 +111,10 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
             // display current temperature level
             tempSensorValue.setText(tempLevel + " ºC");
 
-        } else if(sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            float accelX = sensorValues[0];
-            float accelY = sensorValues[1];
-            float accelZ = sensorValues[2];
+        } else if(sensorEvent.sensor.getType() == Sensor.TYPE_PRESSURE) {
+            float pressureLevel = sensorValues[0];
+            pressureSensorValue.setText(pressureLevel + "hPa");
 
-            float accelTot = (float) Math.sqrt(accelX * accelX + accelY * accelY + accelZ * accelZ);
-
-            accelSensorValue.setText(accelTot + " m/s*s");
         }
     }
 

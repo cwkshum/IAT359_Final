@@ -3,22 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/listLayout"
+    >
 
     <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical">
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.0"
             android:background="#008039"
             android:paddingTop="20dp"
-            android:paddingBottom="0dp">
+            android:paddingBottom="0dp"
+            android:layout_marginBottom="5dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -26,8 +29,9 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/checklistNameEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="CheckList Name"
@@ -37,6 +41,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/checklistDescriptionEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -68,8 +73,9 @@
                 android:id="@+id/editButton"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:onClick="editList"
                 android:background="@drawable/circle_button"
-                android:text="+" />
+                />
 
             </LinearLayout>
 

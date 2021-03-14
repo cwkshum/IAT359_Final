@@ -15,18 +15,20 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBHwEGiH30D6obR-lk-bZtfkfPZ4NW5n2Y" />
         </activity>
         <activity android:name=".SignupActivity"></activity>
         <activity android:name=".LandingActivity"></activity>
         <activity android:name=".LandmarksActivity"></activity>
         <activity android:name=".CreateRouteActivity"></activity>
         <activity android:name=".PopularRoutesActivity"></activity>
+        <activity android:name=".NewChecklistActivity"></activity>
 
+        <activity android:name=".ChecklistActivity"></activity>
         <activity android:name=".ResourcesActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCqydQlLuSgi0durCPpfKQLfLslEiefgis" />
     </application>
 
 

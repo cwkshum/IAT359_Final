@@ -12,23 +12,23 @@
 10
 11    <!-- EXTERNAL_STORAGE permissions are optional for Android 6.0 onwards. -->
 12    <uses-permission
-12-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:36:5-38:38
+12-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:38:5-40:38
 13        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-13-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:37:9-65
+13-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:39:9-65
 14        android:maxSdkVersion="22" />
-14-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:38:9-35
+14-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:40:9-35
 15    <uses-permission
-15-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:39:5-41:38
+15-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:41:5-43:38
 16        android:name="android.permission.READ_EXTERNAL_STORAGE"
-16-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:40:9-64
+16-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:42:9-64
 17        android:maxSdkVersion="22" />
-17-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:41:9-35
+17-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:43:9-35
 18    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-18-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:43:5-79
-18-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:43:22-76
+18-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:45:5-79
+18-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:45:22-76
 19    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-19-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:44:5-81
-19-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:44:22-78
+19-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:46:5-81
+19-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:46:22-78
 20
 21    <!-- Include required permissions for Google Maps API to run. -->
 22    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -46,7 +46,7 @@
 27-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\a998b89aa33dba7d2af0bd1f1f02715b\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
 28
 29    <application
-29-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:5:5-32:19
+29-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:5:5-34:19
 30        android:allowBackup="true"
 30-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:6:9-35
 31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -95,42 +95,48 @@
 51        <activity android:name="com.example.finalproject.NewChecklistActivity" />
 51-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:24:9-67
 51-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:24:19-55
-52        <activity android:name="com.example.finalproject.ChecklistActivity" />
-52-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:26:9-64
-52-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:26:19-52
-53        <activity android:name="com.example.finalproject.ResourcesActivity" />
-53-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:27:9-64
-53-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:27:19-52
-54
-55        <meta-data
-55-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:29:9-31:71
-56            android:name="com.google.android.geo.API_KEY"
-56-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:30:13-58
-57            android:value="AIzaSyCqydQlLuSgi0durCPpfKQLfLslEiefgis" />
-57-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:31:13-68
-58        <!-- Needs to be explicitly declared on P+ -->
-59        <uses-library
-59-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\a998b89aa33dba7d2af0bd1f1f02715b\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
-60            android:name="org.apache.http.legacy"
-60-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\a998b89aa33dba7d2af0bd1f1f02715b\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
-61            android:required="false" />
-61-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\a998b89aa33dba7d2af0bd1f1f02715b\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
-62
-63        <activity
-63-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\39cb68e7191d4a89a2f9dcb45df0c6a3\jetified-play-services-base-17.5.0\AndroidManifest.xml:23:9-26:75
-64            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-64-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\39cb68e7191d4a89a2f9dcb45df0c6a3\jetified-play-services-base-17.5.0\AndroidManifest.xml:24:13-79
-65            android:exported="false"
-65-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\39cb68e7191d4a89a2f9dcb45df0c6a3\jetified-play-services-base-17.5.0\AndroidManifest.xml:25:13-37
-66            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-66-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\39cb68e7191d4a89a2f9dcb45df0c6a3\jetified-play-services-base-17.5.0\AndroidManifest.xml:26:13-72
-67
-68        <meta-data
-68-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\4a39a7b18b98371cdc6b940cd7aa11d0\jetified-play-services-basement-17.5.0\AndroidManifest.xml:23:9-25:69
-69            android:name="com.google.android.gms.version"
-69-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\4a39a7b18b98371cdc6b940cd7aa11d0\jetified-play-services-basement-17.5.0\AndroidManifest.xml:24:13-58
-70            android:value="@integer/google_play_services_version" />
-70-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\4a39a7b18b98371cdc6b940cd7aa11d0\jetified-play-services-basement-17.5.0\AndroidManifest.xml:25:13-66
-71    </application>
-72
-73</manifest>
+52        <activity android:name="com.example.finalproject.EditChecklistActivity" />
+52-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:25:9-68
+52-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:25:19-56
+53        <activity android:name="com.example.finalproject.DetailChecklistActivity" />
+53-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:26:9-70
+53-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:26:19-58
+54        <activity android:name="com.example.finalproject.ChecklistActivity" />
+54-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:28:9-64
+54-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:28:19-52
+55        <activity android:name="com.example.finalproject.ResourcesActivity" />
+55-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:29:9-64
+55-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:29:19-52
+56
+57        <meta-data
+57-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:31:9-33:71
+58            android:name="com.google.android.geo.API_KEY"
+58-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:32:13-58
+59            android:value="AIzaSyCqydQlLuSgi0durCPpfKQLfLslEiefgis" />
+59-->C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:33:13-68
+60        <!-- Needs to be explicitly declared on P+ -->
+61        <uses-library
+61-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\a998b89aa33dba7d2af0bd1f1f02715b\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+62            android:name="org.apache.http.legacy"
+62-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\a998b89aa33dba7d2af0bd1f1f02715b\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+63            android:required="false" />
+63-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\a998b89aa33dba7d2af0bd1f1f02715b\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+64
+65        <activity
+65-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\39cb68e7191d4a89a2f9dcb45df0c6a3\jetified-play-services-base-17.5.0\AndroidManifest.xml:23:9-26:75
+66            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+66-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\39cb68e7191d4a89a2f9dcb45df0c6a3\jetified-play-services-base-17.5.0\AndroidManifest.xml:24:13-79
+67            android:exported="false"
+67-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\39cb68e7191d4a89a2f9dcb45df0c6a3\jetified-play-services-base-17.5.0\AndroidManifest.xml:25:13-37
+68            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+68-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\39cb68e7191d4a89a2f9dcb45df0c6a3\jetified-play-services-base-17.5.0\AndroidManifest.xml:26:13-72
+69
+70        <meta-data
+70-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\4a39a7b18b98371cdc6b940cd7aa11d0\jetified-play-services-basement-17.5.0\AndroidManifest.xml:23:9-25:69
+71            android:name="com.google.android.gms.version"
+71-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\4a39a7b18b98371cdc6b940cd7aa11d0\jetified-play-services-basement-17.5.0\AndroidManifest.xml:24:13-58
+72            android:value="@integer/google_play_services_version" />
+72-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\4a39a7b18b98371cdc6b940cd7aa11d0\jetified-play-services-basement-17.5.0\AndroidManifest.xml:25:13-66
+73    </application>
+74
+75</manifest>

@@ -1,5 +1,21 @@
+com/example/finalproject/DialogCloseListener.java
+ com.example.finalproject.DialogCloseListener
 com/example/finalproject/MyHelper.java
  com.example.finalproject.MyHelper
+com/example/finalproject/ToDoModel.java
+ com.example.finalproject.ToDoModel
+com/example/finalproject/Constants.java
+ com.example.finalproject.Constants
+com/example/finalproject/BuildConfig.java
+ com.example.finalproject.BuildConfig
+com/example/finalproject/DatabaseHandler.java
+ com.example.finalproject.DatabaseHandler
+com/example/finalproject/EditChecklistActivity.java
+ com.example.finalproject.EditChecklistActivity
+ com.example.finalproject.EditChecklistActivity$1
+ com.example.finalproject.EditChecklistActivity$2
+ com.example.finalproject.EditChecklistActivity$3
+ com.example.finalproject.EditChecklistActivity$4
 com/example/finalproject/CreateRouteActivity.java
  com.example.finalproject.CreateRouteActivity
 com/example/finalproject/MainActivity.java
@@ -9,25 +25,40 @@ com/example/finalproject/PopularRoutesActivity.java
  com.example.finalproject.PopularRoutesActivity
 com/example/finalproject/SignupActivity.java
  com.example.finalproject.SignupActivity
-com/example/finalproject/LandmarksActivity.java
- com.example.finalproject.LandmarksActivity
+com/example/finalproject/MyAdapter.java
+ com.example.finalproject.MyAdapter
+ com.example.finalproject.MyAdapter$1
+ com.example.finalproject.MyAdapter$2
+ com.example.finalproject.MyAdapter$MyViewHolder
+com/example/finalproject/DetailChecklistActivity.java
+ com.example.finalproject.DetailChecklistActivity
+ com.example.finalproject.DetailChecklistActivity$1
 com/example/finalproject/NewChecklistActivity.java
  com.example.finalproject.NewChecklistActivity
-com/example/finalproject/LandingActivity.java
- com.example.finalproject.LandingActivity
- com.example.finalproject.LandingActivity$1
-com/example/finalproject/BuildConfig.java
- com.example.finalproject.BuildConfig
-com/example/finalproject/Constants.java
- com.example.finalproject.Constants
-com/example/finalproject/MyDatabase.java
- com.example.finalproject.MyDatabase
+ com.example.finalproject.NewChecklistActivity$1
+com/example/finalproject/ChecklistActivity.java
+ com.example.finalproject.ChecklistActivity
+ com.example.finalproject.ChecklistActivity$1
+ com.example.finalproject.ChecklistActivity$2
+ com.example.finalproject.ChecklistActivity$3
+com/example/finalproject/ToDoAdapter.java
+ com.example.finalproject.ToDoAdapter
+ com.example.finalproject.ToDoAdapter$1
+ com.example.finalproject.ToDoAdapter$ViewHolder
 com/example/finalproject/LandmarkActivity.java
  com.example.finalproject.LandmarkActivity
 com/example/finalproject/ResourcesActivity.java
  com.example.finalproject.ResourcesActivity
-com/example/finalproject/ChecklistActivity.java
- com.example.finalproject.ChecklistActivity
-com/example/finalproject/MyAdapter.java
- com.example.finalproject.MyAdapter
- com.example.finalproject.MyAdapter$MyViewHolder
+com/example/finalproject/RecyclerItemTouchHelper.java
+ com.example.finalproject.RecyclerItemTouchHelper
+ com.example.finalproject.RecyclerItemTouchHelper$1
+ com.example.finalproject.RecyclerItemTouchHelper$2
+com/example/finalproject/AddNewTask.java
+ com.example.finalproject.AddNewTask
+ com.example.finalproject.AddNewTask$1
+ com.example.finalproject.AddNewTask$2
+com/example/finalproject/LandmarksActivity.java
+ com.example.finalproject.LandmarksActivity
+com/example/finalproject/LandingActivity.java
+ com.example.finalproject.LandingActivity
+ com.example.finalproject.LandingActivity$1

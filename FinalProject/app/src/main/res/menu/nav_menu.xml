@@ -13,5 +13,11 @@
         android:id ="@+id/ic_landscape"
         android:icon="@drawable/ic_landscape"
         android:title="landscape"/>
+    <item
+        android:id ="@+id/ic_resource"
+        android:icon="@drawable/ic_landscape"
+        android:title="landscape"/>
+
+
 
 </menu>

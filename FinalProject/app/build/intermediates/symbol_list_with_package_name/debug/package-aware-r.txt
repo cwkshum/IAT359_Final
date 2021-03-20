@@ -1013,6 +1013,7 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color checkbox_themeable_attribute_color
+color colorPrimaryDark
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default
 color common_google_signin_btn_text_dark_disabled
@@ -1666,6 +1667,8 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable add
+drawable arrow
 drawable avd_hide_password
 drawable avd_show_password
 drawable bikelogo
@@ -1851,6 +1854,7 @@ id bounce
 id buttonPanel
 id cache_measures
 id cancel_button
+id cardView
 id center
 id center_horizontal
 id center_vertical
@@ -1859,8 +1863,13 @@ id chains
 id checkbox
 id checked
 id checklistDescriptionEditText
+id checklistDescriptionEditText2
+id checklistDescription_txt
 id checklistNameEditText
+id checklistNameEditText2
+id checklistName_txt
 id checklistNavigation
+id checklist_id_txt
 id chip
 id chip1
 id chip2
@@ -1894,7 +1903,8 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
-id deleteButton
+id delete_all
+id delete_button
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -1919,7 +1929,6 @@ id dropdown_menu
 id easeIn
 id easeInOut
 id easeOut
-id editButton
 id edit_query
 id elastic
 id emailInput
@@ -1931,6 +1940,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab
 id fade
 id fill
 id fill_horizontal
@@ -1945,6 +1955,7 @@ id floating
 id forever
 id ghost_view
 id ghost_view_holder
+id goToChecklistButton
 id gone
 id graph
 id graph_wrap
@@ -2049,6 +2060,8 @@ id mtrl_view_tag_bottom_padding
 id multiply
 id navigation_header_container
 id never
+id newTaskButton
+id newTaskText
 id noScroll
 id none
 id normal
@@ -2060,6 +2073,7 @@ id on
 id outline
 id outward
 id packed
+id pages_input2
 id parallax
 id parent
 id parentPanel
@@ -2157,6 +2171,8 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id tasksRecyclerView
+id tasksText
 id tempSensorValue
 id terrain
 id test_checkbox_android_button_tint
@@ -2183,6 +2199,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id todoCheckBox
 id toggle
 id top
 id topPanel
@@ -2199,6 +2216,7 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id update_button
 id useLogo
 id usernameInput
 id view_offset_helper
@@ -2274,12 +2292,16 @@ layout activity_checklist
 layout activity_checklist_row
 layout activity_createaccount
 layout activity_createroute
+layout activity_detailchecklist
+layout activity_editchecklist
 layout activity_landingpage
 layout activity_landmarks
 layout activity_main
 layout activity_newchecklist
+layout activity_newtask
 layout activity_popularroutes
 layout activity_resource
+layout activity_tasklayout
 layout available_routes
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -2363,6 +2385,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu my_menu
 menu nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
@@ -2493,6 +2516,7 @@ style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
 style Animation_MaterialComponents_BottomSheetDialog
+style AppTheme
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog
@@ -2714,6 +2738,7 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style DialogStyle
 style EmptyTheme
 style MaterialAlertDialog_MaterialComponents
 style MaterialAlertDialog_MaterialComponents_Body_Text
@@ -3201,6 +3226,7 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style box_sky_blue
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth

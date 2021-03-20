@@ -22,6 +22,8 @@
         <activity android:name=".CreateRouteActivity"></activity>
         <activity android:name=".PopularRoutesActivity"></activity>
         <activity android:name=".NewChecklistActivity"></activity>
+        <activity android:name=".EditChecklistActivity"></activity>
+        <activity android:name=".DetailChecklistActivity"></activity>
 
         <activity android:name=".ChecklistActivity"></activity>
         <activity android:name=".ResourcesActivity"></activity>

@@ -8,7 +8,6 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
@@ -141,7 +140,6 @@
         android:id="@+id/map"
         android:layout_width="200dp"
         android:layout_height="500dp"
-
         android:layout_weight="1"/>
 
 
@@ -163,53 +161,55 @@
             <!--    android:name="com.google.android.gms.maps.SupportMapFragment" />-->
         </TableRow>
 
-
         <!-- Navigation -->
         <TableRow
-            android:layout_height="0dp"
-            android:layout_width="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="#FFFFFF">
 
             <Button
                 android:id="@+id/mapNavigation"
+                style="@style/box_sky_blue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:text="Landmarks"
-                android:textSize="10dp"
                 android:textColor="@android:color/white"
-                android:gravity="center_horizontal"/>
+                android:textSize="10dp" />
 
             <Button
                 android:id="@+id/checklistNavigation"
+                style="@style/box_sky_blue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:text="Checklist"
-                android:textSize="10dp"
                 android:textColor="@android:color/white"
-                android:gravity="center_horizontal"/>
+                android:textSize="10dp" />
 
             <Button
                 android:id="@+id/accountNavigation"
+                style="@style/box_sky_blue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:text="Popular Route"
-                android:textSize="10dp"
                 android:textColor="@android:color/white"
-                android:gravity="center_horizontal"/>
+                android:textSize="10dp" />
 
             <Button
                 android:id="@+id/resourcesNavigation"
+                style="@style/box_sky_blue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:text="Resources"
-                android:textSize="10dp"
                 android:textColor="@android:color/white"
-                android:gravity="center_horizontal"/>
+                android:textSize="10dp" />
         </TableRow>
 
     </TableLayout>

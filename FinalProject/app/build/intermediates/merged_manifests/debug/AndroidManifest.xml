@@ -49,6 +49,8 @@
         <activity android:name="com.example.finalproject.CreateRouteActivity" />
         <activity android:name="com.example.finalproject.PopularRoutesActivity" />
         <activity android:name="com.example.finalproject.NewChecklistActivity" />
+        <activity android:name="com.example.finalproject.EditChecklistActivity" />
+        <activity android:name="com.example.finalproject.DetailChecklistActivity" />
         <activity android:name="com.example.finalproject.ChecklistActivity" />
         <activity android:name="com.example.finalproject.ResourcesActivity" />
 

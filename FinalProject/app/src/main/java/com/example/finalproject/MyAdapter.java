@@ -79,14 +79,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             }
         });
 
-        holder.gotoChecklist_button.findViewById(R.id.goToChecklistButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(context, DetailChecklistActivity.class);
-                activity.startActivityForResult(intent1, 1);
+        // holder.gotoChecklist_button.findViewById(R.id.goToChecklistButton).setOnClickListener(new View.OnClickListener() {
+        //     @Override
+        //     public void onClick(View v) {
+        //         Intent intent1 = new Intent(context, DetailChecklistActivity.class);
+        //         activity.startActivityForResult(intent1, 1);
 
-            }
-        });
+        //     }
+        // });
 
     }
 
@@ -125,7 +125,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             checklist_id_txt = itemView.findViewById(R.id.checklist_id_txt);
             checklistName_txt = itemView.findViewById(R.id.checklistName_txt);
             checklistDescription_txt = itemView.findViewById(R.id.checklistDescription_txt);
-            gotoChecklist_button = itemView.findViewById(R.id.goToChecklistButton);
+     //       gotoChecklist_button = itemView.findViewById(R.id.goToChecklistButton);
 
 
 

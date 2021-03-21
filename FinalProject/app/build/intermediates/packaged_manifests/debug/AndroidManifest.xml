@@ -50,6 +50,8 @@
         <activity android:name="com.example.finalproject.NewChecklistActivity" />
         <activity android:name="com.example.finalproject.EditChecklistActivity" />
         <activity android:name="com.example.finalproject.DetailChecklistActivity" />
+        <activity android:name="com.example.finalproject.AccountActivity" />
+        <activity android:name="com.example.finalproject.EditAccountActivity" />
         <activity android:name="com.example.finalproject.ChecklistActivity" />
         <activity android:name="com.example.finalproject.ResourcesActivity" />
 

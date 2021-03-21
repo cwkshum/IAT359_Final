@@ -47,7 +47,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     private TextView landmarksNavigation, createRouteNavigation, popularRoutesNavigation;
 
-    private Button checklistNavigation, resourcesNavigation;
+    private Button checklistNavigation, resourcesNavigation, accountNavigation;
 
     private static final double VANCOUVER_LAT = 49.277549, VANCOUVER_LNG = -123.123921;
 
@@ -75,6 +75,9 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         resourcesNavigation = (Button) findViewById(R.id.resourcesNavigation);
         resourcesNavigation.setOnClickListener(this);
+
+        accountNavigation = (Button) findViewById(R.id.accountNavigation);
+        accountNavigation.setOnClickListener(this);
 
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -335,6 +338,12 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         if (view.getId() == R.id.resourcesNavigation) {
             // start explicit intent to go to popular routes activity
             Intent i = new Intent(view.getContext(), ResourcesActivity.class);
+            view.getContext().startActivity(i);
+        }
+
+        if (view.getId() == R.id.accountNavigation) {
+            // start explicit intent to go to popular routes activity
+            Intent i = new Intent(view.getContext(), AccountActivity.class);
             view.getContext().startActivity(i);
         }
     }

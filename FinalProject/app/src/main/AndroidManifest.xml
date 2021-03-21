@@ -27,6 +27,8 @@
         <activity android:name=".NewChecklistActivity"></activity>
         <activity android:name=".EditChecklistActivity"></activity>
         <activity android:name=".DetailChecklistActivity"></activity>
+        <activity android:name=".AccountActivity"></activity>
+        <activity android:name=".EditAccountActivity"></activity>
 
         <activity android:name=".ChecklistActivity"></activity>
         <activity android:name=".ResourcesActivity"></activity>

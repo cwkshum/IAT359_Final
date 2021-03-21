@@ -1756,6 +1756,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable profile
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1868,10 +1869,8 @@ id chains
 id checkbox
 id checked
 id checklistDescriptionEditText
-id checklistDescriptionEditText2
 id checklistDescription_txt
 id checklistNameEditText
-id checklistNameEditText2
 id checklistName_txt
 id checklistNavigation
 id checklist_id_txt
@@ -1908,8 +1907,8 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id deleteButton
 id delete_all
-id delete_button
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -1935,6 +1934,7 @@ id easeIn
 id easeInOut
 id easeOut
 id edit
+id editChecklistButton
 id edit_query
 id editinfo
 id elastic
@@ -1963,7 +1963,7 @@ id floating
 id forever
 id ghost_view
 id ghost_view_holder
-id goToChecklistButton
+id glide_custom_view_target_tag
 id gone
 id graph
 id graph_wrap
@@ -1989,6 +1989,7 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id image_name
 id info
 id invisible
 id inward
@@ -2072,6 +2073,8 @@ id multiply
 id name
 id navigation_header_container
 id never
+id newChecklistDescriptionEditText
+id newChecklistNameEditText
 id newTaskButton
 id newTaskText
 id noScroll
@@ -2090,6 +2093,7 @@ id parallax
 id parent
 id parentPanel
 id parentRelative
+id parent_layout
 id parent_matrix
 id passwordInput
 id password_toggle
@@ -2107,6 +2111,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recycler_view
 id resourcesNavigation
 id reverseSawtooth
 id right
@@ -2121,7 +2126,6 @@ id row_index_key
 id satellite
 id save_non_transition_alpha
 id save_overlay_view
-id saveinfo
 id sawtooth
 id scale
 id screen
@@ -2233,6 +2237,7 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id updateButton
 id update_button
 id useLogo
 id usernameInput
@@ -2321,6 +2326,7 @@ layout activity_newtask
 layout activity_popularroutes
 layout activity_resource
 layout activity_tasklayout
+layout actvity_favouriterouterow
 layout available_routes
 layout custom_dialog
 layout design_bottom_navigation_item

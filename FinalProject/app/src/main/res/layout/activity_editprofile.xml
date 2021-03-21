@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    tools:context=".MainActivity"
     android:orientation="vertical">
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="0dip"
+        android:layout_weight="5">
 
         <!-- Logo -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
             android:layout_weight="0.5"
-            android:gravity="center_horizontal|center_vertical">
+            >
 
             <!-- Logo Image -->
             <ImageView
@@ -29,122 +30,291 @@
                 android:scaleType="fitCenter"
                 android:src="@drawable/bikelogo" />
         </TableRow>
-    </TableLayout>
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <TableRow
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_height="0dp"
+            android:layout_weight="0.5">
 
-        <TextView
-            android:layout_width="0dp"
+            <!-- App Name -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_vertical"
+                android:paddingBottom="10dp"
+                android:text="Edit Account"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="center_vertical"
-            android:paddingBottom="10dp"
-            android:text="Edit Account"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            tools:srcCompat="@tools:sample/avatars" />
 
+        <!-- Signup Section-->
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp">
 
-    </TableLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="6">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:srcCompat="@tools:sample/avatars" />
+                <!-- First Name Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1">
 
+                    <!-- First Name Label -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="First Name"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
 
-    <LinearLayout
-        android:id="@+id/edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="center">
+                    <!-- First Name Input -->
+                    <EditText
+                        android:id="@+id/firstNameInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="20dp"
+                        android:textSize="14dp"/>
+                </TableRow>
 
-        <Button
-            android:id="@+id/saveinfo"
+                <!-- Last Name Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1">
+
+                    <!-- Last Name Label -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Last Name"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <!-- Last Name Input -->
+                    <EditText
+                        android:id="@+id/lastNameInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="20dp"
+                        android:textSize="14dp"/>
+                </TableRow>
+
+                <!-- Email Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1">
+
+                    <!-- Email Label -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Email"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <!-- Email Input -->
+                    <EditText
+                        android:id="@+id/emailInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="20dp"
+                        android:textSize="14dp"/>
+                </TableRow>
+
+                <!-- Username Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1">
+
+                    <!-- Username Label -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Username"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <!-- Username Input -->
+                    <EditText
+                        android:id="@+id/usernameInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="20dp"
+                        android:textSize="14dp"/>
+                </TableRow>
+
+                <!-- Password Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1">
+
+                    <!-- Password Label -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Password"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <!-- password Input -->
+                    <EditText
+                        android:id="@+id/passwordInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="20dp"
+                        android:textSize="14dp"/>
+                </TableRow>
+
+                <!-- Confirm Password Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <!-- Confirm Password Label -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Confirm Password"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <!-- Confirm Password Input -->
+                    <EditText
+                        android:id="@+id/confirmPasswordInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="20dp"
+                        android:textSize="14dp"/>
+                </TableRow>
+            </TableLayout>
+        </TableRow>
+
+        <!-- Buttons -->
+        <TableRow
+            android:layout_height="0dp"
             android:layout_width="wrap_content"
+            android:layout_weight="1" >
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp">
+
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1">
+
+                    <!-- Signup Button -->
+                    <Button
+                        android:id="@+id/signupButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Save"
+                        android:textSize="10dp"
+                        android:backgroundTint="#4D8FAC"
+                        android:textColor="@android:color/white"/>
+                </TableRow>
+
+
+            </TableLayout>
+        </TableRow>
+        <!-- Navigation -->
+        <TableRow
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:backgroundTint="#4D8FAC"
-            android:text="Save"></Button>
+            android:background="#4D8FAC">
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ffff"
+                android:drawableTop="@drawable/ic_landscape"
+                android:gravity="center_horizontal"
+                android:text="Map"
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
 
-    </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/checklistNavigation"
+                style="@style/box_sky_blue"
 
-    <TableRow
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_checklist"
+                android:gravity="center_horizontal"
+                android:text="Checklist"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:background="#4D8FAC"
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
 
-        >
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/resourcesNavigation"
+                style="@style/box_sky_blue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_info"
+                android:gravity="center_horizontal"
+                android:text="Resources"
 
-        <Button
-            android:id="@+id/mapNavigation"
-            style="@style/box_sky_blue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ffff"
-            android:drawableTop="@drawable/ic_landscape"
-            android:gravity="center_horizontal"
-            android:text="Map"
-            android:textColor="@android:color/white"
-            android:textSize="10dp"
-            app:backgroundTint="#4D8FAC" />
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
 
-        <Button
-            android:id="@+id/checklistNavigation"
-            style="@style/box_sky_blue"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/accountNavigation"
+                style="@style/box_sky_blue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_account"
+                android:gravity="center_horizontal"
+                android:text="Account"
 
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_checklist"
-            android:gravity="center_horizontal"
-            android:text="Checklist"
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
+        </TableRow>
+    </TableLayout>
 
-            android:textColor="@android:color/white"
-            android:textSize="10dp"
-            app:backgroundTint="#4D8FAC" />
-
-
-        <Button
-            android:id="@+id/resourcesNavigation"
-            style="@style/box_sky_blue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_info"
-            android:gravity="center_horizontal"
-            android:text="Resources"
-
-            android:textColor="@android:color/white"
-            android:textSize="10dp"
-            app:backgroundTint="#4D8FAC" />
-
-        <Button
-            android:id="@+id/accountNavigation"
-            style="@style/box_sky_blue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_account"
-            android:gravity="center_horizontal"
-            android:text="Account"
-
-            android:textColor="@android:color/white"
-            android:textSize="10dp"
-            app:backgroundTint="#4D8FAC" />
-
-    </TableRow>
-
-
-    <!-- Resource Links Section -->
 
 </LinearLayout>

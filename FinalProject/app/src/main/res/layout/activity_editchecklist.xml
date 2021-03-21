@@ -34,11 +34,10 @@
             android:layout_weight="0.5">
 
             <TextView
-                android:id="@+id/activityHeader"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Create New Checklist"
+                android:text="Edit Checklist"
                 android:textSize="22dp"
                 android:textColor="@android:color/black"/>
         </TableRow>
@@ -53,14 +52,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Checklist Name"
+                android:text="New Checklist Name"
                 android:textColor="@android:color/black"/>
 
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:id="@+id/checklistNameEditText2"/>
+                android:text="Previous Checklist Name"
+                android:id="@+id/newChecklistNameEditText"/>
 
         </TableRow>
 
@@ -73,14 +73,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Checklist Description"
+                android:text="New Checklist Description"
                 android:textColor="@android:color/black"/>
 
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:id="@+id/checklistDescriptionEditText2"/>
+                android:text="Previous Checklist Description"
+                android:id="@+id/newChecklistDescriptionEditText"/>
 
         </TableRow>
 
@@ -104,36 +105,36 @@
 
         </TableRow>
 
-<!--        <TableRow-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:layout_weight="0.1">-->
+        <!--        <TableRow-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_weight="0.1">-->
 
-            <Button
-                android:id="@+id/update_button"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginTop="40dp"
-                android:text="Update"
-                android:textSize="20sp"
-                android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pages_input2" />
+        <Button
+            android:id="@+id/updateButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="40dp"
+            android:text="Update"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pages_input2" />
 
-            <Button
-                android:id="@+id/delete_button"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginTop="16dp"
-                android:text="Delete"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/update_button" />
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="16dp"
+            android:text="Delete"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/update_button" />
 
-<!--        </TableRow>-->
+        <!--        </TableRow>-->
 
 
     </TableLayout>

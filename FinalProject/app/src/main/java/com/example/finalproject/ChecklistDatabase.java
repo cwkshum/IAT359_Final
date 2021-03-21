@@ -20,27 +20,40 @@ public class ChecklistDatabase {
         db = helper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(Constants.USERNAME, username);
-        contentValues.put(Constants.CHECKLISTNAME, checklistName);
-        contentValues.put(Constants.DESCRIPTION, description);
+        String sql = "SELECT " + Constants.CHECKLISTNAME + " FROM " + Constants.CHECKLIST_TABLE_NAME + " WHERE " + Constants.USERNAME + " = '" + username + "' AND " + Constants.CHECKLISTNAME + " = '" + checklistName + "'";
+        Cursor cursor = db.rawQuery(sql, null);
+        if (cursor.getCount() < 1) {
+            contentValues.put(Constants.USERNAME, username);
+            contentValues.put(Constants.CHECKLISTNAME, checklistName);
+            contentValues.put(Constants.DESCRIPTION, description);
 
-        // insert values
-        long id = db.insert(Constants.CHECKLIST_TABLE_NAME, null, contentValues);
-        return id;
+            // insert values
+            long id = db.insert(Constants.CHECKLIST_TABLE_NAME, null, contentValues);
+            return id;
+        } else {
+            return -1;
+        }
+
     }
 
     public long insertToDoData (String username, String checklistName, String todo, Integer status){
         db = helper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(Constants.USERNAME, username);
-        contentValues.put(Constants.CHECKLISTNAME, checklistName);
-        contentValues.put(Constants.TODO, todo);
-        contentValues.put(Constants.STATUS, status);
+        String sql = "SELECT " + Constants.TODO + " FROM " + Constants.TODO_TABLE_NAME + " WHERE " + Constants.USERNAME + " = '" + username + "' AND " + Constants.CHECKLISTNAME + " = '" + checklistName + "' AND " + Constants.TODO + " = '" + todo + "'";
+        Cursor cursor = db.rawQuery(sql, null);
+        if (cursor.getCount() < 1) {
+            contentValues.put(Constants.USERNAME, username);
+            contentValues.put(Constants.CHECKLISTNAME, checklistName);
+            contentValues.put(Constants.TODO, todo);
+            contentValues.put(Constants.STATUS, status);
 
-        // insert values
-        long id = db.insert(Constants.TODO_TABLE_NAME, null, contentValues);
-        return id;
+            // insert values
+            long id = db.insert(Constants.TODO_TABLE_NAME, null, contentValues);
+            return id;
+        } else {
+            return -1;
+        }
     }
 
     public Cursor getChecklistData(){
@@ -72,12 +85,18 @@ public class ChecklistDatabase {
 
     }
 
-
     public void deleteChecklist(String username, String checklistName){
         SQLiteDatabase db = helper.getWritableDatabase();
 
         db.execSQL("DELETE FROM " + Constants.CHECKLIST_TABLE_NAME + " WHERE " + Constants.CHECKLISTNAME + " = '" + checklistName + "' AND " + Constants.USERNAME + " = '" + username + "'");
         db.execSQL("DELETE FROM " + Constants.TODO_TABLE_NAME + " WHERE " + Constants.CHECKLISTNAME + " = '" + checklistName + "' AND " + Constants.USERNAME + " = '" + username + "'");
+
+    }
+
+    public void deleteToDo(String username, String checklistName, String item){
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        db.execSQL("DELETE FROM " + Constants.TODO_TABLE_NAME + " WHERE " + Constants.CHECKLISTNAME + " = '" + checklistName + "' AND " + Constants.USERNAME + " = '" + username + "' AND " + Constants.TODO + " = '" + item + "'");
 
     }
 
@@ -100,9 +119,26 @@ public class ChecklistDatabase {
         }
     }
 
-    public void updateToDoData(String username, String checklistName, String toDoItem, Integer status){
+    public void updateToDoStatus(String username, String checklistName, String toDoItem, Integer status){
         SQLiteDatabase db = helper.getWritableDatabase();
         db.execSQL("UPDATE " + Constants.TODO_TABLE_NAME + " SET " + Constants.STATUS + " = '" + status + "' WHERE " + Constants.USERNAME + " = '" + username + "' AND " + Constants.CHECKLISTNAME + " = '" + checklistName + "' AND " + Constants.TODO + " = '" + toDoItem + "'");
+    }
+
+    public boolean updateToDoData(String username, String checklistName, String toDoItem, String newToDoItem){
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        if(toDoItem.equals(newToDoItem)){
+            return true;
+        } else {
+            String sql = "SELECT " + Constants.TODO + " FROM " + Constants.TODO_TABLE_NAME + " WHERE " + Constants.USERNAME + " = '" + username + "' AND " + Constants.CHECKLISTNAME + " = '" + checklistName + "' AND " + Constants.TODO + " = '" + newToDoItem + "'";
+            Cursor cursor = db.rawQuery(sql, null);
+            if (cursor.getCount() < 1) {
+                db.execSQL("UPDATE " + Constants.TODO_TABLE_NAME + " SET " + Constants.TODO + " = '" + newToDoItem + "' WHERE " + Constants.USERNAME + " = '" + username + "' AND " + Constants.CHECKLISTNAME + " = '" + checklistName  + "' AND " + Constants.TODO + " = '" + toDoItem + "'");
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 
 }

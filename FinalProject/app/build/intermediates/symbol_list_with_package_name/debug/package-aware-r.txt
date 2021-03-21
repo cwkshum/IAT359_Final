@@ -1832,6 +1832,7 @@ id activityHeader
 id activity_chooser_view_content
 id add
 id addNewChecklistButton
+id addToDoItemButton
 id adjust_height
 id adjust_width
 id alertTitle
@@ -1869,8 +1870,10 @@ id chains
 id checkbox
 id checked
 id checklistDescriptionEditText
+id checklistDescriptionHeading
 id checklistDescription_txt
 id checklistNameEditText
+id checklistNameHeading
 id checklistName_txt
 id checklistNavigation
 id checklist_id_txt
@@ -1948,7 +1951,6 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id fab
 id fade
 id fill
 id fill_horizontal
@@ -2006,6 +2008,7 @@ id layout
 id left
 id leftToRight
 id light
+id line
 id line1
 id line3
 id linear
@@ -2193,7 +2196,6 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tasksRecyclerView
-id tasksText
 id tempSensorValue
 id terrain
 id test_checkbox_android_button_tint
@@ -2220,6 +2222,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toDoEditText
 id todoCheckBox
 id toggle
 id top
@@ -2239,7 +2242,9 @@ id unlabeled
 id up
 id updateButton
 id update_button
+id updateprofileButton
 id useLogo
+id username
 id usernameInput
 id view_offset_helper
 id visible

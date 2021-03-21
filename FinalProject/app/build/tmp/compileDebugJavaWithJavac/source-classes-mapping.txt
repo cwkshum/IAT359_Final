@@ -7,18 +7,17 @@ com/example/finalproject/PopularRoutesActivity.java
  com.example.finalproject.PopularRoutesActivity
 com/example/finalproject/DetailChecklistActivity.java
  com.example.finalproject.DetailChecklistActivity
- com.example.finalproject.DetailChecklistActivity$1
 com/example/finalproject/FavouriteRouteAdapter.java
  com.example.finalproject.FavouriteRouteAdapter
  com.example.finalproject.FavouriteRouteAdapter$ViewHolder
 com/example/finalproject/NewChecklistActivity.java
  com.example.finalproject.NewChecklistActivity
-com/example/finalproject/ToDoModel.java
- com.example.finalproject.ToDoModel
 com/example/finalproject/ChecklistActivity.java
  com.example.finalproject.ChecklistActivity
  com.example.finalproject.ChecklistActivity$1
  com.example.finalproject.ChecklistActivity$2
+com/example/finalproject/ToDoModel.java
+ com.example.finalproject.ToDoModel
 com/example/finalproject/BuildConfig.java
  com.example.finalproject.BuildConfig
 com/example/finalproject/AccountActivity.java
@@ -26,7 +25,7 @@ com/example/finalproject/AccountActivity.java
 com/example/finalproject/ToDoAdapter.java
  com.example.finalproject.ToDoAdapter
  com.example.finalproject.ToDoAdapter$1
- com.example.finalproject.ToDoAdapter$ViewHolder
+ com.example.finalproject.ToDoAdapter$MyViewHolder
 com/example/finalproject/AvailableRoutesAdapter.java
  com.example.finalproject.AvailableRoutesAdapter
  com.example.finalproject.AvailableRoutesAdapter$MyViewHolder

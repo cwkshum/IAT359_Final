@@ -36,7 +36,6 @@ public class ChecklistActivity extends AppCompatActivity implements View.OnClick
     private ChecklistAdapter myAdapter;
 
     private ChecklistDatabase db;
-//    private ChecklistDatabaseHelper helper;
 
     public static final String DEFAULT = "not available";
 
@@ -64,7 +63,6 @@ public class ChecklistActivity extends AppCompatActivity implements View.OnClick
         getUserInfo();
 
         db = new ChecklistDatabase(this);
-//        helper = new ChecklistDatabaseHelper(this);
 
         Cursor cursor = db.getChecklistData();
 
@@ -110,7 +108,7 @@ public class ChecklistActivity extends AppCompatActivity implements View.OnClick
         firstName = sharedPrefs.getString("firstName", DEFAULT);
         username = sharedPrefs.getString("username", DEFAULT);
 
-        activityHeader.setText(firstName);
+        activityHeader.setText(firstName + "'s Checklists");
     }
 
     @Override

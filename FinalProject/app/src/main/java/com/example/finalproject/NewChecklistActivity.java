@@ -46,7 +46,7 @@ public class NewChecklistActivity extends Activity implements View.OnClickListen
             String checklistDescription = checklistDescriptionEditText.getText().toString();
 
             // add to database
-            if (checklistNameEditText.equals("") || checklistDescriptionEditText.equals("")) {
+            if (checklistName.equals("") || checklistDescription.equals("")) {
                 // user is missing data, do not enter data into the database
                 Toast.makeText(this, "Please enter data for all fields", Toast.LENGTH_SHORT).show();
 
@@ -55,21 +55,21 @@ public class NewChecklistActivity extends Activity implements View.OnClickListen
                 long id = db.insertCheckListData(username, checklistName, checklistDescription);
 
                 if (id < 0) {
-                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Failed to create new checklist. Checklist name already exists.", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
-                }
 
-                // go back to main checklist activity
-                Intent i = new Intent();
-                setResult(RESULT_OK, i);
-                finish();
+                    // go back to main checklist activity
+                    Intent i = new Intent();
+                    setResult(RESULT_OK, i);
+                    finish();
+                }
             }
 
             // reset the text fields
-            checklistNameEditText.setText("");
-            checklistDescriptionEditText.setText("");
+//            checklistNameEditText.setText("");
+//            checklistDescriptionEditText.setText("");
         }
     }
 }

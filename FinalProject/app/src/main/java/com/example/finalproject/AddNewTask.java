@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,7 +28,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
     private EditText newTaskText;
     private Button newTaskSaveButton;
 
-    private DatabaseHandler db;
+    private ChecklistDatabase db;
 
     public static AddNewTask newInstance(){
         return new AddNewTask();
@@ -61,15 +62,14 @@ public class AddNewTask extends BottomSheetDialogFragment {
         final Bundle bundle = getArguments();
         if(bundle != null){
             isUpdate = true;
-            String task = bundle.getString("task");
+            String task = bundle.getString("toDoItem");
             newTaskText.setText(task);
-            assert task != null;
+//            assert task != null;
             if(task.length()>0)
                 newTaskSaveButton.setTextColor(ContextCompat.getColor(Objects.requireNonNull(getContext()), R.color.colorPrimaryDark));
         }
 
-        db = new DatabaseHandler(getActivity());
-        db.openDatabase();
+        db = new ChecklistDatabase(getActivity());
 
         newTaskText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -99,15 +99,18 @@ public class AddNewTask extends BottomSheetDialogFragment {
             public void onClick(View v) {
                 String text = newTaskText.getText().toString();
                 if(finalIsUpdate){
-                    db.updateTask(bundle.getInt("id"), text);
+                    if(db.updateToDoData(bundle.getString("username"), bundle.getString("checklistName"), bundle.getString("toDoItem"), text)){
+                        dismiss();
+                    } else {
+                        Toast.makeText(ToDoAdapter.getContext(), "Failed to update, item name already exists", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else {
-                    ToDoModel task = new ToDoModel();
-                    task.setTask(text);
-                    task.setStatus(0);
-                    db.insertTask(task);
-                }
-                dismiss();
+//                else {
+//                    ToDoModel task = new ToDoModel();
+//                    task.setTask(text);
+//                    task.setStatus(0);
+//                    db.insertTask(task);
+//                }
             }
         });
     }

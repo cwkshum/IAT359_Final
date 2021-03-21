@@ -21,12 +21,14 @@ import java.util.ArrayList;
 public class AccountActivity extends Activity implements View.OnClickListener {
     Button edit_button;
 
-    private String firstName, username;
+    private String firstName, username, email;
 
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
 
     private TextView nameHeader;
+    private TextView userHeader;
+    private TextView emailHeader;
 
 
     public static final String DEFAULT = "not available";
@@ -45,8 +47,13 @@ public class AccountActivity extends Activity implements View.OnClickListener {
         SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
         firstName = sharedPrefs.getString("firstName", DEFAULT);
         username = sharedPrefs.getString("username", DEFAULT);
+        email = sharedPrefs.getString("email", DEFAULT);
+
 
         nameHeader.setText(firstName);
+        userHeader.setText(username);
+        emailHeader.setText(email);
+
     }
 
     @Override
@@ -58,6 +65,8 @@ public class AccountActivity extends Activity implements View.OnClickListener {
         edit_button.setOnClickListener(this);
 
         nameHeader = (TextView) findViewById(R.id.name);
+        userHeader = (TextView) findViewById(R.id.username);
+        emailHeader = (TextView) findViewById(R.id.email);
 
         initImageBitmaps();
         getUserInfo();

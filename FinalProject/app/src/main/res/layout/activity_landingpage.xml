@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity"
     android:orientation="vertical">
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="7.5">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <!-- Logo -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center_horizontal|center_vertical"
-            android:layout_weight="0.2">
+            android:layout_weight="0.2"
+            android:gravity="center_horizontal|center_vertical">
 
             <!-- Logo Image -->
             <ImageView
@@ -33,121 +33,122 @@
 
         <!-- Map Navigation Tabs-->
         <TableRow
-            android:layout_height="match_parent"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_weight="0.2"
             android:background="#4D8FAC"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:layout_marginBottom="5dp">
+            android:paddingTop="15dp"
+
+           >
 
             <!-- Landmarks -->
             <TextView
                 android:id="@+id/landmarksNavigation"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="31dp"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:text="Landmarks"
-                android:textSize="12dp"
                 android:textColor="@android:color/white"
-                android:gravity="center_horizontal"/>
+                android:textSize="12dp" />
 
             <!-- Create Route -->
             <TextView
                 android:id="@+id/createRouteNavigation"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="31dp"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:text="Create Route"
-                android:textSize="12dp"
                 android:textColor="@android:color/white"
-                android:gravity="center_horizontal"/>
+                android:textSize="12dp" />
 
             <!-- Popular Routes -->
             <TextView
                 android:id="@+id/popularRoutesNavigation"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:text="Popular Routes"
-                android:textSize="12dp"
                 android:textColor="@android:color/white"
-                android:gravity="center_horizontal"/>
+                android:textSize="12dp" />
         </TableRow>
 
         <!-- Map Display-->
         <TableRow
-            android:layout_height="0dp"
             android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="6.9"
             android:background="#4D8FAC">
 
-<!--          <LinearLayout-->
-<!--        android:orientation="horizontal"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        >-->
+<!--                      <LinearLayout-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    >-->
 
-<!--        <EditText-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:id="@+id/locationEditText"-->
-<!--            android:hint="location" />-->
+<!--                    <EditText-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:id="@+id/locationEditText"-->
+<!--                        android:hint="location" />-->
 
-<!--        <Button-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Search"-->
-<!--            android:id="@+id/locationButton"-->
-<!--            android:onClick="geolocate"-->
-<!--            android:nestedScrollingEnabled="false" />-->
-<!--    </LinearLayout>-->
+<!--                    <Button-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Search"-->
+<!--                        android:id="@+id/locationButton"-->
+<!--                        android:onClick="geolocate"-->
+<!--                        android:nestedScrollingEnabled="false" />-->
+<!--                </LinearLayout>-->
 
-<!--    <LinearLayout-->
-<!--        android:orientation="horizontal"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        >-->
+<!--                <LinearLayout-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    >-->
 
-<!--        <EditText-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:id="@+id/latEditText"-->
-<!--            android:hint="lat"-->
-<!--            android:inputType="numberDecimal|numberSigned" />-->
+<!--                    <EditText-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:id="@+id/latEditText"-->
+<!--                        android:hint="lat"-->
+<!--                        android:inputType="numberDecimal|numberSigned" />-->
 
-<!--        <EditText-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:id="@+id/lngEditText"-->
-<!--            android:hint="lng"-->
-<!--            android:inputType="numberDecimal|numberSigned" />-->
+<!--                    <EditText-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:id="@+id/lngEditText"-->
+<!--                        android:hint="lng"-->
+<!--                        android:inputType="numberDecimal|numberSigned" />-->
 
-<!--        <Button-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Search"-->
-<!--            android:id="@+id/latLngButton"-->
-<!--            android:onClick="geolocate" />-->
-<!--    </LinearLayout>-->
+<!--                    <Button-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Search"-->
+<!--                        android:id="@+id/latLngButton"-->
+<!--                        android:onClick="geolocate" />-->
+<!--                </LinearLayout>-->
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:map ="http://schemas.android.com/apk/res-auto"
-        android:name="com.google.android.gms.maps.MapFragment"
-        android:id="@+id/map"
-        android:layout_width="200dp"
-        android:layout_height="500dp"
-        android:layout_weight="1"/>
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.MapFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="600dp"
+                android:layout_weight="1" />
 
 
-<!--        map:mapType = "hybrid"/>-->
+            <!--        map:mapType = "hybrid"/>-->
 
-<!--            map:cameraTargetLat = "49.1817465"-->
-<!--            map:cameraTargetLng = "-122.849651"-->
-<!--            map:cameraZoom = "15"-->
+            <!--            map:cameraTargetLat = "49.1817465"-->
+            <!--            map:cameraTargetLng = "-122.849651"-->
+            <!--            map:cameraZoom = "15"-->
             <!--        map:mapType = "satellite" />-->
 
 
@@ -161,11 +162,15 @@
             <!--    android:name="com.google.android.gms.maps.SupportMapFragment" />-->
         </TableRow>
 
-        <!-- Navigation -->
+<!--         Navigation-->
+
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF">
+            android:layout_width="wrap_content"
+            android:layout_height="118dp"
+            android:layout_marginTop="5dp"
+            android:background="#4D8FAC"
+
+            >
 
             <Button
                 android:id="@+id/mapNavigation"
@@ -173,32 +178,29 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#ffff"
+                android:drawableTop="@drawable/ic_landscape"
                 android:gravity="center_horizontal"
-                android:text="Landmarks"
+                android:text="Map"
                 android:textColor="@android:color/white"
-                android:textSize="10dp" />
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
 
             <Button
                 android:id="@+id/checklistNavigation"
                 style="@style/box_sky_blue"
+
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableTop="@drawable/ic_checklist"
                 android:gravity="center_horizontal"
                 android:text="Checklist"
-                android:textColor="@android:color/white"
-                android:textSize="10dp" />
 
-            <Button
-                android:id="@+id/accountNavigation"
-                style="@style/box_sky_blue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="Popular Route"
                 android:textColor="@android:color/white"
-                android:textSize="10dp" />
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
+
 
             <Button
                 android:id="@+id/resourcesNavigation"
@@ -206,14 +208,87 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableTop="@drawable/ic_info"
                 android:gravity="center_horizontal"
                 android:text="Resources"
+
                 android:textColor="@android:color/white"
-                android:textSize="10dp" />
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
+
+            <Button
+                android:id="@+id/accountNavigation"
+                style="@style/box_sky_blue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_account"
+                android:gravity="center_horizontal"
+                android:text="Account"
+
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
+
         </TableRow>
 
+<!--        <TableRow-->
+<!--            style="@style/box_sky_blue"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:paddingTop="10dp"-->
+
+<!--            android:paddingBottom="0dp">-->
+
+<!--            &lt;!&ndash; Landmarks &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/checklistNavigation"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:text="Landmarks"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="12dp" />-->
+
+<!--            &lt;!&ndash; Create Route &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/accountNavigation"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:text="Create Route"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="12dp" />-->
+
+<!--            &lt;!&ndash; Popular Routes &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/mapNavigation"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:text="Popular Routes"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="12dp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/resourcesNavigation"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@color/purple_200"-->
+<!--                android:backgroundTint="@color/purple_200"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:text="Popular Routes"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="12dp" />-->
+<!--        </TableRow>-->
     </TableLayout>
-</LinearLayout>
+</RelativeLayout>
 
     <!--<TableRow-->
     <!--    android:id="@+id/tr_wrapper"-->

@@ -1,20 +1,17 @@
 package com.example.finalproject;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +20,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -32,15 +28,14 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LandingActivity extends AppCompatActivity implements View.OnClickListener, OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener, GoogleMap.OnPolylineClickListener,
@@ -48,15 +43,18 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     GoogleMap myMap;
 
+    private FusedLocationProviderClient fusedLocationClient;
+
     private TextView landmarksNavigation, createRouteNavigation, popularRoutesNavigation;
 
     private Button checklistNavigation, resourcesNavigation;
 
-    private static final double
-            VANCOUVER_LAT = 49.277549,
-            VANCOUVER_LNG = -123.123921;
+    private static final double VANCOUVER_LAT = 49.277549, VANCOUVER_LNG = -123.123921;
 
     static final int REQUEST_POINTS = 0;
+
+    private Polyline polyline1;
+    PolylineOptions lineOptions = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +79,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-//        locationEntry = (EditText) findViewById(R.id.locationEditText);
-//        latEntry = (EditText) findViewById(R.id.latEditText);
-//        lngEntry = (EditText) findViewById(R.id.lngEditText);
-
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
     }
 
     @Override
@@ -112,13 +107,13 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             // make sure that the request was successful
             if(resultCode == RESULT_OK){
                 // make sure that the returned data has a word passed through
-                if(data.hasExtra(CreateRouteActivity.START_POINT) && data.hasExtra(CreateRouteActivity.END_POINT)){
+                if(data.hasExtra(CreateRouteActivity.START_POINT) && data.hasExtra(CreateRouteActivity.END_POINT) && data.hasExtra(CreateRouteActivity.ROUTE_POINTS)){
                     // get the starting and ending point that was received
-                    Toast.makeText(this, "Points Received ", Toast.LENGTH_SHORT).show();
                     String startPoint = data.getExtras().getString(CreateRouteActivity.START_POINT);
                     String endPoint = data.getExtras().getString(CreateRouteActivity.END_POINT);
+                    ArrayList<LatLng> routePoints = data.getExtras().getParcelableArrayList(CreateRouteActivity.ROUTE_POINTS);
 
-                    geolocate(startPoint, endPoint);
+                    geolocate(startPoint, endPoint, routePoints);
 
                 }
             }
@@ -129,10 +124,9 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
-    public void geolocate(String startPoint, String endPoint) {
+    public void geolocate(String startPoint, String endPoint, ArrayList<LatLng> routePoints) {
         Geocoder myGeocoder = new Geocoder(this);
         myMap.clear();
-        Toast.makeText(this, "Searching for " + startPoint, Toast.LENGTH_SHORT).show();
 
         List<Address> startList = null;
         List<Address> endList = null;
@@ -143,18 +137,20 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             e.printStackTrace();
         }
 
+        double startLat = 0, startLng = 0, endLat = 0, endLng = 0;
+
         if (startList.size() > 0) {
             Address add = startList.get(0);
             String locality = add.getLocality();
             Toast.makeText(this, "Found " + locality, Toast.LENGTH_SHORT).show();
 
-            double lat = add.getLatitude();
-            double lng = add.getLongitude();
-            gotoLocation(lat, lng, 12);
+            startLat = add.getLatitude();
+            startLng = add.getLongitude();
+            gotoLocation(startLat, startLng, 12);
 
             MarkerOptions options = new MarkerOptions()
                     .title(locality)
-                    .position(new LatLng(lat, lng));
+                    .position(new LatLng(startLat, startLng));
             myMap.addMarker(options);
         }
 
@@ -163,55 +159,39 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             String locality = add.getLocality();
             Toast.makeText(this, "Found " + locality, Toast.LENGTH_SHORT).show();
 
-            double lat = add.getLatitude();
-            double lng = add.getLongitude();
-//                gotoLocation(lat, lng, 12);
+            endLat = add.getLatitude();
+            endLng = add.getLongitude();
 
             MarkerOptions options = new MarkerOptions()
                     .title(locality)
-                    .position(new LatLng(lat, lng));
+                    .position(new LatLng(endLat, endLng));
             myMap.addMarker(options);
 
-            Polyline polyline1 = myMap.addPolyline(new PolylineOptions()
-                    .clickable(true)
-                    .add(
-                            new LatLng(lat, lng),
-                            new LatLng(-34.747, 145.592)));
-
-//            myMap.addPolyline(polyline1);
         }
 
+//        polyline1 = myMap.addPolyline(new PolylineOptions()
+//                .clickable(true)
+//                .add(
+//                        new LatLng(startLat, startLng),
+//                        new LatLng(endLat, endLng)));
 
 
-//        }
+//        polyline1 = myMap.addPolyline(new PolylineOptions()
+//                .clickable(true)
+//                .add(
+//                        new LatLng(49.229454995854425,-123.10581168254667),
+//                        new LatLng(49.229004613988, -123.10583034532755),
+//                        new LatLng(49.22855286327834, -123.10584772750627),
+//                        new LatLng(49.22855283718706, -123.10584773294451)));
 
-//        if (v.getId() == R.id.latLngButton) {
-//            latString = latEntry.getText().toString();
-//            lngString = lngEntry.getText().toString();
-//            Toast.makeText(this, "Searching for " + latString + " , " + lngString, Toast.LENGTH_SHORT).show();
-//
-//            List<Address> list = null;
-//            try {
-//                list = myGeocoder.getFromLocation(Double.parseDouble(latString), Double.parseDouble(lngString), 1);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//            if (list.size() > 0) {
-//                Address add = list.get(0);
-//                String locality = add.getLocality();
-//                Toast.makeText(this, "Found " + locality, Toast.LENGTH_SHORT).show();
-//
-//                double lat = add.getLatitude();
-//                double lng = add.getLongitude();
-//                gotoLocation(lat, lng, 15);
-//
-//                MarkerOptions options = new MarkerOptions()
-//                        .title(locality)
-//                        .position(new LatLng(lat, lng));
-//                myMap.addMarker(options);
-//            }
-//        }
+        lineOptions = new PolylineOptions();
+        // Adding all the points in the route to LineOptions
+                lineOptions.addAll(routePoints);
+                lineOptions.width(6);
+                lineOptions.color(Color.BLUE);
+
+        // Drawing polyline in the Google Map for the i-th route
+            myMap.addPolyline(lineOptions);
     }
 
     //lan lng and zoom

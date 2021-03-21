@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <!-- Logo -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center_horizontal|center_vertical">
+
+            <!-- Logo Image -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="90dp"
+                android:maxHeight="90dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bikelogo" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:text="Edit Account"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+
+    </TableLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
+    <LinearLayout
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/saveinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#4D8FAC"
+            android:text="Save"></Button>
+
+
+    </LinearLayout>
+
+    <TableRow
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:background="#4D8FAC"
+
+        >
+
+        <Button
+            android:id="@+id/mapNavigation"
+            style="@style/box_sky_blue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ffff"
+            android:drawableTop="@drawable/ic_landscape"
+            android:gravity="center_horizontal"
+            android:text="Map"
+            android:textColor="@android:color/white"
+            android:textSize="10dp"
+            app:backgroundTint="#4D8FAC" />
+
+        <Button
+            android:id="@+id/checklistNavigation"
+            style="@style/box_sky_blue"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_checklist"
+            android:gravity="center_horizontal"
+            android:text="Checklist"
+
+            android:textColor="@android:color/white"
+            android:textSize="10dp"
+            app:backgroundTint="#4D8FAC" />
+
+
+        <Button
+            android:id="@+id/resourcesNavigation"
+            style="@style/box_sky_blue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_info"
+            android:gravity="center_horizontal"
+            android:text="Resources"
+
+            android:textColor="@android:color/white"
+            android:textSize="10dp"
+            app:backgroundTint="#4D8FAC" />
+
+        <Button
+            android:id="@+id/accountNavigation"
+            style="@style/box_sky_blue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_account"
+            android:gravity="center_horizontal"
+            android:text="Account"
+
+            android:textColor="@android:color/white"
+            android:textSize="10dp"
+            app:backgroundTint="#4D8FAC" />
+
+    </TableRow>
+
+
+    <!-- Resource Links Section -->
+
+</LinearLayout>

@@ -95,6 +95,73 @@
 <!--                android:textColor="@android:color/white"-->
 <!--                android:backgroundTint="#67BD24"/>-->
 <!--        </TableRow>-->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="118dp"
+            android:layout_marginTop="5dp"
+            android:background="#4D8FAC"
+
+            >
+
+            <Button
+                android:id="@+id/mapNavigation"
+                style="@style/box_sky_blue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ffff"
+                android:drawableTop="@drawable/ic_landscape"
+                android:gravity="center_horizontal"
+                android:text="Map"
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
+
+            <Button
+                android:id="@+id/checklistNavigation"
+                style="@style/box_sky_blue"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_checklist"
+                android:gravity="center_horizontal"
+                android:text="Checklist"
+
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
+
+
+            <Button
+                android:id="@+id/resourcesNavigation"
+                style="@style/box_sky_blue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_info"
+                android:gravity="center_horizontal"
+                android:text="Resources"
+
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
+
+            <Button
+                android:id="@+id/accountNavigation"
+                style="@style/box_sky_blue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_account"
+                android:gravity="center_horizontal"
+                android:text="Account"
+
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
+
+        </TableRow>
 
 
     </TableLayout>

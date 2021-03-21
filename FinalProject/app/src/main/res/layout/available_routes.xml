@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<RelativeLayout-->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -10,7 +9,7 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="0dip"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="#eee"
         android:padding="10dp">
@@ -23,6 +22,7 @@
             android:paddingBottom="10dp">
 
             <TextView
+                android:id="@+id/routeOptionNumber"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -31,47 +31,50 @@
                 android:textStyle="bold" />
         </TableRow>
 
-        <!-- Route Information-->
+        <!-- Route Type-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/bikewayType"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Route Difficulty: "
+                android:text="Bikeway Type: "
                 android:textSize="14dp"
                 android:textStyle="bold" />
         </TableRow>
 
-        <!-- Route Feedback-->
+        <!-- Route Distance-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/routeDistance"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Feedback: "
+                android:text="Distance: "
                 android:textSize="14dp"
                 android:textStyle="bold" />
         </TableRow>
 
-        <!-- Route Gallery-->
+        <!-- Route Duration-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/routeDuration"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Gallery: "
+                android:text="Duration: "
                 android:textSize="14dp"
                 android:textStyle="bold" />
         </TableRow>
@@ -84,6 +87,7 @@
             android:layout_marginLeft="200dp">
 
             <Button
+                android:id="@+id/startRouteButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

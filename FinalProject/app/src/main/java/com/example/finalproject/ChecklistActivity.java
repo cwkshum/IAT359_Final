@@ -28,7 +28,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class ChecklistActivity extends AppCompatActivity {
+public class ChecklistActivity extends AppCompatActivity implements View.OnClickListener {
 
 //    // Recycler View
 //    private RecyclerView myRecycler;
@@ -40,6 +40,8 @@ public class ChecklistActivity extends AppCompatActivity {
 //    MyDatabase db;
 //
     public static final String DEFAULT = "not available";
+
+    private Button mapNavigation, resourcesNavigation;
 //
     private String firstName;
 //
@@ -72,6 +74,12 @@ public class ChecklistActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.table);
         add_button = findViewById(R.id.addNewChecklistButton);
 
+        mapNavigation = (Button) findViewById(R.id.mapNavigation);
+        mapNavigation.setOnClickListener(this);
+
+        resourcesNavigation = (Button) findViewById(R.id.resourcesNavigation);
+        resourcesNavigation.setOnClickListener(this);
+
 
 
 
@@ -82,6 +90,8 @@ public class ChecklistActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ChecklistActivity.this, NewChecklistActivity.class);
                 startActivity(intent);
+
+
 //                getUserInfo();
 
 //                Intent intent2 = new Intent(ChecklistActivity.this, DetailChecklistActivity.class);
@@ -183,6 +193,23 @@ public class ChecklistActivity extends AppCompatActivity {
         firstName = sharedPrefs.getString("firstName", DEFAULT);
 
 //         activityHeader.setText(firstName + "'s Checklists");
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.mapNavigation) {
+            // start explicit intent to go to create route activity
+            Intent i = new Intent(v.getContext(), LandingActivity.class);
+            v.getContext().startActivity(i);
+        }
+
+
+        // If resources was clicked in the bottom nav
+        if (v.getId() == R.id.resourcesNavigation) {
+            // start explicit intent to go to popular routes activity
+            Intent i = new Intent(v.getContext(), ResourcesActivity.class);
+            v.getContext().startActivity(i);
+        }
     }
 }
 //        checklistNameEditText = (EditText) findViewById(R.id.checklistNameEditText);

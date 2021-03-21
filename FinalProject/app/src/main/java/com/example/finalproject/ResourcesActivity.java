@@ -11,6 +11,7 @@ import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TableRow;
 import android.widget.Toast;
@@ -20,6 +21,12 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 public class ResourcesActivity extends Activity implements SensorEventListener, View.OnClickListener {
+
+
+    private TextView landmarksNavigation, createRouteNavigation, popularRoutesNavigation;
+
+    private Button checklistNavigation, resourcesNavigation;
+
 
     // Sensors
     private SensorManager sensorManager = null;
@@ -75,6 +82,10 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
 
         cityVan = (TableRow) findViewById(R.id.cityVan);
         cityVan.setOnClickListener(this);
+
+        landmarksNavigation = (TextView) findViewById(R.id.mapNavigation);
+        landmarksNavigation.setOnClickListener(this);
+
 
     }
 
@@ -171,6 +182,49 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
             //     startActivity(i);
             // }
 
+        }
+
+        // If landmarks was clicked in the top nav
+        if (view.getId() == R.id.mapNavigation) {
+            // start explicit intent to go to landmarks activity
+            Intent i = new Intent(view.getContext(), LandingActivity.class);
+            view.getContext().startActivity(i);
+        }
+
+        // If popular routes was clicked in the top nav
+        if (view.getId() == R.id.popularRoutesNavigation) {
+            // start explicit intent to go to popular routes activity
+            Intent i = new Intent(view.getContext(), PopularRoutesActivity.class);
+            view.getContext().startActivity(i);
+        }
+
+        // If landmarks was clicked in the top nav
+        if (view.getId() == R.id.ic_landscape) {
+            // start explicit intent to go to landmarks activity
+            Intent i = new Intent(view.getContext(), LandmarksActivity.class);
+            view.getContext().startActivity(i);
+        }
+
+        // If create route was clicked in the top nav
+        if (view.getId() == R.id.accountNavigation) {
+            // start explicit intent to go to create route activity
+            Intent i = new Intent(view.getContext(), CreateRouteActivity.class);
+            view.getContext().startActivity(i);
+        }
+
+        // If create route was clicked in the bottom nav
+        if (view.getId() == R.id.checklistNavigation) {
+            // start explicit intent to go to create route activity
+            Intent i = new Intent(view.getContext(), ChecklistActivity.class);
+            view.getContext().startActivity(i);
+        }
+
+
+        // If resources was clicked in the bottom nav
+        if (view.getId() == R.id.resourcesNavigation) {
+            // start explicit intent to go to popular routes activity
+            Intent i = new Intent(view.getContext(), ResourcesActivity.class);
+            view.getContext().startActivity(i);
         }
 
 

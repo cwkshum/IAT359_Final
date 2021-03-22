@@ -44,13 +44,12 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
     AvailableRoutesAdapter myAdapter;
 
     private EditText startPointInput, endPointInput;
-    private TextView availableRoutesHeading;
-    private Button findRouteButton;
+
     private String startPoint, endPoint;
 
-    private TextView landmarksNavigation, popularRoutesNavigation;
+    private TextView availableRoutesHeading, landmarksNavigation, popularRoutesNavigation;
 
-    private Button mapNavigation, checklistNavigation, resourcesNavigation, accountNavigation;
+    private Button findRouteButton, mapNavigation, checklistNavigation, resourcesNavigation, accountNavigation;
 
     public static final String START_POINT = "STARTPOINT";
     public static final String END_POINT = "ENDPOINT";
@@ -67,6 +66,7 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createroute);
 
+        // check if the device is connected to a network
         checkConnection();
 
         // Create recycler view
@@ -82,37 +82,59 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
         findRouteButton = (Button) findViewById(R.id.findRouteButton);
         findRouteButton.setOnClickListener(this);
 
+        // access the bikeways database
         mDbHelper = new BikewaysDatabaseAdapter(this);
         mDbHelper.createDatabase();
 
+        // top navigation
+        // landmarks navigation
         landmarksNavigation = (TextView) findViewById(R.id.landmarksNavigation);
         landmarksNavigation.setOnClickListener(this);
 
+        // popular routes navigation
         popularRoutesNavigation = (TextView) findViewById(R.id.popularRoutesNavigation);
         popularRoutesNavigation.setOnClickListener(this);
 
+
+        // bottom navigation buttons
+        // map navigation button
         mapNavigation = (Button) findViewById(R.id.mapNavigation);
         mapNavigation.setOnClickListener(this);
 
+        // checklist navigation button
         checklistNavigation = (Button) findViewById(R.id.checklistNavigation);
         checklistNavigation.setOnClickListener(this);
 
+        // resource navigation button
         resourcesNavigation = (Button) findViewById(R.id.resourcesNavigation);
         resourcesNavigation.setOnClickListener(this);
 
+        // account navigation button
         accountNavigation = (Button) findViewById(R.id.accountNavigation);
         accountNavigation.setOnClickListener(this);
+
+
+        // store route information in an arraylist
+        ArrayList<String> routeInfoArrayList = new ArrayList<String>();
+
+        // store arraylist of coordinates in an arraylist
+        ArrayList<ArrayList<LatLng>> routePointsArrayList =  new ArrayList<>();
+
+        // set Adapter
+        myAdapter = new AvailableRoutesAdapter(routeInfoArrayList, routePointsArrayList, startPoint, endPoint, bikewayTypeArrayList, getApplicationContext());
+        myRecycler.setAdapter(myAdapter);
 
     }
 
     public void checkConnection(){
+        // check if the device is connected to a network
         ConnectivityManager connectMgr = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectMgr.getActiveNetworkInfo();
         if(networkInfo != null && networkInfo.isConnected()){
             //fetch data
 
-            String networkType = networkInfo.getTypeName().toString();
-            Toast.makeText(this, "connected to " + networkType, Toast.LENGTH_LONG).show();
+//            String networkType = networkInfo.getTypeName().toString();
+//            Toast.makeText(this, "connected to " + networkType, Toast.LENGTH_LONG).show();
         }
         else {
             //display error
@@ -120,22 +142,25 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
         }
     }
 
-
+    // Find a route using AsyncTask
     public class FindRoute extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... params) {
 
+            // open the bikeway database
             mDbHelper.open();
 
+            // get the bikeway type data from the db based on the start and end points entered by the user
             String whereStatement = "`Street Name` = '" + startPoint + "' OR `Street Name` = '" + endPoint + "' GROUP BY `Bikeway Type`";
-            Cursor bikewaysData = mDbHelper.getTestData(whereStatement);
+            Cursor bikewaysData = mDbHelper.getBikewaysData(whereStatement);
 
             int bikewayTypeIndex = bikewaysData.getColumnIndex("Bikeway Type");
 
             bikewayTypeArrayList = new ArrayList<String>();
             bikewaysData.moveToFirst();
             while (!bikewaysData.isAfterLast()) {
+                // add the bikeway data retreieved from the db into the arraylist
                 String bikewayType = bikewaysData.getString(bikewayTypeIndex);
                 bikewayTypeArrayList.add(bikewayType);
                 bikewaysData.moveToNext();
@@ -144,9 +169,11 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
             mDbHelper.close();
 
             if(bikewayTypeArrayList.size() <= 0){
+                // no routes were found in the db
                 return "No Routes Found";
             }
 
+            // routes were found in the db
             return "Available Routes";
         }
 
@@ -159,24 +186,27 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
                 ArrayList<String> routeInfoArrayList = new ArrayList<String>();
                 ArrayList<ArrayList<LatLng>> routePointsArrayList =  new ArrayList<>();
 
+                // show that no routes were found in the display
                 availableRoutesHeading.setText(results);
                 myAdapter = new AvailableRoutesAdapter(routeInfoArrayList, routePointsArrayList, startPoint, endPoint, bikewayTypeArrayList, getApplicationContext());
                 myRecycler.setAdapter(myAdapter);
 
             } else{
+                // show that that there are available routes in the display
                 availableRoutesHeading.setText(results);
+
+                // remove spaces from the user's input
                 String startStreet = startPoint.replaceAll("\\s+", "_").toLowerCase();
                 String endStreet = endPoint.replaceAll("\\s+", "_").toLowerCase();
 
+                // request route through an AsyncTask
                 ReadDirectionsJSONDataTask requestRoute = new ReadDirectionsJSONDataTask();
+
+                // send the address to retrieve directions based on start and end point
                 requestRoute.execute(
                         "https://maps.googleapis.com/maps/api/directions/json?origin=" +
                                 startStreet + ",Vancouver,BC&destination=" +
                                 endStreet + ",Vancouver,BC&mode=bicycling&alternatives=true&key=AIzaSyCqydQlLuSgi0durCPpfKQLfLslEiefgis");
-
-
-//            https://maps.googleapis.com/maps/api/directions/json?origin=Kerr,%20Vancouver,BC&destination=E_46th_Ave,Vancouver,BC&mode=bicycling&key=AIzaSyCqydQlLuSgi0durCPpfKQLfLslEiefgis
-
             }
 
 
@@ -190,6 +220,7 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
         String data = "";
         protected String doInBackground(String... urls) {
             try{
+                // read the JSON data
                 data = readJSONData(urls[0]);
             }catch(IOException e){
                 exception = e;
@@ -199,10 +230,8 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
 
         protected void onPostExecute(String result) {
             try {
-
-                ParserTask parserTask = new ParserTask();
-
                 // Invokes the thread for parsing the JSON data
+                ParserTask parserTask = new ParserTask();
                 parserTask.execute(result);
 
             } catch (Exception e) {
@@ -212,23 +241,20 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
     }
 
 
-    /** A class to parse the Google Places in JSON format */
+    // parse the google places in json format using an async task
     private class ParserTask extends AsyncTask<String, Integer, List<List<HashMap<String,String>>> >{
 
         // Parsing the data in non-ui thread
         @Override
         protected List<List<HashMap<String, String>>>
-        doInBackground(String...
-                               jsonData) {
-
+        doInBackground(String...jsonData) {
             JSONObject jObject;
             List<List<HashMap<String, String>>> routes = null;
 
             try{
                 jObject = new JSONObject(jsonData[0]);
-                DirectionsJSONParser parser = new DirectionsJSONParser();
-
                 // Starts parsing data
+                DirectionsJSONParser parser = new DirectionsJSONParser();
                 routes = parser.parse(jObject);
             }catch(Exception e){
                 e.printStackTrace();
@@ -243,13 +269,16 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
             String distance = "";
             String duration = "";
 
+            // quite if there are no results
             if(result.size()<1){
-                Toast.makeText(getBaseContext(), "No Points",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "No Points", Toast.LENGTH_SHORT).show();
                 return;
             }
 
+            // store route information in an arraylist
             ArrayList<String> routeInfoArrayList = new ArrayList<String>();
+
+            // store arraylist of coordinates in an arraylist
             ArrayList<ArrayList<LatLng>> routePointsArrayList =  new ArrayList<>();
 
             // Traversing through all the routes
@@ -266,30 +295,36 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
                     if(j==0){    // Get distance from the list
                         distance = (String)point.get("distance");
                         continue;
-                    }else if(j==1){ // Get duration from the list
+                    } else if(j==1){ // Get duration from the list
                         duration = (String)point.get("duration");
                         continue;
                     }
 
+                    // get coordinates
                     double lat = Double.parseDouble(point.get("lat"));
                     double lng = Double.parseDouble(point.get("lng"));
                     LatLng position = new LatLng(lat, lng);
 
+                    // add coordinates to the arraylist
                     points.add(position);
                 }
 
+                // add current route information to the arraylist
                 String currentRoute = distance + "," + duration;
                 routeInfoArrayList.add(currentRoute);
+
+                // add arraylist of the current route's coordinates into the arraylist
                 routePointsArrayList.add(points);
 
             }
 
+            // send the route information, route coordinates, start/end points, and bikeway type to the adapter to be attached to the recycler view
             myAdapter = new AvailableRoutesAdapter(routeInfoArrayList, routePointsArrayList, startPoint, endPoint, bikewayTypeArrayList, getApplicationContext());
             myRecycler.setAdapter(myAdapter);
         }
     }
 
-    /** A method to download json data from url */
+    // get the json data from the url
     @SuppressLint("LongLogTag")
     private String readJSONData(String strUrl) throws IOException{
         String data = "";
@@ -307,8 +342,7 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
             // Reading data from url
             iStream = urlConnection.getInputStream();
 
-            BufferedReader br = new BufferedReader(new
-                    InputStreamReader(iStream));
+            BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
 
             StringBuffer sb  = new StringBuffer();
 
@@ -330,8 +364,8 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
         return data;
     }
 
-    // Reads an InputStream and converts it to a String.
     public String readIt(InputStream stream, int len) throws IOException, UnsupportedEncodingException {
+        // Reads an InputStream and converts it to a String.
         Reader reader = null;
         reader = new InputStreamReader(stream, "UTF-8");
         char[] buffer = new char[len];
@@ -343,6 +377,7 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
     @Override
     public void onClick(View view) {
 
+        // Top Navigation
         // If landmarks was clicked in the top nav
         if (view.getId() == R.id.landmarksNavigation) {
             // start explicit intent to go to landmarks activity
@@ -358,39 +393,38 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
         }
 
 
-
+        // Bottom Navigation
         // If Map was clicked in the bottom navigation
         if (view.getId() == R.id.mapNavigation) {
-            // start explicit intent to go to landmarks activity
-//            Intent i = new Intent(view.getContext(), LandmarksActivity.class);
-//            view.getContext().startActivity(i);
+            // finish the explicit intent and take the user back to the map activity
             Intent mapIntent = new Intent();
             setResult(RESULT_OK, mapIntent);
             finish();
 
         }
 
-        // If create route was clicked in the bottom nav
+        // If checklist was clicked in the bottom navigation
         if (view.getId() == R.id.checklistNavigation) {
             // start explicit intent to go to create route activity
             Intent i = new Intent(view.getContext(), ChecklistActivity.class);
             view.getContext().startActivity(i);
         }
 
-        // If resources was clicked in the bottom nav
+        // If resources was clicked in the bottom navigation
         if (view.getId() == R.id.resourcesNavigation) {
-            // start explicit intent to go to popular routes activity
+            // start explicit intent to go to resources activity
             Intent i = new Intent(view.getContext(), ResourcesActivity.class);
             view.getContext().startActivity(i);
         }
 
-        // If create route was clicked in the top nav
+        // If create route was clicked in the top navigation
         if (view.getId() == R.id.accountNavigation) {
-            // start explicit intent to go to create route activity
+            // start explicit intent to go to account activity
             Intent i = new Intent(view.getContext(), AccountActivity.class);
             view.getContext().startActivity(i);
         }
 
+        // Find route button
         if(view.getId() == R.id.findRouteButton) {
 
             // Get the start point entered by the user
@@ -401,8 +435,9 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
 
             // if no start or end point has been entered, the activity is canceled
             if (startPoint.equals("") || endPoint.equals("")) {
-                Toast.makeText(this, "nothing entered", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "No start/end point entered", Toast.LENGTH_SHORT).show();
             } else {
+                // find a route using AsyncTask
                 FindRoute findRoute = new FindRoute();
                 findRoute.execute();
             }

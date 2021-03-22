@@ -76,7 +76,7 @@ public class SignupActivity extends Activity implements View.OnClickListener {
         // retrieve data from preferences
         SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
         String usernamePref = sharedPrefs.getString("username", DEFAULT);
-        String emailPref = sharedPrefs.getString("password", DEFAULT);
+        String emailPref = sharedPrefs.getString("email", DEFAULT);
 
         if ((firstName.equals("")) || (lastName.equals("")) || (email.equals("")) || (username.equals("")) || (password.equals("")) || (confirmPassword.equals(""))){
             // if user did not enter all the required data
@@ -87,8 +87,6 @@ public class SignupActivity extends Activity implements View.OnClickListener {
             // if user input for username or email matches the data in preferences
             Toast.makeText(this, "Username or Email already in use", Toast.LENGTH_SHORT).show();
             return false;
-
-//        } else if (usernamePref.equals(DEFAULT) || emailPref.equals(DEFAULT)){
         } else{
             if (password.equals(confirmPassword)) {
                 // if the password and confirm password match, proceed to saving the user's data

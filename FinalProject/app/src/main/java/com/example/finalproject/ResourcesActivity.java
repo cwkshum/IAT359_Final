@@ -24,7 +24,6 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
 
     private Button mapNavigation, checklistNavigation, accountNavigation;
 
-
     // Sensors
     private SensorManager sensorManager = null;
     private Sensor tempSensor = null;
@@ -60,7 +59,7 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
             tempSensorValue.setText("Temperature Not Available");
         }
 
-        // Get accelerometer sensor
+        // Get pressure sensor
         if(sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE) != null) {
             pressureSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
 
@@ -80,6 +79,7 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
         cityVan = (TableRow) findViewById(R.id.cityVan);
         cityVan.setOnClickListener(this);
 
+        // Navigation buttons
         mapNavigation = (Button) findViewById(R.id.mapNavigation);
         mapNavigation.setOnClickListener(this);
 
@@ -88,8 +88,6 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
 
         accountNavigation = (Button) findViewById(R.id.accountNavigation);
         accountNavigation.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -110,7 +108,7 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
     @Override
     protected void onPause() {
 
-        // release sensor
+        // release sensors
         sensorManager.unregisterListener(this);
         super.onPause();
     }
@@ -119,6 +117,7 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         float[] sensorValues = sensorEvent.values;
+        // display current sensor data
         if(sensorEvent.sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE){
             float tempLevel = sensorValues[0];
 
@@ -127,6 +126,8 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
 
         } else if(sensorEvent.sensor.getType() == Sensor.TYPE_PRESSURE) {
             float pressureLevel = sensorValues[0];
+
+            // display pressure level
             pressureSensorValue.setText(pressureLevel + "hPa");
 
         }
@@ -163,26 +164,26 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
             startActivity(i);
         }
 
-        // If landmarks was clicked in the top nav
+        // Navigation
+        // If map was clicked in the top navigation
         if (view.getId() == R.id.mapNavigation) {
-            // start explicit intent to go to landmarks activity
+            // start explicit intent to go to map activity
             Intent i = new Intent(view.getContext(), LandingActivity.class);
             view.getContext().startActivity(i);
         }
 
-        // If create route was clicked in the bottom nav
+        // If checklist was clicked in the top navigation
         if (view.getId() == R.id.checklistNavigation) {
-            // start explicit intent to go to create route activity
+            // start explicit intent to go to checklist activity
             Intent i = new Intent(view.getContext(), ChecklistActivity.class);
             view.getContext().startActivity(i);
         }
 
-        // If create route was clicked in the top nav
+        // If account was clicked in the top navigation
         if (view.getId() == R.id.accountNavigation) {
-            // start explicit intent to go to create route activity
+            // start explicit intent to go to account activity
             Intent i = new Intent(view.getContext(), AccountActivity.class);
             view.getContext().startActivity(i);
         }
-
     }
 }

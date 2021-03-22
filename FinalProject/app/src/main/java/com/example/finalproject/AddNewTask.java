@@ -42,9 +42,8 @@ public class AddNewTask extends BottomSheetDialogFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Set the layout
         View view = inflater.inflate(R.layout.activity_newtask, container, false);
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
@@ -57,20 +56,30 @@ public class AddNewTask extends BottomSheetDialogFragment {
         newTaskText = Objects.requireNonNull(getView()).findViewById(R.id.newTaskText);
         newTaskSaveButton = getView().findViewById(R.id.newTaskButton);
 
+        // boolean to control whether or not to update the db
         boolean isUpdate = false;
 
+        // get the bundle arguments
         final Bundle bundle = getArguments();
+
         if(bundle != null){
+            // if there are contents in the bundle, boolean for updating the db is set to true
             isUpdate = true;
+
+            // set the text in the input field to be the list item
             String task = bundle.getString("toDoItem");
             newTaskText.setText(task);
 //            assert task != null;
-            if(task.length()>0)
+            if(task.length()>0) {
+                // change the colour of the save button
                 newTaskSaveButton.setTextColor(ContextCompat.getColor(Objects.requireNonNull(getContext()), R.color.colorPrimaryDark));
+            }
         }
 
+        // Access the database to retrieve activity
         db = new ChecklistDatabase(getActivity());
 
+        // attach text changed listener to text input
         newTaskText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -79,10 +88,12 @@ public class AddNewTask extends BottomSheetDialogFragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s.toString().equals("")){
+                    // if noting has been entered, save button is not activated
                     newTaskSaveButton.setEnabled(false);
                     newTaskSaveButton.setTextColor(Color.GRAY);
                 }
                 else{
+                    // if text has been entered, save button is activated
                     newTaskSaveButton.setEnabled(true);
                     newTaskSaveButton.setTextColor(ContextCompat.getColor(Objects.requireNonNull(getContext()), R.color.colorPrimaryDark));
                 }
@@ -94,11 +105,15 @@ public class AddNewTask extends BottomSheetDialogFragment {
         });
 
         final boolean finalIsUpdate = isUpdate;
+
+        // set onclick listener to the save button
         newTaskSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // get user's input
                 String text = newTaskText.getText().toString();
                 if(finalIsUpdate){
+                    // Update the item name in the database
                     if(db.updateToDoData(bundle.getString("username"), bundle.getString("checklistName"), bundle.getString("toDoItem"), text)){
                         dismiss();
                     } else {
@@ -117,9 +132,11 @@ public class AddNewTask extends BottomSheetDialogFragment {
 
     @Override
     public void onDismiss(@NonNull DialogInterface dialog){
+        // close the dialog
         Activity activity = getActivity();
-        if(activity instanceof DialogCloseListener)
-            ((DialogCloseListener)activity).handleDialogClose(dialog);
+        if(activity instanceof DialogCloseListener) {
+            ((DialogCloseListener) activity).handleDialogClose(dialog);
+        }
     }
 }
 

@@ -9,6 +9,8 @@ import android.util.Log;
 
 public class BikewaysDatabaseAdapter {
 
+    // Tutorial from: https://stackoverflow.com/questions/9109438/how-to-use-an-existing-database-with-an-android-application
+
     protected static final String TAG = "DataAdapter";
 
     private final Context mContext;
@@ -22,6 +24,7 @@ public class BikewaysDatabaseAdapter {
 
     public BikewaysDatabaseAdapter createDatabase() throws SQLException {
         try {
+            // create bikeways database
             mDbHelper.createDataBase();
         } catch (IOException mIOException) {
             Log.e(TAG, mIOException.toString() + "  UnableToCreateDatabase");
@@ -32,8 +35,12 @@ public class BikewaysDatabaseAdapter {
 
     public BikewaysDatabaseAdapter open() throws SQLException {
         try {
+            // open database
             mDbHelper.openDataBase();
+
+            // close database
             mDbHelper.close();
+
             mDb = mDbHelper.getReadableDatabase();
         } catch (SQLException mSQLException) {
             Log.e(TAG, "open >>"+ mSQLException.toString());
@@ -43,27 +50,29 @@ public class BikewaysDatabaseAdapter {
     }
 
     public void close() {
+        // close database
         mDbHelper.close();
     }
 
-    public Cursor getTestData(String userInput) {
+    public Cursor getBikewaysData(String userInput) {
         try {
-//            String sql ="SELECT * FROM bikeways";
-
             String sql;
 
-            // If user has inputted a type, refine the query to only show the selected type
+            // If user has inputted a street, refine the query to only show the data for the selected type
             if(userInput != null && !userInput.isEmpty()){
-//                sql ="SELECT `Bike Route Name`, `Street Name`, `Bikeway Type`, `Street Segment Types`, Geom FROM bikeways WHERE " + userInput;
                 sql ="SELECT `Bikeway Type` FROM bikeways WHERE " + userInput;
             } else {
+                // default query
                 sql = "SELECT `Bike Route Name`, `Street Name`, `Bikeway Type`, `Street Segment Types`, Geom FROM bikeways";
             }
 
+            // execute query
             Cursor mCur = mDb.rawQuery(sql, null);
             if (mCur != null) {
                 mCur.moveToNext();
             }
+
+            // return query results
             return mCur;
         } catch (SQLException mSQLException) {
             Log.e(TAG, "getTestData >>"+ mSQLException.toString());

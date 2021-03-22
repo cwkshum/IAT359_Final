@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+// TO BE IMPLEMENTED FOR MILESTONE 3
 public class LandmarksActivity extends Activity implements View.OnClickListener{
 
     @Override

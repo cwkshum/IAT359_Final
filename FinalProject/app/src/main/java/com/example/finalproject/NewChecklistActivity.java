@@ -26,15 +26,19 @@ public class NewChecklistActivity extends Activity implements View.OnClickListen
         checklistNameEditText = (EditText) findViewById(R.id.checklistNameEditText);
         checklistDescriptionEditText = (EditText) findViewById(R.id.checklistDescriptionEditText);
 
+        // create checklist button
         createChecklist = (Button) findViewById(R.id.createChecklist);
         createChecklist.setOnClickListener(this);
 
+        // access database
         db = new ChecklistDatabase(this);
     }
 
 
     @Override
     public void onClick(View view) {
+
+        // create checklist button
         if(view.getId() == R.id.createChecklist) {
 
             // get user's username
@@ -55,21 +59,17 @@ public class NewChecklistActivity extends Activity implements View.OnClickListen
                 long id = db.insertCheckListData(username, checklistName, checklistDescription);
 
                 if (id < 0) {
+                    // insert failed, do not send user back to Checklist Activity
                     Toast.makeText(this, "Failed to create new checklist. Checklist name already exists.", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
-
-                    // go back to main checklist activity
+                    // new checklist has been inserted successfully into the db
+                    // take user back to main checklist activity
                     Intent i = new Intent();
                     setResult(RESULT_OK, i);
                     finish();
                 }
             }
-
-            // reset the text fields
-//            checklistNameEditText.setText("");
-//            checklistDescriptionEditText.setText("");
         }
     }
 }

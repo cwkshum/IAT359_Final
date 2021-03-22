@@ -5,6 +5,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -30,15 +31,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // username input
         usernameInput = (EditText) findViewById(R.id.usernameInput);
+
+        // password input
         passwordInput = (EditText) findViewById(R.id.passwordInput);
 
+        // login button
         loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.setOnClickListener(this);
 
+        // sign up button
         signupButton = (Button) findViewById(R.id.signupButton);
         signupButton.setOnClickListener(this);
 
+        // check if the application has permission to use the user's current location
         checkLocationPermission();
     }
 
@@ -47,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // If login button was clicked
         if(view.getId() == R.id.loginButton) {
             if(checkInput()){
+                // if login information is valid
                 // start explicit intent to go to landing page activity
                 Intent i = new Intent(view.getContext(), LandingActivity.class);
                 view.getContext().startActivity(i);
@@ -67,15 +75,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String password = sharedPrefs.getString("password", DEFAULT);
 
         if (username.equals(DEFAULT) || password.equals(DEFAULT)) {
-            Toast.makeText(this, "Please enter login", Toast.LENGTH_SHORT).show();
+            // if no information is found in sharedpreferences
+            Toast.makeText(this, "There is no username/password match", Toast.LENGTH_SHORT).show();
             return false;
 
         } else {
             if ((username.equals(usernameInput.getText().toString())) && (password.equals(passwordInput.getText().toString()))) {
+                // if username and password matches the information stored in sharedpreferences
                 return true;
 
             } else {
-                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+                // if username or password does not match the information stored in sharedpreferences
+                Toast.makeText(this, "Incorrect username/password", Toast.LENGTH_SHORT).show();
                 return false;
 
             }
@@ -85,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
 
     public boolean checkLocationPermission() {
+        // check if user gives permission for the application to use current location
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             // Should we show an explanation?

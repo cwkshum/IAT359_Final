@@ -14,9 +14,17 @@ import android.util.Log;
 
 public class BikewaysDatabaseHelper extends SQLiteOpenHelper {
 
-    private static String TAG = "DataBaseHelper"; // Tag just for the LogCat window
-    private static String DB_NAME ="bikeways.sqlite"; // Database name
-    private static int DB_VERSION = 1; // Database version
+    // Tutorial from: https://stackoverflow.com/questions/9109438/how-to-use-an-existing-database-with-an-android-application
+
+    // LogCat Tag
+    private static String TAG = "DataBaseHelper";
+
+    // Imported database name
+    private static String DB_NAME ="bikeways.sqlite";
+
+    // Database version
+    private static int DB_VERSION = 1;
+
     private final File DB_FILE;
     private SQLiteDatabase mDataBase;
     private final Context mContext;
@@ -43,13 +51,13 @@ public class BikewaysDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    // Check that the database file exists in databases folder
     private boolean checkDataBase() {
+        // Check that the database file exists in databases folder
         return DB_FILE.exists();
     }
 
-    // Copy the database from assets
     private void copyDataBase() throws IOException {
+        // Copy the database from assets
         InputStream mInput = mContext.getAssets().open(DB_NAME);
         OutputStream mOutput = new FileOutputStream(DB_FILE);
         byte[] mBuffer = new byte[1024];
@@ -62,11 +70,9 @@ public class BikewaysDatabaseHelper extends SQLiteOpenHelper {
         mInput.close();
     }
 
-    // Open the database, so we can query it
     public boolean openDataBase() throws SQLException {
-        // Log.v("DB_PATH", DB_FILE.getAbsolutePath());
+        // Open the database, so we can query it
         mDataBase = SQLiteDatabase.openDatabase(String.valueOf(DB_FILE), null, SQLiteDatabase.CREATE_IF_NECESSARY);
-        // mDataBase = SQLiteDatabase.openDatabase(DB_FILE, null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
         return mDataBase != null;
     }
 

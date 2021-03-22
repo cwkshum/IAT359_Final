@@ -10,7 +10,7 @@ public class ChecklistDatabaseHelper extends SQLiteOpenHelper {
 
     private Context context;
 
-    // Create checklist table
+    // Create checklist table in the db
     private static final String CREATE_CHECKLIST_TABLE =
             "CREATE TABLE "+
                     Constants.CHECKLIST_TABLE_NAME + " (" +
@@ -18,7 +18,7 @@ public class ChecklistDatabaseHelper extends SQLiteOpenHelper {
                     Constants.USERNAME + " TEXT, " + Constants.CHECKLISTNAME + " TEXT, " + Constants.DESCRIPTION + " TEXT);";
 
 
-    // Create to do table
+    // Create to do table in the db
     private static final String CREATE_TODO_TABLE =
             "CREATE TABLE "+
                     Constants.TODO_TABLE_NAME + " (" +
@@ -36,11 +36,10 @@ public class ChecklistDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // display toast message when onCreate() is called
         try {
+            // create checklist and to do table in the db
             db.execSQL(CREATE_CHECKLIST_TABLE);
             db.execSQL(CREATE_TODO_TABLE);
-            Toast.makeText(context, "onCreate() called", Toast.LENGTH_LONG).show();
         } catch (SQLException e) {
             Toast.makeText(context, "exception onCreate() db", Toast.LENGTH_LONG).show();
         }
@@ -49,10 +48,12 @@ public class ChecklistDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         try {
+            // drop the checklist and to do table
             db.execSQL(DROP_CHECKLIST_TABLE);
             db.execSQL(DROP_TODO_TABLE);
+
+            // recreate the tables
             onCreate(db);
-            Toast.makeText(context, "onUpgrade called", Toast.LENGTH_LONG).show();
         } catch (SQLException e) {
             Toast.makeText(context, "exception onUpgrade() db", Toast.LENGTH_LONG).show();
         }

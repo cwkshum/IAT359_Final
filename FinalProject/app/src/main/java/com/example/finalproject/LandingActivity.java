@@ -10,6 +10,9 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,16 +33,13 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polygon;
-import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LandingActivity extends AppCompatActivity implements View.OnClickListener, OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener, GoogleMap.OnPolylineClickListener,
-        GoogleMap.OnPolygonClickListener {
+public class LandingActivity extends AppCompatActivity implements View.OnClickListener, OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
 
     GoogleMap myMap;
 
@@ -49,11 +49,11 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     private Button checklistNavigation, resourcesNavigation, accountNavigation;
 
+    // coordinates for Vancouver, BC
     private static final double VANCOUVER_LAT = 49.277549, VANCOUVER_LNG = -123.123921;
 
     static final int REQUEST_POINTS = 0;
 
-    private Polyline polyline1;
     PolylineOptions lineOptions = null;
 
     @Override
@@ -61,6 +61,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landingpage);
 
+        // Top Navigation
         landmarksNavigation = (TextView) findViewById(R.id.landmarksNavigation);
         landmarksNavigation.setOnClickListener(this);
 
@@ -70,6 +71,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         popularRoutesNavigation = (TextView) findViewById(R.id.popularRoutesNavigation);
         popularRoutesNavigation.setOnClickListener(this);
 
+        // Bottom Navigation
         checklistNavigation = (Button) findViewById(R.id.checklistNavigation);
         checklistNavigation.setOnClickListener(this);
 
@@ -79,6 +81,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         accountNavigation = (Button) findViewById(R.id.accountNavigation);
         accountNavigation.setOnClickListener(this);
 
+        // Map fragment
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
@@ -89,17 +92,16 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     public void onMapReady(GoogleMap map) {
         myMap = map;
 
+        // check if application has permission to use device location
         checkLocationPermission();
 
+        // set the map starting point to Vancouver, BC
         gotoLocation(VANCOUVER_LAT, VANCOUVER_LNG, 12);
 
+        // set listeners
         myMap.setMyLocationEnabled(true);
         myMap.setOnMyLocationButtonClickListener(this);
         myMap.setOnMyLocationClickListener(this);
-
-        // Set listeners for click events.
-        myMap.setOnPolylineClickListener(this);
-        myMap.setOnPolygonClickListener(this);
     }
 
     @Override
@@ -111,17 +113,18 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             if(resultCode == RESULT_OK){
                 // make sure that the returned data has a word passed through
                 if(data.hasExtra(CreateRouteActivity.START_POINT) && data.hasExtra(CreateRouteActivity.END_POINT) && data.hasExtra(CreateRouteActivity.ROUTE_POINTS)){
-                    // get the starting and ending point that was received
+                    // get the starting/ending point and route coordinates that were received
                     String startPoint = data.getExtras().getString(CreateRouteActivity.START_POINT);
                     String endPoint = data.getExtras().getString(CreateRouteActivity.END_POINT);
                     ArrayList<LatLng> routePoints = data.getExtras().getParcelableArrayList(CreateRouteActivity.ROUTE_POINTS);
 
+                    // call method to draw markers and route
                     geolocate(startPoint, endPoint, routePoints);
 
                 }
             }
         } else{
-            Toast.makeText(this, "Points Not Received ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Points Not Received", Toast.LENGTH_SHORT).show();
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -129,8 +132,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     public void geolocate(String startPoint, String endPoint, ArrayList<LatLng> routePoints) {
         Geocoder myGeocoder = new Geocoder(this);
+        // clear the map
         myMap.clear();
 
+        // find locations based on user input
         List<Address> startList = null;
         List<Address> endList = null;
         try {
@@ -142,48 +147,49 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         double startLat = 0, startLng = 0, endLat = 0, endLng = 0;
 
-        if (startList.size() > 0) {
+        if (startList.size() > 0 && startList != null) {
             Address add = startList.get(0);
             String locality = add.getLocality();
-            Toast.makeText(this, "Found " + locality, Toast.LENGTH_SHORT).show();
 
+            // get coordinates of starting point
             startLat = add.getLatitude();
             startLng = add.getLongitude();
             gotoLocation(startLat, startLng, 12);
 
+            // add marker at starting point
             MarkerOptions options = new MarkerOptions()
-                    .title(locality)
+                    .title("Start: " + startPoint)
                     .position(new LatLng(startLat, startLng));
             myMap.addMarker(options);
         }
 
-        if (endList.size() > 0) {
+        if (endList.size() > 0 && endList != null) {
             Address add = endList.get(0);
             String locality = add.getLocality();
-            Toast.makeText(this, "Found " + locality, Toast.LENGTH_SHORT).show();
 
+            // get coordinates of ending point
             endLat = add.getLatitude();
             endLng = add.getLongitude();
 
+            // add marker at ending point
             MarkerOptions options = new MarkerOptions()
-                    .title(locality)
+                    .title("End: " + endPoint)
                     .position(new LatLng(endLat, endLng));
             myMap.addMarker(options);
-
         }
 
         lineOptions = new PolylineOptions();
         // Adding all the points in the route to LineOptions
-                lineOptions.addAll(routePoints);
-                lineOptions.width(6);
-                lineOptions.color(Color.BLUE);
+        lineOptions.addAll(routePoints);
+        lineOptions.width(6);
+        lineOptions.color(Color.BLUE);
 
-        // Drawing polyline in the Google Map for the i-th route
-            myMap.addPolyline(lineOptions);
+        // Drawing polyline in the Google Map for the selected route
+        myMap.addPolyline(lineOptions);
     }
 
-    //lan lng and zoom
     private void gotoLocation(double lat, double lng, float zoom) {
+        // go to the location of the starting point
         LatLng latlng = new LatLng(lat, lng);
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latlng, zoom);
         myMap.moveCamera(update);
@@ -191,24 +197,23 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onMyLocationClick(@NonNull Location location) {
+        // Current location marker was clicked
         Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public boolean onMyLocationButtonClick() {
-        Toast.makeText(this, "MyLocation button clicked", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Your Current Location", Toast.LENGTH_SHORT).show();
         // Return false so that we don't consume the event and the default behavior still occurs
         // (the camera animates to the user's current position).
         return false;
     }
 
-
-
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
 
     public boolean checkLocationPermission() {
+        // check if we have permission to use the user's current location
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
 
@@ -229,13 +234,9 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                         })
                         .create()
                         .show();
-
-
             } else {
                 // No explanation needed, we can request the permission.
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                        MY_PERMISSIONS_REQUEST_LOCATION);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION);
             }
             return false;
         } else {
@@ -253,19 +254,12 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
                     // permission was granted, yay! Do the
                     // location-related task you need to do.
-                    if (ContextCompat.checkSelfPermission(this,
-                            Manifest.permission.ACCESS_FINE_LOCATION)
-                            == PackageManager.PERMISSION_GRANTED) {
-
-                        //Request location updates:
-                        //  locationManager.requestLocationUpdates(provider, 400, 1, this);
+                    if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                     }
 
                 } else {
-
                     // permission denied - Disable the
                     // functionality that depends on this permission.
-
                 }
                 return;
             }
@@ -274,56 +268,122 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // create top additional menu
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.map_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == R.id.mapTypeHybrid){
+            // change map type
+            myMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        }
+
+        if(item.getItemId() == R.id.mapTypeTerrain){
+            // change map type
+            myMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+        }
+
+        if(item.getItemId() == R.id.mapTypeSatellite){
+            // change map type
+            myMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        }
+
+        if(item.getItemId() == R.id.mapTypeNormal){
+            // change map type
+            myMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        }
+
+        if(item.getItemId() == R.id.clearRoute){
+            // call the confirm method
+            confirmDialog();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    void confirmDialog(){
+        // create an alert
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        // ask user if they want to clear route
+        builder.setTitle("Delete Route?");
+        builder.setMessage("Are you sure you want to delete route on map?");
+
+        // if the user selects "Yes"
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // clear the map
+                myMap.clear();
+
+                // Refresh Activity show that the route has been cleared
+                Intent intent = new Intent(LandingActivity.this, LandingActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        // if the user selects "No", do not delete clear route
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        // show alert
+        builder.create().show();
+    }
+
+    @Override
     public void onClick(View view) {
-        // If landmarks was clicked in the top nav
+
+        // Top Navigation
+        // If landmarks was clicked in the top navigation
         if (view.getId() == R.id.landmarksNavigation) {
             // start explicit intent to go to landmarks activity
             Intent i = new Intent(view.getContext(), LandmarksActivity.class);
             view.getContext().startActivity(i);
         }
 
-        // If create route was clicked in the top nav
+        // If create route was clicked in the top navigation
         if (view.getId() == R.id.createRouteNavigation) {
             // start explicit intent to go to create route activity
             Intent createRouteIntent = new Intent(view.getContext(), CreateRouteActivity.class);
             startActivityForResult(createRouteIntent, REQUEST_POINTS);
         }
 
-        // If popular routes was clicked in the top nav
+        // If popular routes was clicked in the top navigation
         if (view.getId() == R.id.popularRoutesNavigation) {
             // start explicit intent to go to popular routes activity
             Intent i = new Intent(view.getContext(), PopularRoutesActivity.class);
             view.getContext().startActivity(i);
         }
 
-        // If checklist was clicked in the bottom nav
+        // Bottom Navigation
+        // If checklist was clicked in the bottom navigation
         if (view.getId() == R.id.checklistNavigation) {
-            // start explicit intent to go to create route activity
+            // start explicit intent to go to checklist activity
             Intent i = new Intent(view.getContext(), ChecklistActivity.class);
             view.getContext().startActivity(i);
         }
 
-        // If resources was clicked in the bottom nav
+        // If resources was clicked in the bottom navigation
         if (view.getId() == R.id.resourcesNavigation) {
-            // start explicit intent to go to popular routes activity
+            // start explicit intent to go to resources activity
             Intent i = new Intent(view.getContext(), ResourcesActivity.class);
             view.getContext().startActivity(i);
         }
 
+        // If account was clicked in the bottom navigation
         if (view.getId() == R.id.accountNavigation) {
-            // start explicit intent to go to popular routes activity
+            // start explicit intent to go to account activity
             Intent i = new Intent(view.getContext(), AccountActivity.class);
             view.getContext().startActivity(i);
         }
-    }
-
-    @Override
-    public void onPolygonClick(Polygon polygon) {
-
-    }
-
-    @Override
-    public void onPolylineClick(Polyline polyline) {
-
     }
 }

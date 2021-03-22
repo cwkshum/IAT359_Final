@@ -12,12 +12,13 @@ import java.util.List;
 
 public class DirectionsJSONParser {
 
+    // Tutorial from: https://stackoverflow.com/questions/48724677/draw-route-between-two-address
+
     /** Receives a JSONObject and returns a list of lists containing
      latitude and longitude */
     public List<List<HashMap<String,String>>> parse(JSONObject jObject){
 
-        List<List<HashMap<String, String>>> routes = new
-                ArrayList<List<HashMap<String,String>>>() ;
+        List<List<HashMap<String, String>>> routes = new ArrayList<List<HashMap<String,String>>>() ;
         JSONArray jRoutes = null;
         JSONArray jLegs = null;
         JSONArray jSteps = null;
@@ -58,27 +59,20 @@ public class DirectionsJSONParser {
                     /** Adding duration object to the path */
                     path.add(hmDuration);
 
-                    jSteps = (
-                            (JSONObject)jLegs.get(j)).getJSONArray("steps");
+                    jSteps = ((JSONObject)jLegs.get(j)).getJSONArray("steps");
 
                     /** Traversing all steps */
                     for(int k=0;k<jSteps.length();k++){
                         String polyline = "";
-                        polyline = (String)((JSONObject)
-                                ((JSONObject)jSteps.get(k)).get("polyline"))
-                                .get("points");
+                        polyline = (String)((JSONObject)((JSONObject)jSteps.get(k)).get("polyline")).get("points");
                         List<LatLng> list = decodePoly(polyline);
 
                         /** Traversing all points */
                         for(int l=0;l<list.size();l++){
                             HashMap<String, String> hm = new HashMap<String,
                                     String>();
-                            hm.put("lat",
-                                    Double.toString(((LatLng)list.get(l))
-                                            .latitude) );
-                            hm.put("lng",
-                                    Double.toString(((LatLng)list.get(l))
-                                            .longitude) );
+                            hm.put("lat", Double.toString(((LatLng)list.get(l)).latitude) );
+                            hm.put("lng", Double.toString(((LatLng)list.get(l)).longitude) );
                             path.add(hm);
                         }
                     }
@@ -129,6 +123,4 @@ public class DirectionsJSONParser {
         }
         return poly;
     }
-
-
 }

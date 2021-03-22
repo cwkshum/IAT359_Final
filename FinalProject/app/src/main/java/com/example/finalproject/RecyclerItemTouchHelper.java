@@ -31,27 +31,41 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
 
     @Override
     public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
+        // get the position of the view that is being interacted with
         final int position = viewHolder.getAdapterPosition();
+
+        // if user swipes left
         if (direction == ItemTouchHelper.LEFT) {
+            // create an alert
             AlertDialog.Builder builder = new AlertDialog.Builder(adapter.getContext());
+
+            // ask the user if it wants to delete the task
             builder.setTitle("Delete Task");
             builder.setMessage("Are you sure you want to delete this Task?");
+
+            // user selects "Confirm"
             builder.setPositiveButton("Confirm",
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            // delete the item
                             adapter.deleteItem(position);
                         }
                     });
+
+            // user selects "Cancel"
             builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    // do not delete item
                     adapter.notifyItemChanged(viewHolder.getAdapterPosition());
                 }
             });
+            // show dialog
             AlertDialog dialog = builder.create();
             dialog.show();
         } else {
+            // if the user swipes right, edit item
             adapter.editItem(position);
         }
     }
@@ -67,9 +81,11 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
         int backgroundCornerOffset = 20;
 
         if (dX > 0) {
+            // draw edit icon
             icon = ContextCompat.getDrawable(adapter.getContext(), R.drawable.ic_baseline_edit_24);
             background = new ColorDrawable(ContextCompat.getColor(adapter.getContext(), R.color.colorPrimaryDark));
         } else {
+            // draw trash icon
             icon = ContextCompat.getDrawable(adapter.getContext(), R.drawable.ic_delete);
             background = new ColorDrawable(Color.RED);
         }
@@ -84,8 +100,7 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
             int iconRight = itemView.getLeft() + iconMargin + icon.getIntrinsicWidth();
             icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
 
-            background.setBounds(itemView.getLeft(), itemView.getTop(),
-                    itemView.getLeft() + ((int) dX) + backgroundCornerOffset, itemView.getBottom());
+            background.setBounds(itemView.getLeft(), itemView.getTop(),itemView.getLeft() + ((int) dX) + backgroundCornerOffset, itemView.getBottom());
         } else if (dX < 0) { // Swiping to the left
             int iconLeft = itemView.getRight() - iconMargin - icon.getIntrinsicWidth();
             int iconRight = itemView.getRight() - iconMargin;

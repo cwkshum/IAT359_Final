@@ -18,9 +18,8 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+// PLACEHOLDER ADAPTER FOR FAVOURITE ROUTES DISPLAY TO BE IMPLEMENTED IN MILESTONE 3
 public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAdapter.ViewHolder>{
-
-
 
     private ArrayList<String> mImageNames = new ArrayList<>();
     private ArrayList<String> mImages = new ArrayList<>();

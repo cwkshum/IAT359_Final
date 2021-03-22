@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+// TO BE IMPLEMENTED FOR MILESTONE 3
 public class PopularRoutesActivity extends Activity implements View.OnClickListener{
 
     @Override

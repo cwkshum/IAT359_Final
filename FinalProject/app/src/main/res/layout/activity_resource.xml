@@ -24,10 +24,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:maxWidth="90dp"
-                android:maxHeight="90dp"
+                android:maxWidth="80dp"
+                android:maxHeight="80dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/bikelogo" />
+                android:src="@drawable/vancitycyclinglogo" />
         </TableRow>
     </TableLayout>
 
@@ -44,6 +44,7 @@
             android:text="Sensor Data"
             android:textColor="@color/black"
             android:textSize="18dp"
+            android:layout_marginHorizontal="8dp"
             android:textStyle="bold" />
 
         <TextView
@@ -51,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
+            android:layout_marginHorizontal="8dp"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="Current Temperature"
@@ -64,6 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
+            android:layout_marginHorizontal="8dp"
             android:text="ºC"
             android:textColor="@android:color/black"
             android:textSize="14dp" />
@@ -73,6 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
+            android:layout_marginHorizontal="8dp"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="Current Air Pressure"
@@ -85,7 +89,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:layout_marginHorizontal="8dp"
             android:gravity="center_horizontal"
             android:text="hPa"
             android:textColor="@android:color/black"
@@ -120,6 +124,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="Resources"
+            android:layout_marginHorizontal="8dp"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -132,18 +137,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.0"
-            android:background="#008039"
+            android:background="#F1F9EB"
+            android:layout_marginVertical="4dp"
+            android:layout_marginHorizontal="8dp"
             android:paddingTop="20dp"
-            android:paddingBottom="0dp">
+            android:paddingBottom="20dp"
+            >
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:maxWidth="90dp"
                 android:maxHeight="100dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/bikelogo" />
+                android:src="@drawable/bikesafe" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -158,8 +166,9 @@
                     android:paddingLeft="5dp"
                     android:paddingBottom="6dp"
                     android:text="Bike Safety"
-                    android:textColor="@android:color/white"
-                    android:textSize="16dp" />
+                    android:textColor="#67BD24"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -167,12 +176,10 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:paddingLeft="5dp"
-                    android:text="Bike Safety is important. Please take a min to educate \nyourself this nonsense"
-                    android:textColor="@android:color/white"
+                    android:text="Bike Safety is important. By educating yourself, \nyou can help keep every road user safe."
+                    android:textColor="@android:color/black"
                     android:textSize="12dp" />
-
             </LinearLayout>
-
         </TableRow>
 
         <TableRow
@@ -180,17 +187,21 @@
             android:layout_width="match_parent"
             android:layout_height="123dp"
             android:layout_weight="0.0"
-            android:background="#01959A"
-            android:paddingTop="20dp">
+            android:background="#F1F9EB"
+            android:layout_marginVertical="4dp"
+            android:layout_marginHorizontal="8dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+           >
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:maxWidth="90dp"
-                android:maxHeight="100dp"
+                android:maxWidth="60dp"
+                android:maxHeight="60dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/bikelogo" />
+                android:src="@drawable/icbc" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -205,7 +216,8 @@
                     android:paddingLeft="5dp"
                     android:paddingBottom="6dp"
                     android:text="Bike Laws"
-                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textColor="#67BD24"
                     android:textSize="16dp" />
 
                 <TextView
@@ -214,8 +226,8 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:paddingLeft="5dp"
-                    android:text="Please get familiar with the bike laws in the city of \nvancouver"
-                    android:textColor="@android:color/white"
+                    android:text="View the bike laws in the City of Vancouver"
+                    android:textColor="#000000"
                     android:textSize="12dp" />
 
             </LinearLayout>
@@ -227,11 +239,13 @@
         <TableRow
             android:id="@+id/cityVan"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.0"
-            android:background="#FF8C8C"
+            android:background="#F1F9EB"
+            android:layout_marginVertical="4dp"
+            android:layout_marginHorizontal="8dp"
             android:paddingTop="20dp"
-            android:paddingBottom="0dp">
+            android:paddingBottom="5dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -240,7 +254,7 @@
                 android:maxWidth="90dp"
                 android:maxHeight="100dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/bikelogo" />
+                android:src="@drawable/vancouverlogo" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -255,7 +269,8 @@
                     android:paddingLeft="5dp"
                     android:paddingBottom="6dp"
                     android:text="City of Vancouver"
-                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textColor="#67BD24"
                     android:textSize="16dp" />
 
                 <TextView
@@ -264,33 +279,18 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:paddingLeft="5dp"
-                    android:text="Visit the city of Vancouver website to learn more \nabout this city"
-                    android:textColor="@android:color/white"
+                    android:text="Visit the City of Vancouver website to learn more \nabout the city"
+                    android:textColor="@android:color/black"
                     android:textSize="12dp" />
-
             </LinearLayout>
-
         </TableRow>
 
         <TableRow
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="0.8"
-            android:layout_marginTop="5dp"
+        android:layout_marginTop="5dp"
         android:background="#4D8FAC">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/checklistNavigation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ffff"
-            android:drawableTop="@drawable/ic_landscape"
-            android:gravity="center_horizontal"
-            android:text="Map"
-            android:textColor="@android:color/white"
-            android:textSize="10dp"
-            app:backgroundTint="#4D8FAC" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/mapNavigation"
@@ -299,10 +299,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawableTop="@drawable/ic_landscape"
+            android:gravity="center_horizontal"
+            android:text="Map"
+
+            android:textColor="@android:color/white"
+            android:textSize="10dp"
+            app:backgroundTint="#4D8FAC" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/checklistNavigation"
+            style="@style/box_sky_blue"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:drawableTop="@drawable/ic_checklist"
             android:gravity="center_horizontal"
             android:text="Checklist"
-
             android:textColor="@android:color/white"
             android:textSize="10dp"
             app:backgroundTint="#4D8FAC" />
@@ -316,10 +330,10 @@
             android:drawableTop="@drawable/ic_info"
             android:gravity="center_horizontal"
             android:text="Resources"
-
-            android:textColor="@android:color/white"
+            android:drawableTint="#4D8FAC"
+            android:textColor="#4D8FAC"
             android:textSize="10dp"
-            app:backgroundTint="#4D8FAC" />
+            app:backgroundTint="#ffff" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/accountNavigation"

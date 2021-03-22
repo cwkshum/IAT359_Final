@@ -48,9 +48,9 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
     private Button findRouteButton;
     private String startPoint, endPoint;
 
-    private TextView landmarksNavigation, createRouteNavigation, popularRoutesNavigation;
+    private TextView landmarksNavigation, popularRoutesNavigation;
 
-    private Button checklistNavigation, resourcesNavigation;
+    private Button mapNavigation, checklistNavigation, resourcesNavigation, accountNavigation;
 
     public static final String START_POINT = "STARTPOINT";
     public static final String END_POINT = "ENDPOINT";
@@ -88,17 +88,20 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
         landmarksNavigation = (TextView) findViewById(R.id.landmarksNavigation);
         landmarksNavigation.setOnClickListener(this);
 
-        createRouteNavigation = (TextView) findViewById(R.id.createRouteNavigation);
-        createRouteNavigation.setOnClickListener(this);
-
         popularRoutesNavigation = (TextView) findViewById(R.id.popularRoutesNavigation);
         popularRoutesNavigation.setOnClickListener(this);
+
+        mapNavigation = (Button) findViewById(R.id.mapNavigation);
+        mapNavigation.setOnClickListener(this);
 
         checklistNavigation = (Button) findViewById(R.id.checklistNavigation);
         checklistNavigation.setOnClickListener(this);
 
         resourcesNavigation = (Button) findViewById(R.id.resourcesNavigation);
         resourcesNavigation.setOnClickListener(this);
+
+        accountNavigation = (Button) findViewById(R.id.accountNavigation);
+        accountNavigation.setOnClickListener(this);
 
     }
 
@@ -354,18 +357,17 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
             view.getContext().startActivity(i);
         }
 
-        // If landmarks was clicked in the top nav
-        if (view.getId() == R.id.ic_landscape) {
-            // start explicit intent to go to landmarks activity
-            Intent i = new Intent(view.getContext(), LandmarksActivity.class);
-            view.getContext().startActivity(i);
-        }
 
-        // If create route was clicked in the top nav
-        if (view.getId() == R.id.accountNavigation) {
-            // start explicit intent to go to create route activity
-            Intent i = new Intent(view.getContext(), CreateRouteActivity.class);
-            view.getContext().startActivity(i);
+
+        // If Map was clicked in the bottom navigation
+        if (view.getId() == R.id.mapNavigation) {
+            // start explicit intent to go to landmarks activity
+//            Intent i = new Intent(view.getContext(), LandmarksActivity.class);
+//            view.getContext().startActivity(i);
+            Intent mapIntent = new Intent();
+            setResult(RESULT_OK, mapIntent);
+            finish();
+
         }
 
         // If create route was clicked in the bottom nav
@@ -375,11 +377,17 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
             view.getContext().startActivity(i);
         }
 
-
         // If resources was clicked in the bottom nav
         if (view.getId() == R.id.resourcesNavigation) {
             // start explicit intent to go to popular routes activity
             Intent i = new Intent(view.getContext(), ResourcesActivity.class);
+            view.getContext().startActivity(i);
+        }
+
+        // If create route was clicked in the top nav
+        if (view.getId() == R.id.accountNavigation) {
+            // start explicit intent to go to create route activity
+            Intent i = new Intent(view.getContext(), AccountActivity.class);
             view.getContext().startActivity(i);
         }
 

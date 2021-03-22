@@ -172,21 +172,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         }
 
-//        polyline1 = myMap.addPolyline(new PolylineOptions()
-//                .clickable(true)
-//                .add(
-//                        new LatLng(startLat, startLng),
-//                        new LatLng(endLat, endLng)));
-
-
-//        polyline1 = myMap.addPolyline(new PolylineOptions()
-//                .clickable(true)
-//                .add(
-//                        new LatLng(49.229454995854425,-123.10581168254667),
-//                        new LatLng(49.229004613988, -123.10583034532755),
-//                        new LatLng(49.22855286327834, -123.10584772750627),
-//                        new LatLng(49.22855283718706, -123.10584773294451)));
-
         lineOptions = new PolylineOptions();
         // Adding all the points in the route to LineOptions
                 lineOptions.addAll(routePoints);
@@ -301,7 +286,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         if (view.getId() == R.id.createRouteNavigation) {
             // start explicit intent to go to create route activity
             Intent createRouteIntent = new Intent(view.getContext(), CreateRouteActivity.class);
-//            view.getContext().startActivity(i);
             startActivityForResult(createRouteIntent, REQUEST_POINTS);
         }
 
@@ -312,27 +296,12 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             view.getContext().startActivity(i);
         }
 
-        // If landmarks was clicked in the top nav
-        if (view.getId() == R.id.ic_landscape) {
-            // start explicit intent to go to landmarks activity
-            Intent i = new Intent(view.getContext(), LandmarksActivity.class);
-            view.getContext().startActivity(i);
-        }
-
-        // If create route was clicked in the top nav
-        if (view.getId() == R.id.accountNavigation) {
-            // start explicit intent to go to create route activity
-            Intent i = new Intent(view.getContext(), CreateRouteActivity.class);
-            view.getContext().startActivity(i);
-        }
-
-        // If create route was clicked in the bottom nav
+        // If checklist was clicked in the bottom nav
         if (view.getId() == R.id.checklistNavigation) {
             // start explicit intent to go to create route activity
             Intent i = new Intent(view.getContext(), ChecklistActivity.class);
             view.getContext().startActivity(i);
         }
-
 
         // If resources was clicked in the bottom nav
         if (view.getId() == R.id.resourcesNavigation) {

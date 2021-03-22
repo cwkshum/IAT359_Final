@@ -20,6 +20,10 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_baseline_edit_24.png"
     },
     {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_landscape.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_landscape.png"
     },
@@ -124,6 +128,10 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_delete.png"
     },
     {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
@@ -204,6 +212,14 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_favorite.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_favorite.png"
     },
@@ -268,8 +284,20 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_vancitycyclinglogo.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\vancitycyclinglogo.png"
+    },
+    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\icon.png"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_baseline_edit_24.xml.flat",
@@ -278,6 +306,10 @@
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_account.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_account.png"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_vancouverlogo.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\vancouverlogo.png"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_arrow.png.flat",
@@ -348,6 +380,10 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\layout\\activity_landmarks.xml"
     },
     {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icbc.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\icbc.png"
+    },
+    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
@@ -382,6 +418,10 @@
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_account.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_account.png"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_bikesafe.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\bikesafe.png"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_newchecklist.xml.flat",

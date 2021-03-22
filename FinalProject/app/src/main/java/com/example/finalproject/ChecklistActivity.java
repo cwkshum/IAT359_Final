@@ -45,10 +45,22 @@ public class ChecklistActivity extends AppCompatActivity implements View.OnClick
 
     FloatingActionButton add_button;
 
+    private Button mapNavigation, resourcesNavigation, accountNavigation;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checklist);
+
+        mapNavigation = (Button) findViewById(R.id.mapNavigation);
+        mapNavigation.setOnClickListener(this);
+
+        resourcesNavigation = (Button) findViewById(R.id.resourcesNavigation);
+        resourcesNavigation.setOnClickListener(this);
+
+        accountNavigation = (Button) findViewById(R.id.accountNavigation);
+        accountNavigation.setOnClickListener(this);
 
         // Create recycler view
         myRecycler = (RecyclerView) findViewById(R.id.table);
@@ -92,6 +104,25 @@ public class ChecklistActivity extends AppCompatActivity implements View.OnClick
         if(view.getId() == R.id.addNewChecklistButton) {
             Intent i = new Intent(view.getContext(), NewChecklistActivity.class);
             startActivityForResult(i, 2);
+        }
+        if (view.getId() == R.id.accountNavigation) {
+            // start explicit intent to go to create route activity
+            Intent i = new Intent(view.getContext(), AccountActivity.class);
+            view.getContext().startActivity(i);
+        }
+
+
+        // If resources was clicked in the bottom nav
+        if (view.getId() == R.id.resourcesNavigation) {
+            // start explicit intent to go to popular routes activity
+            Intent i = new Intent(view.getContext(), ResourcesActivity.class);
+            view.getContext().startActivity(i);
+        }
+
+        if (view.getId() == R.id.mapNavigation) {
+            // start explicit intent to go to popular routes activity
+            Intent i = new Intent(view.getContext(), LandingActivity.class);
+            view.getContext().startActivity(i);
         }
     }
 

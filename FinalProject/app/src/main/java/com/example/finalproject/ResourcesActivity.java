@@ -22,10 +22,7 @@ import java.util.List;
 
 public class ResourcesActivity extends Activity implements SensorEventListener, View.OnClickListener {
 
-
-    private TextView landmarksNavigation, createRouteNavigation, popularRoutesNavigation;
-
-    private Button checklistNavigation, resourcesNavigation;
+    private Button mapNavigation, checklistNavigation, accountNavigation;
 
 
     // Sensors
@@ -83,8 +80,14 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
         cityVan = (TableRow) findViewById(R.id.cityVan);
         cityVan.setOnClickListener(this);
 
-        landmarksNavigation = (TextView) findViewById(R.id.mapNavigation);
-        landmarksNavigation.setOnClickListener(this);
+        mapNavigation = (Button) findViewById(R.id.mapNavigation);
+        mapNavigation.setOnClickListener(this);
+
+        checklistNavigation = (Button) findViewById(R.id.checklistNavigation);
+        checklistNavigation.setOnClickListener(this);
+
+        accountNavigation = (Button) findViewById(R.id.accountNavigation);
+        accountNavigation.setOnClickListener(this);
 
 
     }
@@ -142,14 +145,6 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
             Uri bikeLawsWebpage = Uri.parse("https://www2.gov.bc.ca/gov/content/transportation/driving-and-cycling/cycling/cycling-regulations-restrictions-rules");
             Intent i = new Intent(Intent.ACTION_VIEW, bikeLawsWebpage);
             startActivity(i);
-
-            // PackageManager packageManager = getPackageManager();
-            // List<ResolveInfo> activities = packageManager.queryIntentActivities(i, 0);
-            // boolean isIntentSafe = activities.size() > 0;
-            // if(isIntentSafe){
-            //     startActivity(i);
-            // }
-
         }
 
         // Bike Safety
@@ -158,14 +153,6 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
             Uri bikeSafetyWebpage = Uri.parse("https://www.icbc.com/road-safety/sharing/Pages/cycling-safety.aspx");
             Intent i = new Intent(Intent.ACTION_VIEW, bikeSafetyWebpage);
             startActivity(i);
-
-            // PackageManager packageManager = getPackageManager();
-            // List<ResolveInfo> activities = packageManager.queryIntentActivities(i, 0);
-            // boolean isIntentSafe = activities.size() > 0;
-            // if(isIntentSafe){
-            //     startActivity(i);
-            // }
-
         }
 
         // City of Vancouver
@@ -174,41 +161,12 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
             Uri cityVanWebpage = Uri.parse("https://vancouver.ca");
             Intent i = new Intent(Intent.ACTION_VIEW, cityVanWebpage);
             startActivity(i);
-
-            // PackageManager packageManager = getPackageManager();
-            // List<ResolveInfo> activities = packageManager.queryIntentActivities(i, 0);
-            // boolean isIntentSafe = activities.size() > 0;
-            // if(isIntentSafe){
-            //     startActivity(i);
-            // }
-
         }
 
         // If landmarks was clicked in the top nav
         if (view.getId() == R.id.mapNavigation) {
             // start explicit intent to go to landmarks activity
             Intent i = new Intent(view.getContext(), LandingActivity.class);
-            view.getContext().startActivity(i);
-        }
-
-        // If popular routes was clicked in the top nav
-        if (view.getId() == R.id.popularRoutesNavigation) {
-            // start explicit intent to go to popular routes activity
-            Intent i = new Intent(view.getContext(), PopularRoutesActivity.class);
-            view.getContext().startActivity(i);
-        }
-
-        // If landmarks was clicked in the top nav
-        if (view.getId() == R.id.ic_landscape) {
-            // start explicit intent to go to landmarks activity
-            Intent i = new Intent(view.getContext(), LandmarksActivity.class);
-            view.getContext().startActivity(i);
-        }
-
-        // If create route was clicked in the top nav
-        if (view.getId() == R.id.accountNavigation) {
-            // start explicit intent to go to create route activity
-            Intent i = new Intent(view.getContext(), CreateRouteActivity.class);
             view.getContext().startActivity(i);
         }
 
@@ -219,14 +177,12 @@ public class ResourcesActivity extends Activity implements SensorEventListener, 
             view.getContext().startActivity(i);
         }
 
-
-        // If resources was clicked in the bottom nav
-        if (view.getId() == R.id.resourcesNavigation) {
-            // start explicit intent to go to popular routes activity
-            Intent i = new Intent(view.getContext(), ResourcesActivity.class);
+        // If create route was clicked in the top nav
+        if (view.getId() == R.id.accountNavigation) {
+            // start explicit intent to go to create route activity
+            Intent i = new Intent(view.getContext(), AccountActivity.class);
             view.getContext().startActivity(i);
         }
-
 
     }
 }

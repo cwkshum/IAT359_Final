@@ -15,26 +15,6 @@
         <TableRow
             android:gravity="center_horizontal|center_vertical"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#4D8FAC">
-
-            <!-- App Name -->
-            <TextView
-                android:id="@+id/activityHeader"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="VanCity Cycling"
-                android:textSize="40dp"
-                android:textStyle="bold"
-                android:textColor="#ffffff"/>
-        </TableRow>
-
-
-        <TableRow
-            android:gravity="center_horizontal|center_vertical"
-            android:layout_height="0dp"
             android:layout_weight="1">
 
           <!-- Logo -->
@@ -45,8 +25,9 @@
                 android:maxWidth="200dp"
                 android:maxHeight="200dp"
                 android:scaleType="fitCenter"
-                android:layout_marginLeft="3dp"
-                android:src="@drawable/bikelogo" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/vancitycyclinglogo" />
 
         </TableRow>
 

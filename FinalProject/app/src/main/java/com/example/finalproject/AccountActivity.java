@@ -30,15 +30,37 @@ public class AccountActivity extends Activity implements View.OnClickListener {
     private TextView userHeader;
     private TextView emailHeader;
 
+    private Button checklistNavigation, resourcesNavigation, mapNavigation;
+
 
     public static final String DEFAULT = "not available";
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
 
-        if(v.getId() == R.id.editinfo) {
-            Intent i = new Intent(v.getContext(), EditAccountActivity.class);
+        if(view.getId() == R.id.editinfo) {
+            Intent i = new Intent(view.getContext(), EditAccountActivity.class);
             startActivityForResult(i, 2);
+        }
+
+        if (view.getId() == R.id.checklistNavigation) {
+            // start explicit intent to go to create route activity
+            Intent i = new Intent(view.getContext(), ChecklistActivity.class);
+            view.getContext().startActivity(i);
+        }
+
+
+        // If resources was clicked in the bottom nav
+        if (view.getId() == R.id.resourcesNavigation) {
+            // start explicit intent to go to popular routes activity
+            Intent i = new Intent(view.getContext(), ResourcesActivity.class);
+            view.getContext().startActivity(i);
+        }
+
+        if (view.getId() == R.id.mapNavigation) {
+            // start explicit intent to go to popular routes activity
+            Intent i = new Intent(view.getContext(), LandingActivity.class);
+            view.getContext().startActivity(i);
         }
 
     }
@@ -67,6 +89,15 @@ public class AccountActivity extends Activity implements View.OnClickListener {
         nameHeader = (TextView) findViewById(R.id.name);
         userHeader = (TextView) findViewById(R.id.username);
         emailHeader = (TextView) findViewById(R.id.email);
+
+        checklistNavigation = (Button) findViewById(R.id.checklistNavigation);
+        checklistNavigation.setOnClickListener(this);
+
+        resourcesNavigation = (Button) findViewById(R.id.resourcesNavigation);
+        resourcesNavigation.setOnClickListener(this);
+
+        mapNavigation = (Button) findViewById(R.id.mapNavigation);
+        mapNavigation.setOnClickListener(this);
 
         initImageBitmaps();
         getUserInfo();

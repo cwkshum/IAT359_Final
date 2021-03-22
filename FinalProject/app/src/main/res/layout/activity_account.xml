@@ -24,10 +24,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:maxWidth="90dp"
-                android:maxHeight="90dp"
+                android:maxWidth="80dp"
+                android:maxHeight="80dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/bikelogo" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/vancitycyclinglogo" />
         </TableRow>
     </TableLayout>
 
@@ -161,13 +163,16 @@ android:gravity="center"
         android:background="#4D8FAC">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/mapNavigation"
+            style="@style/box_sky_blue"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#ffff"
             android:drawableTop="@drawable/ic_landscape"
             android:gravity="center_horizontal"
             android:text="Map"
+
             android:textColor="@android:color/white"
             android:textSize="10dp"
             app:backgroundTint="#4D8FAC" />
@@ -210,10 +215,10 @@ android:gravity="center"
             android:drawableTop="@drawable/ic_account"
             android:gravity="center_horizontal"
             android:text="Account"
-
-            android:textColor="@android:color/white"
+            android:drawableTint="#4D8FAC"
+            android:textColor="#4D8FAC"
             android:textSize="10dp"
-            app:backgroundTint="#4D8FAC" />
+            app:backgroundTint="#ffff" />
     </TableRow>
 
 

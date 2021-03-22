@@ -13,13 +13,14 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
+        <!--Task Checkbox-->
         <CheckBox
             android:id="@+id/todoCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:paddingStart="8dp"
-            android:buttonTint="@android:color/holo_green_dark"
+            android:buttonTint="#4D8FAC"
             tools:text="task to complete"
             android:paddingLeft="8dp" />
 

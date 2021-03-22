@@ -8,7 +8,8 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="5">
+        android:layout_weight="5"
+        android:layout_marginHorizontal="8dp">
 
         <!-- Logo -->
         <TableRow
@@ -35,6 +36,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.5">
 
+            <!--Create Checklist Heading-->
             <TextView
                 android:id="@+id/activityHeader"
                 android:layout_width="0dp"
@@ -42,7 +44,8 @@
                 android:layout_weight="1"
                 android:text="Create New Checklist"
                 android:textSize="22dp"
-                android:textColor="@android:color/black"/>
+                android:textStyle="bold"
+                android:textColor="#4D8FAC"/>
         </TableRow>
 
 
@@ -51,6 +54,7 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
+            <!--Checklist Name-->
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -71,6 +75,7 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
+            <!--Checklist Description-->
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -89,27 +94,9 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <!--            <TextView-->
-            <!--                android:layout_width="0dp"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_weight="1"-->
-            <!--                android:text="Checklist Item"-->
-            <!--                android:textColor="@android:color/black"/>-->
-
-            <!--            <EditText-->
-            <!--                android:layout_width="0dp"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_weight="1"-->
-            <!--                android:id="@+id/checklistItemEditText"/>-->
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
             android:layout_weight="0.1">
+
+            <!--Create Checklist Button-->
             <Button
                 android:id="@+id/createChecklist"
                 android:layout_width="0dp"
@@ -118,7 +105,7 @@
                 android:text="Create Checklist"
                 android:onClick="addList"
                 android:textColor="@android:color/white"
-                android:backgroundTint="#67BD24"/>
+                android:backgroundTint="#4D8FAC"/>
         </TableRow>
 
 

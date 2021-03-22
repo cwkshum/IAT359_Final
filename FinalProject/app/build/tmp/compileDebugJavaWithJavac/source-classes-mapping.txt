@@ -1,5 +1,3 @@
-com/example/finalproject/MyHelper.java
- com.example.finalproject.MyHelper
 com/example/finalproject/MainActivity.java
  com.example.finalproject.MainActivity
  com.example.finalproject.MainActivity$1
@@ -16,8 +14,6 @@ com/example/finalproject/ChecklistActivity.java
  com.example.finalproject.ChecklistActivity
  com.example.finalproject.ChecklistActivity$1
  com.example.finalproject.ChecklistActivity$2
-com/example/finalproject/ToDoModel.java
- com.example.finalproject.ToDoModel
 com/example/finalproject/BuildConfig.java
  com.example.finalproject.BuildConfig
 com/example/finalproject/AccountActivity.java
@@ -57,21 +53,13 @@ com/example/finalproject/SignupActivity.java
  com.example.finalproject.SignupActivity
 com/example/finalproject/BikewaysDatabaseHelper.java
  com.example.finalproject.BikewaysDatabaseHelper
-com/example/finalproject/MyAdapter.java
- com.example.finalproject.MyAdapter
- com.example.finalproject.MyAdapter$1
- com.example.finalproject.MyAdapter$MyViewHolder
 com/example/finalproject/ChecklistDatabaseHelper.java
  com.example.finalproject.ChecklistDatabaseHelper
-com/example/finalproject/DatabaseHandler.java
- com.example.finalproject.DatabaseHandler
 com/example/finalproject/ChecklistAdapter.java
  com.example.finalproject.ChecklistAdapter
  com.example.finalproject.ChecklistAdapter$MyViewHolder
 com/example/finalproject/DialogCloseListener.java
  com.example.finalproject.DialogCloseListener
-com/example/finalproject/LandmarkActivity.java
- com.example.finalproject.LandmarkActivity
 com/example/finalproject/ResourcesActivity.java
  com.example.finalproject.ResourcesActivity
 com/example/finalproject/RecyclerItemTouchHelper.java
@@ -83,3 +71,5 @@ com/example/finalproject/LandmarksActivity.java
 com/example/finalproject/LandingActivity.java
  com.example.finalproject.LandingActivity
  com.example.finalproject.LandingActivity$1
+ com.example.finalproject.LandingActivity$2
+ com.example.finalproject.LandingActivity$3

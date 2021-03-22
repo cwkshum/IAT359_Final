@@ -272,6 +272,10 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\menu_map_menu.xml.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\menu\\map_menu.xml"
+    },
+    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_add.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\add.png"
     },

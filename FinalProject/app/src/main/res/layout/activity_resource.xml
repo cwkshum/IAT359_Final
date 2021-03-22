@@ -35,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!--Sensor Data SubHeading-->
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -47,6 +48,7 @@
             android:layout_marginHorizontal="8dp"
             android:textStyle="bold" />
 
+        <!--Current Temperature Reading-->
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -71,6 +73,7 @@
             android:textColor="@android:color/black"
             android:textSize="14dp" />
 
+        <!--Current Air Pressure Reading-->
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -117,6 +120,7 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <!--Resources Heading-->
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -130,8 +134,6 @@
             android:textStyle="bold" />
 
         <!-- Bike Safety -->
-
-        <!-- Bike Laws -->
         <TableRow
             android:id="@+id/bikeSafety"
             android:layout_width="match_parent"
@@ -143,7 +145,7 @@
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
             >
-
+            <!-- Bike Safety Image -->
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -158,6 +160,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <!-- Bike Safety Subheading -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -170,6 +173,7 @@
                     android:textSize="16dp"
                     android:textStyle="bold" />
 
+                <!-- Bike Safety Description -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -182,6 +186,7 @@
             </LinearLayout>
         </TableRow>
 
+        <!-- Bike Laws-->
         <TableRow
             android:id="@+id/bikeLaws"
             android:layout_width="match_parent"
@@ -193,7 +198,7 @@
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
            >
-
+            <!-- Bike Law Image-->
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -208,6 +213,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <!-- Bike Laws Subheading-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -220,6 +226,7 @@
                     android:textColor="#67BD24"
                     android:textSize="16dp" />
 
+                <!-- Bike Laws Description-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -247,6 +254,7 @@
             android:paddingTop="20dp"
             android:paddingBottom="5dp">
 
+            <!-- City of Vancouver logo -->
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -261,6 +269,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <!-- City of Vancouver Subheading -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -273,6 +282,7 @@
                     android:textColor="#67BD24"
                     android:textSize="16dp" />
 
+                <!-- City of Vancouver description -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -285,6 +295,8 @@
             </LinearLayout>
         </TableRow>
 
+
+        <!--Navigation-->
         <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -292,7 +304,8 @@
         android:layout_marginTop="5dp"
         android:background="#4D8FAC">
 
-        <androidx.appcompat.widget.AppCompatButton
+            <!--Map Button-->
+            <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/mapNavigation"
             style="@style/box_sky_blue"
 
@@ -307,7 +320,8 @@
             android:textSize="10dp"
             app:backgroundTint="#4D8FAC" />
 
-        <androidx.appcompat.widget.AppCompatButton
+            <!--Checklist Button-->
+            <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/checklistNavigation"
             style="@style/box_sky_blue"
 
@@ -321,7 +335,8 @@
             android:textSize="10dp"
             app:backgroundTint="#4D8FAC" />
 
-        <androidx.appcompat.widget.AppCompatButton
+            <!--Resource Button-->
+            <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/resourcesNavigation"
             style="@style/box_sky_blue"
             android:layout_width="0dp"
@@ -335,7 +350,8 @@
             android:textSize="10dp"
             app:backgroundTint="#ffff" />
 
-        <androidx.appcompat.widget.AppCompatButton
+            <!--Account Button-->
+            <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/accountNavigation"
             style="@style/box_sky_blue"
             android:layout_width="0dp"

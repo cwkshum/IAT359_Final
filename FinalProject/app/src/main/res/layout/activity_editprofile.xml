@@ -38,16 +38,18 @@
             android:layout_height="0dp"
             android:layout_weight="0.5">
 
-            <!-- App Name -->
+            <!-- Edit Account Heading -->
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:paddingTop="10dp"
                 android:gravity="center_vertical"
                 android:paddingBottom="10dp"
                 android:text="Edit Account"
+                android:background="#4D8FAC"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
@@ -261,6 +263,7 @@
             android:layout_height="wrap_content"
             android:background="#4D8FAC">
 
+            <!--Map Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/mapNavigation"
                 style="@style/box_sky_blue"
@@ -276,6 +279,7 @@
                 android:textSize="10dp"
                 app:backgroundTint="#4D8FAC" />
 
+            <!--Checklist Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/checklistNavigation"
                 style="@style/box_sky_blue"
@@ -291,6 +295,7 @@
                 android:textSize="10dp"
                 app:backgroundTint="#4D8FAC" />
 
+            <!--Resources Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/resourcesNavigation"
                 style="@style/box_sky_blue"
@@ -305,6 +310,7 @@
                 android:textSize="10dp"
                 app:backgroundTint="#4D8FAC" />
 
+            <!--Account Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/accountNavigation"
                 style="@style/box_sky_blue"
@@ -313,7 +319,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_account"
                 android:gravity="center_horizontal"
-                android:text="Resources"
+                android:text="Account"
                 android:drawableTint="#4D8FAC"
                 android:textColor="#4D8FAC"
                 android:textSize="10dp"

@@ -197,6 +197,7 @@
             android:layout_marginTop="5dp"
             android:background="#4D8FAC">
 
+            <!-- Map Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/mapNavigation"
                 style="@style/box_sky_blue"
@@ -212,6 +213,7 @@
                 android:textSize="10dp"
                 app:backgroundTint="#ffff"  />
 
+            <!-- Checklist Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/checklistNavigation"
                 style="@style/box_sky_blue"
@@ -227,6 +229,7 @@
                 android:textSize="10dp"
                 app:backgroundTint="#4D8FAC" />
 
+            <!-- Resources Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/resourcesNavigation"
                 style="@style/box_sky_blue"
@@ -241,6 +244,7 @@
                 android:textSize="10dp"
                 app:backgroundTint="#4D8FAC" />
 
+            <!-- Account Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/accountNavigation"
                 style="@style/box_sky_blue"
@@ -258,68 +262,4 @@
 
     </TableLayout>
 </LinearLayout>
-
-
-<!--    &lt;!&ndash; Navigation &ndash;&gt;-->
-<!--<TableRow-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="match_parent"-->
-<!--android:layout_weight="0.8"-->
-<!--android:background="#4D8FAC">-->
-
-<!--<androidx.appcompat.widget.AppCompatButton-->
-<!--    android:layout_width="0dp"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:layout_weight="1"-->
-<!--    android:background="#ffff"-->
-<!--    android:drawableTop="@drawable/ic_landscape"-->
-<!--    android:gravity="center_horizontal"-->
-<!--    android:text="Map"-->
-<!--    android:textColor="@android:color/white"-->
-<!--    android:textSize="10dp"-->
-<!--    app:backgroundTint="#4D8FAC" />-->
-
-<!--<androidx.appcompat.widget.AppCompatButton-->
-<!--    android:id="@+id/checklistNavigation"-->
-<!--    style="@style/box_sky_blue"-->
-
-<!--    android:layout_width="0dp"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:layout_weight="1"-->
-<!--    android:drawableTop="@drawable/ic_checklist"-->
-<!--    android:gravity="center_horizontal"-->
-<!--    android:text="Checklist"-->
-
-<!--    android:textColor="@android:color/white"-->
-<!--    android:textSize="10dp"-->
-<!--    app:backgroundTint="#4D8FAC" />-->
-
-<!--<androidx.appcompat.widget.AppCompatButton-->
-<!--    android:id="@+id/resourcesNavigation"-->
-<!--    style="@style/box_sky_blue"-->
-<!--    android:layout_width="0dp"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:layout_weight="1"-->
-<!--    android:drawableTop="@drawable/ic_info"-->
-<!--    android:gravity="center_horizontal"-->
-<!--    android:text="Resources"-->
-
-<!--    android:textColor="@android:color/white"-->
-<!--    android:textSize="10dp"-->
-<!--    app:backgroundTint="#4D8FAC" />-->
-
-<!--<androidx.appcompat.widget.AppCompatButton-->
-<!--    android:id="@+id/accountNavigation"-->
-<!--    style="@style/box_sky_blue"-->
-<!--    android:layout_width="0dp"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:layout_weight="1"-->
-<!--    android:drawableTop="@drawable/ic_account"-->
-<!--    android:gravity="center_horizontal"-->
-<!--    android:text="Account"-->
-
-<!--    android:textColor="@android:color/white"-->
-<!--    android:textSize="10dp"-->
-<!--    app:backgroundTint="#4D8FAC" />-->
-<!--</TableRow>-->
 

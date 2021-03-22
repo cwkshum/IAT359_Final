@@ -32,6 +32,7 @@
                 android:src="@drawable/vancitycyclinglogo" />
         </TableRow>
 
+        <!-- User Checklist Heading -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -55,7 +56,7 @@
             android:layout_weight="4">
 
 
-
+            <!--Recycler view for checklist created-->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/table"
                 android:layout_width="match_parent"
@@ -73,6 +74,7 @@
 
         </TableRow>
 
+        <!--Button to create another checklist-->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addNewChecklistButton"
             android:layout_width="wrap_content"
@@ -81,7 +83,9 @@
             android:layout_marginBottom="28dp"
             android:clickable="true"
             android:focusable="true"
+            app:tint="@android:color/white"
             android:backgroundTint="#4D8FAC"
+            app:borderWidth="0dp"
             app:srcCompat="@drawable/add"/>
 
 
@@ -99,11 +103,14 @@
         <!--                android:textColor="@android:color/white"-->
         <!--                android:backgroundTint="#67BD24"/>-->
         <!--        </TableRow>-->
+
+        <!-- Navigation -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#4D8FAC">
 
+            <!-- Map Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/mapNavigation"
                 style="@style/box_sky_blue"
@@ -114,11 +121,12 @@
                 android:drawableTop="@drawable/ic_landscape"
                 android:gravity="center_horizontal"
                 android:text="Map"
-                android:drawableTint="#ffff"
-                android:textColor="#ffff"
-                android:textSize="10dp"
-                app:backgroundTint="#4D8FAC"  />
 
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC" />
+
+            <!-- Checklist Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/checklistNavigation"
                 style="@style/box_sky_blue"
@@ -134,6 +142,7 @@
                 android:textSize="10dp"
                 app:backgroundTint="#ffff" />
 
+            <!-- Resources Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/resourcesNavigation"
                 style="@style/box_sky_blue"
@@ -148,6 +157,7 @@
                 android:textSize="10dp"
                 app:backgroundTint="#4D8FAC" />
 
+            <!-- Account Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/accountNavigation"
                 style="@style/box_sky_blue"
@@ -157,8 +167,8 @@
                 android:drawableTop="@drawable/ic_account"
                 android:gravity="center_horizontal"
                 android:text="Account"
-
-                android:textColor="@android:color/white"
+                android:drawableTint="#ffff"
+                android:textColor="#ffff"
                 android:textSize="10dp"
                 app:backgroundTint="#4D8FAC" />
         </TableRow>

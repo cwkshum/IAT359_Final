@@ -7,11 +7,13 @@
     android:layout_height="wrap_content"
     android:id="@+id/listLayout">
 
+    <!--Checklist row layout-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp">
 
+        <!--Checklist row number-->
         <TextView
             android:id="@+id/checklist_id_txt"
             android:layout_width="wrap_content"
@@ -24,6 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--Checklist row name-->
         <TextView
             android:id="@+id/checklistName_txt"
             android:layout_width="wrap_content"
@@ -37,6 +40,7 @@
             app:layout_constraintStart_toEndOf="@+id/checklist_id_txt"
             app:layout_constraintTop_toTopOf="@+id/checklist_id_txt" />
 
+        <!--Checklist row description-->
         <TextView
             android:id="@+id/checklistDescription_txt"
             android:layout_width="wrap_content"
@@ -49,7 +53,7 @@
             app:layout_constraintStart_toStartOf="@+id/checklist_id_txt"
             app:layout_constraintTop_toTopOf="@+id/checklist_id_txt" />
 
-
+        <!--Checklist row edit checklist button-->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/editChecklistButton"
             android:layout_width="wrap_content"
@@ -57,6 +61,7 @@
             android:layout_marginLeft="300dp"
             android:clickable="true"
             android:focusable="true"
+            app:tint="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -64,6 +69,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.208"
             android:backgroundTint="#4D8FAC"
+            app:borderWidth="0dp"
             app:srcCompat="@drawable/ic_baseline_edit_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -76,81 +82,3 @@
 
     </androidx.cardview.widget.CardView>
 </LinearLayout>
-
-    <!--    <TableLayout-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        android:layout_weight="1"-->
-    <!--        android:orientation="vertical">-->
-
-    <!--        <TableRow-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:layout_weight="0.0"-->
-    <!--            android:background="#008039"-->
-    <!--            android:paddingTop="20dp"-->
-    <!--            android:paddingBottom="0dp"-->
-    <!--            android:layout_marginBottom="5dp">-->
-
-    <!--            <LinearLayout-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:orientation="vertical">-->
-
-    <!--                <TextView-->
-    <!--                    android:id="@+id/checklistNameEditText"-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_weight="1"-->
-    <!--                    android:gravity="center_vertical"-->
-    <!--                    android:text="CheckList Name"-->
-    <!--                    android:paddingLeft="10dp"-->
-    <!--                    android:textColor="@android:color/white"-->
-    <!--                    android:textStyle="bold"-->
-    <!--                    android:textSize="16dp" />-->
-
-    <!--                <TextView-->
-    <!--                    android:id="@+id/checklistDescriptionEditText"-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:layout_weight="1"-->
-    <!--                    android:gravity="center_vertical"-->
-    <!--                    android:paddingLeft="10dp"-->
-    <!--                    android:text="Checklist Description"-->
-    <!--                    android:textColor="@android:color/white"-->
-    <!--                    android:textSize="10dp" />-->
-
-
-    <!--            </LinearLayout>-->
-    <!--            <LinearLayout-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:orientation="horizontal">-->
-    <!--            <Button-->
-    <!--                android:drawableTop="@drawable/ic_delete"-->
-    <!--                android:layout_marginLeft="150dp"-->
-    <!--                android:layout_marginBottom="10dp"-->
-    <!--                android:id="@+id/deleteButton"-->
-    <!--                android:layout_width="40dp"-->
-    <!--                android:layout_height="40dp"-->
-    <!--                android:background="@drawable/circle_button"-->
-    <!--                />-->
-    <!--            <Button-->
-    <!--                android:drawableTop="@drawable/ic_baseline_edit_24"-->
-    <!--                android:layout_marginLeft="20dp"-->
-    <!--                android:layout_marginBottom="10dp"-->
-    <!--                android:id="@+id/editButton"-->
-    <!--                android:layout_width="40dp"-->
-    <!--                android:layout_height="40dp"-->
-    <!--                android:onClick="editList"-->
-    <!--                android:background="@drawable/circle_button"-->
-    <!--                />-->
-
-    <!--            </LinearLayout>-->
-
-    <!--        </TableRow>-->
-
-
-    <!--    </TableLayout>-->
-
-    <!--</LinearLayout>-->

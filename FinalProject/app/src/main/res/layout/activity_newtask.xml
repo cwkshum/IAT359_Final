@@ -3,6 +3,7 @@
     android:layout_height="wrap_content"
     android:padding="16dp">
 
+    <!--add new task text area-->
     <EditText
         android:id="@+id/newTaskText"
         android:layout_width="match_parent"
@@ -11,6 +12,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:hint="New Task" />
 
+    <!--Add New Task Button-->
     <Button
         android:id="@+id/newTaskButton"
         android:layout_width="wrap_content"

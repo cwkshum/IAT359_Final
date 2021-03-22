@@ -171,6 +171,7 @@
             android:layout_height="wrap_content"
             android:background="#4D8FAC">
 
+            <!--Map Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/mapNavigation"
                 style="@style/box_sky_blue"
@@ -186,6 +187,7 @@
                 android:textSize="10dp"
                 app:backgroundTint="#ffff"  />
 
+            <!--Checklist Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/checklistNavigation"
                 style="@style/box_sky_blue"
@@ -201,6 +203,7 @@
                 android:textSize="10dp"
                 app:backgroundTint="#4D8FAC" />
 
+            <!--Resource Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/resourcesNavigation"
                 style="@style/box_sky_blue"
@@ -215,6 +218,7 @@
                 android:textSize="10dp"
                 app:backgroundTint="#4D8FAC" />
 
+            <!--Account Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/accountNavigation"
                 style="@style/box_sky_blue"

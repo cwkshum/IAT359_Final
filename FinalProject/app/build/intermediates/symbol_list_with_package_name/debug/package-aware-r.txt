@@ -1890,6 +1890,7 @@ id chip_group
 id chronometer
 id circle_center
 id cityVan
+id clearRoute
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -1996,6 +1997,7 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id image_description
 id image_name
 id info
 id invisible
@@ -2024,6 +2026,10 @@ id loginButton
 id logout
 id map
 id mapNavigation
+id mapTypeHybrid
+id mapTypeNormal
+id mapTypeSatellite
+id mapTypeTerrain
 id masked
 id material_clock_display
 id material_clock_face
@@ -2096,7 +2102,6 @@ id on
 id outline
 id outward
 id packed
-id pages_input2
 id parallax
 id parent
 id parentPanel
@@ -2420,6 +2425,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu map_menu
 menu my_menu
 menu nav_menu
 mipmap ic_launcher

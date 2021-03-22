@@ -23,11 +23,13 @@ public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAd
 
     private ArrayList<String> mImageNames = new ArrayList<>();
     private ArrayList<String> mImages = new ArrayList<>();
+    private ArrayList<String> mDescription = new ArrayList<>();
     private Context mContext;
 
-    public FavouriteRouteAdapter(Context context, ArrayList<String> imageNames, ArrayList<String> images ) {
+    public FavouriteRouteAdapter(Context context, ArrayList<String> imageNames, ArrayList<String> images, ArrayList<String> descriptions) {
         mImageNames = imageNames;
         mImages = images;
+        mDescription = descriptions;
         mContext = context;
     }
 
@@ -48,6 +50,7 @@ public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAd
                 .into(holder.image);
 
         holder.imageName.setText(mImageNames.get(position));
+        holder.imageDescription.setText(mDescription.get(position));
 
 //        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -74,12 +77,14 @@ public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAd
 
         ImageView image;
         TextView imageName;
+        TextView imageDescription;
         RelativeLayout parentLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
             imageName = itemView.findViewById(R.id.image_name);
+            imageDescription = itemView.findViewById(R.id.image_description);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }
     }

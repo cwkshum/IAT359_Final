@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 public class AccountActivity extends Activity implements View.OnClickListener {
     private ArrayList<String> mNames = new ArrayList<>();
+    private ArrayList<String> mDescription = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
 
     private TextView nameHeader, userHeader, emailHeader;
@@ -93,14 +94,19 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 
     // Placeholder RecyclerView for Favourite Routes to be implemented for Milestone 3
     private void initImageBitmaps(){
-        mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
-        mNames.add("Havasu Falls");
+        mImageUrls.add("https://cdn.shopify.com/s/files/1/0019/7073/3109/files/seawall_1024x1024.jpg?v=1528253110");
+        mNames.add("Stanley Park");
+        mDescription.add("Scenic Route that takes bikers across Stanley Park where they can view the beautiful Stanley Park Bike ways");
 
-        mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
-        mNames.add("Trondheim");
+        mImageUrls.add("https://liv.rent/blog/wp-content/uploads/2019/06/2018-07-25-10.32.28-1-compressor.jpg");
+        mNames.add("Sunset Beach");
+        mDescription.add("Ride Along the shores of Sunset Beach! This bike route is a great start for first time riders with an amazing view of BC's Coast.");
 
-        mImageUrls.add("https://i.redd.it/qn7f9oqu7o501.jpg");
-        mNames.add("Portugal");
+
+        mImageUrls.add("https://www.letsgobiking.net/wp-content/uploads/2010/03/IMG_1660.jpg");
+        mNames.add("Queen Elizabeth Park");
+        mDescription.add("This route follows five Vancouver Greenways and is the highest spot in the city Making  it great for experienced bikers");
+
 
 
         initRecyclerView();
@@ -109,7 +115,7 @@ public class AccountActivity extends Activity implements View.OnClickListener {
     // Placeholder RecyclerView for Favourite Routes to be implemented for Milestone 3
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        FavouriteRouteAdapter adapter = new FavouriteRouteAdapter(this, mNames, mImageUrls);
+        FavouriteRouteAdapter adapter = new FavouriteRouteAdapter(this, mNames, mImageUrls, mDescription);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

@@ -33,52 +33,60 @@
         </TableRow>
     </TableLayout>
 
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Section Header -->
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="center_vertical"
+            android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="Account"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:background="#4D8FAC"
+            android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold" />
 
 
     </TableLayout>
 
+    <!-- Profile Picture Image -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
+        android:paddingTop="10dp"
         android:maxWidth="90dp"
         android:maxHeight="90dp"
         android:scaleType="fitCenter"
         android:src="@drawable/profile" />
 
+    <!-- Users Full name -->
     <TextView
         android:id="@+id/name"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textSize="24dp"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name"
         android:textColor="@color/black"
-
         android:textAlignment="center" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-android:gravity="center"
+        android:gravity="center"
         >
 
+        <!-- Username and email-->
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
@@ -103,12 +111,12 @@ android:gravity="center"
 
     </LinearLayout>
 
-
+    <!-- Favourite Routes Subheading -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:paddingTop="20dp"
+        android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:text="Favourite Routes"
@@ -120,6 +128,7 @@ android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Recycler View for favourite routes -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
@@ -136,8 +145,10 @@ android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
         android:layout_gravity="center">
 
+        <!-- Edit Button and Logout Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/editinfo"
             android:layout_width="wrap_content"
@@ -162,6 +173,7 @@ android:gravity="center"
         android:layout_height="wrap_content"
         android:background="#4D8FAC">
 
+        <!-- Map Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/mapNavigation"
             style="@style/box_sky_blue"
@@ -177,6 +189,7 @@ android:gravity="center"
             android:textSize="10dp"
             app:backgroundTint="#4D8FAC" />
 
+        <!-- Checklist Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/checklistNavigation"
             style="@style/box_sky_blue"
@@ -192,6 +205,7 @@ android:gravity="center"
             android:textSize="10dp"
             app:backgroundTint="#4D8FAC" />
 
+        <!-- Resources Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/resourcesNavigation"
             style="@style/box_sky_blue"
@@ -206,6 +220,7 @@ android:gravity="center"
             android:textSize="10dp"
             app:backgroundTint="#4D8FAC" />
 
+        <!-- Account Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/accountNavigation"
             style="@style/box_sky_blue"
@@ -221,7 +236,5 @@ android:gravity="center"
             app:backgroundTint="#ffff" />
     </TableRow>
 
-
-    <!-- Resource Links Section -->
 
 </LinearLayout>

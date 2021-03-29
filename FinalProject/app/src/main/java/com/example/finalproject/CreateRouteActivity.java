@@ -11,6 +11,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -374,6 +375,13 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
     }
 
 
+    private void hideSoftKeyboard(View v) {
+        // hide keyboard
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+    }
+
+
     @Override
     public void onClick(View view) {
 
@@ -426,6 +434,9 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
 
         // Find route button
         if(view.getId() == R.id.findRouteButton) {
+
+            // hide keyboard
+            hideSoftKeyboard(view);
 
             // Get the start point entered by the user
             startPoint = startPointInput.getText().toString();

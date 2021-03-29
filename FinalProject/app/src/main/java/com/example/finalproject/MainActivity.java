@@ -3,6 +3,7 @@ package com.example.finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import android.Manifest;
 import android.app.Activity;
@@ -12,12 +13,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,12 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // username input
-        usernameInput = (EditText) findViewById(R.id.usernameInput);
-
-        // password input
-        passwordInput = (EditText) findViewById(R.id.passwordInput);
-
         // login button
         loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.setOnClickListener(this);
@@ -44,6 +45,107 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // sign up button
         signupButton = (Button) findViewById(R.id.signupButton);
         signupButton.setOnClickListener(this);
+
+        // username input
+        usernameInput = (EditText) findViewById(R.id.usernameInput);
+        // password input
+        passwordInput = (EditText) findViewById(R.id.passwordInput);
+
+        // username input
+        usernameInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Fires right as the text is being changed (even supplies the range of text)
+                if(s.toString().equals("")){
+                    // if noting has been entered, login button is not activated
+                    loginButton.setEnabled(false);
+                    loginButton.setTextColor(getResources().getColor(R.color.accent_green));
+                    Drawable loginButtonDrawable = loginButton.getBackground();
+                    loginButtonDrawable = DrawableCompat.wrap(loginButtonDrawable);
+                    DrawableCompat.setTint(loginButtonDrawable, getResources().getColor(R.color.white));
+                    loginButton.setBackground(loginButtonDrawable);
+
+                    signupButton.setTextColor(getResources().getColor(R.color.white));
+                    Drawable signupButtonDrawable = signupButton.getBackground();
+                    signupButtonDrawable = DrawableCompat.wrap(signupButtonDrawable);
+                    DrawableCompat.setTint(signupButtonDrawable, getResources().getColor(R.color.accent_green));
+                    signupButton.setBackground(signupButtonDrawable);
+                }
+                else{
+                    // if text has been entered, login button is activated
+                    loginButton.setEnabled(true);
+                    loginButton.setTextColor(getResources().getColor(R.color.white));
+                    Drawable loginButtonDrawable = loginButton.getBackground();
+                    loginButtonDrawable = DrawableCompat.wrap(loginButtonDrawable);
+                    DrawableCompat.setTint(loginButtonDrawable, getResources().getColor(R.color.accent_green));
+                    loginButton.setBackground(loginButtonDrawable);
+
+                    signupButton.setTextColor(getResources().getColor(R.color.accent_green));
+                    Drawable signupButtonDrawable = signupButton.getBackground();
+                    signupButtonDrawable = DrawableCompat.wrap(signupButtonDrawable);
+                    DrawableCompat.setTint(signupButtonDrawable, getResources().getColor(R.color.white));
+                    signupButton.setBackground(signupButtonDrawable);
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Fires right before text is changing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Fires right after the text has changed
+            }
+        });
+
+        // password input
+        passwordInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Fires right as the text is being changed (even supplies the range of text)
+                if(s.toString().equals("")){
+                    // if noting has been entered, login button is not activated
+                    loginButton.setEnabled(false);
+                    loginButton.setTextColor(getResources().getColor(R.color.accent_green));
+                    Drawable loginButtonDrawable = loginButton.getBackground();
+                    loginButtonDrawable = DrawableCompat.wrap(loginButtonDrawable);
+                    DrawableCompat.setTint(loginButtonDrawable, getResources().getColor(R.color.white));
+                    loginButton.setBackground(loginButtonDrawable);
+
+                    signupButton.setTextColor(getResources().getColor(R.color.white));
+                    Drawable signupButtonDrawable = signupButton.getBackground();
+                    signupButtonDrawable = DrawableCompat.wrap(signupButtonDrawable);
+                    DrawableCompat.setTint(signupButtonDrawable, getResources().getColor(R.color.accent_green));
+                    signupButton.setBackground(signupButtonDrawable);
+                }
+                else{
+                    // if text has been entered, login button is activated
+                    loginButton.setEnabled(true);
+                    loginButton.setTextColor(getResources().getColor(R.color.white));
+                    Drawable loginButtonDrawable = loginButton.getBackground();
+                    loginButtonDrawable = DrawableCompat.wrap(loginButtonDrawable);
+                    DrawableCompat.setTint(loginButtonDrawable, getResources().getColor(R.color.accent_green));
+                    loginButton.setBackground(loginButtonDrawable);
+
+                    signupButton.setTextColor(getResources().getColor(R.color.accent_green));
+                    Drawable signupButtonDrawable = signupButton.getBackground();
+                    signupButtonDrawable = DrawableCompat.wrap(signupButtonDrawable);
+                    DrawableCompat.setTint(signupButtonDrawable, getResources().getColor(R.color.white));
+                    signupButton.setBackground(signupButtonDrawable);
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Fires right before text is changing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Fires right after the text has changed
+            }
+        });
 
         // check if the application has permission to use the user's current location
         checkLocationPermission();
@@ -130,6 +232,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return false;
         } else {
             return true;
+        }
+    }
+    
+     @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // location-related task you need to do.
+                    if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    }
+
+                } else {
+                    // permission denied - Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+
         }
     }
 }

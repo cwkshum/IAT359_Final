@@ -2,8 +2,10 @@ package com.example.finalproject;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Address;
@@ -49,6 +51,8 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     private Button checklistNavigation, resourcesNavigation, accountNavigation;
 
+    private Integer mapView;
+
     // coordinates for Vancouver, BC
     private static final double VANCOUVER_LAT = 49.277549, VANCOUVER_LNG = -123.123921;
 
@@ -92,6 +96,9 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     public void onMapReady(GoogleMap map) {
         myMap = map;
 
+        getMapView();
+        myMap.setMapType(mapView);
+
         // check if application has permission to use device location
         checkLocationPermission();
 
@@ -118,8 +125,12 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                     String endPoint = data.getExtras().getString(CreateRouteActivity.END_POINT);
                     ArrayList<LatLng> routePoints = data.getExtras().getParcelableArrayList(CreateRouteActivity.ROUTE_POINTS);
 
-                    // call method to draw markers and route
-                    geolocate(startPoint, endPoint, routePoints);
+                    if((startPoint != null) && (endPoint != null) && (routePoints != null)){
+                        // call method to draw markers and route
+                        geolocate(startPoint, endPoint, routePoints);
+                    } else{
+                        Toast.makeText(this, "There was an error starting route. Please try again.", Toast.LENGTH_SHORT).show();
+                    }
 
                 }
             }
@@ -147,7 +158,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         double startLat = 0, startLng = 0, endLat = 0, endLng = 0;
 
-        if (startList.size() > 0 && startList != null) {
+        if (startList.size() > 0 || startList != null) {
             Address add = startList.get(0);
             String locality = add.getLocality();
 
@@ -163,7 +174,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             myMap.addMarker(options);
         }
 
-        if (endList.size() > 0 && endList != null) {
+        if (endList.size() > 0 || endList != null) {
             Address add = endList.get(0);
             String locality = add.getLocality();
 
@@ -178,11 +189,14 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             myMap.addMarker(options);
         }
 
+
+        Toast.makeText(getApplicationContext(), "Coordinates: " + routePoints.get(0) + " " + routePoints.get(1), Toast.LENGTH_SHORT).show();
+
         lineOptions = new PolylineOptions();
         // Adding all the points in the route to LineOptions
         lineOptions.addAll(routePoints);
         lineOptions.width(6);
-        lineOptions.color(Color.BLUE);
+        lineOptions.color(getResources().getColor(R.color.accent_blue));
 
         // Drawing polyline in the Google Map for the selected route
         myMap.addPolyline(lineOptions);
@@ -198,7 +212,15 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onMyLocationClick(@NonNull Location location) {
         // Current location marker was clicked
-        Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
+        Geocoder myGeocoder = new Geocoder(this);
+
+        // Display current address
+        try {
+            List<Address> myLocation = myGeocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+            Toast.makeText(this, "Current Location: " + myLocation.get(0).getAddressLine(0), Toast.LENGTH_LONG).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -281,21 +303,25 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         if(item.getItemId() == R.id.mapTypeHybrid){
             // change map type
             myMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+            saveData(4);
         }
 
         if(item.getItemId() == R.id.mapTypeTerrain){
             // change map type
             myMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+            saveData(3);
         }
 
         if(item.getItemId() == R.id.mapTypeSatellite){
             // change map type
             myMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+            saveData(2);
         }
 
         if(item.getItemId() == R.id.mapTypeNormal){
             // change map type
             myMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            saveData(1);
         }
 
         if(item.getItemId() == R.id.clearRoute){
@@ -337,6 +363,21 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         // show alert
         builder.create().show();
+    }
+
+
+    public void getMapView(){
+        // retrieve data from preferences
+        SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        mapView = sharedPrefs.getInt("mapView", 1);
+    }
+
+    public void saveData(Integer mapView){
+        // Save user information to preferences
+        SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        editor.putInt("mapView", mapView);
+        editor.commit();
     }
 
     @Override

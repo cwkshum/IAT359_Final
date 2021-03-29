@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:paddingStart="8dp"
-            android:buttonTint="#4D8FAC"
+            android:buttonTint="@color/accent_green"
             tools:text="task to complete"
             android:paddingLeft="8dp" />
 

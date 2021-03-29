@@ -10,7 +10,8 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="5">
+        android:layout_weight="5"
+        android:layout_marginHorizontal="8dp">
 
         <TableRow
             android:gravity="center_horizontal|center_vertical"
@@ -36,18 +37,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingLeft="20dp"
+            android:paddingLeft="60dp"
             android:paddingRight="60dp">
-
-            <!-- Username Label -->
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="20dp"
-                android:text="Username"
-                android:textSize="14dp"
-                android:textStyle="bold" />
 
             <!-- Username Input -->
             <EditText
@@ -55,25 +46,17 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingLeft="20dp"
-                android:textSize="14dp"/>
+                android:layout_gravity="center"
+                android:textSize="14dp"
+                android:hint="Username"
+                android:backgroundTint="@color/accent_blue"/>
         </TableRow>
 
         <TableRow
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:paddingLeft="20dp"
+            android:paddingLeft="60dp"
             android:paddingRight="60dp">
-
-            <!-- Password Label -->
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="20dp"
-                android:text="Password"
-                android:textSize="14dp"
-                android:textStyle="bold" />
 
             <!-- password Input -->
             <EditText
@@ -81,8 +64,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingLeft="20dp"
-                android:textSize="14dp"/>
+                android:textSize="14dp"
+                android:hint="Password"
+                android:backgroundTint="@color/accent_blue"/>
         </TableRow>
 
         <!-- Buttons -->
@@ -101,7 +85,7 @@
                 <TableRow
                     android:layout_height="0dp"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="0.5">
 
                     <!--Login Button-->
                     <Button
@@ -111,8 +95,11 @@
                         android:layout_weight="1"
                         android:text="Login"
                         android:textSize="10dp"
-                        android:backgroundTint="#4D8FAC"
-                        android:textColor="@android:color/white"/>
+                        android:backgroundTint="@color/white"
+                        android:textColor="@color/accent_green"
+                        app:strokeColor="@color/accent_green"
+                        app:strokeWidth="2dp"
+                        android:stateListAnimator="@null"/>
                 </TableRow>
 
 
@@ -128,8 +115,11 @@
                         android:layout_weight="1"
                         android:text="Sign up"
                         android:textSize="10dp"
-                        android:textColor="@android:color/white"
-                        android:backgroundTint="#67BD24"/>
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/accent_green"
+                        app:strokeColor="@color/accent_green"
+                        app:strokeWidth="2dp"
+                        android:stateListAnimator="@null"/>
                 </TableRow>
             </TableLayout>
         </TableRow>

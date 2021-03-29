@@ -10,105 +10,88 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       >
+        android:layout_margin="1.5dp"
+        android:layout_marginHorizontal="8dp">
 
-        <!-- Logo -->
         <TableRow
-            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.5">
+
+            <!-- Section Header -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Account"
+                android:textColor="@color/accent_blue"
+                android:textStyle="bold"
+                android:textSize="22dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical">
 
-            <!-- Logo Image -->
+            <!-- Profile Picture Image -->
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:maxWidth="80dp"
-                android:maxHeight="80dp"
+                android:paddingTop="10dp"
+                android:maxWidth="90dp"
+                android:maxHeight="90dp"
                 android:scaleType="fitCenter"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/vancitycyclinglogo" />
+                android:src="@drawable/profile"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical">
+
+            <!-- Users Full name -->
+            <TextView
+                android:id="@+id/name"
+                android:layout_marginTop="10dp"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Full Name"
+                android:textColor="@color/black"
+                android:gravity="center_horizontal"/>
         </TableRow>
     </TableLayout>
-
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <!-- Section Header -->
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="center_vertical"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="Account"
-            android:textAlignment="center"
-            android:background="#4D8FAC"
-            android:textColor="@color/white"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-
-    </TableLayout>
-
-    <!-- Profile Picture Image -->
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:paddingTop="10dp"
-        android:maxWidth="90dp"
-        android:maxHeight="90dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/profile" />
-
-    <!-- Users Full name -->
-    <TextView
-        android:id="@+id/name"
-        android:layout_marginTop="10dp"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:textColor="@color/black"
-        android:textAlignment="center" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center"
-        >
+        android:gravity="center">
 
         <!-- Username and email-->
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="user"
-
-            />
+            android:text="user" />
 
         <TextView
             android:id="@+id/line"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="    |    "
-            />
+            android:text="    |    " />
 
         <TextView
             android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="email"
-           />
-
+            android:text="email" />
     </LinearLayout>
 
     <!-- Favourite Routes Subheading -->
@@ -118,9 +101,9 @@
         android:gravity="center_vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:paddingLeft="10dp"
+        android:layout_marginHorizontal="8dp"
         android:text="Favourite Routes"
-        android:textColor="@color/black"
+        android:textColor="@color/accent_blue"
         android:textSize="18dp"
         android:textStyle="bold" />
 
@@ -132,12 +115,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-
             android:layout_marginBottom="5dp"
-            android:layout_height="272dp"
-            />
-
-
+            android:layout_height="272dp" />
     </TableRow>
 
     <LinearLayout
@@ -148,23 +127,26 @@
         android:layout_marginBottom="5dp"
         android:layout_gravity="center">
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/accent_green"
+            app:strokeColor="@color/accent_green"
+            app:strokeWidth="2dp"
+            android:text="Log Out"></androidx.appcompat.widget.AppCompatButton>
+
         <!-- Edit Button and Logout Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/editinfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:textColor="#ffff"
-            android:backgroundTint="#4D8FAC"
-            android:text="Edit Info"></androidx.appcompat.widget.AppCompatButton>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#4D8FAC"
-            android:textColor="#ffff"
-            android:text="Log Out"></androidx.appcompat.widget.AppCompatButton>
+            android:layout_marginLeft="4dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/accent_green"
+            android:text="Edit Account"></androidx.appcompat.widget.AppCompatButton>
     </LinearLayout>
 
     <!-- Navigation -->

@@ -34,7 +34,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5">
+            android:layout_weight="0.3">
 
             <!--Create Checklist Heading-->
             <TextView
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Create New Checklist"
-                android:textSize="22dp"
+                android:textSize="24dp"
                 android:textStyle="bold"
                 android:textColor="#4D8FAC"/>
         </TableRow>
@@ -52,7 +52,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="0.2">
 
             <!--Checklist Name-->
             <TextView
@@ -60,20 +60,28 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Checklist Name"
-                android:textColor="@android:color/black"/>
-
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/checklistNameEditText"/>
-
+                android:textStyle="bold"
+                android:textColor="@color/accent_blue"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="0.5">
+
+            <!--Checklist Name-->
+            <EditText
+                android:id="@+id/checklistNameEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/accent_blue"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2">
 
             <!--Checklist Description-->
             <TextView
@@ -81,20 +89,29 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Checklist Description"
-                android:textColor="@android:color/black"/>
-
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/checklistDescriptionEditText"/>
-
+                android:textStyle="bold"
+                android:textColor="@color/accent_blue"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1">
+            android:layout_weight="0.5">
+
+            <!--Checklist Description-->
+            <EditText
+                android:id="@+id/checklistDescriptionEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/accent_blue"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:layout_marginHorizontal="50dp">
 
             <!--Create Checklist Button-->
             <Button
@@ -105,7 +122,8 @@
                 android:text="Create Checklist"
                 android:onClick="addList"
                 android:textColor="@android:color/white"
-                android:backgroundTint="#4D8FAC"/>
+                android:backgroundTint="@color/accent_green"
+                android:stateListAnimator="@null"/>
         </TableRow>
 
 

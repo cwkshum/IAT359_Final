@@ -1,7 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="7">
+
+        <!-- Logo -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_weight="1">
+
+            <!-- Logo Image -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="80dp"
+                android:maxHeight="80dp"
+                android:scaleType="fitCenter"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/vancitycyclinglogo" />
+        </TableRow>
+
+        <!-- Map Navigation Tabs-->
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.2"
+            android:background="#4D8FAC"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <!-- Landmarks -->
+            <TextView
+                android:id="@+id/landmarksNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Landmarks"
+                android:textSize="12dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"/>
+
+            <!-- Create Route -->
+            <TextView
+                android:id="@+id/createRouteNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Create Route"
+                android:textSize="12dp"
+                android:textColor="@color/accent_inactive"
+                android:gravity="center_horizontal"/>
+
+            <!-- Popular Routes -->
+            <TextView
+                android:id="@+id/popularRoutesNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Popular Routes"
+                android:textSize="12dp"
+                android:textColor="#C2CDD1"
+                android:gravity="center_horizontal"/>
+        </TableRow>
+
+        <!-- Activity Content-->
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="5"
+            android:layout_marginHorizontal="8dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="6">
+
+                <!-- Search Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.25"
+                    android:layout_marginTop="10dp">
+
+                    <!-- Search Input -->
+                    <EditText
+                        android:id="@+id/searchInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="14dp"
+                        android:hint="Landmark search"
+                        android:backgroundTint="@color/accent_blue"/>
+
+                    <Button
+                        android:id="@+id/searchButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:layout_marginLeft="15dp"
+                        android:text="Search"
+                        android:textSize="10dp"
+                        android:backgroundTint="@color/accent_green"
+                        android:textColor="@android:color/white"
+                        android:stateListAnimator="@null"/>
+                </TableRow>
+
+
+                <!-- Available Routes Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.25">
+
+                    <!-- Available Routes Label -->
+                    <TextView
+                        android:id="@+id/landmarksHeading"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingBottom="20dp"
+                        android:textSize="14dp"
+                        android:textColor="@color/accent_blue"
+                        android:textStyle="bold"
+                        android:text="Landmark Results"/>
+                </TableRow>
+
+                <!-- Available Routes -->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_weight="5.25">
+
+                    <!-- RecyclerView -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/table"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"/>
+                </TableRow>
+            </TableLayout>
+
+        </TableRow>
+
+
+        <!-- Navigation -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4D8FAC">
+
+            <!--Map Button-->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/mapNavigation"
+                style="@style/box_sky_blue"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_outline_landscape"
+                android:gravity="center_horizontal"
+                android:text="Map"
+
+                android:drawableTint="@color/accent_inactive"
+                android:textColor="@color/accent_inactive"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"/>
+
+            <!--Checklist Button-->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/checklistNavigation"
+                style="@style/box_sky_blue"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_outline_checklist"
+                android:gravity="center_horizontal"
+                android:text="Checklist"
+
+                android:drawableTint="@color/accent_inactive"
+                android:textColor="@color/accent_inactive"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"/>
+
+            <!--Resources Button-->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/resourcesNavigation"
+                style="@style/box_sky_blue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_outline_info"
+                android:gravity="center_horizontal"
+                android:text="Resources"
+
+                android:drawableTint="@color/accent_inactive"
+                android:textColor="@color/accent_inactive"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"/>
+
+            <!--Account Button-->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/accountNavigation"
+                style="@style/box_sky_blue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_outline_account"
+                android:gravity="center_horizontal"
+                android:text="Account"
+                android:drawableTint="@color/accent_inactive"
+                android:textColor="@color/accent_inactive"
+                android:textSize="10dp"
+                app:backgroundTint="@color/accent_blue"
+                android:stateListAnimator="@null"/>
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
+

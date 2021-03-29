@@ -12,54 +12,42 @@
         android:layout_height="0dip"
         android:layout_weight="5">
 
+        <TableRow
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_height="0dp"
+            android:layout_weight="0.2">
+
+            <!-- Edit Account Heading -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="10dp"
+                android:gravity="center_horizontal"
+                android:text="Edit Account"
+                android:textColor="@color/accent_blue"
+                android:textSize="22dp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
         <!-- Logo -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:gravity="center_horizontal|center_vertical"
-            android:layout_weight="0.5"
-            >
+            android:layout_weight="0.3">
 
             <!-- Logo Image -->
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:maxWidth="80dp"
-                android:maxHeight="80dp"
+                android:maxWidth="90dp"
+                android:maxHeight="90dp"
                 android:scaleType="fitCenter"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/vancitycyclinglogo" />
+                android:src="@drawable/profile" />
         </TableRow>
-
-        <TableRow
-            android:gravity="center_horizontal|center_vertical"
-            android:layout_height="0dp"
-            android:layout_weight="0.5">
-
-            <!-- Edit Account Heading -->
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:paddingTop="10dp"
-                android:gravity="center_vertical"
-                android:paddingBottom="10dp"
-                android:text="Edit Account"
-                android:background="#4D8FAC"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-        </TableRow>
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
 
         <!-- Signup Section-->
         <TableRow
@@ -228,102 +216,20 @@
         <TableRow
             android:layout_height="0dp"
             android:layout_width="wrap_content"
-            android:layout_weight="1" >
+            android:layout_weight="0.5"
+            android:layout_marginHorizontal="80dp">
 
-            <TableLayout
+            <!-- Signup Button -->
+            <Button
+                android:id="@+id/updateprofileButton"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:paddingLeft="70dp"
-                android:paddingRight="70dp">
-
-                <TableRow
-                    android:layout_height="0dp"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1">
-
-                    <!-- Signup Button -->
-                    <Button
-                        android:id="@+id/updateprofileButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Save"
-                        android:textSize="10dp"
-                        android:backgroundTint="#4D8FAC"
-                        android:textColor="@android:color/white"/>
-                </TableRow>
-
-
-            </TableLayout>
-        </TableRow>
-        <!-- Navigation -->
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#4D8FAC">
-
-            <!--Map Button-->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/mapNavigation"
-                style="@style/box_sky_blue"
-
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_landscape"
-                android:gravity="center_horizontal"
-                android:text="Map"
-
+                android:text="Save"
+                android:textSize="10dp"
+                android:backgroundTint="@color/accent_green"
                 android:textColor="@android:color/white"
-                android:textSize="10dp"
-                app:backgroundTint="#4D8FAC" />
-
-            <!--Checklist Button-->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/checklistNavigation"
-                style="@style/box_sky_blue"
-
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableTop="@drawable/ic_checklist"
-                android:gravity="center_horizontal"
-                android:text="Checklist"
-
-                android:textColor="@android:color/white"
-                android:textSize="10dp"
-                app:backgroundTint="#4D8FAC" />
-
-            <!--Resources Button-->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/resourcesNavigation"
-                style="@style/box_sky_blue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableTop="@drawable/ic_info"
-                android:gravity="center_horizontal"
-                android:text="Resources"
-
-                android:textColor="@android:color/white"
-                android:textSize="10dp"
-                app:backgroundTint="#4D8FAC" />
-
-            <!--Account Button-->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/accountNavigation"
-                style="@style/box_sky_blue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableTop="@drawable/ic_account"
-                android:gravity="center_horizontal"
-                android:text="Account"
-                android:drawableTint="#4D8FAC"
-                android:textColor="#4D8FAC"
-                android:textSize="10dp"
-                app:backgroundTint="#ffff"/>
+                android:stateListAnimator="@null"/>
         </TableRow>
     </TableLayout>
 

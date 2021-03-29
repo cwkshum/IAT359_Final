@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,14 +21,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class AccountActivity extends Activity implements View.OnClickListener {
+public class AccountActivity extends AppCompatActivity implements View.OnClickListener {
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mDescription = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
 
     private TextView nameHeader, userHeader, emailHeader;
 
-    private String firstName, username, email;
+    private String firstName, lastName, username, email;
 
     private Button checklistNavigation, resourcesNavigation, mapNavigation, edit_button, logout;
 
@@ -78,11 +79,12 @@ public class AccountActivity extends Activity implements View.OnClickListener {
         // Get user's information from sharedpreferences
         SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
         firstName = sharedPrefs.getString("firstName", DEFAULT);
+        lastName = sharedPrefs.getString("lastName", DEFAULT);
         username = sharedPrefs.getString("username", DEFAULT);
         email = sharedPrefs.getString("email", DEFAULT);
 
-        // First name
-        nameHeader.setText(firstName);
+        // First name and last name
+        nameHeader.setText(firstName + " " + lastName);
 
         // Username
         userHeader.setText(username);

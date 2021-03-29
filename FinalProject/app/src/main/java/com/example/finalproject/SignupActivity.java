@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SignupActivity extends Activity implements View.OnClickListener {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText firstNameInput, lastNameInput, emailInput, usernameInput, passwordInput, confirmPasswordInput;
     private Button loginButton, signupButton;
@@ -113,6 +115,7 @@ public class SignupActivity extends Activity implements View.OnClickListener {
         editor.putString("email", email);
         editor.putString("username", username);
         editor.putString("password", password);
+        editor.putInt("mapView", 1);
 
         Toast.makeText(this, "Account Created Successfully! Welcome " + firstName, Toast.LENGTH_LONG).show();
         editor.commit();

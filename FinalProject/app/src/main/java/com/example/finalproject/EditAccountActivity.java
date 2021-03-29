@@ -22,6 +22,8 @@ public class EditAccountActivity extends Activity implements View.OnClickListene
 
     private String firstName, lastName, email, username, password, confirmPassword, firstNamePref, lastNamePref, emailPref, usernamePref, passwordPref;
 
+    private ChecklistDatabase db;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +73,8 @@ public class EditAccountActivity extends Activity implements View.OnClickListene
         resourcesNavigation = (Button) findViewById(R.id.resourcesNavigation);
         resourcesNavigation.setOnClickListener(this);
 
-
+        // access the database
+        db = new ChecklistDatabase(this);
     }
 
     public void retrieveData(){
@@ -104,6 +107,7 @@ public class EditAccountActivity extends Activity implements View.OnClickListene
             if (password.equals(confirmPassword)) {
                 // if the password and confirm password match, proceed to saving the user's data
                 saveData();
+                db.updateUsernameData(usernamePref, username);
                 return true;
 
             } else {

@@ -93,7 +93,8 @@
                 android:text="Start Route"
                 android:textSize="10dp"
                 android:textColor="#FFFFFF"
-                android:backgroundTint="#4D8FAC"/>
+                android:backgroundTint="@color/accent_green"
+                android:stateListAnimator="@null"/>
         </TableRow>
     </TableLayout>
 </LinearLayout>

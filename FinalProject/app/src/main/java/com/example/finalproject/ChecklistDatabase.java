@@ -177,4 +177,17 @@ public class ChecklistDatabase {
         }
     }
 
+    public void updateUsernameData(String username, String newUsername){
+
+        // update the checklist table in the database
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        // update the username with the new username in the checklist table of the db
+        db.execSQL("UPDATE " + Constants.CHECKLIST_TABLE_NAME + " SET " + Constants.USERNAME + " = '" + newUsername + "' WHERE " + Constants.USERNAME + " = '" + username + "'");
+
+        // update the username with the new username in the to do table of the db
+        db.execSQL("UPDATE " + Constants.TODO_TABLE_NAME + " SET " + Constants.USERNAME + " = '" + newUsername + "' WHERE " + Constants.USERNAME + " = '" + username + "'");
+
+    }
+
 }

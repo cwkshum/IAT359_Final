@@ -10,7 +10,8 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="5">
+        android:layout_weight="4.5"
+        android:layout_marginHorizontal="8dp">
 
         <!-- Logo -->
         <TableRow
@@ -50,23 +51,15 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="1">
 
-                    <!-- First Name Label -->
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="First Name"
-                        android:textSize="14dp"
-                        android:textStyle="bold" />
-
                     <!-- First Name Input -->
                     <EditText
                         android:id="@+id/firstNameInput"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:paddingLeft="20dp"
-                        android:textSize="14dp"/>
+                        android:textSize="14dp"
+                        android:hint="First Name"
+                        android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
 
                 <!-- Last Name Section-->
@@ -75,23 +68,15 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="1">
 
-                    <!-- Last Name Label -->
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Last Name"
-                        android:textSize="14dp"
-                        android:textStyle="bold" />
-
                     <!-- Last Name Input -->
                     <EditText
                         android:id="@+id/lastNameInput"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:paddingLeft="20dp"
-                        android:textSize="14dp"/>
+                        android:textSize="14dp"
+                        android:hint="Last Name"
+                        android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
 
                 <!-- Email Section-->
@@ -100,23 +85,15 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="1">
 
-                    <!-- Email Label -->
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Email"
-                        android:textSize="14dp"
-                        android:textStyle="bold" />
-
                     <!-- Email Input -->
                     <EditText
                         android:id="@+id/emailInput"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:paddingLeft="20dp"
-                        android:textSize="14dp"/>
+                        android:textSize="14dp"
+                        android:hint="Email"
+                        android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
 
                 <!-- Username Section-->
@@ -125,23 +102,15 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="1">
 
-                    <!-- Username Label -->
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Username"
-                        android:textSize="14dp"
-                        android:textStyle="bold" />
-
                   <!-- Username Input -->
                   <EditText
                       android:id="@+id/usernameInput"
                       android:layout_width="0dp"
                       android:layout_height="wrap_content"
                       android:layout_weight="1"
-                      android:paddingLeft="20dp"
-                      android:textSize="14dp"/>
+                      android:textSize="14dp"
+                      android:hint="Username"
+                      android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
 
                 <!-- Password Section-->
@@ -150,23 +119,15 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="1">
 
-                    <!-- Password Label -->
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Password"
-                        android:textSize="14dp"
-                        android:textStyle="bold" />
-
                   <!-- password Input -->
                   <EditText
                       android:id="@+id/passwordInput"
                       android:layout_width="0dp"
                       android:layout_height="wrap_content"
                       android:layout_weight="1"
-                      android:paddingLeft="20dp"
-                      android:textSize="14dp"/>
+                      android:textSize="14dp"
+                      android:hint="Password"
+                      android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
 
                 <!-- Confirm Password Section-->
@@ -174,23 +135,15 @@
                     android:layout_height="0dp"
                     android:layout_weight="1">
 
-                    <!-- Confirm Password Label -->
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Confirm Password"
-                        android:textSize="14dp"
-                        android:textStyle="bold" />
-
                     <!-- Confirm Password Input -->
                     <EditText
                         android:id="@+id/confirmPasswordInput"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:paddingLeft="20dp"
-                        android:textSize="14dp"/>
+                        android:textSize="14dp"
+                        android:hint="Confirm Password"
+                        android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
             </TableLayout>
         </TableRow>
@@ -204,14 +157,14 @@
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
+                android:layout_weight="1.5"
                 android:paddingLeft="70dp"
                 android:paddingRight="70dp">
 
                 <TableRow
                     android:layout_height="0dp"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="0.5">
 
                     <!-- Signup Button -->
                     <Button
@@ -219,10 +172,13 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Sign up"
+                        android:text="Sign Up"
                         android:textSize="10dp"
-                        android:backgroundTint="#4D8FAC"
-                        android:textColor="@android:color/white"/>
+                        android:backgroundTint="@color/accent_green"
+                        android:textColor="@android:color/white"
+                        app:strokeColor="@color/accent_green"
+                        app:strokeWidth="2dp"
+                        android:stateListAnimator="@null"/>
                 </TableRow>
 
                 <TableRow
@@ -237,8 +193,11 @@
                         android:layout_weight="1"
                         android:text="Login"
                         android:textSize="10dp"
-                        android:textColor="@android:color/white"
-                        android:backgroundTint="#67BD24"/>
+                        android:textColor="@color/accent_green"
+                        android:backgroundTint="@color/white"
+                        app:strokeColor="@color/accent_green"
+                        app:strokeWidth="2dp"
+                        android:stateListAnimator="@null"/>
                 </TableRow>
             </TableLayout>
         </TableRow>

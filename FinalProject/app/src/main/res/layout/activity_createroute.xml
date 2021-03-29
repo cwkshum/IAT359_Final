@@ -48,7 +48,7 @@
                 android:layout_weight="1"
                 android:text="Landmarks"
                 android:textSize="12dp"
-                android:textColor="@android:color/white"
+                android:textColor="#C2CDD1"
                 android:gravity="center_horizontal"/>
 
             <!-- Create Route -->
@@ -71,7 +71,7 @@
                 android:layout_weight="1"
                 android:text="Popular Routes"
                 android:textSize="12dp"
-                android:textColor="@android:color/white"
+                android:textColor="#C2CDD1"
                 android:gravity="center_horizontal"/>
         </TableRow>
 
@@ -91,7 +91,9 @@
                 <TableRow
                     android:layout_height="0dp"
                     android:layout_width="wrap_content"
-                    android:layout_weight="0.25">
+                    android:layout_weight="0.25"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginHorizontal="1dp">
 
                     <!-- Start Point Label -->
                     <TextView
@@ -99,8 +101,16 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:text="Start Point"
+                        android:textColor="@color/accent_blue"
                         android:textSize="14dp"
                         android:textStyle="bold" />
+                </TableRow>
+
+                <!-- Start Point Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.25">
 
                     <!-- start Point Input -->
                     <EditText
@@ -108,8 +118,28 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:paddingLeft="20dp"
-                        android:textSize="24dp"/>
+                        android:textSize="14dp"
+                        android:hint="Starting Street"
+                        android:backgroundTint="@color/accent_blue"/>
+                </TableRow>
+
+                <!-- End Point Section-->
+                <TableRow
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.25"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginHorizontal="1dp">
+
+                    <!-- End Point Label -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="End Point"
+                        android:textColor="@color/accent_blue"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <!-- End Point Section-->
@@ -118,29 +148,22 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="0.25">
 
-                    <!-- End Point Label -->
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="End Point"
-                        android:textSize="14dp"
-                        android:textStyle="bold" />
-
                     <!-- End Point Input -->
                     <EditText
                         android:id="@+id/endPointInput"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:paddingLeft="20dp"
-                        android:textSize="24dp"/>
+                        android:textSize="14dp"
+                        android:hint="Ending Street"
+                        android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
 
                 <TableRow
                     android:layout_height="0dp"
                     android:layout_width="wrap_content"
-                    android:layout_weight="0.25">
+                    android:layout_weight="0.25"
+                    android:layout_marginHorizontal="75dp">
 
                     <Button
                         android:id="@+id/findRouteButton"
@@ -149,8 +172,9 @@
                         android:layout_weight="1"
                         android:text="Find Route"
                         android:textSize="10dp"
-                        android:backgroundTint="#4D8FAC"
-                        android:textColor="@android:color/white"/>
+                        android:backgroundTint="@color/accent_green"
+                        android:textColor="@android:color/white"
+                        android:stateListAnimator="@null"/>
                 </TableRow>
 
 
@@ -168,6 +192,7 @@
                         android:layout_weight="1"
                         android:paddingBottom="20dp"
                         android:textSize="14dp"
+                        android:textColor="@color/accent_blue"
                         android:textStyle="bold" />
                 </TableRow>
 
@@ -191,13 +216,11 @@
 
         <!-- Navigation -->
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_weight="0.8"
-            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="#4D8FAC">
 
-            <!-- Map Button -->
+            <!--Map Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/mapNavigation"
                 style="@style/box_sky_blue"
@@ -205,15 +228,17 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_landscape"
+                android:drawableTop="@drawable/ic_outline_landscape"
                 android:gravity="center_horizontal"
                 android:text="Map"
-                android:drawableTint="#4D8FAC"
-                android:textColor="#4D8FAC"
-                android:textSize="10dp"
-                app:backgroundTint="#ffff"  />
 
-            <!-- Checklist Button -->
+                android:drawableTint="@color/accent_inactive"
+                android:textColor="@color/accent_inactive"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"/>
+
+            <!--Checklist Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/checklistNavigation"
                 style="@style/box_sky_blue"
@@ -221,43 +246,48 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_checklist"
+                android:drawableTop="@drawable/ic_outline_checklist"
                 android:gravity="center_horizontal"
                 android:text="Checklist"
 
-                android:textColor="@android:color/white"
+                android:drawableTint="@color/accent_inactive"
+                android:textColor="@color/accent_inactive"
                 android:textSize="10dp"
-                app:backgroundTint="#4D8FAC" />
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"/>
 
-            <!-- Resources Button -->
+            <!--Resources Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/resourcesNavigation"
                 style="@style/box_sky_blue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_info"
+                android:drawableTop="@drawable/ic_outline_info"
                 android:gravity="center_horizontal"
                 android:text="Resources"
 
-                android:textColor="@android:color/white"
+                android:drawableTint="@color/accent_inactive"
+                android:textColor="@color/accent_inactive"
                 android:textSize="10dp"
-                app:backgroundTint="#4D8FAC" />
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"/>
 
-            <!-- Account Button -->
+            <!--Account Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/accountNavigation"
                 style="@style/box_sky_blue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_account"
+                android:drawableTop="@drawable/ic_outline_account"
                 android:gravity="center_horizontal"
                 android:text="Account"
-
-                android:textColor="@android:color/white"
+                android:drawableTint="@color/accent_inactive"
+                android:textColor="@color/accent_inactive"
                 android:textSize="10dp"
-                app:backgroundTint="#4D8FAC" />
+                app:backgroundTint="@color/accent_blue"
+                android:stateListAnimator="@null"/>
         </TableRow>
 
     </TableLayout>

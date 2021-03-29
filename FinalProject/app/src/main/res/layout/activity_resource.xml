@@ -33,85 +33,165 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="0.15">
 
         <!--Sensor Data SubHeading-->
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:gravity="center_vertical"
             android:paddingBottom="10dp"
-            android:text="Sensor Data"
-            android:textColor="@color/black"
+            android:text="Current Data"
+            android:textColor="@color/accent_blue"
             android:textSize="18dp"
             android:layout_marginHorizontal="8dp"
             android:textStyle="bold" />
 
-        <!--Current Temperature Reading-->
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:layout_marginHorizontal="8dp"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:text="Current Temperature"
-            android:textColor="@android:color/black"
-            android:textSize="16dp"
-            android:textStyle="italic|bold" />
+        <!-- Headings -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5">
 
-        <TextView
-            android:id="@+id/tempSensorValue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:layout_marginHorizontal="8dp"
-            android:text="ºC"
-            android:textColor="@android:color/black"
-            android:textSize="14dp" />
+            <!--Current Temperature Heading-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_marginHorizontal="8dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="Temperature"
+                android:textColor="@android:color/black"
+                android:textSize="16dp"
+                android:textStyle="italic|bold" />
 
-        <!--Current Air Pressure Reading-->
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:layout_marginHorizontal="8dp"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:text="Current Air Pressure"
-            android:textColor="@android:color/black"
-            android:textSize="16dp"
-            android:textStyle="italic|bold" />
+            <!--Current Speed Heading-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_marginHorizontal="8dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="Speed"
+                android:textColor="@android:color/black"
+                android:textSize="16dp"
+                android:textStyle="italic|bold" />
 
-        <TextView
-            android:id="@+id/pressureSensorValue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="8dp"
-            android:gravity="center_horizontal"
-            android:text="hPa"
-            android:textColor="@android:color/black"
-            android:textSize="14dp" />
+            <!--Current Air Pressure Heading-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_marginHorizontal="8dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="Air Pressure"
+                android:textColor="@android:color/black"
+                android:textSize="16dp"
+                android:textStyle="italic|bold" />
+        </TableRow>
 
+        <!-- Data Readings -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5">
+
+            <!--Current Temperature Reading-->
+            <TextView
+                android:id="@+id/tempSensorValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_marginHorizontal="8dp"
+                android:text="ºC"
+                android:textColor="@android:color/black"
+                android:textSize="14dp" />
+
+            <!--Current Speed Reading-->
+            <TextView
+                android:id="@+id/speedValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="8dp"
+                android:gravity="center_horizontal"
+                android:text="m/s"
+                android:textColor="@android:color/black"
+                android:textSize="14dp" />
+
+            <!--Current Air Pressure Reading-->
+            <TextView
+                android:id="@+id/pressureSensorValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="8dp"
+                android:gravity="center_horizontal"
+                android:text="hPa"
+                android:textColor="@android:color/black"
+                android:textSize="14dp" />
+        </TableRow>
+
+<!--        &lt;!&ndash;Current Temperature Reading&ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:layout_marginHorizontal="8dp"-->
+<!--            android:paddingTop="6dp"-->
+<!--            android:paddingBottom="6dp"-->
+<!--            android:text="Current Temperature"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="16dp"-->
+<!--            android:textStyle="italic|bold" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tempSensorValue"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:layout_marginHorizontal="8dp"-->
+<!--            android:text="ºC"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="14dp" />-->
+
+<!--        &lt;!&ndash;Current Air Pressure Reading&ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:layout_marginHorizontal="8dp"-->
+<!--            android:paddingTop="6dp"-->
+<!--            android:paddingBottom="6dp"-->
+<!--            android:text="Current Air Pressure"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="16dp"-->
+<!--            android:textStyle="italic|bold" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/pressureSensorValue"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_marginHorizontal="8dp"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:text="hPa"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="14dp" />-->
     </TableLayout>
-    <!-- Sensor Headings -->
-    <!-- Current Sensor Text Display Section -->
-    <!--    <TableRow-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        android:layout_weight="0.0">-->
 
-    <!--        &lt;!&ndash; Current Temperature Value &ndash;&gt;-->
-    <!--      -->
-
-    <!--        &lt;!&ndash; Current Speed Value &ndash;&gt;-->
-    <!--      -->
-    <!--    </TableRow>-->
 
     <!-- Resource Links Section -->
     <TableLayout
@@ -129,7 +209,7 @@
             android:paddingBottom="10dp"
             android:text="Resources"
             android:layout_marginHorizontal="8dp"
-            android:textColor="@color/black"
+            android:textColor="@color/accent_blue"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -143,8 +223,8 @@
             android:layout_marginVertical="4dp"
             android:layout_marginHorizontal="8dp"
             android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            >
+            android:paddingBottom="20dp">
+
             <!-- Bike Safety Image -->
             <ImageView
                 android:layout_width="wrap_content"
@@ -153,7 +233,7 @@
                 android:maxWidth="90dp"
                 android:maxHeight="100dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/bikesafe" />
+                android:src="@drawable/icbc" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -206,7 +286,7 @@
                 android:maxWidth="60dp"
                 android:maxHeight="60dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/icbc" />
+                android:src="@drawable/bikesafe" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -259,8 +339,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:maxWidth="90dp"
-                android:maxHeight="100dp"
+                android:maxWidth="70dp"
+                android:maxHeight="75dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/vancouverlogo" />
 
@@ -306,64 +386,74 @@
 
             <!--Map Button-->
             <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/mapNavigation"
-            style="@style/box_sky_blue"
+                android:id="@+id/mapNavigation"
+                style="@style/box_sky_blue"
 
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_landscape"
-            android:gravity="center_horizontal"
-            android:text="Map"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTint="#C2CDD1"
+                android:textColor="#C2CDD1"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"
 
-            android:textColor="@android:color/white"
-            android:textSize="10dp"
-            app:backgroundTint="#4D8FAC" />
+                android:drawableTop="@drawable/ic_outline_landscape"
+                android:gravity="center_horizontal"
+                android:text="Map"/>
 
             <!--Checklist Button-->
             <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/checklistNavigation"
-            style="@style/box_sky_blue"
+                android:id="@+id/checklistNavigation"
+                style="@style/box_sky_blue"
 
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_checklist"
-            android:gravity="center_horizontal"
-            android:text="Checklist"
-            android:textColor="@android:color/white"
-            android:textSize="10dp"
-            app:backgroundTint="#4D8FAC" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_outline_checklist"
+                android:gravity="center_horizontal"
+                android:text="Checklist"
+                android:drawableTint="#C2CDD1"
+                android:textColor="#C2CDD1"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"/>
 
             <!--Resource Button-->
             <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/resourcesNavigation"
-            style="@style/box_sky_blue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_info"
-            android:gravity="center_horizontal"
-            android:text="Resources"
-            android:drawableTint="#4D8FAC"
-            android:textColor="#4D8FAC"
-            android:textSize="10dp"
-            app:backgroundTint="#ffff" />
+                android:id="@+id/resourcesNavigation"
+                style="@style/box_sky_blue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_info"
+                android:gravity="center_horizontal"
+                android:text="Resources"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"
+                android:drawableTint="#FFFFFF"
+                android:textColor="#FFFFFF"
+                android:longClickable="false"
+                android:clickable="false"
+                android:focusable="false"
+                android:cursorVisible="false"/>
 
             <!--Account Button-->
             <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/accountNavigation"
-            style="@style/box_sky_blue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_account"
-            android:gravity="center_horizontal"
-            android:text="Account"
-
-            android:textColor="@android:color/white"
-            android:textSize="10dp"
-            app:backgroundTint="#4D8FAC" />
+                android:id="@+id/accountNavigation"
+                style="@style/box_sky_blue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_outline_account"
+                android:gravity="center_horizontal"
+                android:text="Account"
+                android:drawableTint="#C2CDD1"
+                android:textColor="#C2CDD1"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"/>
         </TableRow>
     </TableLayout>
 </LinearLayout>

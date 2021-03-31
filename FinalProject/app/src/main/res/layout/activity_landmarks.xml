@@ -31,55 +31,11 @@
                 android:src="@drawable/vancitycyclinglogo" />
         </TableRow>
 
-        <!-- Map Navigation Tabs-->
-        <TableRow
-            android:layout_height="0dp"
-            android:layout_width="wrap_content"
-            android:layout_weight="0.2"
-            android:background="#4D8FAC"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp">
-
-            <!-- Landmarks -->
-            <TextView
-                android:id="@+id/landmarksNavigation"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Landmarks"
-                android:textSize="12dp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:gravity="center_horizontal"/>
-
-            <!-- Create Route -->
-            <TextView
-                android:id="@+id/createRouteNavigation"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Create Route"
-                android:textSize="12dp"
-                android:textColor="@color/accent_inactive"
-                android:gravity="center_horizontal"/>
-
-            <!-- Popular Routes -->
-            <TextView
-                android:id="@+id/popularRoutesNavigation"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Popular Routes"
-                android:textSize="12dp"
-                android:textColor="#C2CDD1"
-                android:gravity="center_horizontal"/>
-        </TableRow>
-
         <!-- Activity Content-->
         <TableRow
             android:layout_height="0dp"
             android:layout_width="wrap_content"
-            android:layout_weight="5"
+            android:layout_weight="5.4"
             android:layout_marginHorizontal="8dp">
 
             <TableLayout
@@ -130,7 +86,8 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:paddingBottom="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:textSize="14dp"
                         android:textColor="@color/accent_blue"
                         android:textStyle="bold"
@@ -140,7 +97,7 @@
                 <!-- Available Routes -->
                 <TableRow
                     android:layout_height="0dp"
-                    android:layout_weight="5.25">
+                    android:layout_weight="5.50">
 
                     <!-- RecyclerView -->
                     <androidx.recyclerview.widget.RecyclerView
@@ -157,6 +114,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.2"
             android:background="#4D8FAC">
 
             <!--Map Button-->

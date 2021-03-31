@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FinalProject">
+        android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,13 +21,14 @@
         </activity>
         <activity android:name=".SignupActivity"></activity>
         <activity android:name=".LandingActivity"></activity>
-        <activity android:name=".LandmarksActivity"></activity>
-        <activity android:name=".CreateRouteActivity"></activity>
-        <activity android:name=".PopularRoutesActivity"></activity>
+        <activity android:name=".LandmarksActivity" android:label="Landmarks"></activity>
+        <activity android:name=".LandmarkDetailActivity"></activity>
+        <activity android:name=".CreateRouteActivity" android:label="Create Route"></activity>
+        <activity android:name=".PopularRoutesActivity" android:label="Popular Routes"></activity>
         <activity android:name=".NewChecklistActivity"></activity>
         <activity android:name=".EditChecklistActivity"></activity>
         <activity android:name=".DetailChecklistActivity"></activity>
-        <activity android:name=".AccountActivity"></activity>
+        <activity android:name=".AccountActivity" android:label="Account"></activity>
         <activity android:name=".EditAccountActivity"></activity>
 
         <activity android:name=".ChecklistActivity"></activity>

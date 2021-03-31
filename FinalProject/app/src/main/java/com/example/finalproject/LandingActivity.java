@@ -7,10 +7,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -53,10 +55,15 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     private Integer mapView;
 
+    private String landmarkPoint;
+    private ArrayList<LatLng> landmarkRoutePoints;
+
     // coordinates for Vancouver, BC
     private static final double VANCOUVER_LAT = 49.277549, VANCOUVER_LNG = -123.123921;
 
     static final int REQUEST_POINTS = 0;
+    static final int REQUEST_LANDMARK = 1;
+    static final int REQUEST_POPULAR = 2;
 
     PolylineOptions lineOptions = null;
 
@@ -134,7 +141,27 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
                 }
             }
-        } else{
+        } else if (requestCode == REQUEST_LANDMARK){
+            // make sure that the request was successful
+            if(resultCode == RESULT_OK){
+                // make sure that the returned data has a word passed through
+                if(data.hasExtra(LandmarksActivity.LANDMARK_POINT) && data.hasExtra(LandmarksActivity.ROUTE_POINTS)){
+                    // get the landmark point that was received
+                    landmarkPoint = data.getExtras().getString(LandmarksActivity.LANDMARK_POINT);
+                    landmarkRoutePoints = new ArrayList<LatLng>();
+                    landmarkRoutePoints = data.getExtras().getParcelableArrayList(LandmarksActivity.ROUTE_POINTS);
+
+                    if((landmarkPoint != null) && (landmarkRoutePoints != null)){
+                        // find a landmark using AsyncTask
+                        LandingActivity.FindLandmark findLandmark = new LandingActivity.FindLandmark();
+                        findLandmark.execute();
+                    } else{
+                        Toast.makeText(this, "There was an error starting route. Please try again.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+        } else {
             Toast.makeText(this, "Points Not Received", Toast.LENGTH_SHORT).show();
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -160,7 +187,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         if (startList.size() > 0 || startList != null) {
             Address add = startList.get(0);
-            String locality = add.getLocality();
 
             // get coordinates of starting point
             startLat = add.getLatitude();
@@ -176,7 +202,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         if (endList.size() > 0 || endList != null) {
             Address add = endList.get(0);
-            String locality = add.getLocality();
 
             // get coordinates of ending point
             endLat = add.getLatitude();
@@ -200,6 +225,65 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         // Drawing polyline in the Google Map for the selected route
         myMap.addPolyline(lineOptions);
+    }
+
+    // Find a landmark using AsyncTask
+    public class FindLandmark extends AsyncTask<String, Void, Address> {
+
+        @Override
+        protected Address doInBackground(String... params) {
+
+            Geocoder myGeocoder = new Geocoder(getApplicationContext());
+
+            // find locations based on user input
+            List<Address> landmarkList = null;
+            try {
+                landmarkList = myGeocoder.getFromLocationName(landmarkPoint, 1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if (landmarkList.size() > 0 || landmarkList != null) {
+                Address add = landmarkList.get(0);
+                return add;
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Address results) { // called when doInBackground() is done
+            super.onPostExecute(results);
+
+            // clear the map
+            myMap.clear();
+
+            double landmarkLat = 0, landmarkLng = 0;
+            if (!results.equals(null)) {
+                // get coordinates of starting point
+                landmarkLat = results.getLatitude();
+                landmarkLng = results.getLongitude();
+                gotoLocation(landmarkLat, landmarkLng, 12);
+
+                // add marker at starting point
+                MarkerOptions options = new MarkerOptions()
+                        .title(landmarkPoint)
+                        .position(new LatLng(landmarkLat, landmarkLng));
+                myMap.addMarker(options);
+
+                lineOptions = new PolylineOptions();
+                // Adding all the points in the route to LineOptions
+                lineOptions.addAll(landmarkRoutePoints);
+                lineOptions.width(6);
+                lineOptions.color(getResources().getColor(R.color.accent_blue));
+
+                // Drawing polyline in the Google Map for the selected route
+                myMap.addPolyline(lineOptions);
+            } else{
+                Toast.makeText(getApplicationContext(), "No results found", Toast.LENGTH_SHORT).show();
+            }
+
+        }
     }
 
     private void gotoLocation(double lat, double lng, float zoom) {
@@ -277,6 +361,8 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                     // permission was granted, yay! Do the
                     // location-related task you need to do.
                     if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+
+
                     }
 
                 } else {
@@ -387,8 +473,8 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         // If landmarks was clicked in the top navigation
         if (view.getId() == R.id.landmarksNavigation) {
             // start explicit intent to go to landmarks activity
-            Intent i = new Intent(view.getContext(), LandmarksActivity.class);
-            view.getContext().startActivity(i);
+            Intent landmarkRouteIntent = new Intent(view.getContext(), LandmarksActivity.class);
+            startActivityForResult(landmarkRouteIntent, REQUEST_LANDMARK);
         }
 
         // If create route was clicked in the top navigation
@@ -401,8 +487,8 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         // If popular routes was clicked in the top navigation
         if (view.getId() == R.id.popularRoutesNavigation) {
             // start explicit intent to go to popular routes activity
-            Intent i = new Intent(view.getContext(), PopularRoutesActivity.class);
-            view.getContext().startActivity(i);
+            Intent popularRoutesIntent = new Intent(view.getContext(), PopularRoutesActivity.class);
+            startActivityForResult(popularRoutesIntent, REQUEST_POPULAR);
         }
 
         // Bottom Navigation

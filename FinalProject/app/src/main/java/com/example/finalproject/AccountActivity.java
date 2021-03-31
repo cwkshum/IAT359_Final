@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,7 +33,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
     private String firstName, lastName, username, email;
 
-    private Button checklistNavigation, resourcesNavigation, mapNavigation, edit_button, logout;
+    private Button checklistNavigation, resourcesNavigation, mapNavigation;
 
     public static final String DEFAULT = "not available";
 
@@ -57,15 +60,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         // Resources Navigation
         resourcesNavigation = (Button) findViewById(R.id.resourcesNavigation);
         resourcesNavigation.setOnClickListener(this);
-
-
-        // Edit information button
-        edit_button = (Button) findViewById(R.id.editinfo);
-        edit_button.setOnClickListener(this);
-
-        // Logout button
-        logout = (Button) findViewById(R.id.logout);
-        logout.setOnClickListener(this);
 
         // Placeholder method for favourite routes to be implemented in milestone 3
         initImageBitmaps();
@@ -136,21 +130,45 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
-    public void onClick(View view) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // create top additional menu
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.account_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-        // Edit information button
-        if(view.getId() == R.id.editinfo) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.editAccount){
             // start explicit activity to go to edit account activity
-            Intent i = new Intent(view.getContext(), EditAccountActivity.class);
+            Intent i = new Intent(getApplicationContext(), EditAccountActivity.class);
             startActivityForResult(i, EDIT_INFO);
         }
 
-        // Logout button
-        if(view.getId() == R.id.logout) {
+        if(item.getItemId() == R.id.logout){
             // start explicit activity to go to login activity
-            Intent i = new Intent(view.getContext(), MainActivity.class);
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
         }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+
+//        // Edit information button
+//        if(view.getId() == R.id.editinfo) {
+//            // start explicit activity to go to edit account activity
+//            Intent i = new Intent(view.getContext(), EditAccountActivity.class);
+//            startActivityForResult(i, EDIT_INFO);
+//        }
+//
+//        // Logout button
+//        if(view.getId() == R.id.logout) {
+//            // start explicit activity to go to login activity
+//            Intent i = new Intent(view.getContext(), MainActivity.class);
+//            startActivity(i);
+//        }
 
         // Navigation Buttons
         // Map Navigation button clicked in the bottom navigation

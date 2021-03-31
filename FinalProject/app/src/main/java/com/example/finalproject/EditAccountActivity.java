@@ -16,7 +16,7 @@ public class EditAccountActivity extends Activity implements View.OnClickListene
 
     private EditText firstNameInput, lastNameInput, emailInput, usernameInput, passwordInput, confirmPasswordInput;
 
-    private Button updateButton, mapNavigation, resourcesNavigation, checklistNavigation;
+    private Button updateButton;
 
     public static final String DEFAULT = "not available";
 
@@ -59,19 +59,6 @@ public class EditAccountActivity extends Activity implements View.OnClickListene
         // update information button
         updateButton = (Button) findViewById(R.id.updateprofileButton);
         updateButton.setOnClickListener(this);
-
-        // Navigation Buttons
-        // Map Navigation
-        mapNavigation = (Button) findViewById(R.id.mapNavigation);
-        mapNavigation.setOnClickListener(this);
-
-        // Checklist Button
-        checklistNavigation = (Button) findViewById(R.id.checklistNavigation);
-        checklistNavigation.setOnClickListener(this);
-
-        // Resources Button
-        resourcesNavigation = (Button) findViewById(R.id.resourcesNavigation);
-        resourcesNavigation.setOnClickListener(this);
 
         // access the database
         db = new ChecklistDatabase(this);
@@ -131,7 +118,7 @@ public class EditAccountActivity extends Activity implements View.OnClickListene
         editor.putString("username", username);
         editor.putString("password", password);
 
-        Toast.makeText(this, "User information updated. Thank you " + firstName, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Account information updated. Thank you " + firstName, Toast.LENGTH_SHORT).show();
         editor.commit();
     }
 
@@ -146,28 +133,6 @@ public class EditAccountActivity extends Activity implements View.OnClickListene
                 setResult(RESULT_OK, accountIntent);
                 finish();
             }
-        }
-
-        // Navigation Buttons
-        // Map Navigation button clicked in the bottom navigation
-        if (view.getId() == R.id.mapNavigation) {
-            // start explicit intent to go to map activity
-            Intent i = new Intent(view.getContext(), LandingActivity.class);
-            view.getContext().startActivity(i);
-        }
-
-        // Checklist button clicked in the bottom navigation
-        if (view.getId() == R.id.checklistNavigation) {
-            // start explicit intent to go to checklist activity
-            Intent i = new Intent(view.getContext(), ChecklistActivity.class);
-            view.getContext().startActivity(i);
-        }
-
-        // Resources button clicked in the bottom navigation
-        if (view.getId() == R.id.resourcesNavigation) {
-            // start explicit intent to go to resources activity
-            Intent i = new Intent(view.getContext(), ResourcesActivity.class);
-            view.getContext().startActivity(i);
         }
     }
 

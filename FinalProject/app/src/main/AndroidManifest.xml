@@ -20,19 +20,23 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignupActivity"></activity>
+
         <activity android:name=".LandingActivity"></activity>
         <activity android:name=".LandmarksActivity" android:label="Landmarks"></activity>
         <activity android:name=".LandmarkDetailActivity"></activity>
         <activity android:name=".CreateRouteActivity" android:label="Create Route"></activity>
         <activity android:name=".PopularRoutesActivity" android:label="Popular Routes"></activity>
+        <activity android:name=".PopularRouteDetailActivity"></activity>
+
+        <activity android:name=".ChecklistActivity"></activity>
         <activity android:name=".NewChecklistActivity"></activity>
         <activity android:name=".EditChecklistActivity"></activity>
         <activity android:name=".DetailChecklistActivity"></activity>
+
+        <activity android:name=".ResourcesActivity"></activity>
+
         <activity android:name=".AccountActivity" android:label="Account"></activity>
         <activity android:name=".EditAccountActivity"></activity>
-
-        <activity android:name=".ChecklistActivity"></activity>
-        <activity android:name=".ResourcesActivity"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

@@ -161,6 +161,21 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
                 }
             }
+        }  else if (requestCode == REQUEST_POPULAR){
+            // make sure that the request was successful
+            if(resultCode == RESULT_OK){
+                // make sure that the returned data has a word passed through
+                if(data.hasExtra(PopularRoutesActivity.ROUTE_POINTS)){
+                    ArrayList<LatLng> routePoints = data.getExtras().getParcelableArrayList(PopularRoutesActivity.ROUTE_POINTS);
+
+                    if((routePoints != null)){
+                        drawPopularRoute(routePoints);
+                    } else{
+                        Toast.makeText(this, "There was an error starting route. Please try again.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
         } else {
             Toast.makeText(this, "Points Not Received", Toast.LENGTH_SHORT).show();
         }
@@ -285,6 +300,34 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         }
     }
+
+    public void drawPopularRoute(ArrayList<LatLng> routePoints) {
+        myMap.clear();
+
+        // add marker at starting point
+        MarkerOptions startMarker = new MarkerOptions()
+//                .title(landmarkPoint)
+                .position(routePoints.get(0));
+        myMap.addMarker(startMarker);
+
+        // add marker at ending point
+        MarkerOptions endMarker = new MarkerOptions()
+//                .title(landmarkPoint)
+                .position(routePoints.get(routePoints.size() - 1));
+        myMap.addMarker(endMarker);
+
+        lineOptions = new PolylineOptions();
+        // Adding all the points in the route to LineOptions
+        lineOptions.addAll(routePoints);
+        lineOptions.width(6);
+        lineOptions.color(getResources().getColor(R.color.accent_blue));
+
+        // Drawing polyline in the Google Map for the selected route
+        myMap.addPolyline(lineOptions);
+    }
+
+
+
 
     private void gotoLocation(double lat, double lng, float zoom) {
         // go to the location of the starting point

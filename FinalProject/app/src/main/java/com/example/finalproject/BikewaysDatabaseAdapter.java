@@ -79,4 +79,56 @@ public class BikewaysDatabaseAdapter {
             throw mSQLException;
         }
     }
+
+    public Cursor getLandmarksData(String userInput) {
+        try {
+            String sql;
+
+            // If user has inputted a search, refine the query to only show the data for the selected type
+            if(!userInput.equals(null) && !userInput.isEmpty()){
+                sql ="SELECT * FROM " + Constants.LANDMARKS_TABLE_NAME + " WHERE " + Constants.LANDMARKSNAME + " = '" + userInput + "'";
+            } else {
+                // default query
+                sql = "SELECT * FROM " + Constants.LANDMARKS_TABLE_NAME;
+            }
+
+            // execute query
+            Cursor mCur = mDb.rawQuery(sql, null);
+            if (mCur != null) {
+                mCur.moveToNext();
+            }
+
+            // return query results
+            return mCur;
+        } catch (SQLException mSQLException) {
+            Log.e(TAG, "getTestData >>"+ mSQLException.toString());
+            throw mSQLException;
+        }
+    }
+
+    public Cursor getPopularRoutesData(String userInput) {
+        try {
+            String sql;
+
+            // If user has inputted a search, refine the query to only show the data for the selected type
+            if(!userInput.equals(null) && !userInput.isEmpty()){
+                sql ="SELECT * FROM " + Constants.POPULAR_TABLE_NAME + " WHERE " + Constants.POPULARNAME + " = '" + userInput + "'";
+            } else {
+                // default query
+                sql = "SELECT * FROM " + Constants.POPULAR_TABLE_NAME;
+            }
+
+            // execute query
+            Cursor mCur = mDb.rawQuery(sql, null);
+            if (mCur != null) {
+                mCur.moveToNext();
+            }
+
+            // return query results
+            return mCur;
+        } catch (SQLException mSQLException) {
+            Log.e(TAG, "getTestData >>"+ mSQLException.toString());
+            throw mSQLException;
+        }
+    }
 }

@@ -55,16 +55,14 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.function.Consumer;
 
-public class PopularRouteDetailActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class PopularRouteDetailActivity extends AppCompatActivity implements View.OnClickListener{
     private TextView landmarksHeading, addressHeading, infoHeading, categoryHeading;
     private ImageView landmarkImage;
     private Button startRouteButton;
     private String name, type, length, imageName, startPoint, endPoint;
     public static final String LANDMARK = "LANDMARK";
     public static final String ROUTE_POINTS = "ROUTEPOINTS";
-//    private ArrayList <LatLng> routePoints = new ArrayList<>();
 
-    String[] users = { "Suresh Dasari", "Trishika Dasari", "Rohini Alavala", "Praveen Kumar", "Madhav Sai" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,16 +79,6 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
         // add start route button
         startRouteButton = (Button) findViewById(R.id.startRouteButton);
         startRouteButton.setOnClickListener(this);
-
-
-        Spinner spin = (Spinner) findViewById(R.id.bikewayTypeSelection);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, users);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin.setAdapter(adapter);
-        spin.setOnItemSelectedListener(this);
-
-
-
 
 
         if(getIntent().hasExtra("popularRouteData")){
@@ -305,16 +293,6 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
                 Toast.makeText(this, "There was an error getting the route information, please try again.", Toast.LENGTH_SHORT).show();
             }
         }
-    }
-
-    public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) {
-        // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
-    }
-
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
     }
 
 }

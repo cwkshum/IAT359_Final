@@ -10,6 +10,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <!-- EXTERNAL_STORAGE permissions are optional for Android 6.0 onwards. -->
     <uses-permission
@@ -34,7 +35,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.FinalProject" >
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true" >
         <activity android:name="com.example.finalproject.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,16 +46,26 @@
         </activity>
         <activity android:name="com.example.finalproject.SignupActivity" />
         <activity android:name="com.example.finalproject.LandingActivity" />
-        <activity android:name="com.example.finalproject.LandmarksActivity" />
-        <activity android:name="com.example.finalproject.CreateRouteActivity" />
-        <activity android:name="com.example.finalproject.PopularRoutesActivity" />
+        <activity
+            android:name="com.example.finalproject.LandmarksActivity"
+            android:label="Landmarks" />
+        <activity android:name="com.example.finalproject.LandmarkDetailActivity" />
+        <activity
+            android:name="com.example.finalproject.CreateRouteActivity"
+            android:label="Create Route" />
+        <activity
+            android:name="com.example.finalproject.PopularRoutesActivity"
+            android:label="Popular Routes" />
+        <activity android:name="com.example.finalproject.PopularRouteDetailActivity" />
+        <activity android:name="com.example.finalproject.ChecklistActivity" />
         <activity android:name="com.example.finalproject.NewChecklistActivity" />
         <activity android:name="com.example.finalproject.EditChecklistActivity" />
         <activity android:name="com.example.finalproject.DetailChecklistActivity" />
-        <activity android:name="com.example.finalproject.AccountActivity" />
-        <activity android:name="com.example.finalproject.EditAccountActivity" />
-        <activity android:name="com.example.finalproject.ChecklistActivity" />
         <activity android:name="com.example.finalproject.ResourcesActivity" />
+        <activity
+            android:name="com.example.finalproject.AccountActivity"
+            android:label="Account" />
+        <activity android:name="com.example.finalproject.EditAccountActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

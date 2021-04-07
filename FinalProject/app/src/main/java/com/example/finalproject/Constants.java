@@ -11,4 +11,16 @@ public class Constants {
     public static final String TODO = "ToDo"; // to do item
     public static final String STATUS = "Status"; // status of to do item
     public static final int DATABASE_VERSION = 1; // database version
+
+    public static final String LANDMARKS_TABLE_NAME = "landmarks"; // landmarks table name
+    public static final String LANDMARKSNAME = "name";
+    public static final String LANDMARKSADDRESS = "address";
+    public static final String LANDMARKSCATEGORY = "category";
+    public static final String LANDMARKSINFO = "info";
+
+    public static final String POPULAR_TABLE_NAME = "popular_routes"; // popular routes table name
+    public static final String POPULARNAME = "name";
+    public static final String POPULARTYPE = "type";
+    public static final String POPULARLENGTH = "length";
+    public static final String POPULARCOORDINATES = "coordinates";
 }

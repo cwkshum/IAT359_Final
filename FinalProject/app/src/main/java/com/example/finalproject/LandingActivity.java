@@ -7,8 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -229,9 +227,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             myMap.addMarker(options);
         }
 
-
-        Toast.makeText(getApplicationContext(), "Coordinates: " + routePoints.get(0) + " " + routePoints.get(1), Toast.LENGTH_SHORT).show();
-
         lineOptions = new PolylineOptions();
         // Adding all the points in the route to LineOptions
         lineOptions.addAll(routePoints);
@@ -306,15 +301,18 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         // add marker at starting point
         MarkerOptions startMarker = new MarkerOptions()
-//                .title(landmarkPoint)
                 .position(routePoints.get(0));
         myMap.addMarker(startMarker);
 
         // add marker at ending point
         MarkerOptions endMarker = new MarkerOptions()
-//                .title(landmarkPoint)
                 .position(routePoints.get(routePoints.size() - 1));
         myMap.addMarker(endMarker);
+
+
+        double popularLat = routePoints.get(0).latitude;
+        double popularLng = routePoints.get(0).longitude;
+        gotoLocation(popularLat, popularLng, 12);
 
         lineOptions = new PolylineOptions();
         // Adding all the points in the route to LineOptions

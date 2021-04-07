@@ -67,9 +67,9 @@ public class LandmarkDetailActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_landmarkdetail);
 
         landmarksHeading = (TextView) findViewById(R.id.landmarksHeading);
-        addressHeading = (TextView) findViewById(R.id.addressHeading);
-        infoHeading = (TextView) findViewById(R.id.infoHeading);
-        categoryHeading = (TextView) findViewById(R.id.categoryHeading);
+        addressHeading = (TextView) findViewById(R.id.cityname);
+        infoHeading = (TextView) findViewById(R.id.routedescription);
+        categoryHeading = (TextView) findViewById(R.id.landmarktype);
 
         landmarkImage = (ImageView) findViewById(R.id.landmarkImage);
 
@@ -282,12 +282,6 @@ public class LandmarkDetailActivity extends AppCompatActivity implements View.On
         if(view.getId() == R.id.startRouteButton) {
 
             if(!currentLatLng.equals(null)) {
-                Toast.makeText(LandmarkDetailActivity.this, "current: " + currentLatLng, Toast.LENGTH_LONG).show();
-
-
-                landmarksHeading.setText( "https://maps.googleapis.com/maps/api/directions/json?origin=" +
-                        currentLatLng + "&destination=" +
-                        imageName + ",Vancouver,BC&mode=bicycling&key=AIzaSyCqydQlLuSgi0durCPpfKQLfLslEiefgis");
 
                 // request route through an AsyncTask
                 LandmarkDetailActivity.ReadDirectionsJSONDataTask requestRoute = new LandmarkDetailActivity.ReadDirectionsJSONDataTask();

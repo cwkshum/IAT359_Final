@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -140,9 +141,13 @@ public class AvailableRoutesAdapter extends RecyclerView.Adapter<AvailableRoutes
                 // put the route coordinates in the intent
                 createRouteIntent.putExtra(ROUTE_POINTS, routePoints);
 
-                // finish the intent and take the stored route information back to the map activity
-                ((Activity)context).setResult(Activity.RESULT_OK, createRouteIntent);
-                ((Activity)context).finish();
+                if((startPoint != null) && (endPoint != null) && (routePoints != null)){
+                    // finish the intent and take the stored route information back to the map activity
+                    ((Activity)context).setResult(Activity.RESULT_OK, createRouteIntent);
+                    ((Activity)context).finish();
+                } else {
+                    Toast.makeText((Activity)context, "There was an error starting the route. Please try again", Toast.LENGTH_SHORT).show();
+                }
 
             }
 

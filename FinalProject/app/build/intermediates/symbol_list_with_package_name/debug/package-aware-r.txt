@@ -991,10 +991,14 @@ color abc_tint_edittext
 color abc_tint_seek_thumb
 color abc_tint_spinner
 color abc_tint_switch_track
+color accent_blue
+color accent_green
+color accent_inactive
 color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
+color background
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -1160,6 +1164,8 @@ color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color primaryTitleColor
+color primaryTitleColorNight
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -1188,6 +1194,7 @@ color teal_200
 color teal_700
 color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
+color textColor
 color tooltip_background_dark
 color tooltip_background_light
 color white
@@ -1668,6 +1675,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable add
+drawable arbutus_greenway_park
 drawable arrow
 drawable avd_hide_password
 drawable avd_show_password
@@ -1709,6 +1717,8 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable harbour_green_park
+drawable hastings_park
 drawable ic_account
 drawable ic_baseline_edit_24
 drawable ic_checklist
@@ -1725,8 +1735,13 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_outline_account
+drawable ic_outline_checklist
+drawable ic_outline_info
+drawable ic_outline_landscape
 drawable icbc
 drawable icon
+drawable jericho_beach
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1737,6 +1752,7 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable moon
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down
@@ -1760,12 +1776,19 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable profile
+drawable queen_elizabeth_park
+drawable science_world
+drawable stanley_park
+drawable sun
+drawable sunset_beach
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable ubc_botanical_garden
 drawable vancitycyclinglogo
 drawable vancitylogo
 drawable vancouverlogo
+drawable vandusen_botanical_garden
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -1890,7 +1913,9 @@ id chip_group
 id chronometer
 id circle_center
 id cityVan
+id cityname
 id clearRoute
+id clearSearch
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -1911,6 +1936,7 @@ id custom
 id customPanel
 id cut
 id dark
+id darkMode
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -1942,10 +1968,9 @@ id dropdown_menu
 id easeIn
 id easeInOut
 id easeOut
-id edit
+id editAccount
 id editChecklistButton
 id edit_query
-id editinfo
 id elastic
 id email
 id emailInput
@@ -1996,7 +2021,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageView
 id image_description
 id image_name
 id info
@@ -2008,13 +2032,20 @@ id jumpToEnd
 id jumpToStart
 id labelGroup
 id labeled
+id landmarkImage
+id landmarkInfo
+id landmarkName
+id landmarksHeading
 id landmarksNavigation
+id landmarksinfo
+id landmarktype
 id largeLabel
 id lastNameInput
 id layout
 id left
 id leftToRight
 id light
+id lightMode
 id line
 id line1
 id line3
@@ -2115,6 +2146,7 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id popularRoutesHeading
 id popularRoutesNavigation
 id position
 id postLayout
@@ -2124,7 +2156,6 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
-id recycler_view
 id resourcesNavigation
 id reverseSawtooth
 id right
@@ -2135,6 +2166,8 @@ id rounded
 id routeDistance
 id routeDuration
 id routeOptionNumber
+id routedescription
+id routeinfo
 id row_index_key
 id satellite
 id save_non_transition_alpha
@@ -2147,6 +2180,8 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id searchButton
+id searchInput
 id search_badge
 id search_bar
 id search_button
@@ -2174,6 +2209,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id speedValue
 id spline
 id split_action_bar
 id spread
@@ -2206,7 +2242,6 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tasksRecyclerView
-id tempSensorValue
 id terrain
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
@@ -2219,6 +2254,8 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView3
+id textView4
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2251,7 +2288,6 @@ id uniform
 id unlabeled
 id up
 id updateButton
-id update_button
 id updateprofileButton
 id useLogo
 id username
@@ -2334,7 +2370,9 @@ layout activity_detailchecklist
 layout activity_editchecklist
 layout activity_editprofile
 layout activity_landingpage
+layout activity_landmarkdetail
 layout activity_landmarks
+layout activity_landmarks_row
 layout activity_main
 layout activity_newchecklist
 layout activity_newtask
@@ -2425,7 +2463,9 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu account_menu
 menu map_menu
+menu map_subactivity_menu
 menu my_menu
 menu nav_menu
 mipmap ic_launcher
@@ -2550,6 +2590,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
+string text
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow

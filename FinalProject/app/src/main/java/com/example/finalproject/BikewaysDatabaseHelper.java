@@ -44,7 +44,7 @@ public class BikewaysDatabaseHelper extends SQLiteOpenHelper {
             try {
                 // Copy the database from assests
                 copyDataBase();
-                Log.e(TAG, "createDatabase database created");
+                Log.e(TAG, "Bikeways database created");
             } catch (IOException mIOException) {
                 throw new Error("ErrorCopyingDataBase");
             }

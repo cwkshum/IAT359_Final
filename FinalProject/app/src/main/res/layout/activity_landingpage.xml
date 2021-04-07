@@ -179,13 +179,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableTint="#FFFFFF"
+                android:textColor="#FFFFFF"
+                android:textSize="10dp"
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"
+
                 android:drawableTop="@drawable/ic_landscape"
                 android:gravity="center_horizontal"
-                android:text="Map"
-                android:drawableTint="#4D8FAC"
-                android:textColor="#4D8FAC"
-                android:textSize="10dp"
-                app:backgroundTint="#ffff"  />
+                android:text="Map"/>
 
             <!--Checklist Button-->
             <androidx.appcompat.widget.AppCompatButton
@@ -195,13 +197,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_checklist"
+                android:drawableTop="@drawable/ic_outline_checklist"
                 android:gravity="center_horizontal"
                 android:text="Checklist"
-                android:drawableTint="#ffff"
-                android:textColor="#ffff"
+                android:drawableTint="#C2CDD1"
+                android:textColor="#C2CDD1"
                 android:textSize="10dp"
-                app:backgroundTint="#4D8FAC" />
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"/>
 
             <!--Resource Button-->
             <androidx.appcompat.widget.AppCompatButton
@@ -210,13 +213,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_info"
+                android:drawableTop="@drawable/ic_outline_info"
                 android:gravity="center_horizontal"
                 android:text="Resources"
-
-                android:textColor="@android:color/white"
                 android:textSize="10dp"
-                app:backgroundTint="#4D8FAC" />
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"
+                android:drawableTint="#C2CDD1"
+                android:textColor="#C2CDD1"
+                android:longClickable="false"
+                android:clickable="false"
+                android:focusable="false"
+                android:cursorVisible="false"/>
 
             <!--Account Button-->
             <androidx.appcompat.widget.AppCompatButton
@@ -225,13 +233,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_account"
+                android:drawableTop="@drawable/ic_outline_account"
                 android:gravity="center_horizontal"
                 android:text="Account"
-
-                android:textColor="@android:color/white"
+                android:drawableTint="#C2CDD1"
+                android:textColor="#C2CDD1"
                 android:textSize="10dp"
-                app:backgroundTint="#4D8FAC" />
+                app:backgroundTint="#4D8FAC"
+                android:stateListAnimator="@null"/>
         </TableRow>
 <!--        <TableRow-->
 <!--            style="@style/box_sky_blue"-->

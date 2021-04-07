@@ -13,4 +13,11 @@
     <color name="accent_blue">#4D8FAC</color>
     <color name="accent_green">#67BD24</color>
     <color name="accent_inactive">#C2CDD1</color>
+
+
+    <color name="background">#FFFFFFFF</color>
+    <color name="textColor">#000000</color>
+
+    <color name="primaryTitleColor">#FF000000</color>
+    <color name="primaryTitleColorNight">#FFFFFFFF</color>
 </resources>

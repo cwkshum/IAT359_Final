@@ -14,6 +14,7 @@
 
         <!-- Logo -->
         <TableRow
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:gravity="center_horizontal|center_vertical"
@@ -232,8 +233,8 @@
                 android:gravity="center_horizontal"
                 android:text="Map"
 
-                android:drawableTint="@color/accent_inactive"
-                android:textColor="@color/accent_inactive"
+                android:drawableTint="#FFFFFF"
+                android:textColor="#ffffffff"
                 android:textSize="10dp"
                 app:backgroundTint="#4D8FAC"
                 android:stateListAnimator="@null"/>

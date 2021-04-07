@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="7">
+
+        <!-- Logo -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_weight="1">
+
+            <!-- Logo Image -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="80dp"
+                android:maxHeight="80dp"
+                android:scaleType="fitCenter"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/vancitycyclinglogo" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="5.4"
+            android:layout_marginHorizontal="8dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="6">
+
+                <TextView
+                    android:id="@+id/landmarksHeading"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="18dp"
+                    android:textColor="@color/accent_blue"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="Landmark Name"/>
+
+                <!--           landmark picture-->
+                <ImageView
+                    android:id="@+id/landmarkImage"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/landmarksinfo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14dp"
+                    android:textColor="@color/accent_blue"
+                    android:textStyle="bold"
+                    android:text="Information"/>
+
+                <TableRow
+                    android:id="@+id/routeinfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.0"
+                    android:background="#EFF5F7"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="2dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/routedescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:paddingBottom="6dp"
+                            android:text="Vancouver's largest urban park boasts beaches, trails,
+                            scenic seawall and family-friendly attractions."
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            />
+
+                        <!-- city name -->
+                        <TextView
+                            android:id="@+id/cityname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:text="Vancouver, BC V6G 1Z4 "
+                            android:textColor="@android:color/black"
+                            android:textSize="12dp" />
+
+                        <!--Landmark type-->
+                        <TextView
+                            android:id="@+id/landmarktype"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:paddingTop="3dp"
+                            android:paddingLeft="5dp"
+                            android:text="Park "
+                            android:textColor="@android:color/black"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginRight="100dp"
+                    android:layout_marginTop="10dp"
+                    >
+                    <Button
+                        android:id="@+id/startRouteButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Start Route"
+                        android:textSize="10dp"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="@color/accent_green"
+                        android:stateListAnimator="@null"/>
+                </TableRow>
+            </TableLayout>
+
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

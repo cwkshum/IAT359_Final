@@ -116,6 +116,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         editor.putString("username", username);
         editor.putString("password", password);
         editor.putInt("mapView", 1);
+        editor.putBoolean("darkMode", false);
+        editor.putBoolean("cyclingAlerts", true);
 
         Toast.makeText(this, "Account Created Successfully! Welcome " + firstName, Toast.LENGTH_LONG).show();
         editor.commit();

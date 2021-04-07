@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VanCity Cycling</string>
+    <string name="text">Light Mode</string>
 </resources>

@@ -7,6 +7,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -41,7 +45,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LandingActivity extends AppCompatActivity implements View.OnClickListener, OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
+public class LandingActivity extends AppCompatActivity implements View.OnClickListener, OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener, SensorEventListener {
 
     GoogleMap myMap;
 
@@ -53,8 +57,8 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     private Integer mapView;
 
-    private String landmarkPoint;
-    private ArrayList<LatLng> landmarkRoutePoints;
+    private String landmarkPoint, startPoint, endPoint;
+    private ArrayList<LatLng> landmarkRoutePoints, createRoutePoints;
 
     // coordinates for Vancouver, BC
     private static final double VANCOUVER_LAT = 49.277549, VANCOUVER_LNG = -123.123921;
@@ -63,7 +67,14 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     static final int REQUEST_LANDMARK = 1;
     static final int REQUEST_POPULAR = 2;
 
-    PolylineOptions lineOptions = null;
+    private PolylineOptions lineOptions = null;
+
+    // Light Sensor
+    private SensorManager sensorManager = null;
+    private Sensor lightSensor = null;
+    private Sensor tempSensor = null;
+    private float lightLevel, temperatureLevel;
+    private Boolean alertPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +106,59 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         mapFragment.getMapAsync(this);
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+
+        if(getIntent().hasExtra("fromFavourite") && getIntent().hasExtra("popularRouteData")){
+            String popularRouteData = getIntent().getExtras().getString("popularRouteData");
+            if((popularRouteData != null)){
+                Intent popularRoutesIntent = new Intent(this, PopularRoutesActivity.class);
+                popularRoutesIntent.putExtra("popularRouteData", popularRouteData);
+                popularRoutesIntent.putExtra("fromFavourite", true);
+                startActivityForResult(popularRoutesIntent, REQUEST_POPULAR);
+            } else{
+                Toast.makeText(this, "There was an error starting route. Please try again.", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        // Get light sensor
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        tempSensor = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+
+        // Get user's information from sharedpreferences
+        SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        alertPref = sharedPrefs.getBoolean("cyclingAlerts", true);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT) != null) {
+            // register light sensor
+            sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        } else{
+            // error message
+            Toast.makeText(this, "No Light Sensor Available", Toast.LENGTH_SHORT).show();
+        }
+
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE) != null) {
+            // register light sensor
+            sensorManager.registerListener(this, tempSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        } else{
+            // error message
+            Toast.makeText(this, "No Temperature Sensor Available", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    @Override
+    protected void onPause() {
+
+        // release sensor
+        sensorManager.unregisterListener(this);
+
+        super.onPause();
     }
 
     @Override
@@ -119,6 +183,29 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
+
+//        // process the response from CreateRoute Activity
+//        if(requestCode == REQUEST_POINTS){
+//            // make sure that the request was successful
+//            if(resultCode == RESULT_OK){
+//                // make sure that the returned data has a word passed through
+//                if(data.hasExtra(CreateRouteActivity.START_POINT) && data.hasExtra(CreateRouteActivity.END_POINT) && data.hasExtra(CreateRouteActivity.ROUTE_POINTS)){
+//                    // get the starting/ending point and route coordinates that were received
+//                    String startPoint = data.getExtras().getString(CreateRouteActivity.START_POINT);
+//                    String endPoint = data.getExtras().getString(CreateRouteActivity.END_POINT);
+//                    ArrayList<LatLng> routePoints = data.getExtras().getParcelableArrayList(CreateRouteActivity.ROUTE_POINTS);
+//
+//                    if((startPoint != null) && (endPoint != null) && (routePoints != null)){
+//                        // call method to draw markers and route
+//                        geolocate(startPoint, endPoint, routePoints);
+//                    } else{
+//                        Toast.makeText(this, "There was an error starting route. Please try again.", Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                }
+//            }
+//        }
+
         // process the response from CreateRoute Activity
         if(requestCode == REQUEST_POINTS){
             // make sure that the request was successful
@@ -126,13 +213,18 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                 // make sure that the returned data has a word passed through
                 if(data.hasExtra(CreateRouteActivity.START_POINT) && data.hasExtra(CreateRouteActivity.END_POINT) && data.hasExtra(CreateRouteActivity.ROUTE_POINTS)){
                     // get the starting/ending point and route coordinates that were received
-                    String startPoint = data.getExtras().getString(CreateRouteActivity.START_POINT);
-                    String endPoint = data.getExtras().getString(CreateRouteActivity.END_POINT);
-                    ArrayList<LatLng> routePoints = data.getExtras().getParcelableArrayList(CreateRouteActivity.ROUTE_POINTS);
+                    startPoint = data.getExtras().getString(CreateRouteActivity.START_POINT);
+                    endPoint = data.getExtras().getString(CreateRouteActivity.END_POINT);
+                    createRoutePoints = new ArrayList<LatLng>();
+                    createRoutePoints = data.getExtras().getParcelableArrayList(CreateRouteActivity.ROUTE_POINTS);
 
-                    if((startPoint != null) && (endPoint != null) && (routePoints != null)){
+                    if((startPoint != null) && (endPoint != null) && (createRoutePoints != null)){
                         // call method to draw markers and route
-                        geolocate(startPoint, endPoint, routePoints);
+//                        geolocate(startPoint, endPoint, routePoints);
+
+                        LandingActivity.CreateRoute createRoute = new LandingActivity.CreateRoute();
+                        createRoute.execute();
+
                     } else{
                         Toast.makeText(this, "There was an error starting route. Please try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -181,64 +273,161 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
-    public void geolocate(String startPoint, String endPoint, ArrayList<LatLng> routePoints) {
-        Geocoder myGeocoder = new Geocoder(this);
-        // clear the map
-        myMap.clear();
+    // Find a route using AsyncTask
+    public class CreateRoute extends AsyncTask<String, Void, List <Address>> {
 
-        // find locations based on user input
-        List<Address> startList = null;
-        List<Address> endList = null;
-        try {
-            startList = myGeocoder.getFromLocationName(startPoint, 1);
-            endList = myGeocoder.getFromLocationName(endPoint, 1);
-        } catch (IOException e) {
-            e.printStackTrace();
+        protected void onPreExecute() {
+            if(alertPref) {
+                alertDialog();
+            }
         }
 
-        double startLat = 0, startLng = 0, endLat = 0, endLng = 0;
+        @Override
+        protected List<Address> doInBackground(String... params) {
 
-        if (startList.size() > 0 || startList != null) {
-            Address add = startList.get(0);
+            Geocoder myGeocoder = new Geocoder(getApplicationContext());
 
-            // get coordinates of starting point
-            startLat = add.getLatitude();
-            startLng = add.getLongitude();
-            gotoLocation(startLat, startLng, 12);
+            // find locations based on user input
+            List<Address> startList = null;
+            List<Address> endList = null;
+            try {
+                startList = myGeocoder.getFromLocationName(startPoint, 1);
+                endList = myGeocoder.getFromLocationName(endPoint, 1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-            // add marker at starting point
-            MarkerOptions options = new MarkerOptions()
-                    .title("Start: " + startPoint)
-                    .position(new LatLng(startLat, startLng));
-            myMap.addMarker(options);
+
+            List<Address> routeAddress = new ArrayList<Address>();;
+
+            if (startList.size() > 0 || startList != null) {
+
+                routeAddress.add(startList.get(0));
+
+                if (endList.size() > 0 || endList != null) {
+                    routeAddress.add(endList.get(0));
+                    return routeAddress;
+                }
+
+
+            }
+
+            return null;
         }
 
-        if (endList.size() > 0 || endList != null) {
-            Address add = endList.get(0);
+        @Override
+        protected void onPostExecute(List<Address> results) { // called when doInBackground() is done
+            super.onPostExecute(results);
 
-            // get coordinates of ending point
-            endLat = add.getLatitude();
-            endLng = add.getLongitude();
+            // clear the map
+            myMap.clear();
 
-            // add marker at ending point
-            MarkerOptions options = new MarkerOptions()
-                    .title("End: " + endPoint)
-                    .position(new LatLng(endLat, endLng));
-            myMap.addMarker(options);
+            double startLat = 0, startLng = 0, endLat = 0, endLng = 0;
+            if (!results.equals(null)) {
+
+                // get coordinates of starting point
+                startLat = results.get(0).getLatitude();
+                startLng = results.get(0).getLongitude();
+
+                // get coordinates of ending point
+                endLat = results.get(1).getLatitude();
+                endLng = results.get(1).getLongitude();
+
+
+                gotoLocation(startLat, startLng, 12);
+
+                // add marker at starting point
+                MarkerOptions startMarker = new MarkerOptions()
+                        .title("Start: " + startPoint)
+                        .position(new LatLng(startLat, startLng));
+                myMap.addMarker(startMarker);
+
+                // add marker at ending point
+                MarkerOptions endMarker = new MarkerOptions()
+                        .title("End: " + endPoint)
+                        .position(new LatLng(endLat, endLng));
+                myMap.addMarker(endMarker);
+
+                lineOptions = new PolylineOptions();
+                // Adding all the points in the route to LineOptions
+                lineOptions.addAll(createRoutePoints);
+                lineOptions.width(6);
+                lineOptions.color(getResources().getColor(R.color.accent_blue));
+
+                // Drawing polyline in the Google Map for the selected route
+                myMap.addPolyline(lineOptions);
+            } else{
+                Toast.makeText(getApplicationContext(), "No results found", Toast.LENGTH_SHORT).show();
+            }
+
         }
-
-        lineOptions = new PolylineOptions();
-        // Adding all the points in the route to LineOptions
-        lineOptions.addAll(routePoints);
-        lineOptions.width(6);
-        lineOptions.color(getResources().getColor(R.color.accent_blue));
-
-        // Drawing polyline in the Google Map for the selected route
-        myMap.addPolyline(lineOptions);
     }
+
+
+//    public void geolocate(String startPoint, String endPoint, ArrayList<LatLng> routePoints) {
+//        Geocoder myGeocoder = new Geocoder(this);
+//        // clear the map
+//        myMap.clear();
+//
+//        // find locations based on user input
+//        List<Address> startList = null;
+//        List<Address> endList = null;
+//        try {
+//            startList = myGeocoder.getFromLocationName(startPoint, 1);
+//            endList = myGeocoder.getFromLocationName(endPoint, 1);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        double startLat = 0, startLng = 0, endLat = 0, endLng = 0;
+//
+//        if (startList.size() > 0 || startList != null) {
+//            Address add = startList.get(0);
+//
+//            // get coordinates of starting point
+//            startLat = add.getLatitude();
+//            startLng = add.getLongitude();
+//            gotoLocation(startLat, startLng, 12);
+//
+//            // add marker at starting point
+//            MarkerOptions options = new MarkerOptions()
+//                    .title("Start: " + startPoint)
+//                    .position(new LatLng(startLat, startLng));
+//            myMap.addMarker(options);
+//        }
+//
+//        if (endList.size() > 0 || endList != null) {
+//            Address add = endList.get(0);
+//
+//            // get coordinates of ending point
+//            endLat = add.getLatitude();
+//            endLng = add.getLongitude();
+//
+//            // add marker at ending point
+//            MarkerOptions options = new MarkerOptions()
+//                    .title("End: " + endPoint)
+//                    .position(new LatLng(endLat, endLng));
+//            myMap.addMarker(options);
+//        }
+//
+//        lineOptions = new PolylineOptions();
+//        // Adding all the points in the route to LineOptions
+//        lineOptions.addAll(routePoints);
+//        lineOptions.width(6);
+//        lineOptions.color(getResources().getColor(R.color.accent_blue));
+//
+//        // Drawing polyline in the Google Map for the selected route
+//        myMap.addPolyline(lineOptions);
+//    }
 
     // Find a landmark using AsyncTask
     public class FindLandmark extends AsyncTask<String, Void, Address> {
+
+        protected void onPreExecute() {
+            if(alertPref) {
+                alertDialog();
+            }
+        }
 
         @Override
         protected Address doInBackground(String... params) {
@@ -297,6 +486,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public void drawPopularRoute(ArrayList<LatLng> routePoints) {
+        if(alertPref) {
+            alertDialog();
+        }
+
         myMap.clear();
 
         // add marker at starting point
@@ -325,14 +518,13 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
-
-
     private void gotoLocation(double lat, double lng, float zoom) {
         // go to the location of the starting point
         LatLng latlng = new LatLng(lat, lng);
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latlng, zoom);
         myMap.moveCamera(update);
     }
+
 
     @Override
     public void onMyLocationClick(@NonNull Location location) {
@@ -492,6 +684,52 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         builder.create().show();
     }
 
+    void alertDialog(){
+        if(lightLevel < 100) {
+            // create an alert
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("It's dark outside");
+            builder.setMessage("Ride with caution and utilize cycling lights or reflectives.");
+
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            // show alert
+            builder.create().show();
+        } else if (temperatureLevel > 17){
+            // create an alert
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("It's warm outside");
+            builder.setMessage("Make sure to stay hydrated during your trip.");
+
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            // show alert
+            builder.create().show();
+        } else if(temperatureLevel < 7){
+            // create an alert
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("It's cold outside");
+            builder.setMessage("Make sure to layer up for your trip.");
+
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            // show alert
+            builder.create().show();
+        }
+
+    }
 
     public void getMapView(){
         // retrieve data from preferences
@@ -505,6 +743,26 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         SharedPreferences.Editor editor = sharedPrefs.edit();
         editor.putInt("mapView", mapView);
         editor.commit();
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        float[] sensorValues = sensorEvent.values;
+        if(sensorEvent.sensor.getType() == Sensor.TYPE_LIGHT){
+            lightLevel = sensorValues[0];
+
+        }
+
+        if(sensorEvent.sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE){
+            temperatureLevel = sensorValues[0];
+
+        }
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
     }
 
     @Override

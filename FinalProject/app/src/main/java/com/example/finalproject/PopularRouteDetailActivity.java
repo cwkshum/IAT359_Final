@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.location.Location;
 import android.location.LocationListener;
@@ -29,7 +31,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.app.ActivityCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -55,31 +59,44 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.function.Consumer;
 
-public class PopularRouteDetailActivity extends AppCompatActivity implements View.OnClickListener{
-    private TextView landmarksHeading, addressHeading, infoHeading, categoryHeading;
-    private ImageView landmarkImage;
-    private Button startRouteButton;
-    private String name, type, length, imageName, startPoint, endPoint;
-    public static final String LANDMARK = "LANDMARK";
+public class PopularRouteDetailActivity extends AppCompatActivity implements View.OnClickListener {
+    private TextView popularRouteHeading, bikewayType, routeLength;
+    private ImageView popularRouteImage;
+    private Button startRouteButton, favouriteRouteButton;
+    private String name, type, imageName, startPoint, endPoint, username;
+    private Float length;
     public static final String ROUTE_POINTS = "ROUTEPOINTS";
 
+    private static final String DEFAULT = "not available";
+    private ChecklistDatabase db;
+    private Boolean inFavourite = false;
+    private Boolean fromFavourite = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_landmarkdetail);
+        setContentView(R.layout.activity_popularroutedetail);
 
-        landmarksHeading = (TextView) findViewById(R.id.landmarksHeading);
-        addressHeading = (TextView) findViewById(R.id.cityname);
-        infoHeading = (TextView) findViewById(R.id.routedescription);
-        categoryHeading = (TextView) findViewById(R.id.landmarktype);
+        // access database
+        db = new ChecklistDatabase(this);
 
-        landmarkImage = (ImageView) findViewById(R.id.landmarkImage);
+        popularRouteHeading = (TextView) findViewById(R.id.popularRouteHeading);
+        bikewayType = (TextView) findViewById(R.id.bikewayType);
+        routeLength = (TextView) findViewById(R.id.routeLength);
+
+        popularRouteImage = (ImageView) findViewById(R.id.popularRouteImage);
 
         // add start route button
         startRouteButton = (Button) findViewById(R.id.startRouteButton);
         startRouteButton.setOnClickListener(this);
 
+        // add start route button
+        favouriteRouteButton = (Button) findViewById(R.id.favouriteRouteButton);
+        favouriteRouteButton.setOnClickListener(this);
+
+        // get the user's username
+        SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        username = sharedPrefs.getString("username", DEFAULT);
 
         if(getIntent().hasExtra("popularRouteData")){
             // get popular route data from the intent
@@ -89,7 +106,7 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
             String[] results = (popularRouteData.split("&"));
             name = results[0];
             type = results[1];
-            length = results[2];
+            length = Float.parseFloat(results[2])/1000;
             String[] coordinates = (results[3].split("~"));
             startPoint = coordinates[0];
             endPoint = coordinates[1];
@@ -102,22 +119,51 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
 //                routePoints.add(new LatLng(lat, lng));
 //            }
 
-//            Toast.makeText(getApplicationContext(), "points: " + routePoints.get(0), Toast.LENGTH_LONG).show();
 
-            landmarksHeading.setText(name);
-            addressHeading.setText(length);
-            infoHeading.setText(type);
-//            categoryHeading.setText(info);
 
-//            // remove spaces from the landmark name
-//            imageName = results[0].replaceAll("\\s+", "_").toLowerCase();
-//
-//            // set the image
-//            landmarkImage.setImageResource(getResources().getIdentifier(imageName, "drawable", getPackageName()));
+            popularRouteHeading.setText(name);
+            bikewayType.setText(type);
+            routeLength.setText(length.toString());
+
+            // remove spaces from the landmark name
+            imageName = results[1].replaceAll("\\s+", "_").toLowerCase();
+
+            // set the image
+            popularRouteImage.setImageResource(getResources().getIdentifier(imageName, "drawable", getPackageName()));
+
+        }
+
+        if(getIntent().hasExtra("fromFavourite")){
+            fromFavourite = true;
+        }
+
+
+
+        if(db.checkFavouriteData(username, name, type)){
+            // Match found, set button to be favourited
+            inFavourite = true;
+            setFavouriteButtonState();
+        } else{
+            // No match found, set button to be not favourited
+            inFavourite = false;
+            setFavouriteButtonState();
 
         }
 
     }
+
+    private void setFavouriteButtonState(){
+        if(inFavourite){
+            Drawable img = this.getResources().getDrawable(R.drawable.ic_favorite);
+            favouriteRouteButton.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
+
+        } else{
+            Drawable img = this.getResources().getDrawable(R.drawable.ic_outline_favorite);
+            favouriteRouteButton.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
+        }
+
+    }
+
 
     private class ReadDirectionsJSONDataTask extends AsyncTask<String, Void, String> {
 
@@ -212,13 +258,21 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
 
             }
 
-            Intent popularRouteIntent = new Intent();
-            // put the route coordinates in the intent
-            popularRouteIntent.putExtra(ROUTE_POINTS, points);
+            if(fromFavourite){
+                Intent popularRouteIntent = new Intent(getApplicationContext(), LandingActivity.class);
+                popularRouteIntent.putExtra("routePoints", points);
+                popularRouteIntent.putExtra("fromFavourite", true);
+                startActivity(popularRouteIntent);
 
-            // finish the intent and take the stored route information back to the map activity
-            setResult(Activity.RESULT_OK, popularRouteIntent);
-            finish();
+            } else {
+                Intent popularRouteIntent = new Intent();
+                // put the route coordinates in the intent
+                popularRouteIntent.putExtra(ROUTE_POINTS, points);
+
+                // finish the intent and take the stored route information back to the map activity
+                setResult(Activity.RESULT_OK, popularRouteIntent);
+                finish();
+            }
         }
     }
 
@@ -271,13 +325,6 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
         if(view.getId() == R.id.startRouteButton) {
 
             if(!startPoint.equals(null) && !endPoint.equals(null)) {
-//                Intent popularRouteIntent = new Intent();
-//                // put the route coordinates in the intent
-//                popularRouteIntent.putExtra(ROUTE_POINTS, routePoints);
-//                // finish the intent and take the stored route information back to the map activity
-//                setResult(Activity.RESULT_OK, popularRouteIntent);
-//                finish();
-
                 // request route through an AsyncTask
                 PopularRouteDetailActivity.ReadDirectionsJSONDataTask requestRoute = new PopularRouteDetailActivity.ReadDirectionsJSONDataTask();
 
@@ -291,6 +338,29 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
 
             } else{
                 Toast.makeText(this, "There was an error getting the route information, please try again.", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        if(view.getId() == R.id.favouriteRouteButton){
+            if(inFavourite){
+                // remove
+                db.deleteFavourite(username, name, type);
+                inFavourite = false;
+                setFavouriteButtonState();
+            } else{
+                // add
+
+                // insert inputted data into the database
+                long id = db.insertFavouriteData(username, name, type);
+
+                if (id < 0) {
+                    // insert failed, do not send user back to Checklist Activity
+                    Toast.makeText(this, "Failed to save to favourites.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    inFavourite = true;
+                    setFavouriteButtonState();
+                }
             }
         }
     }

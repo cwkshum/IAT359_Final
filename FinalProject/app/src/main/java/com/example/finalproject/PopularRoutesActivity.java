@@ -7,8 +7,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +41,6 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
 
     private BikewaysDatabaseAdapter mDbHelper;
     private ArrayList<String> popularRoutesInfoArrayList;
-    public static final String LANDMARK_POINT = "LANDMARK_POINT";
     public static final String ROUTE_POINTS = "ROUTE_POINTS";
 
 
@@ -46,6 +48,17 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popularroutes);
+
+        if(getIntent().hasExtra("fromFavourite") && getIntent().hasExtra("popularRouteData")){
+            String popularRouteData = getIntent().getExtras().getString("popularRouteData");
+            if((popularRouteData != null)){
+                Intent popularRouteDetail = new Intent(this, PopularRouteDetailActivity.class);
+                popularRouteDetail.putExtra("popularRouteData", popularRouteData);
+                startActivityForResult(popularRouteDetail, PopularRoutesAdapter.REQUEST_POPULARROUTEDETAIL);
+            } else{
+                Toast.makeText(this, "There was an error starting route. Please try again.", Toast.LENGTH_SHORT).show();
+            }
+        }
 
         // Create recycler view
         myRecycler = (RecyclerView) findViewById(R.id.table);
@@ -120,74 +133,74 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
 
     }
 
-    // Find a landmark using AsyncTask
-//    public class FindLandmark extends AsyncTask<String, Void, String> {
-//
-//        @Override
-//        protected String doInBackground(String... params) {
-//
-//            // open the bikeway database
-//            mDbHelper.open();
-//
-//            Cursor landmarksData = mDbHelper.getLandmarksData(userSearchInput);
-//
-//            int index1 = landmarksData.getColumnIndex(Constants.LANDMARKSNAME);
-//            int index2 = landmarksData.getColumnIndex(Constants.LANDMARKSADDRESS);
-//            int index3 = landmarksData.getColumnIndex(Constants.LANDMARKSCATEGORY);
-//            int index4 = landmarksData.getColumnIndex(Constants.LANDMARKSINFO);
-//
-//            landmarkInfoArrayList = new ArrayList<String>();
-//            landmarksData.moveToFirst();
-//            while (!landmarksData.isAfterLast()) {
-//                // get the name of landmark
-//                String name = landmarksData.getString(index1);
-//
-//                // get the landmark address
-//                String address = landmarksData.getString(index2);
-//
-//                // get the landmark category
-//                String category = landmarksData.getString(index3);
-//
-//                // get the landmark info
-//                String info = landmarksData.getString(index4);
-//
-//                // insert the retrieved data into the arraylist
-//                String s = name + "~" + address + "~" + category + "~" + info;
-//                landmarkInfoArrayList.add(s);
-//                landmarksData.moveToNext();
-//            }
-//
-//            mDbHelper.close();
-//
-//            if(landmarkInfoArrayList.size() <= 0){
-//                // no landmarks were found in the db
-//                return "No Results Found";
-//            }
-//
-//            // landmarks were found in the db
-//            return "Landmark Results";
-//        }
-//
-//        @Override
-//        protected void onPostExecute(String results) { // called when doInBackground() is done
-//            super.onPostExecute(results);
-//
-//            if(results == "No Results Found"){
-//                // show that no routes were found in the display
-//                landmarksHeading.setText(results);
-//                myAdapter = new LandmarksAdapter(landmarkInfoArrayList, getApplicationContext());
-//                myRecycler.setAdapter(myAdapter);
-//
-//            } else{
-//                // show that that there are available routes in the display
-//                landmarksHeading.setText(results);
-//                myAdapter = new LandmarksAdapter(landmarkInfoArrayList, getApplicationContext());
-//                myRecycler.setAdapter(myAdapter);
-//            }
-//
-//
-//        }
-//    }
+    // Find a popular route using AsyncTask
+    public class FindPopularRoute extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            // open the bikeway database
+            mDbHelper.open();
+
+            Cursor popularRoutesData = mDbHelper.getPopularRoutesData(userSearchInput);
+
+            int index1 = popularRoutesData.getColumnIndex(Constants.POPULARNAME);
+            int index2 = popularRoutesData.getColumnIndex(Constants.POPULARTYPE);
+            int index3 = popularRoutesData.getColumnIndex(Constants.POPULARLENGTH);
+            int index4 = popularRoutesData.getColumnIndex(Constants.POPULARCOORDINATES);
+
+            popularRoutesInfoArrayList = new ArrayList<String>();
+            popularRoutesData.moveToFirst();
+            while (!popularRoutesData.isAfterLast()) {
+                // get the name of the popular route
+                String name = popularRoutesData.getString(index1);
+
+                // get the popular route type
+                String type = popularRoutesData.getString(index2);
+
+                // get the popular route length
+                String length = popularRoutesData.getString(index3);
+
+                // get the popular routes coordinates
+                String coordinates = popularRoutesData.getString(index4);
+
+                // insert the retrieved data into the arraylist
+                String s = name + "&" + type + "&" + length + "&" + coordinates;
+                popularRoutesInfoArrayList.add(s);
+                popularRoutesData.moveToNext();
+            }
+
+            mDbHelper.close();
+
+            if(popularRoutesInfoArrayList.size() <= 0){
+                // no landmarks were found in the db
+                return "No Results Found";
+            }
+
+            // landmarks were found in the db
+            return "Popular Routes Results";
+        }
+
+        @Override
+        protected void onPostExecute(String results) { // called when doInBackground() is done
+            super.onPostExecute(results);
+
+            if(results == "No Results Found"){
+                // show that no routes were found in the display
+                popularRoutesHeading.setText(results);
+                myAdapter = new PopularRoutesAdapter(popularRoutesInfoArrayList, getApplicationContext());
+                myRecycler.setAdapter(myAdapter);
+
+            } else{
+                // show that that there are available routes in the display
+                popularRoutesHeading.setText(results);
+                myAdapter = new PopularRoutesAdapter(popularRoutesInfoArrayList, getApplicationContext());
+                myRecycler.setAdapter(myAdapter);
+            }
+
+
+        }
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -231,9 +244,9 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
 
             hideSoftKeyboard(view);
 
-            // find a landmark using AsyncTask
-//            LandmarksActivity.FindLandmark findLandmark = new LandmarksActivity.FindLandmark();
-//            findLandmark.execute();
+            // find popular route using AsyncTask
+            PopularRoutesActivity.FindPopularRoute findPopularRoute = new PopularRoutesActivity.FindPopularRoute();
+            findPopularRoute.execute();
         }
 
         // Bottom Navigation

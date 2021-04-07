@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/listLayout">
+
+    <!--Checklist row layout-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="#F1F9EB">
+
+            <ImageView
+                android:id="@+id/landmarkImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/vancitycyclinglogo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <!--Checklist row name-->
+        <TextView
+                android:id="@+id/landmarkName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="Landmark 1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/accent_green"
+                app:layout_constraintStart_toEndOf="@+id/landmarkImage"
+                app:layout_constraintTop_toTopOf="@+id/landmarkImage" />
+
+        <!--Checklist row description-->
+        <TextView
+            android:id="@+id/landmarkInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+
+
+            android:text="Landmark info"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+
+            android:layout_marginTop="28dp"
+            app:layout_constraintStart_toStartOf="@+id/landmarkName"
+            app:layout_constraintTop_toTopOf="@+id/landmarkName" />
+
+        <!--Checklist row edit checklist button-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="300dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.208"
+            android:backgroundTint="@color/accent_green"
+            app:borderWidth="0dp"
+            app:elevation="0dp"
+            app:srcCompat="@drawable/ic_delete" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

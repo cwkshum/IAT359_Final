@@ -3,22 +3,16 @@ package com.example.finalproject;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.maps.model.LatLng;
-
 import static com.example.finalproject.R.layout.activity_landmarks_row;
-import static com.example.finalproject.R.layout.available_routes;
 
 import java.util.ArrayList;
 
@@ -48,11 +42,11 @@ public class PopularRoutesAdapter extends RecyclerView.Adapter<PopularRoutesAdap
         // separate the stored route information
         String[] results = (popularRoutesInfoList.get(position).toString()).split("&");
 
-//        // remove spaces from the landmark name
-//        String imageName = results[0].replaceAll("\\s+", "_").toLowerCase();
-//
-//        // set the image
-//        holder.landmarkImage.setImageResource(context.getResources().getIdentifier(imageName, "drawable", context.getPackageName()));
+        // remove spaces from the landmark name
+        String imageName = results[1].replaceAll("\\s+", "_").toLowerCase();
+
+        // set the image
+        holder.popularRouteImage.setImageResource(context.getResources().getIdentifier(imageName, "drawable", context.getPackageName()));
 
         // Set the landmark name
         holder.popularRouteName.setText(results[0]);

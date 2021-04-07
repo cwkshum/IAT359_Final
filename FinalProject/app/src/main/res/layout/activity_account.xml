@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical">
 
     <TableLayout
@@ -12,22 +13,22 @@
         android:layout_margin="1.5dp"
         android:layout_marginHorizontal="8dp">
 
-        <TableRow
-            android:layout_height="0dp"
-            android:layout_width="wrap_content"
-            android:layout_weight="0.5">
+<!--        <TableRow-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_weight="0.5">-->
 
-            <!-- Section Header -->
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="Account"
-                android:textColor="@color/accent_blue"
-                android:textStyle="bold"
-                android:textSize="22dp" />
-        </TableRow>
+<!--            &lt;!&ndash; Section Header &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:text="Account"-->
+<!--                android:textColor="@color/accent_blue"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="22dp" />-->
+<!--        </TableRow>-->
 
         <TableRow
             android:layout_height="0dp"
@@ -62,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Full Name"
-                android:textColor="@color/textColor"
+                android:textColor="@color/black"
                 android:gravity="center_horizontal"/>
         </TableRow>
     </TableLayout>
@@ -95,6 +96,7 @@
 
     <!-- Favourite Routes Subheading -->
     <TextView
+        android:id="@+id/favouriteRoutesHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -118,62 +120,57 @@
             android:layout_height="272dp" />
     </TableRow>
 
-<!--    <androidx.appcompat.widget.SwitchCompat-->
-<!--        android:textStyle="bold"-->
-<!--        android:id="@+id/switchCompat"-->
-<!--        android:text="@string/text"-->
-<!--        android:textSize="20dp"-->
-<!--        android:padding="10dp"-->
-<!--        app:switchPadding="10dp"-->
-<!--        android:checked="false"-->
-<!--        android:layout_margin="10dp"-->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/edit"-->
 <!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"/>-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginBottom="5dp"-->
+<!--        android:layout_gravity="center">-->
 
-    <TableRow
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="10dp"
-        >
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/logout"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="4dp"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:textColor="@color/accent_green"-->
+<!--            app:strokeColor="@color/accent_green"-->
+<!--            app:strokeWidth="2dp"-->
+<!--            android:text="Log Out"></androidx.appcompat.widget.AppCompatButton>-->
 
-        <Button
-            android:id="@+id/lightMode"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:layout_marginRight="10dp"
+<!--        &lt;!&ndash; Edit Button and Logout Button &ndash;&gt;-->
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/editinfo"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="4dp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:backgroundTint="@color/accent_green"-->
+<!--            android:text="Edit Account"></androidx.appcompat.widget.AppCompatButton>-->
+<!--    </LinearLayout>-->
+
+<!--    <TableRow-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/cyclingAlerts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableTop="@drawable/sun"
-            android:background="#19C3FB"
-            android:text="Light Mode"></Button>
+            android:layout_marginTop="25dp"
+            android:text="In-App Cycling Alerts"
+            app:showText="false" />
 
-        <Button
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:id="@+id/darkMode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#212121"
-            android:drawableTop="@drawable/moon"
-            android:textColor="@color/white"
-            android:text="Dark Mode">
-
-        </Button>
-
-
-
-    </TableRow>
+<!--    </TableRow>-->
 
     <!-- Navigation -->
-
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:background="#4D8FAC">
 
-        <!--Map Button-->
+        <!-- Map Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/mapNavigation"
             style="@style/box_sky_blue"
@@ -181,17 +178,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_outline_landscape"
+            android:drawableTop="@drawable/ic_landscape"
             android:gravity="center_horizontal"
             android:text="Map"
 
-            android:drawableTint="@color/accent_inactive"
-            android:textColor="@color/accent_inactive"
+            android:textColor="@android:color/white"
             android:textSize="10dp"
-            app:backgroundTint="#4D8FAC"
-            android:stateListAnimator="@null"/>
+            app:backgroundTint="#4D8FAC" />
 
-        <!--Checklist Button-->
+        <!-- Checklist Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/checklistNavigation"
             style="@style/box_sky_blue"
@@ -199,49 +194,43 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_outline_checklist"
+            android:drawableTop="@drawable/ic_checklist"
             android:gravity="center_horizontal"
             android:text="Checklist"
 
-            android:drawableTint="@color/accent_inactive"
-            android:textColor="@color/accent_inactive"
+            android:textColor="@android:color/white"
             android:textSize="10dp"
-            app:backgroundTint="#4D8FAC"
-            android:stateListAnimator="@null"/>
+            app:backgroundTint="#4D8FAC" />
 
-        <!--Resources Button-->
+        <!-- Resources Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/resourcesNavigation"
             style="@style/box_sky_blue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_outline_info"
+            android:drawableTop="@drawable/ic_info"
             android:gravity="center_horizontal"
             android:text="Resources"
 
-            android:drawableTint="@color/accent_inactive"
-            android:textColor="@color/accent_inactive"
+            android:textColor="@android:color/white"
             android:textSize="10dp"
-            app:backgroundTint="#4D8FAC"
-            android:stateListAnimator="@null"/>
+            app:backgroundTint="#4D8FAC" />
 
-
-        <!--Account Button-->
+        <!-- Account Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/accountNavigation"
             style="@style/box_sky_blue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_outline_account"
+            android:drawableTop="@drawable/ic_account"
             android:gravity="center_horizontal"
             android:text="Account"
-            android:drawableTint="#ffffff"
-            android:textColor="#ffffff"
+            android:drawableTint="#4D8FAC"
+            android:textColor="#4D8FAC"
             android:textSize="10dp"
-            app:backgroundTint="@color/accent_blue"
-            android:stateListAnimator="@null"/>
+            app:backgroundTint="#ffff" />
     </TableRow>
 
 

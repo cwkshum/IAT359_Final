@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="7">
+
+        <!-- Logo -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_weight="1">
+
+            <!-- Logo Image -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="80dp"
+                android:maxHeight="80dp"
+                android:scaleType="fitCenter"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/vancitycyclinglogo" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="5.4"
+            android:layout_marginHorizontal="8dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="6">
+
+                <TextView
+                    android:id="@+id/popularRouteHeading"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="18dp"
+                    android:textColor="@color/accent_blue"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:text="Landmark Name"/>
+
+                <ImageView
+                    android:id="@+id/popularRouteImage"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/popularRouteInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14dp"
+                    android:textColor="@color/accent_blue"
+                    android:textStyle="bold"
+                    android:text="Information"/>
+
+                <TableRow
+                    android:id="@+id/routeinfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.0"
+                    android:background="#EFF5F7"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="2dp">
+
+                        <!-- Bikeway Type -->
+                        <TextView
+                            android:id="@+id/bikewayType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="20dp"
+                            android:text="Protected Bike Lanes"
+                            android:textColor="@android:color/black"
+                            android:textSize="12dp" />
+
+                        <!-- Route Length -->
+                        <TextView
+                            android:id="@+id/routeLength"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:paddingTop="3dp"
+                            android:paddingLeft="20dp"
+                            android:text="2.1km"
+                            android:textColor="@android:color/black"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="10dp">
+                    <Button
+                        android:id="@+id/favouriteRouteButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp"
+                        android:drawableTint="@color/accent_green"
+                        android:drawableLeft="@drawable/ic_outline_favorite"
+                        android:text="Favourite Route"
+                        android:textSize="10dp"
+                        android:textColor="@color/accent_green"
+                        android:backgroundTint="@color/white"
+                        android:stateListAnimator="@null"/>
+
+                    <Button
+                        android:id="@+id/startRouteButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Start Route"
+                        android:textSize="10dp"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="@color/accent_green"
+                        android:stateListAnimator="@null"/>
+                </TableRow>
+            </TableLayout>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

@@ -131,4 +131,33 @@ public class BikewaysDatabaseAdapter {
             throw mSQLException;
         }
     }
+
+    public Cursor popularRoutesFilterData(String userInput, String filter) {
+        try {
+            String sql;
+
+            // If user has inputted a search, refine the query to only show the data for the selected type
+            if(!userInput.equals(null) && !userInput.isEmpty() && !filter.equals(null) && !filter.isEmpty()){
+                sql ="SELECT * FROM " + Constants.POPULAR_TABLE_NAME + " WHERE " + Constants.POPULARNAME + " = '" + userInput + "' AND " + Constants.POPULARTYPE + " = '" + filter + "'";
+            } else if (!filter.equals(null) && !filter.isEmpty()){
+                // default query
+                sql ="SELECT * FROM " + Constants.POPULAR_TABLE_NAME + " WHERE " + Constants.POPULARTYPE + " = '" + filter + "'";
+            } else {
+                // default query
+                sql = "SELECT * FROM " + Constants.POPULAR_TABLE_NAME;
+            }
+
+            // execute query
+            Cursor mCur = mDb.rawQuery(sql, null);
+            if (mCur != null) {
+                mCur.moveToNext();
+            }
+
+            // return query results
+            return mCur;
+        } catch (SQLException mSQLException) {
+            Log.e(TAG, "getTestData >>"+ mSQLException.toString());
+            throw mSQLException;
+        }
+    }
 }

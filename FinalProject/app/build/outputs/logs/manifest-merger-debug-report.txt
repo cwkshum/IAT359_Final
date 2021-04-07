@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-64:12
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-72:12
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\a8a4fd2b2c3909bfe71257b0d5515dad\material-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\b8718484daa03109e40dacfa216193fb\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\4f9c7f78c15bb692cf0895b881aafbad\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
@@ -46,20 +46,20 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Chamira\.grad
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\06bc4641de51b04d4df94808d6e05292\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\1b64911e987df0fea019408e241659d7\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\a77c810a56173ccf6fb339f045a6aacd\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-64:12
+INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-72:12
 	package
 		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:3:5-39
 		INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-64:12
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-72:12
 		INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-64:12
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:1-72:12
 		INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:2:11-69
@@ -80,7 +80,7 @@ ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\
 	android:name
 		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:7:22-76
 application
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:10:5-49:19
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:10:5-57:19
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\a8a4fd2b2c3909bfe71257b0d5515dad\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\a8a4fd2b2c3909bfe71257b0d5515dad\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Chamira\.gradle\caches\transforms-2\files-2.1\b8718484daa03109e40dacfa216193fb\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -122,105 +122,109 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Ch
 	android:usesCleartextTraffic
 		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:17:9-44
 activity#com.example.finalproject.MainActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:19:9-25:20
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:19:9-27:20
 	android:name
 		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:19:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:20:13-24:29
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:22:13-26:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:21:17-69
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:21:25-66
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:23:17-77
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:25:17-77
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:25:27-74
 activity#com.example.finalproject.SignupActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:26:9-61
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:28:9-61
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:26:19-49
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:28:19-49
 activity#com.example.finalproject.LandingActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:28:9-62
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:30:9-62
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:28:19-50
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:30:19-50
 activity#com.example.finalproject.LandmarksActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:29:9-90
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:31:9-90
 	android:label
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:29:53-78
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:31:53-78
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:29:19-52
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:31:19-52
 activity#com.example.finalproject.LandmarkDetailActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:30:9-69
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:32:9-69
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:30:19-57
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:32:19-57
 activity#com.example.finalproject.CreateRouteActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:31:9-95
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:33:9-36:25
 	android:label
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:31:55-83
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:34:13-41
+	android:windowSoftInputMode
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:35:13-65
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:31:19-54
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:33:19-54
 activity#com.example.finalproject.PopularRoutesActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:32:9-99
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:37:9-40:25
 	android:label
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:32:57-87
-	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:32:19-56
-activity#com.example.finalproject.PopularRouteDetailActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:33:9-73
-	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:33:19-61
-activity#com.example.finalproject.ChecklistActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:35:9-64
-	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:35:19-52
-activity#com.example.finalproject.NewChecklistActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:36:9-67
-	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:36:19-55
-activity#com.example.finalproject.EditChecklistActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:37:9-68
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:38:13-43
+	android:windowSoftInputMode
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:39:13-65
 	android:name
 		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:37:19-56
+activity#com.example.finalproject.PopularRouteDetailActivity
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:41:9-73
+	android:name
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:41:19-61
+activity#com.example.finalproject.ChecklistActivity
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:43:9-64
+	android:name
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:43:19-52
+activity#com.example.finalproject.NewChecklistActivity
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:44:9-67
+	android:name
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:44:19-55
+activity#com.example.finalproject.EditChecklistActivity
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:45:9-68
+	android:name
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:45:19-56
 activity#com.example.finalproject.DetailChecklistActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:39:9-70
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:47:9-70
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:39:19-58
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:47:19-58
 activity#com.example.finalproject.ResourcesActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:41:9-64
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:49:9-64
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:41:19-52
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:49:19-52
 activity#com.example.finalproject.AccountActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:43:9-86
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:51:9-86
 	android:label
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:43:51-74
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:51:51-74
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:43:19-50
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:51:19-50
 activity#com.example.finalproject.EditAccountActivity
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:44:9-66
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:52:9-66
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:44:19-54
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:52:19-54
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:46:9-48:71
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:54:9-56:71
 	android:value
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:48:13-68
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:56:13-68
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:47:13-58
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:55:13-58
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:53:5-55:38
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:61:5-63:38
 	android:maxSdkVersion
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:55:9-35
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:63:9-35
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:54:9-65
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:62:9-65
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:56:5-58:38
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:64:5-66:38
 	android:maxSdkVersion
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:58:9-35
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:66:9-35
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:57:9-64
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:65:9-64
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:61:5-81
+ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:69:5-81
 	android:name
-		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:61:22-78
+		ADDED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml:69:22-78
 uses-sdk
 INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Chamira\Documents\IAT 359\IAT359_Final\FinalProject\app\src\main\AndroidManifest.xml

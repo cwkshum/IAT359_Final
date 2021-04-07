@@ -5,11 +5,15 @@ com/example/finalproject/MainActivity.java
  com.example.finalproject.MainActivity$3
 com/example/finalproject/PopularRoutesActivity.java
  com.example.finalproject.PopularRoutesActivity
+ com.example.finalproject.PopularRoutesActivity$FindPopularRoute
 com/example/finalproject/DetailChecklistActivity.java
  com.example.finalproject.DetailChecklistActivity
 com/example/finalproject/FavouriteRouteAdapter.java
  com.example.finalproject.FavouriteRouteAdapter
- com.example.finalproject.FavouriteRouteAdapter$ViewHolder
+ com.example.finalproject.FavouriteRouteAdapter$MyViewHolder
+ com.example.finalproject.FavouriteRouteAdapter$MyViewHolder$1
+ com.example.finalproject.FavouriteRouteAdapter$MyViewHolder$2
+ com.example.finalproject.FavouriteRouteAdapter$MyViewHolder$FindPopularRoute
 com/example/finalproject/NewChecklistActivity.java
  com.example.finalproject.NewChecklistActivity
 com/example/finalproject/ChecklistActivity.java
@@ -96,4 +100,8 @@ com/example/finalproject/LandingActivity.java
  com.example.finalproject.LandingActivity$1
  com.example.finalproject.LandingActivity$2
  com.example.finalproject.LandingActivity$3
+ com.example.finalproject.LandingActivity$4
+ com.example.finalproject.LandingActivity$5
+ com.example.finalproject.LandingActivity$6
+ com.example.finalproject.LandingActivity$CreateRoute
  com.example.finalproject.LandingActivity$FindLandmark

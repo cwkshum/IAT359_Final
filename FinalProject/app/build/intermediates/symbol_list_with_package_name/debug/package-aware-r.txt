@@ -1709,6 +1709,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable darkmode_notactive
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1737,11 +1738,13 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_outline_account
 drawable ic_outline_checklist
+drawable ic_outline_favorite
 drawable ic_outline_info
 drawable ic_outline_landscape
 drawable icbc
 drawable icon
 drawable jericho_beach
+drawable local_street
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1775,11 +1778,15 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable painted_lanes
 drawable profile
+drawable protected_bike_lanes
 drawable queen_elizabeth_park
 drawable science_world
+drawable shared_lanes
 drawable stanley_park
 drawable sun
+drawable sun_notactive
 drawable sunset_beach
 drawable test_custom_background
 drawable tooltip_frame_dark
@@ -1866,6 +1873,7 @@ id adjust_width
 id alertTitle
 id aligned
 id all
+id allBikewaysFilterButton
 id always
 id animateToEnd
 id animateToStart
@@ -1935,6 +1943,7 @@ id createRouteNavigation
 id custom
 id customPanel
 id cut
+id cyclingAlerts
 id dark
 id darkMode
 id date_picker_actions
@@ -1983,6 +1992,8 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fade
+id favouriteRouteButton
+id favouriteRoutesHeading
 id fill
 id fill_horizontal
 id fill_vertical
@@ -2021,8 +2032,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id image_description
-id image_name
 id info
 id invisible
 id inward
@@ -2053,6 +2062,7 @@ id linear
 id listLayout
 id listMode
 id list_item
+id localStreetFilterButton
 id loginButton
 id logout
 id map
@@ -2133,11 +2143,11 @@ id on
 id outline
 id outward
 id packed
+id paintedLanesFilterButton
 id parallax
 id parent
 id parentPanel
 id parentRelative
-id parent_layout
 id parent_matrix
 id passwordInput
 id password_toggle
@@ -2146,6 +2156,9 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id popularRouteHeading
+id popularRouteImage
+id popularRouteInfo
 id popularRoutesHeading
 id popularRoutesNavigation
 id position
@@ -2153,6 +2166,7 @@ id postLayout
 id pressureSensorValue
 id progress_circular
 id progress_horizontal
+id protectedLanesFilterButton
 id radio
 id ratio
 id rectangles
@@ -2165,6 +2179,7 @@ id right_side
 id rounded
 id routeDistance
 id routeDuration
+id routeLength
 id routeOptionNumber
 id routedescription
 id routeinfo
@@ -2195,6 +2210,7 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
+id sharedLanesFilterButton
 id shortcut
 id showCustom
 id showHome
@@ -2369,6 +2385,7 @@ layout activity_createroute
 layout activity_detailchecklist
 layout activity_editchecklist
 layout activity_editprofile
+layout activity_favouriterouterow
 layout activity_landingpage
 layout activity_landmarkdetail
 layout activity_landmarks
@@ -2376,10 +2393,10 @@ layout activity_landmarks_row
 layout activity_main
 layout activity_newchecklist
 layout activity_newtask
+layout activity_popularroutedetail
 layout activity_popularroutes
 layout activity_resource
 layout activity_tasklayout
-layout actvity_favouriterouterow
 layout available_routes
 layout custom_dialog
 layout design_bottom_navigation_item

@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -218,6 +221,29 @@ public class LandmarksActivity extends AppCompatActivity implements View.OnClick
             Toast.makeText(this, "Points Not Received", Toast.LENGTH_SHORT).show();
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // create top additional menu
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.map_subactivity_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.clearSearch){
+            searchInput.setText("");
+
+            // Get the end point entered by the user
+            userSearchInput = "";
+
+            // find a landmark using AsyncTask
+            LandmarksActivity.FindLandmark findLandmark = new LandmarksActivity.FindLandmark();
+            findLandmark.execute();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void hideSoftKeyboard(View v) {

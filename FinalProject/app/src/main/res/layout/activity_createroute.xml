@@ -33,48 +33,48 @@
         </TableRow>
 
         <!-- Map Navigation Tabs-->
-        <TableRow
-            android:layout_height="0dp"
-            android:layout_width="wrap_content"
-            android:layout_weight="0.2"
-            android:background="#4D8FAC"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp">
+<!--        <TableRow-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:background="#4D8FAC"-->
+<!--            android:paddingTop="15dp"-->
+<!--            android:paddingBottom="15dp">-->
 
-            <!-- Landmarks -->
-            <TextView
-                android:id="@+id/landmarksNavigation"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Landmarks"
-                android:textSize="12dp"
-                android:textColor="#C2CDD1"
-                android:gravity="center_horizontal"/>
+<!--            &lt;!&ndash; Landmarks &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/landmarksNavigation"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Landmarks"-->
+<!--                android:textSize="12dp"-->
+<!--                android:textColor="#C2CDD1"-->
+<!--                android:gravity="center_horizontal"/>-->
 
-            <!-- Create Route -->
-            <TextView
-                android:id="@+id/createRouteNavigation"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Create Route"
-                android:textStyle="bold"
-                android:textSize="12dp"
-                android:textColor="@android:color/white"
-                android:gravity="center_horizontal"/>
+<!--            &lt;!&ndash; Create Route &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/createRouteNavigation"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Create Route"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="12dp"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:gravity="center_horizontal"/>-->
 
-            <!-- Popular Routes -->
-            <TextView
-                android:id="@+id/popularRoutesNavigation"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Popular Routes"
-                android:textSize="12dp"
-                android:textColor="#C2CDD1"
-                android:gravity="center_horizontal"/>
-        </TableRow>
+<!--            &lt;!&ndash; Popular Routes &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/popularRoutesNavigation"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Popular Routes"-->
+<!--                android:textSize="12dp"-->
+<!--                android:textColor="#C2CDD1"-->
+<!--                android:gravity="center_horizontal"/>-->
+<!--        </TableRow>-->
 
         <!-- Activity Content-->
         <TableRow

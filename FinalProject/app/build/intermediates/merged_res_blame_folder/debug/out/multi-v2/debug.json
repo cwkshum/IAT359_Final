@@ -93,21 +93,6 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\values-h720dp-v13_values-h720dp-v13.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\Chamira\\.gradle\\caches\\transforms-2\\files-2.1\\4f9c7f78c15bb692cf0895b881aafbad\\appcompat-1.2.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "66",
-                        "endOffsets": "117"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\values-fi_values-fi.arsc.flat",
             "map": [
                 {
@@ -195,6 +180,21 @@
                         "endLines": "5,33,34,35,36,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
                         "endColumns": "12,82,95,107,83,64,92,74,64,87,65,57,70,65,53,109,59,63,53,72,115,83,80,102,84,84,89,66,65,76,81,83,73,78,76,71,88,72,90,94,73,72,93,53,71,85,85,61,63,62,100,101,94,102,78",
                         "endOffsets": "268,3021,3117,3225,3309,6034,6127,6202,6267,6355,6421,6479,6550,6616,6670,6780,6840,6904,6958,7031,7147,7231,7312,7415,7500,7585,7675,7742,7808,7885,7967,8051,8125,8204,8281,8353,8442,8515,8606,8701,8775,8848,8942,8996,9068,9154,9240,9302,9366,9429,9530,9632,9727,9830,9909"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\values-h720dp-v13_values-h720dp-v13.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\Chamira\\.gradle\\caches\\transforms-2\\files-2.1\\4f9c7f78c15bb692cf0895b881aafbad\\appcompat-1.2.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
                     }
                 }
             ]
@@ -2215,21 +2215,6 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\values-w360dp-port-v13_values-w360dp-port-v13.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\Chamira\\.gradle\\caches\\transforms-2\\files-2.1\\a8a4fd2b2c3909bfe71257b0d5515dad\\material-1.3.0\\res\\values-w360dp-port-v13\\values-w360dp-port-v13.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,170,226,293,358,413,478",
-                        "endColumns": "58,55,55,66,64,54,64,68",
-                        "endOffsets": "109,165,221,288,353,408,473,542"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\values-my_values-my.arsc.flat",
             "map": [
                 {
@@ -2317,6 +2302,21 @@
                         "startOffsets": "10357",
                         "endColumns": "100",
                         "endOffsets": "10453"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\values-w360dp-port-v13_values-w360dp-port-v13.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\Chamira\\.gradle\\caches\\transforms-2\\files-2.1\\a8a4fd2b2c3909bfe71257b0d5515dad\\material-1.3.0\\res\\values-w360dp-port-v13\\values-w360dp-port-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,170,226,293,358,413,478",
+                        "endColumns": "58,55,55,66,64,54,64,68",
+                        "endOffsets": "109,165,221,288,353,408,473,542"
                     }
                 }
             ]

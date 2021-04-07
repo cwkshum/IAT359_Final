@@ -67,6 +67,7 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createroute);
 
+
         // check if the device is connected to a network
         checkConnection();
 

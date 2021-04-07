@@ -52,10 +52,12 @@
         <activity android:name="com.example.finalproject.LandmarkDetailActivity" />
         <activity
             android:name="com.example.finalproject.CreateRouteActivity"
-            android:label="Create Route" />
+            android:label="Create Route"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name="com.example.finalproject.PopularRoutesActivity"
-            android:label="Popular Routes" />
+            android:label="Popular Routes"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity android:name="com.example.finalproject.PopularRouteDetailActivity" />
         <activity android:name="com.example.finalproject.ChecklistActivity" />
         <activity android:name="com.example.finalproject.NewChecklistActivity" />

@@ -23,4 +23,8 @@ public class Constants {
     public static final String POPULARTYPE = "type";
     public static final String POPULARLENGTH = "length";
     public static final String POPULARCOORDINATES = "coordinates";
+
+    public static final String FAVOURITE_TABLE_NAME = "favourite_routes"; // favourite routes table name
+    public static final String ROUTENAME = "route_name";
+    public static final String ROUTETYPE = "bikeway_type";
 }

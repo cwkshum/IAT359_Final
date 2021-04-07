@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -30,13 +31,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class AccountActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
-    private ArrayList<String> mNames = new ArrayList<>();
-    private ArrayList<String> mDescription = new ArrayList<>();
-    private ArrayList<String> mImageUrls = new ArrayList<>();
+    // Recycler View
+    private RecyclerView myRecycler;
+    private RecyclerView.LayoutManager myLayoutManager;
+    private FavouriteRouteAdapter myAdapter;
 
-
-
-    private TextView nameHeader, userHeader, emailHeader;
+    private TextView nameHeader, userHeader, emailHeader, favouriteRoutesHeading;
 
     SwitchCompat switchCompat;
 
@@ -48,9 +48,14 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
     public static final String DEFAULT = "not available";
 
-
-
     private final int EDIT_INFO = 3;
+    private ChecklistDatabase db;
+
+    private SwitchCompat cyclingAlerts;
+    private Boolean alertPref;
+
+
+    //private final int EDIT_INFO = 3;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -84,6 +89,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         nameHeader = (TextView) findViewById(R.id.name);
         userHeader = (TextView) findViewById(R.id.username);
         emailHeader = (TextView) findViewById(R.id.email);
+        favouriteRoutesHeading = (TextView) findViewById(R.id.favouriteRoutesHeading);
 
 
         // Navigation Buttons
@@ -99,18 +105,58 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         resourcesNavigation = (Button) findViewById(R.id.resourcesNavigation);
         resourcesNavigation.setOnClickListener(this);
 
-        // Placeholder method for favourite routes to be implemented in milestone 3
-        initImageBitmaps();
+        cyclingAlerts = (SwitchCompat) findViewById(R.id.cyclingAlerts);
+        cyclingAlerts.setOnCheckedChangeListener(this);
+
+        // Create recycler view
+        myRecycler = (RecyclerView) findViewById(R.id.table);
+        myLayoutManager = new LinearLayoutManager(this);
+        myRecycler.setLayoutManager(myLayoutManager);
+
+        // Method to get user's information
+        getUserInfo();
+
+        // access the database
+        db = new ChecklistDatabase(this);
+
+        // get the data from the checklist table from the db
+        Cursor cursor = db.getFavouriteData(username);
+
+        int index1 = cursor.getColumnIndex(Constants.ROUTENAME);
+        int index2 = cursor.getColumnIndex(Constants.ROUTETYPE);
+
+        ArrayList<String> favouriteRoutesData = new ArrayList<String>();
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            // get the route name
+            String routeName = cursor.getString(index1);
+
+            // get the bikeway type
+            String routeType = cursor.getString(index2);
+
+            // insert the retrieved data into the arraylist
+            String s = routeName + "," + routeType;
+            favouriteRoutesData.add(s);
+            cursor.moveToNext();
+        }
+
+        if(favouriteRoutesData.size() < 1){
+            favouriteRoutesHeading.setText("No Favourited Routes");
+        }
+
+        // send the checklist data to the adapter to be attached to the recyclerview
+        myAdapter = new FavouriteRouteAdapter(favouriteRoutesData, username,this);
+        myRecycler.setAdapter(myAdapter);
+
+
 
 
         // switchCompat = (SwitchCompat) findViewById(R.id.switchCompat);
         // switchCompat.setOnCheckedChangeListener(this);
 
-        // Method to get user's information
-        getUserInfo();
 
 //        switchCompat = findViewById(R.id.switchCompat);
-//
+
 //        SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
 //        Boolean booleanvalue = sharedPrefs.getBoolean("darkMode", false);
 //        if (booleanvalue) {
@@ -258,11 +304,11 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
 
 
-  @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-
-    }
+//  @Override
+//    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//
+//    }
 
 
     private void getUserInfo(){
@@ -273,9 +319,14 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         username = sharedPrefs.getString("username", DEFAULT);
         email = sharedPrefs.getString("email", DEFAULT);
         darkMode = sharedPrefs.getBoolean("darkMode",false);
+        alertPref = sharedPrefs.getBoolean("cyclingAlerts", true);
 
 
-
+        if(alertPref == true){
+            cyclingAlerts.setChecked(true);
+        } else{
+            cyclingAlerts.setChecked(false);
+        }
 
 //       if(darkMode == true){
 //              switchCompat.setChecked(true);
@@ -287,7 +338,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         Toast.makeText(this, "darkMode: " + darkMode, Toast.LENGTH_SHORT).show();
 
 
-
         // First name and last name
         nameHeader.setText(firstName + " " + lastName);
 
@@ -297,34 +347,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         // Email
         emailHeader.setText(email);
 
-    }
-
-    // Placeholder RecyclerView for Favourite Routes to be implemented for Milestone 3
-    private void initImageBitmaps(){
-        mImageUrls.add("https://cdn.shopify.com/s/files/1/0019/7073/3109/files/seawall_1024x1024.jpg?v=1528253110");
-        mNames.add("Stanley Park");
-        mDescription.add("Scenic Route that takes bikers across Stanley Park where they can view the beautiful Stanley Park Bike ways");
-
-        mImageUrls.add("https://liv.rent/blog/wp-content/uploads/2019/06/2018-07-25-10.32.28-1-compressor.jpg");
-        mNames.add("Sunset Beach");
-        mDescription.add("Ride Along the shores of Sunset Beach! This bike route is a great start for first time riders with an amazing view of BC's Coast.");
-
-
-        mImageUrls.add("https://www.letsgobiking.net/wp-content/uploads/2010/03/IMG_1660.jpg");
-        mNames.add("Queen Elizabeth Park");
-        mDescription.add("This route follows five Vancouver Greenways and is the highest spot in the city Making  it great for experienced bikers");
-
-
-
-        initRecyclerView();
-    }
-
-    // Placeholder RecyclerView for Favourite Routes to be implemented for Milestone 3
-    private void initRecyclerView(){
-        RecyclerView recyclerView = findViewById(R.id.table);
-        FavouriteRouteAdapter adapter = new FavouriteRouteAdapter(this, mNames, mImageUrls, mDescription);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
@@ -367,20 +389,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
 
-//        // Edit information button
-//        if(view.getId() == R.id.editinfo) {
-//            // start explicit activity to go to edit account activity
-//            Intent i = new Intent(view.getContext(), EditAccountActivity.class);
-//            startActivityForResult(i, EDIT_INFO);
-//        }
-//
-//        // Logout button
-//        if(view.getId() == R.id.logout) {
-//            // start explicit activity to go to login activity
-//            Intent i = new Intent(view.getContext(), MainActivity.class);
-//            startActivity(i);
-//        }
-
         // Navigation Buttons
         // Map Navigation button clicked in the bottom navigation
         if (view.getId() == R.id.mapNavigation) {
@@ -404,4 +412,30 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         }
 
     }
+
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+        if(buttonView.getId() == R.id.cyclingAlerts){
+            if(isChecked){
+                Toast.makeText(this, "Cycling alerts on", Toast.LENGTH_SHORT).show();
+
+                SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPrefs.edit();
+                editor.putBoolean("cyclingAlerts", true);
+                editor.commit();
+
+
+            } else{
+                Toast.makeText(this, "Cycling alerts off", Toast.LENGTH_SHORT).show();
+
+                SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPrefs.edit();
+                editor.putBoolean("cyclingAlerts", false);
+                editor.commit();
+            }
+        }
+    }
+
 }

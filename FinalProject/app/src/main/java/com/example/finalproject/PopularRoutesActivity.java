@@ -3,8 +3,12 @@ package com.example.finalproject;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -17,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,7 +42,9 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
     private TextView popularRoutesHeading;
 
     private Button searchButton, mapNavigation, checklistNavigation, resourcesNavigation, accountNavigation;
-    private String userSearchInput;
+    private Button allBikewaysFilterButton, localStreetFilterButton, paintedLanesFilterButton, protectedLanesFilterButton, sharedLanesFilterButton;
+    private String userSearchInput, filterSelection;
+    private Boolean filterBikeway = false;
 
     private BikewaysDatabaseAdapter mDbHelper;
     private ArrayList<String> popularRoutesInfoArrayList;
@@ -93,6 +100,21 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
         accountNavigation = (Button) findViewById(R.id.accountNavigation);
         accountNavigation.setOnClickListener(this);
 
+        allBikewaysFilterButton = (Button) findViewById(R.id.allBikewaysFilterButton);
+        allBikewaysFilterButton.setOnClickListener(this);
+
+        localStreetFilterButton = (Button) findViewById(R.id.localStreetFilterButton);
+        localStreetFilterButton.setOnClickListener(this);
+
+        paintedLanesFilterButton = (Button) findViewById(R.id.paintedLanesFilterButton);
+        paintedLanesFilterButton.setOnClickListener(this);
+
+        protectedLanesFilterButton = (Button) findViewById(R.id.protectedLanesFilterButton);
+        protectedLanesFilterButton.setOnClickListener(this);
+
+        sharedLanesFilterButton = (Button) findViewById(R.id.sharedLanesFilterButton);
+        sharedLanesFilterButton.setOnClickListener(this);
+
         // open the bikeway database
         mDbHelper.open();
 
@@ -142,7 +164,13 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
             // open the bikeway database
             mDbHelper.open();
 
-            Cursor popularRoutesData = mDbHelper.getPopularRoutesData(userSearchInput);
+            Cursor popularRoutesData;
+
+            if(filterBikeway) {
+                popularRoutesData = mDbHelper.popularRoutesFilterData(userSearchInput, filterSelection);
+            } else {
+                popularRoutesData = mDbHelper.getPopularRoutesData(userSearchInput);
+            }
 
             int index1 = popularRoutesData.getColumnIndex(Constants.POPULARNAME);
             int index2 = popularRoutesData.getColumnIndex(Constants.POPULARTYPE);
@@ -235,14 +263,160 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
         imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
 
+    private void changeFilterButtons(int filterType){
+
+        allBikewaysFilterButton.setTextColor(getResources().getColor(R.color.accent_green));
+        Drawable allBikewaysButtonDrawable = allBikewaysFilterButton.getBackground();
+        allBikewaysButtonDrawable = DrawableCompat.wrap(allBikewaysButtonDrawable);
+        DrawableCompat.setTint(allBikewaysButtonDrawable, getResources().getColor(R.color.white));
+        allBikewaysFilterButton.setBackground(allBikewaysButtonDrawable);
+
+        localStreetFilterButton.setTextColor(getResources().getColor(R.color.accent_green));
+        Drawable localStreetButtonDrawable = localStreetFilterButton.getBackground();
+        localStreetButtonDrawable = DrawableCompat.wrap(localStreetButtonDrawable);
+        DrawableCompat.setTint(localStreetButtonDrawable, getResources().getColor(R.color.white));
+        localStreetFilterButton.setBackground(localStreetButtonDrawable);
+
+        paintedLanesFilterButton.setTextColor(getResources().getColor(R.color.accent_green));
+        Drawable paintedLanesButtonDrawable = paintedLanesFilterButton.getBackground();
+        paintedLanesButtonDrawable = DrawableCompat.wrap(paintedLanesButtonDrawable);
+        DrawableCompat.setTint(paintedLanesButtonDrawable, getResources().getColor(R.color.white));
+        paintedLanesFilterButton.setBackground(paintedLanesButtonDrawable);
+
+        protectedLanesFilterButton.setTextColor(getResources().getColor(R.color.accent_green));
+        Drawable protectedLanesButtonDrawable = protectedLanesFilterButton.getBackground();
+        protectedLanesButtonDrawable = DrawableCompat.wrap(protectedLanesButtonDrawable);
+        DrawableCompat.setTint(protectedLanesButtonDrawable, getResources().getColor(R.color.white));
+        protectedLanesFilterButton.setBackground(protectedLanesButtonDrawable);
+
+        sharedLanesFilterButton.setTextColor(getResources().getColor(R.color.accent_green));
+        Drawable sharedLanesButtonDrawable = sharedLanesFilterButton.getBackground();
+        sharedLanesButtonDrawable = DrawableCompat.wrap(sharedLanesButtonDrawable);
+        DrawableCompat.setTint(sharedLanesButtonDrawable, getResources().getColor(R.color.white));
+        sharedLanesFilterButton.setBackground(sharedLanesButtonDrawable);
+
+        if(filterType == 1){
+            allBikewaysFilterButton.setTextColor(getResources().getColor(R.color.white));
+            DrawableCompat.setTint(allBikewaysButtonDrawable, getResources().getColor(R.color.accent_green));
+            allBikewaysFilterButton.setBackground(allBikewaysButtonDrawable);
+        } else if(filterType == 2){
+            localStreetFilterButton.setTextColor(getResources().getColor(R.color.white));
+            DrawableCompat.setTint(localStreetButtonDrawable, getResources().getColor(R.color.accent_green));
+            localStreetFilterButton.setBackground(localStreetButtonDrawable);
+        } else if (filterType == 3){
+            paintedLanesFilterButton.setTextColor(getResources().getColor(R.color.white));
+            DrawableCompat.setTint(paintedLanesButtonDrawable, getResources().getColor(R.color.accent_green));
+            paintedLanesFilterButton.setBackground(paintedLanesButtonDrawable);
+        } else if (filterType == 4){
+            protectedLanesFilterButton.setTextColor(getResources().getColor(R.color.white));
+            DrawableCompat.setTint(protectedLanesButtonDrawable, getResources().getColor(R.color.accent_green));
+            protectedLanesFilterButton.setBackground(protectedLanesButtonDrawable);
+        } else if (filterType == 5){
+            sharedLanesFilterButton.setTextColor(getResources().getColor(R.color.white));
+            DrawableCompat.setTint(sharedLanesButtonDrawable, getResources().getColor(R.color.accent_green));
+            sharedLanesFilterButton.setBackground(sharedLanesButtonDrawable);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // create top additional menu
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.map_subactivity_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.clearSearch){
+            searchInput.setText("");
+
+            // Get the end point entered by the user
+            userSearchInput = "";
+
+            // change to all bikeways active
+            filterBikeway = false;
+            changeFilterButtons(1);
+            filterSelection = "";
+
+            // find popular route using AsyncTask
+            PopularRoutesActivity.FindPopularRoute findPopularRoute = new PopularRoutesActivity.FindPopularRoute();
+            findPopularRoute.execute();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     public void onClick(View view) {
 
-        if(view.getId() == R.id.searchButton){
+        if(view.getId() == R.id.searchButton || view.getId() == R.id.allBikewaysFilterButton){
             // Get the end point entered by the user
             userSearchInput = searchInput.getText().toString();
 
             hideSoftKeyboard(view);
+
+            // change to all bikeways active
+            filterBikeway = false;
+            changeFilterButtons(1);
+            filterSelection = "";
+
+            // find popular route using AsyncTask
+            PopularRoutesActivity.FindPopularRoute findPopularRoute = new PopularRoutesActivity.FindPopularRoute();
+            findPopularRoute.execute();
+        }
+
+        if(view.getId() == R.id.localStreetFilterButton){
+
+            // Get the end point entered by the user
+            userSearchInput = searchInput.getText().toString();
+
+            // change to local street filter active
+            filterBikeway = true;
+            changeFilterButtons(2);
+            filterSelection = "Local Street";
+
+            // find popular route using AsyncTask
+            PopularRoutesActivity.FindPopularRoute findPopularRoute = new PopularRoutesActivity.FindPopularRoute();
+            findPopularRoute.execute();
+
+        }
+
+        if(view.getId() == R.id.paintedLanesFilterButton){
+            // Get the end point entered by the user
+            userSearchInput = searchInput.getText().toString();
+
+            // change to painted lanes filter active
+            filterBikeway = true;
+            changeFilterButtons(3);
+            filterSelection = "Painted Lanes";
+
+            // find popular route using AsyncTask
+            PopularRoutesActivity.FindPopularRoute findPopularRoute = new PopularRoutesActivity.FindPopularRoute();
+            findPopularRoute.execute();
+        }
+
+        if(view.getId() == R.id.protectedLanesFilterButton){
+            // Get the end point entered by the user
+            userSearchInput = searchInput.getText().toString();
+
+            // change to protected bike lanes filter active
+            filterBikeway = true;
+            changeFilterButtons(4);
+            filterSelection = "Protected Bike Lanes";
+
+            // find popular route using AsyncTask
+            PopularRoutesActivity.FindPopularRoute findPopularRoute = new PopularRoutesActivity.FindPopularRoute();
+            findPopularRoute.execute();
+        }
+
+        if(view.getId() == R.id.sharedLanesFilterButton){
+            // Get the end point entered by the user
+            userSearchInput = searchInput.getText().toString();
+
+            // change to shared lanes filter active
+            filterBikeway = true;
+            changeFilterButtons(5);
+            filterSelection = "Shared Lanes";
 
             // find popular route using AsyncTask
             PopularRoutesActivity.FindPopularRoute findPopularRoute = new PopularRoutesActivity.FindPopularRoute();

@@ -16,7 +16,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         >
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,8 +30,14 @@
         <activity android:name=".LandingActivity"></activity>
         <activity android:name=".LandmarksActivity" android:label="Landmarks"></activity>
         <activity android:name=".LandmarkDetailActivity"></activity>
-        <activity android:name=".CreateRouteActivity" android:label="Create Route"></activity>
-        <activity android:name=".PopularRoutesActivity" android:label="Popular Routes"></activity>
+        <activity android:name=".CreateRouteActivity"
+            android:label="Create Route"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            ></activity>
+        <activity android:name=".PopularRoutesActivity"
+            android:label="Popular Routes"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            ></activity>
         <activity android:name=".PopularRouteDetailActivity"></activity>
 
         <activity android:name=".ChecklistActivity"></activity>

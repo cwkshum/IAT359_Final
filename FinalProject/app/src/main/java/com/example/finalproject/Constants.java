@@ -13,18 +13,18 @@ public class Constants {
     public static final int DATABASE_VERSION = 1; // database version
 
     public static final String LANDMARKS_TABLE_NAME = "landmarks"; // landmarks table name
-    public static final String LANDMARKSNAME = "name";
-    public static final String LANDMARKSADDRESS = "address";
-    public static final String LANDMARKSCATEGORY = "category";
-    public static final String LANDMARKSINFO = "info";
+    public static final String LANDMARKSNAME = "name"; // landmark name
+    public static final String LANDMARKSADDRESS = "address"; // landmark address
+    public static final String LANDMARKSCATEGORY = "category"; // landmark category
+    public static final String LANDMARKSINFO = "info"; // landmark info
 
     public static final String POPULAR_TABLE_NAME = "popular_routes"; // popular routes table name
-    public static final String POPULARNAME = "name";
-    public static final String POPULARTYPE = "type";
-    public static final String POPULARLENGTH = "length";
-    public static final String POPULARCOORDINATES = "coordinates";
+    public static final String POPULARNAME = "name"; // popular route name
+    public static final String POPULARTYPE = "type"; // popular route type
+    public static final String POPULARLENGTH = "length"; // popular route length
+    public static final String POPULARCOORDINATES = "coordinates"; // popular route coordinates
 
     public static final String FAVOURITE_TABLE_NAME = "favourite_routes"; // favourite routes table name
-    public static final String ROUTENAME = "route_name";
-    public static final String ROUTETYPE = "bikeway_type";
+    public static final String ROUTENAME = "route_name"; // favourite route name
+    public static final String ROUTETYPE = "bikeway_type"; // favourite route type
 }

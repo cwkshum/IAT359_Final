@@ -72,7 +72,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
 //            assert task != null;
             if(task.length()>0) {
                 // change the colour of the save button
-                newTaskSaveButton.setTextColor(ContextCompat.getColor(Objects.requireNonNull(getContext()), R.color.colorPrimaryDark));
+                newTaskSaveButton.setTextColor(ContextCompat.getColor(Objects.requireNonNull(getContext()), R.color.accent_green));
             }
         }
 
@@ -95,7 +95,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
                 else{
                     // if text has been entered, save button is activated
                     newTaskSaveButton.setEnabled(true);
-                    newTaskSaveButton.setTextColor(ContextCompat.getColor(Objects.requireNonNull(getContext()), R.color.colorPrimaryDark));
+                    newTaskSaveButton.setTextColor(ContextCompat.getColor(Objects.requireNonNull(getContext()), R.color.accent_green));
                 }
             }
 

@@ -6,13 +6,11 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import static com.example.finalproject.R.layout.activity_checklist_row;
@@ -68,7 +66,7 @@ public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.MyVi
     public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView checklist_id_txt, checklistName_txt, checklistDescription_txt;
-        FloatingActionButton editChecklistButton;
+        public FloatingActionButton editChecklistButton;
         public LinearLayout myLayout;
 
         Context context;

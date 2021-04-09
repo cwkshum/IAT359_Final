@@ -54,6 +54,7 @@ public class BikewaysDatabaseAdapter {
         mDbHelper.close();
     }
 
+    // retrieve bikeways data
     public Cursor getBikewaysData(String userInput) {
         try {
             String sql;
@@ -80,6 +81,7 @@ public class BikewaysDatabaseAdapter {
         }
     }
 
+    // retrieve landmarks data
     public Cursor getLandmarksData(String userInput) {
         try {
             String sql;
@@ -106,6 +108,7 @@ public class BikewaysDatabaseAdapter {
         }
     }
 
+    // Retrieve popular routes data
     public Cursor getPopularRoutesData(String userInput) {
         try {
             String sql;
@@ -132,6 +135,7 @@ public class BikewaysDatabaseAdapter {
         }
     }
 
+    // retrieve popular routes data through filters
     public Cursor popularRoutesFilterData(String userInput, String filter) {
         try {
             String sql;

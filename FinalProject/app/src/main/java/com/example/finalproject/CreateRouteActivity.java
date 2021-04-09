@@ -1,7 +1,6 @@
 package com.example.finalproject;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -18,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,12 +37,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class CreateRouteActivity extends Activity implements View.OnClickListener {
+public class CreateRouteActivity extends AppCompatActivity implements View.OnClickListener {
 
     // Recycler View
     private RecyclerView myRecycler;
     private RecyclerView.LayoutManager myLayoutManager;
-    AvailableRoutesAdapter myAdapter;
+    private AvailableRoutesAdapter myAdapter;
 
     private EditText startPointInput, endPointInput;
 
@@ -67,7 +67,6 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createroute);
 
-
         // check if the device is connected to a network
         checkConnection();
 
@@ -81,22 +80,13 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
 
         availableRoutesHeading = (TextView) findViewById(R.id.availableRoutesHeading);
 
+        // find route button
         findRouteButton = (Button) findViewById(R.id.findRouteButton);
         findRouteButton.setOnClickListener(this);
 
         // access the bikeways database
         mDbHelper = new BikewaysDatabaseAdapter(this);
         mDbHelper.createDatabase();
-
-        // top navigation
-        // landmarks navigation
-        landmarksNavigation = (TextView) findViewById(R.id.landmarksNavigation);
-        landmarksNavigation.setOnClickListener(this);
-
-        // popular routes navigation
-        popularRoutesNavigation = (TextView) findViewById(R.id.popularRoutesNavigation);
-        popularRoutesNavigation.setOnClickListener(this);
-
 
         // bottom navigation buttons
         // map navigation button
@@ -114,7 +104,6 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
         // account navigation button
         accountNavigation = (Button) findViewById(R.id.accountNavigation);
         accountNavigation.setOnClickListener(this);
-
 
         // store route information in an arraylist
         ArrayList<String> routeInfoArrayList = new ArrayList<String>();
@@ -168,6 +157,7 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
                 bikewaysData.moveToNext();
             }
 
+            // close bikeway database
             mDbHelper.close();
 
             if(bikewayTypeArrayList.size() <= 0){
@@ -385,22 +375,6 @@ public class CreateRouteActivity extends Activity implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-
-        // Top Navigation
-        // If landmarks was clicked in the top nav
-        if (view.getId() == R.id.landmarksNavigation) {
-            // start explicit intent to go to landmarks activity
-            Intent i = new Intent(view.getContext(), LandmarksActivity.class);
-            view.getContext().startActivity(i);
-        }
-
-        // If popular routes was clicked in the top nav
-        if (view.getId() == R.id.popularRoutesNavigation) {
-            // start explicit intent to go to popular routes activity
-            Intent i = new Intent(view.getContext(), PopularRoutesActivity.class);
-            view.getContext().startActivity(i);
-        }
-
 
         // Bottom Navigation
         // If Map was clicked in the bottom navigation

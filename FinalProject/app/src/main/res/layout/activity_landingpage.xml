@@ -14,34 +14,32 @@
         android:layout_weight="1">
 
         <!-- Logo -->
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"
-            android:gravity="center_horizontal|center_vertical">
+<!--        <TableRow-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:gravity="center_horizontal|center_vertical">-->
 
-            <!-- Logo Image -->
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:maxWidth="80dp"
-                android:maxHeight="80dp"
-                android:scaleType="fitCenter"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/vancitycyclinglogo" />
-        </TableRow>
+<!--            &lt;!&ndash; Logo Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:adjustViewBounds="true"-->
+<!--                android:maxWidth="80dp"-->
+<!--                android:maxHeight="80dp"-->
+<!--                android:scaleType="fitCenter"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginBottom="5dp"-->
+<!--                android:src="@drawable/vancitycyclinglogo" />-->
+<!--        </TableRow>-->
 
         <!-- Map Navigation Tabs-->
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
-            android:background="#4D8FAC"
-            android:paddingTop="15dp"
-
-           >
+            android:background="@color/accent_blue"
+            android:paddingTop="15dp">
 
             <!-- Landmarks -->
             <TextView
@@ -51,7 +49,8 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="Landmarks"
-                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textColor="@color/white"
                 android:textSize="12dp" />
 
             <!-- Create Route -->
@@ -62,7 +61,8 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="Create Route"
-                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textColor="@color/white"
                 android:textSize="12dp" />
 
             <!-- Popular Routes -->
@@ -73,7 +73,8 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="Popular Routes"
-                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textColor="@color/white"
                 android:textSize="12dp" />
         </TableRow>
 

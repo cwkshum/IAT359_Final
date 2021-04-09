@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -86,7 +85,7 @@ public class LandmarksActivity extends AppCompatActivity implements View.OnClick
         // open the bikeway database
         mDbHelper.open();
 
-        // get the data from the checklist table from the db
+        // get the landmark data from the the bikeways db
         Cursor cursor = mDbHelper.getLandmarksData("");
 
         int index1 = cursor.getColumnIndex(Constants.LANDMARKSNAME);
@@ -195,18 +194,18 @@ public class LandmarksActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-        // process the response from CreateRoute Activity
+        // process the response from LandmarkDetail Activity
         if(requestCode == LandmarksAdapter.REQUEST_LANDMARKDETAIL){
             // make sure that the request was successful
             if(resultCode == RESULT_OK){
-                // make sure that the returned data has a word passed through
+                // make sure that the returned data has a landmark and route points passed through
                 if(data.hasExtra(LandmarkDetailActivity.LANDMARK) && data.hasExtra(LandmarkDetailActivity.ROUTE_POINTS)){
                     // get the landmark point that was received
                     String landmarkPoint = data.getExtras().getString(LandmarkDetailActivity.LANDMARK);
                     ArrayList<LatLng> routePoints = data.getExtras().getParcelableArrayList(LandmarkDetailActivity.ROUTE_POINTS);
 
                     Intent landmarkRouteIntent = new Intent();
-                    // put the start point in the intent
+                    // put the landmark point in the intent
                     landmarkRouteIntent.putExtra(LANDMARK_POINT, landmarkPoint);
                     // put the route coordinates in the intent
                     landmarkRouteIntent.putExtra(ROUTE_POINTS, routePoints);
@@ -234,6 +233,7 @@ public class LandmarksActivity extends AppCompatActivity implements View.OnClick
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.clearSearch){
+            // clear the search input
             searchInput.setText("");
 
             // Get the end point entered by the user
@@ -259,6 +259,7 @@ public class LandmarksActivity extends AppCompatActivity implements View.OnClick
             // Get the end point entered by the user
             userSearchInput = searchInput.getText().toString();
 
+            // hide keyboard
             hideSoftKeyboard(view);
 
             // find a landmark using AsyncTask

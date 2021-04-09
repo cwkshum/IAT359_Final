@@ -5,13 +5,11 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,8 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-
-import static com.example.finalproject.R.layout.activity_favouriterouterow;
 
 public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAdapter.MyViewHolder>{
 
@@ -49,22 +45,22 @@ public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAd
         // separate the stored route information
         String[] results = (favouriteRoutesInfoList.get(position).toString()).split(",");
 
-        // remove spaces from the landmark name
+        // remove spaces from the bikeway type
         String imageName = results[1].replaceAll("\\s+", "_").toLowerCase();
 
         // set the image
         holder.favouriteRouteImage.setImageResource(context.getResources().getIdentifier(imageName, "drawable", context.getPackageName()));
 
-        // Set the landmark name
+        // Set the favourite route name
         holder.favouriteRouteName.setText(results[0]);
 
-        // display the landmark info
+        // display the bikeway type
         holder.favouriteRouteInfo.setText(results[1]);
     }
 
     @Override
     public int getItemCount() {
-
+        // size of favourite routes info list
         return favouriteRoutesInfoList.size();
     }
 
@@ -91,8 +87,10 @@ public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAd
             favouriteRouteName = (TextView) itemView.findViewById(R.id.landmarkName);
             favouriteRouteInfo = (TextView) itemView.findViewById(R.id.landmarkInfo);
 
+            // route image
             favouriteRouteImage = (ImageView) itemView.findViewById(R.id.landmarkImage);
 
+            // delete button
             deleteButton = itemView.findViewById(R.id.deleteButton);
             deleteButton.setOnClickListener(this);
 
@@ -139,14 +137,14 @@ public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAd
 
                     // insert the retrieved data into the arraylist
                     popularRouteData = name + "&" + type + "&" + length + "&" + coordinates;
-//                    popularRoutesInfoArrayList.add(s);
                     popularRoutesData.moveToNext();
                 }
 
+                // close the database connection
                 mDbHelper.close();
 
                 if(popularRouteData.isEmpty()){
-                    // no landmarks were found in the db
+                    // no popular routes were found in the db
                     return "No Results Found";
                 }
 
@@ -158,11 +156,9 @@ public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAd
             protected void onPostExecute(String results) { // called when doInBackground() is done
                 super.onPostExecute(results);
 
-                if(results == "No Results Found"){
-
-
-                } else{
-                    // start an explicit intent to the detailed landmark activity, sending the corresponding landmark data
+                if(results == "Popular Route Result"){
+                    // start an explicit intent to the detailed popular route activity through the main map activity
+                    // sending the corresponding route data
                     Intent favouriteRouteDetail = new Intent(context, LandingActivity.class);
                     favouriteRouteDetail.putExtra("popularRouteData", popularRouteData);
                     favouriteRouteDetail.putExtra("fromFavourite", true);
@@ -177,7 +173,7 @@ public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAd
             // create an alert
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-            // ask user if they want to delete all checklists
+            // ask user if they want to remove route from their favourites
             builder.setTitle("Remove route from your favourites?");
             builder.setMessage("Are you sure you want to remove " + name + "?");
 
@@ -195,8 +191,8 @@ public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAd
                 }
             });
 
-            // if the user selects "No", do not delete checklists from database
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            // if the user selects "Cancel", do not remove route
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -210,7 +206,7 @@ public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAd
         @Override
         public void onClick(View view) {
 
-            // get the landmark data from the arraylist based on the view position
+            // get the route data from the arraylist based on the view position
             String favouriteRouteData = favouriteRoutesInfoList.get(getLayoutPosition());
             String[] results = (favouriteRouteData.toString()).split(",");
             routeName = results[0];

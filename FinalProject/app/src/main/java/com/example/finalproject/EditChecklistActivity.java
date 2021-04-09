@@ -3,13 +3,11 @@ package com.example.finalproject;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -53,13 +51,6 @@ public class EditChecklistActivity extends AppCompatActivity implements View.OnC
             // set the new checklist description input text to be the current checklist description
             newChecklistDescriptionEditText.setText(description);
         }
-
-        //Set actionbar title after getAndSetIntentData method
-//        ActionBar ab = getSupportActionBar();
-//        if (ab != null) {
-//            ab.setTitle(checklistName);
-//        }
-
     }
 
     public void confirmDialog(){

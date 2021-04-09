@@ -27,6 +27,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -47,7 +48,7 @@ import java.util.List;
 
 public class LandingActivity extends AppCompatActivity implements View.OnClickListener, OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener, SensorEventListener {
 
-    GoogleMap myMap;
+    private GoogleMap myMap;
 
     private FusedLocationProviderClient fusedLocationClient;
 
@@ -74,12 +75,25 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     private Sensor lightSensor = null;
     private Sensor tempSensor = null;
     private float lightLevel, temperatureLevel;
-    private Boolean alertPref;
+    private Boolean darkMode, alertPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landingpage);
+
+        // Get user's information from sharedpreferences
+        SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        alertPref = sharedPrefs.getBoolean("cyclingAlerts", true);
+        darkMode = sharedPrefs.getBoolean("darkMode",false);
+
+        if(darkMode){
+            // Set application to dark mode
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            // Set application to light mode
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
         // Top Navigation
         landmarksNavigation = (TextView) findViewById(R.id.landmarksNavigation);
@@ -111,6 +125,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         if(getIntent().hasExtra("fromFavourite") && getIntent().hasExtra("popularRouteData")){
             String popularRouteData = getIntent().getExtras().getString("popularRouteData");
             if((popularRouteData != null)){
+                // take user from favourite routes in account to popular route activity for the detailed view
                 Intent popularRoutesIntent = new Intent(this, PopularRoutesActivity.class);
                 popularRoutesIntent.putExtra("popularRouteData", popularRouteData);
                 popularRoutesIntent.putExtra("fromFavourite", true);
@@ -120,14 +135,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             }
         }
 
-        // Get light sensor
+        // Get the light and temperature sensor
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         tempSensor = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
-
-        // Get user's information from sharedpreferences
-        SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
-        alertPref = sharedPrefs.getBoolean("cyclingAlerts", true);
     }
 
     @Override
@@ -143,7 +154,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         if(sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE) != null) {
-            // register light sensor
+            // register temperature sensor
             sensorManager.registerListener(this, tempSensor, SensorManager.SENSOR_DELAY_NORMAL);
         } else{
             // error message
@@ -155,7 +166,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onPause() {
 
-        // release sensor
+        // release sensors
         sensorManager.unregisterListener(this);
 
         super.onPause();
@@ -183,29 +194,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-
-//        // process the response from CreateRoute Activity
-//        if(requestCode == REQUEST_POINTS){
-//            // make sure that the request was successful
-//            if(resultCode == RESULT_OK){
-//                // make sure that the returned data has a word passed through
-//                if(data.hasExtra(CreateRouteActivity.START_POINT) && data.hasExtra(CreateRouteActivity.END_POINT) && data.hasExtra(CreateRouteActivity.ROUTE_POINTS)){
-//                    // get the starting/ending point and route coordinates that were received
-//                    String startPoint = data.getExtras().getString(CreateRouteActivity.START_POINT);
-//                    String endPoint = data.getExtras().getString(CreateRouteActivity.END_POINT);
-//                    ArrayList<LatLng> routePoints = data.getExtras().getParcelableArrayList(CreateRouteActivity.ROUTE_POINTS);
-//
-//                    if((startPoint != null) && (endPoint != null) && (routePoints != null)){
-//                        // call method to draw markers and route
-//                        geolocate(startPoint, endPoint, routePoints);
-//                    } else{
-//                        Toast.makeText(this, "There was an error starting route. Please try again.", Toast.LENGTH_SHORT).show();
-//                    }
-//
-//                }
-//            }
-//        }
-
         // process the response from CreateRoute Activity
         if(requestCode == REQUEST_POINTS){
             // make sure that the request was successful
@@ -219,9 +207,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                     createRoutePoints = data.getExtras().getParcelableArrayList(CreateRouteActivity.ROUTE_POINTS);
 
                     if((startPoint != null) && (endPoint != null) && (createRoutePoints != null)){
-                        // call method to draw markers and route
-//                        geolocate(startPoint, endPoint, routePoints);
-
+                        // find create route using AsyncTask
                         LandingActivity.CreateRoute createRoute = new LandingActivity.CreateRoute();
                         createRoute.execute();
 
@@ -259,6 +245,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                     ArrayList<LatLng> routePoints = data.getExtras().getParcelableArrayList(PopularRoutesActivity.ROUTE_POINTS);
 
                     if((routePoints != null)){
+                        // call the method to draw the popular route
                         drawPopularRoute(routePoints);
                     } else{
                         Toast.makeText(this, "There was an error starting route. Please try again.", Toast.LENGTH_SHORT).show();
@@ -273,11 +260,12 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
-    // Find a route using AsyncTask
+    // Create a route using AsyncTask
     public class CreateRoute extends AsyncTask<String, Void, List <Address>> {
 
         protected void onPreExecute() {
             if(alertPref) {
+                // display cycling alert if alerts were activated
                 alertDialog();
             }
         }
@@ -302,14 +290,14 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
             if (startList.size() > 0 || startList != null) {
 
+                // add start address info to list
                 routeAddress.add(startList.get(0));
 
                 if (endList.size() > 0 || endList != null) {
+                    // add end address info to list
                     routeAddress.add(endList.get(0));
                     return routeAddress;
                 }
-
-
             }
 
             return null;
@@ -333,7 +321,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                 endLat = results.get(1).getLatitude();
                 endLng = results.get(1).getLongitude();
 
-
+                // set map view to go to start point
                 gotoLocation(startLat, startLng, 12);
 
                 // add marker at starting point
@@ -364,67 +352,12 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
-//    public void geolocate(String startPoint, String endPoint, ArrayList<LatLng> routePoints) {
-//        Geocoder myGeocoder = new Geocoder(this);
-//        // clear the map
-//        myMap.clear();
-//
-//        // find locations based on user input
-//        List<Address> startList = null;
-//        List<Address> endList = null;
-//        try {
-//            startList = myGeocoder.getFromLocationName(startPoint, 1);
-//            endList = myGeocoder.getFromLocationName(endPoint, 1);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        double startLat = 0, startLng = 0, endLat = 0, endLng = 0;
-//
-//        if (startList.size() > 0 || startList != null) {
-//            Address add = startList.get(0);
-//
-//            // get coordinates of starting point
-//            startLat = add.getLatitude();
-//            startLng = add.getLongitude();
-//            gotoLocation(startLat, startLng, 12);
-//
-//            // add marker at starting point
-//            MarkerOptions options = new MarkerOptions()
-//                    .title("Start: " + startPoint)
-//                    .position(new LatLng(startLat, startLng));
-//            myMap.addMarker(options);
-//        }
-//
-//        if (endList.size() > 0 || endList != null) {
-//            Address add = endList.get(0);
-//
-//            // get coordinates of ending point
-//            endLat = add.getLatitude();
-//            endLng = add.getLongitude();
-//
-//            // add marker at ending point
-//            MarkerOptions options = new MarkerOptions()
-//                    .title("End: " + endPoint)
-//                    .position(new LatLng(endLat, endLng));
-//            myMap.addMarker(options);
-//        }
-//
-//        lineOptions = new PolylineOptions();
-//        // Adding all the points in the route to LineOptions
-//        lineOptions.addAll(routePoints);
-//        lineOptions.width(6);
-//        lineOptions.color(getResources().getColor(R.color.accent_blue));
-//
-//        // Drawing polyline in the Google Map for the selected route
-//        myMap.addPolyline(lineOptions);
-//    }
-
     // Find a landmark using AsyncTask
     public class FindLandmark extends AsyncTask<String, Void, Address> {
 
         protected void onPreExecute() {
             if(alertPref) {
+                // display cycling alert if alerts were activated
                 alertDialog();
             }
         }
@@ -459,12 +392,14 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
             double landmarkLat = 0, landmarkLng = 0;
             if (!results.equals(null)) {
-                // get coordinates of starting point
+                // get coordinates of landmark point
                 landmarkLat = results.getLatitude();
                 landmarkLng = results.getLongitude();
+
+                // set map view to the landmark point
                 gotoLocation(landmarkLat, landmarkLng, 12);
 
-                // add marker at starting point
+                // add marker at landmark point
                 MarkerOptions options = new MarkerOptions()
                         .title(landmarkPoint)
                         .position(new LatLng(landmarkLat, landmarkLng));
@@ -487,9 +422,11 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     public void drawPopularRoute(ArrayList<LatLng> routePoints) {
         if(alertPref) {
+            // display cycling alert if alerts were activated
             alertDialog();
         }
 
+        // clear map
         myMap.clear();
 
         // add marker at starting point
@@ -505,6 +442,8 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         double popularLat = routePoints.get(0).latitude;
         double popularLng = routePoints.get(0).longitude;
+
+        // set map view to go to the starting point of the route
         gotoLocation(popularLat, popularLng, 12);
 
         lineOptions = new PolylineOptions();
@@ -531,7 +470,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         // Current location marker was clicked
         Geocoder myGeocoder = new Geocoder(this);
 
-        // Display current address
+        // Display current address as a toast message
         try {
             List<Address> myLocation = myGeocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
             Toast.makeText(this, "Current Location: " + myLocation.get(0).getAddressLine(0), Toast.LENGTH_LONG).show();
@@ -644,7 +583,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         if(item.getItemId() == R.id.clearRoute){
-            // call the confirm method
+            // call the confirm method to clear route
             confirmDialog();
         }
         return super.onOptionsItemSelected(item);
@@ -672,7 +611,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        // if the user selects "No", do not delete clear route
+        // if the user selects "Cancel", do not delete clear route
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -686,43 +625,52 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     void alertDialog(){
         if(lightLevel < 100) {
+            // if light level is less than 100
             // create an alert
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            // show a warning to the user that it is dark outside
             builder.setTitle("It's dark outside");
             builder.setMessage("Ride with caution and utilize cycling lights or reflectives.");
 
             builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-
+                    // close alert
                 }
             });
             // show alert
             builder.create().show();
         } else if (temperatureLevel > 17){
+            // if temperature value is greater than 17
             // create an alert
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            // show a warning to the user that it is hot outside
             builder.setTitle("It's warm outside");
             builder.setMessage("Make sure to stay hydrated during your trip.");
 
             builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-
+                    // close alert
                 }
             });
             // show alert
             builder.create().show();
         } else if(temperatureLevel < 7){
+            // if temperature value is less than 7
             // create an alert
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            // show a warning to the user that it is cold outside
             builder.setTitle("It's cold outside");
             builder.setMessage("Make sure to layer up for your trip.");
 
             builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-
+                    // close alert
                 }
             });
             // show alert
@@ -738,7 +686,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public void saveData(Integer mapView){
-        // Save user information to preferences
+        // Save user map selection to preferences
         SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPrefs.edit();
         editor.putInt("mapView", mapView);
@@ -749,13 +697,13 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     public void onSensorChanged(SensorEvent sensorEvent) {
         float[] sensorValues = sensorEvent.values;
         if(sensorEvent.sensor.getType() == Sensor.TYPE_LIGHT){
+            // update the light level from the sensor
             lightLevel = sensorValues[0];
-
         }
 
         if(sensorEvent.sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE){
+            // update the temperature level from the sensor
             temperatureLevel = sensorValues[0];
-
         }
 
     }

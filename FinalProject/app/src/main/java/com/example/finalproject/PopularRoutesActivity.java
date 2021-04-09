@@ -11,18 +11,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -59,6 +55,7 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
         if(getIntent().hasExtra("fromFavourite") && getIntent().hasExtra("popularRouteData")){
             String popularRouteData = getIntent().getExtras().getString("popularRouteData");
             if((popularRouteData != null)){
+                // if the user came from the favourite route in the account activity, redirect them to the detailed view activity
                 Intent popularRouteDetail = new Intent(this, PopularRouteDetailActivity.class);
                 popularRouteDetail.putExtra("popularRouteData", popularRouteData);
                 startActivityForResult(popularRouteDetail, PopularRoutesAdapter.REQUEST_POPULARROUTEDETAIL);
@@ -100,6 +97,8 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
         accountNavigation = (Button) findViewById(R.id.accountNavigation);
         accountNavigation.setOnClickListener(this);
 
+
+        // filter buttons
         allBikewaysFilterButton = (Button) findViewById(R.id.allBikewaysFilterButton);
         allBikewaysFilterButton.setOnClickListener(this);
 
@@ -118,7 +117,7 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
         // open the bikeway database
         mDbHelper.open();
 
-        // get the data from the checklist table from the db
+        // get the route data from the db
         Cursor cursor = mDbHelper.getPopularRoutesData("");
 
         int index1 = cursor.getColumnIndex(Constants.POPULARNAME);
@@ -147,6 +146,7 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
             cursor.moveToNext();
         }
 
+        // close bikeways database
         mDbHelper.close();
 
         // set Adapter
@@ -198,6 +198,7 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
                 popularRoutesData.moveToNext();
             }
 
+            // close db
             mDbHelper.close();
 
             if(popularRoutesInfoArrayList.size() <= 0){
@@ -233,11 +234,11 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-        // process the response from CreateRoute Activity
+        // process the response from PopularRouteDetail Activity
         if(requestCode == PopularRoutesAdapter.REQUEST_POPULARROUTEDETAIL){
             // make sure that the request was successful
             if(resultCode == RESULT_OK){
-                // make sure that the returned data has a word passed through
+                // make sure that the returned data has route points passed through
                 if(data.hasExtra(PopularRouteDetailActivity.ROUTE_POINTS)){
                     ArrayList<LatLng> routePoints = data.getExtras().getParcelableArrayList(PopularRouteDetailActivity.ROUTE_POINTS);
 
@@ -265,6 +266,7 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
 
     private void changeFilterButtons(int filterType){
 
+        // set all filter buttons to the unselected state
         allBikewaysFilterButton.setTextColor(getResources().getColor(R.color.accent_green));
         Drawable allBikewaysButtonDrawable = allBikewaysFilterButton.getBackground();
         allBikewaysButtonDrawable = DrawableCompat.wrap(allBikewaysButtonDrawable);
@@ -296,22 +298,31 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
         sharedLanesFilterButton.setBackground(sharedLanesButtonDrawable);
 
         if(filterType == 1){
+            // set the all bikeways filter button to be selected
             allBikewaysFilterButton.setTextColor(getResources().getColor(R.color.white));
             DrawableCompat.setTint(allBikewaysButtonDrawable, getResources().getColor(R.color.accent_green));
             allBikewaysFilterButton.setBackground(allBikewaysButtonDrawable);
+
         } else if(filterType == 2){
+            // set the local street filter button to be selected
             localStreetFilterButton.setTextColor(getResources().getColor(R.color.white));
             DrawableCompat.setTint(localStreetButtonDrawable, getResources().getColor(R.color.accent_green));
             localStreetFilterButton.setBackground(localStreetButtonDrawable);
+
         } else if (filterType == 3){
+            // set the painted lanes filter button to be selected
             paintedLanesFilterButton.setTextColor(getResources().getColor(R.color.white));
             DrawableCompat.setTint(paintedLanesButtonDrawable, getResources().getColor(R.color.accent_green));
             paintedLanesFilterButton.setBackground(paintedLanesButtonDrawable);
+
         } else if (filterType == 4){
+            // set the protected lanes filter button to be selected
             protectedLanesFilterButton.setTextColor(getResources().getColor(R.color.white));
             DrawableCompat.setTint(protectedLanesButtonDrawable, getResources().getColor(R.color.accent_green));
             protectedLanesFilterButton.setBackground(protectedLanesButtonDrawable);
+
         } else if (filterType == 5){
+            // set the shared lanes filter button to be selected
             sharedLanesFilterButton.setTextColor(getResources().getColor(R.color.white));
             DrawableCompat.setTint(sharedLanesButtonDrawable, getResources().getColor(R.color.accent_green));
             sharedLanesFilterButton.setBackground(sharedLanesButtonDrawable);
@@ -329,9 +340,10 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.clearSearch){
+            // clear the search input
             searchInput.setText("");
 
-            // Get the end point entered by the user
+            // rest the search input value
             userSearchInput = "";
 
             // change to all bikeways active
@@ -350,9 +362,10 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
 
         if(view.getId() == R.id.searchButton || view.getId() == R.id.allBikewaysFilterButton){
-            // Get the end point entered by the user
+            // Get the search input entered by the user
             userSearchInput = searchInput.getText().toString();
 
+            // hide keyboard
             hideSoftKeyboard(view);
 
             // change to all bikeways active
@@ -430,7 +443,6 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
             Intent mapIntent = new Intent();
             setResult(RESULT_OK, mapIntent);
             finish();
-
         }
 
         // If checklist was clicked in the bottom navigation
@@ -447,7 +459,7 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
             view.getContext().startActivity(i);
         }
 
-        // If create route was clicked in the top navigation
+        // If account was clicked in the bottom navigation
         if (view.getId() == R.id.accountNavigation) {
             // start explicit intent to go to account activity
             Intent i = new Intent(view.getContext(), AccountActivity.class);

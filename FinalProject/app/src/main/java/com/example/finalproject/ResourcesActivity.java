@@ -1,12 +1,9 @@
 package com.example.finalproject;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -19,12 +16,9 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TableRow;
 import android.widget.Toast;
@@ -32,8 +26,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.ActivityCompat;
 
 import org.json.JSONObject;
@@ -45,31 +37,20 @@ import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
 
 public class ResourcesActivity extends AppCompatActivity implements SensorEventListener, View.OnClickListener, LocationListener {
 
     private Button mapNavigation, checklistNavigation, accountNavigation;
 
-    TextView txtTemp, txtWeather;
+    private TextView tempValue;
 
-
-
-
-    // Sensors
+    // Pressure sensors
     private SensorManager sensorManager = null;
-  //  private Sensor tempSensor = null;
     private Sensor pressureSensor = null;
-
-    private boolean tempSensorAvailable = true;
     private boolean pressureSensorAvailable = true;
 
-    SwitchCompat switchCompat;
-
-    ImageView image;
-
     // Sensor Text Display
-    private TextView tempSensorValue, pressureSensorValue;
+    private TextView pressureSensorValue;
 
     // Resource Link Sections
     private TableRow bikeSafety, bikeLaws, cityVan;
@@ -78,40 +59,25 @@ public class ResourcesActivity extends AppCompatActivity implements SensorEventL
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resource);
+
+        // check if device is connected to the internet
         checkConnection();
 
-
-
-        txtWeather = (TextView)findViewById(R.id.textView3);
-        txtTemp = (TextView)findViewById(R.id.textView4);
-
-        new ReadWeatherJSONDataTask().execute(
-                "http://api.geonames.org/findNearByWeatherJSON?lat=49.246292&lng=-123.116226&username=cperera1978");
+        tempValue = (TextView)findViewById(R.id.temperatureTextView);
 
         // Sensor value text display
-     //   tempSensorValue = (TextView) findViewById(R.id.tempSensorValue);
         pressureSensorValue = (TextView) findViewById(R.id.pressureSensorValue);
-
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
-        // Get temperature sensor
-//        if(sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE) != null) {
-//            tempSensor = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
-//
-//        } else{
-//            // current temperature level is not available
-//            tempSensorAvailable = false;
-//            tempSensorValue.setText("Temperature Not Available");
-//        }
 
         // Get pressure sensor
         if(sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE) != null) {
             pressureSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
 
         } else{
-            // current acceleration level is not available
+            // pressure level is not available
             pressureSensorAvailable = false;
-            tempSensorValue.setText("Pressure Not Available");
+            pressureSensorValue.setText("Pressure Level Not Available");
         }
 
         //speedometer find location
@@ -119,11 +85,8 @@ public class ResourcesActivity extends AppCompatActivity implements SensorEventL
             // Permission is not granted
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1000);
         } else {
-
             //start the program if permission is granted
             locationConnect();
-
-
         }
 
         // Resource Links display
@@ -145,29 +108,22 @@ public class ResourcesActivity extends AppCompatActivity implements SensorEventL
 
         accountNavigation = (Button) findViewById(R.id.accountNavigation);
         accountNavigation.setOnClickListener(this);
+
+        new ReadWeatherJSONDataTask().execute(
+                "http://api.geonames.org/findNearByWeatherJSON?lat=49.2827&lng=-123.1207&username=cperera1978");
+
     }
 
-//    public void buttonGetWeather(View view) {
-//
-//        new ReadWeatherJSONDataTask().execute(
-//                "http://api.geonames.org/findNearByWeatherJSON?lat=49.246292&lng=-123.116226&username=cperera1978");
-//
-//
-//    }
-
     public void checkConnection(){
+        // check if device is connected to the internet
         ConnectivityManager connectMgr =
                 (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectMgr.getActiveNetworkInfo();
         if(networkInfo != null && networkInfo.isConnected()){
-            //fetch data
-
-                      String networkType = networkInfo.getTypeName().toString();
-                      Toast.makeText(this, "connected to " + networkType, Toast.LENGTH_LONG).show();
         }
         else {
             //display error
-            Toast.makeText(this, "no network connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "No network connection", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -217,11 +173,9 @@ public class ResourcesActivity extends AppCompatActivity implements SensorEventL
 
     private class ReadWeatherJSONDataTask extends AsyncTask<String, Void, String> {
         Exception exception = null;
-
-
         protected String doInBackground(String... urls) {
             try{
-
+                // read the data from the url
                 return readJSONData(urls[0]);
 
             }catch(IOException e){
@@ -231,17 +185,12 @@ public class ResourcesActivity extends AppCompatActivity implements SensorEventL
         }
         protected void onPostExecute(String result) {
             try {
-
+                // get the json data
                 JSONObject jsonObject = new JSONObject(result);
-                JSONObject weatherObservationItems =
-                        new JSONObject(jsonObject.getString("weatherObservation"));
+                JSONObject weatherObservationItems = new JSONObject(jsonObject.getString("weatherObservation"));
 
-//                Toast.makeText(getBaseContext(),
-//                        weatherObservationItems.getString("temperature") +
-//                                " - " + weatherObservationItems.getString("weatherCondition"),
-//                        Toast.LENGTH_SHORT).show();
-                txtWeather.setText("Vancouver");
-                txtTemp.setText(weatherObservationItems.getString("temperature") + "\u00B0" + "C");
+                // display temperature
+                tempValue.setText(weatherObservationItems.getString("temperature") + "\u00B0" + "C Vancouver");
 
             } catch (Exception e) {
                 Log.d("ReadWeatherJSONDataTask", e.getLocalizedMessage());
@@ -256,13 +205,8 @@ public class ResourcesActivity extends AppCompatActivity implements SensorEventL
     protected void onResume() {
         super.onResume();
 
-//        if (tempSensorAvailable) {
-//            // register temperature sensor
-//            sensorManager.registerListener(this, tempSensor, SensorManager.SENSOR_DELAY_NORMAL);
-//        }
-
         if(pressureSensorAvailable) {
-            // register accelerometer sensor
+            // register pressure sensor
             sensorManager.registerListener(this, pressureSensor, SensorManager.SENSOR_DELAY_NORMAL);
         }
     }
@@ -270,7 +214,7 @@ public class ResourcesActivity extends AppCompatActivity implements SensorEventL
     @Override
     protected void onPause() {
 
-        // release sensors
+        // release sensor
         sensorManager.unregisterListener(this);
         super.onPause();
     }
@@ -280,13 +224,7 @@ public class ResourcesActivity extends AppCompatActivity implements SensorEventL
     public void onSensorChanged(SensorEvent sensorEvent) {
         float[] sensorValues = sensorEvent.values;
         // display current sensor data
-//        if(sensorEvent.sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE){
-//            float tempLevel = sensorValues[0];
-//
-//            // display current temperature level
-//            tempSensorValue.setText(tempLevel + " ºC");
-//
-//        }
+
          if(sensorEvent.sensor.getType() == Sensor.TYPE_PRESSURE) {
             float pressureLevel = sensorValues[0];
 
@@ -382,13 +320,6 @@ public class ResourcesActivity extends AppCompatActivity implements SensorEventL
 
         if (lm != null) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
                 return;
             }
             lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);

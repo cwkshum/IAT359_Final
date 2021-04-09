@@ -63,11 +63,11 @@ public class ChecklistDatabase {
     }
 
     public long insertFavouriteData (String username, String routeName, String bikewayType){
-        // insert to do item into the to do table of the db
+        // insert favourite route into the favourite routes table of the db
         db = helper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        // check to see if an existing to do item with the same name is in the database that corresponds to the current username and checklist
+        // check to see if an existing favourites route with the same name is in the database that corresponds to the current username
         String sql = "SELECT " + Constants.ROUTENAME + " FROM " + Constants.FAVOURITE_TABLE_NAME + " WHERE " + Constants.USERNAME + " = '" + username + "' AND " + Constants.ROUTENAME + " = '" + routeName + "' AND " + Constants.ROUTETYPE + " = '" + bikewayType + "'";
         Cursor cursor = db.rawQuery(sql, null);
         if (cursor.getCount() < 1) {
@@ -84,13 +84,15 @@ public class ChecklistDatabase {
         }
     }
 
-    public Cursor getChecklistData(){
-        // retrieve the checklist data from the checklist table of the database
+    public Cursor getChecklistData(String username){
+        // retrieve the checklist data from the checklist table of the database that matches the username
         SQLiteDatabase db = helper.getWritableDatabase();
 
-        // database query
-        String[] columns = {Constants.UID, Constants.USERNAME, Constants.CHECKLISTNAME, Constants.DESCRIPTION};
-        Cursor cursor = db.query(Constants.CHECKLIST_TABLE_NAME, columns, null, null, null, null, null);
+        String sql = "SELECT * FROM " + Constants.CHECKLIST_TABLE_NAME + " WHERE " + Constants.USERNAME + " = '" + username + "'";
+        Cursor cursor = db.rawQuery(sql, null);
+        if (cursor != null) {
+            cursor.moveToNext();
+        }
         return cursor;
     }
 
@@ -108,7 +110,7 @@ public class ChecklistDatabase {
     }
 
     public Cursor getFavouriteData(String username){
-        // retrieve the to do data from the to do table of the database
+        // retrieve the favourite routes from the favourite route table of the database
         SQLiteDatabase db = helper.getWritableDatabase();
 
         // database query
@@ -157,10 +159,10 @@ public class ChecklistDatabase {
 
     public void deleteFavourite(String username, String routeName, String bikewayType){
 
-        // delete single to do item
+        // delete favourite route
         SQLiteDatabase db = helper.getWritableDatabase();
 
-        // delete to do item from the to do table in the database that matches the current checklist and user
+        // delete favourite route from the favourite route table in the database that matches the route information and user
         db.execSQL("DELETE FROM " + Constants.FAVOURITE_TABLE_NAME + " WHERE " + Constants.ROUTENAME + " = '" + routeName + "' AND " + Constants.USERNAME + " = '" + username + "' AND " + Constants.ROUTETYPE + " = '" + bikewayType + "'");
 
     }
@@ -238,13 +240,14 @@ public class ChecklistDatabase {
     }
 
     public boolean checkFavouriteData(String username, String routeName, String bikewayType){
-        // update to do data
+        // determine if a favourite route match is found in the database
         SQLiteDatabase db = helper.getWritableDatabase();
 
-        // check if the new to do name matches a result in the db
+        // check if an instance of the favourite route is in the db that matches the username
         String sql = "SELECT " + Constants.ROUTENAME + " FROM " + Constants.FAVOURITE_TABLE_NAME + " WHERE " + Constants.USERNAME + " = '" + username + "' AND " + Constants.ROUTENAME + " = '" + routeName + "' AND " + Constants.ROUTETYPE + " = '" + bikewayType + "'";
         Cursor cursor = db.rawQuery(sql, null);
         if (cursor.getCount() < 1) {
+            // no match found
             return false;
         } else {
             // match found

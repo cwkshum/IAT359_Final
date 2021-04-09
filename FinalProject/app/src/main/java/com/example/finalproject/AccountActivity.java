@@ -1,32 +1,27 @@
 package com.example.finalproject;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.database.Cursor;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -38,11 +33,9 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
     private TextView nameHeader, userHeader, emailHeader, favouriteRoutesHeading;
 
-    SwitchCompat switchCompat;
-
     private String firstName, lastName, username, email;
 
-    private Boolean darkMode;
+    private Boolean darkMode, alertPref;
 
     private Button checklistNavigation, resourcesNavigation, mapNavigation, light, dark;
 
@@ -51,41 +44,44 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     private final int EDIT_INFO = 3;
     private ChecklistDatabase db;
 
+    // toggle for cycling alerts
     private SwitchCompat cyclingAlerts;
-    private Boolean alertPref;
-
-
-    //private final int EDIT_INFO = 3;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
-        light = findViewById(R.id.lightMode);
-        dark= findViewById(R.id.darkMode);
+        light = (Button) findViewById(R.id.lightMode);
+        light.setOnClickListener(this);
 
-        SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        dark = (Button) findViewById(R.id.darkMode);
+        dark.setOnClickListener(this);
 
-        light.setOnClickListener(new View.OnClickListener() {
-                                     @Override
-                                     public void onClick(View v) {
-                                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                                         SharedPreferences.Editor editor = sharedPrefs.edit();
-                                         editor.putBoolean("darkMode",false);
-                                         editor.commit();
-                                     }
-                                 });
+//        SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//
+//        light.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//                SharedPreferences.Editor editor = sharedPrefs.edit();
+//                editor.putBoolean("darkMode", false);
+//                editor.commit();
+//            }
+//        });
+//
+//        dark.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//                SharedPreferences.Editor editor = sharedPrefs.edit();
+//                editor.putBoolean("darkMode", true);
+//                editor.commit();
+//            }
+//        });
 
-        dark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                SharedPreferences.Editor editor = sharedPrefs.edit();
-                editor.putBoolean("darkMode",true);
-                editor.commit();
-            }
-        });
+
+        // Text view displays
         nameHeader = (TextView) findViewById(R.id.name);
         userHeader = (TextView) findViewById(R.id.username);
         emailHeader = (TextView) findViewById(R.id.email);
@@ -105,6 +101,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         resourcesNavigation = (Button) findViewById(R.id.resourcesNavigation);
         resourcesNavigation.setOnClickListener(this);
 
+        // Toggle for cycling alerts
         cyclingAlerts = (SwitchCompat) findViewById(R.id.cyclingAlerts);
         cyclingAlerts.setOnCheckedChangeListener(this);
 
@@ -119,7 +116,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         // access the database
         db = new ChecklistDatabase(this);
 
-        // get the data from the checklist table from the db
+        // get the favourite routes data from the favourite table from the db
         Cursor cursor = db.getFavouriteData(username);
 
         int index1 = cursor.getColumnIndex(Constants.ROUTENAME);
@@ -140,175 +137,15 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             cursor.moveToNext();
         }
 
-        if(favouriteRoutesData.size() < 1){
-            favouriteRoutesHeading.setText("No Favourited Routes");
+        if (favouriteRoutesData.size() < 1) {
+            // no favourite routes found in the database
+            favouriteRoutesHeading.setText("No Favourite Routes Saved");
         }
 
-        // send the checklist data to the adapter to be attached to the recyclerview
-        myAdapter = new FavouriteRouteAdapter(favouriteRoutesData, username,this);
+        // send the favourite routes data to the adapter to be attached to the recyclerview
+        myAdapter = new FavouriteRouteAdapter(favouriteRoutesData, username, this);
         myRecycler.setAdapter(myAdapter);
-
-
-
-
-        // switchCompat = (SwitchCompat) findViewById(R.id.switchCompat);
-        // switchCompat.setOnCheckedChangeListener(this);
-
-
-//        switchCompat = findViewById(R.id.switchCompat);
-
-//        SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
-//        Boolean booleanvalue = sharedPrefs.getBoolean("darkMode", false);
-//        if (booleanvalue) {
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//            switchCompat.setChecked(true);
-//        }
-//        switchCompat.setOnCheckedChangeListener((buttonView, isChecked) -> {
-//            if (isChecked) {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//               // switchCompat.setChecked(true);
-//                SharedPreferences.Editor editor = sharedPrefs.edit();
-//                editor.putBoolean("darkMode", true);
-//                editor.commit();
-//                Toast.makeText(this, "yeet", Toast.LENGTH_SHORT).show();
-//            } else {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-////                switchCompat.setChecked(false);
-//                SharedPreferences.Editor editor = sharedPrefs.edit();
-//                editor.putBoolean("darkMode", false);
-//                Toast.makeText(this, " no yeet", Toast.LENGTH_SHORT).show();
-//
-//                editor.commit();
-//            }
-//        });
-//    }
     }
-
-//            if(!isChecked){
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                switchCompat.setChecked(false);
-//                SharedPreferences.Editor editor = sharedPrefs.edit();
-//                editor.putBoolean("darkMode",false);
-//                editor.commit();
-//                Toast.makeText(this, "yeet" , Toast.LENGTH_SHORT).show();
-//            }
-//            if(darkMode == true && isChecked ){
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                switchCompat.setChecked(false);
-//                SharedPreferences.Editor editor = sharedPrefs.edit();
-//                editor.putBoolean("darkMode",false);
-//                editor.commit();
-//                Toast.makeText(this, "skrr" , Toast.LENGTH_SHORT).show();
-//
-//            }
-//            if(darkMode == false && isChecked ){
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//                switchCompat.setChecked(true);
-//                SharedPreferences.Editor editor = sharedPrefs.edit();
-//                editor.putBoolean("darkMode",true);
-//                editor.commit();
-//                Toast.makeText(this, "skrr" , Toast.LENGTH_SHORT).show();
-//
-//            }
-
-//            if(isChecked && darkMode == false){
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//                switchCompat.setChecked(true);
-//                SharedPreferences.Editor editor = sharedPrefs.edit();
-//                editor.putBoolean("darkMode",true);
-//                editor.commit();
-//            }
-
-
-//
-//            if(!isChecked && darkMode == false){
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                switchCompat.setChecked(false);
-//                SharedPreferences.Editor editor = sharedPrefs.edit();
-//                editor.putBoolean("darkMode",false);
-//                editor.commit();
-//                Toast.makeText(this, "oof" , Toast.LENGTH_SHORT).show();
-//
-//            }
-//            else if(isChecked && darkMode == true){
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                switchCompat.setChecked(false);
-//                SharedPreferences.Editor editor = sharedPrefs.edit();
-//                editor.putBoolean("darkMode",false);
-//                Toast.makeText(this, " no yeet" , Toast.LENGTH_SHORT).show();
-//                editor.commit();
-//
-//            }
-//            else if(isChecked && darkMode == true){
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                switchCompat.setChecked(false);
-//                SharedPreferences.Editor editor = sharedPrefs.edit();
-//                editor.putBoolean("darkMode",false);
-//                Toast.makeText(this, " no yeet" , Toast.LENGTH_SHORT).show();
-//                editor.commit();
-//
-//            }
-
-//            else {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                switchCompat.setChecked(false);
-//                SharedPreferences.Editor editor = sharedPrefs.edit();
-//                editor.putBoolean("darkMode",false);
-//                Toast.makeText(this, " no yeet" , Toast.LENGTH_SHORT).show();
-//
-//                editor.commit();
-//            }
-//        });
-
-
-
-//        if (darkMode){
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//            switchCompat.setChecked(true);
-//        } else{
-//             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//            switchCompat.setChecked(false);
-//        }
-
-//        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
-//                if (isChecked){
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//                    // switchCompat.setChecked(true);
-//
-//                    if(!darkMode){
-//                      SharedPreferences.Editor editor = sharedPrefs.edit();
-//                      editor.putBoolean("darkMode", true);
-//                      editor.commit();
-//                    }
-//
-//                    getUserInfo();
-//                }else{
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                    // switchCompat.setChecked(false);
-//
-//                    if(darkMode){
-//                      SharedPreferences.Editor editor = sharedPrefs.edit();
-//                      editor.putBoolean("darkMode",false);
-//                      editor.commit();
-//                    }
-//
-//                    getUserInfo();
-//
-//                }
-//            }
-//        });
-
-
-
-
-//  @Override
-//    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//
-//
-//    }
 
 
     private void getUserInfo(){
@@ -321,38 +158,77 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         darkMode = sharedPrefs.getBoolean("darkMode",false);
         alertPref = sharedPrefs.getBoolean("cyclingAlerts", true);
 
+        setDarkModeButtonState();
 
         if(alertPref == true){
+            // set cycling alert toggle to true
             cyclingAlerts.setChecked(true);
         } else{
+            // set cycling alert toggle to false
             cyclingAlerts.setChecked(false);
         }
-
-//       if(darkMode == true){
-//              switchCompat.setChecked(true);
-//          } else{
-//              switchCompat.setChecked(false);
-//          }
-
-
-        Toast.makeText(this, "darkMode: " + darkMode, Toast.LENGTH_SHORT).show();
-
 
         // First name and last name
         nameHeader.setText(firstName + " " + lastName);
 
         // Username
-        userHeader.setText(username);
+        userHeader.setText("@" + username);
 
         // Email
         emailHeader.setText(email);
 
     }
 
+    private void setDarkModeButtonState(){
+        if(darkMode){
+            // show that the dark mode button is enabled
+            Drawable moon = getResources().getDrawable(R.drawable.moon).mutate();
+            moon.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
+            dark.setCompoundDrawablesWithIntrinsicBounds(moon, null, null, null);
+            dark.setTextColor(getResources().getColor(R.color.white));
+            Drawable darkButtonDrawable = dark.getBackground();
+            darkButtonDrawable = DrawableCompat.wrap(darkButtonDrawable);
+            DrawableCompat.setTint(darkButtonDrawable, getResources().getColor(R.color.accent_green));
+            dark.setBackground(darkButtonDrawable);
+
+            // show that the light mode button is inactive
+            Drawable sun = getResources().getDrawable(R.drawable.sun_notactive).mutate();
+            sun.setColorFilter(getResources().getColor(R.color.accent_green), PorterDuff.Mode.SRC_ATOP);
+            light.setCompoundDrawablesWithIntrinsicBounds(sun, null, null, null);
+            light.setTextColor(getResources().getColor(R.color.accent_green));
+            Drawable lightButtonDrawable = light.getBackground();
+            lightButtonDrawable = DrawableCompat.wrap(lightButtonDrawable);
+            DrawableCompat.setTint(lightButtonDrawable, getResources().getColor(R.color.white));
+            light.setBackground(lightButtonDrawable);
+
+        } else{
+            // show that the light mode button is enabled
+            Drawable sun = getResources().getDrawable(R.drawable.sun).mutate();
+            sun.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
+            light.setCompoundDrawablesWithIntrinsicBounds(sun, null, null, null);
+            light.setTextColor(getResources().getColor(R.color.white));
+            Drawable lightButtonDrawable = light.getBackground();
+            lightButtonDrawable = DrawableCompat.wrap(lightButtonDrawable);
+            DrawableCompat.setTint(lightButtonDrawable, getResources().getColor(R.color.accent_green));
+            light.setBackground(lightButtonDrawable);
+
+            // show that the dark mode button is inactive
+            Drawable moon = getResources().getDrawable(R.drawable.darkmode_notactive).mutate();
+            moon.setColorFilter(getResources().getColor(R.color.accent_green), PorterDuff.Mode.SRC_ATOP);
+            dark.setCompoundDrawablesWithIntrinsicBounds(moon, null, null, null);
+            dark.setTextColor(getResources().getColor(R.color.accent_green));
+            Drawable darkButtonDrawable = dark.getBackground();
+            darkButtonDrawable = DrawableCompat.wrap(darkButtonDrawable);
+            DrawableCompat.setTint(darkButtonDrawable, getResources().getColor(R.color.white));
+            dark.setBackground(darkButtonDrawable);
+        }
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-        // process the response from CreateRoute Activity
+        // process the response from EditAccount Activity
         if(requestCode == EDIT_INFO){
             // make sure that the request was successful
             if(resultCode == RESULT_OK){
@@ -389,6 +265,34 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
 
+        if(view.getId() == R.id.lightMode){
+            // update shared preferences with current app state
+            SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPrefs.edit();
+            editor.putBoolean("darkMode", false);
+            editor.commit();
+
+            setDarkModeButtonState();
+
+            // Set application to light mode
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
+        if(view.getId() == R.id.darkMode){
+
+            // update shared preferences with current app state
+            SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPrefs.edit();
+            editor.putBoolean("darkMode", true);
+            editor.commit();
+
+            setDarkModeButtonState();
+
+            // Set application to dark mode
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+
+
         // Navigation Buttons
         // Map Navigation button clicked in the bottom navigation
         if (view.getId() == R.id.mapNavigation) {
@@ -413,25 +317,23 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
         if(buttonView.getId() == R.id.cyclingAlerts){
             if(isChecked){
-                Toast.makeText(this, "Cycling alerts on", Toast.LENGTH_SHORT).show();
-
+                // update shared preferences with current toggle state
                 SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPrefs.edit();
+                // cycling alerts are active
                 editor.putBoolean("cyclingAlerts", true);
                 editor.commit();
 
 
             } else{
-                Toast.makeText(this, "Cycling alerts off", Toast.LENGTH_SHORT).show();
-
+                // update shared preferences with current toggle state
                 SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPrefs.edit();
+                // cycling alerts are inactive
                 editor.putBoolean("cyclingAlerts", false);
                 editor.commit();
             }

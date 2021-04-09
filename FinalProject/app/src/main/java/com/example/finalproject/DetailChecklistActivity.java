@@ -1,12 +1,7 @@
 package com.example.finalproject;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.hardware.Sensor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,12 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -31,8 +23,6 @@ public class DetailChecklistActivity extends AppCompatActivity implements View.O
     private ToDoAdapter tasksAdapter;
 
     private ChecklistDatabase db;
-
-//    private FloatingActionButton fab;
 
     private String username, checklistName, description;
 
@@ -59,10 +49,6 @@ public class DetailChecklistActivity extends AppCompatActivity implements View.O
         // add to do item button
         addToDoItemButton = (Button) findViewById(R.id.addToDoItemButton);
         addToDoItemButton.setOnClickListener(this);
-
-
-//        fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(this);
 
         if(getIntent().hasExtra("checklistData")){
             // get checklist data from the intent
@@ -118,19 +104,19 @@ public class DetailChecklistActivity extends AppCompatActivity implements View.O
 
         // add to do item button
         if(view.getId() == R.id.addToDoItemButton) {
-//            AddNewTask.newInstance().show(getSupportFragmentManager(), AddNewTask.TAG);
+            // get user input
             newItem = toDoEditText.getText().toString();
 
             if(newItem.equals("")){
                 // if nothing was entered
-                Toast.makeText(this, "Please Enter an Item to add", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please enter an item to add to your list.", Toast.LENGTH_SHORT).show();
             } else{
                 // insert the new to do item into the db
                 long id = db.insertToDoData(username, checklistName, newItem, 0);
 
                 if (id < 0) {
                     // failed to insert because the item already exists
-                    Toast.makeText(this, "Failed to create new item. Item name already exists.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Failed to add new item to list as item name already exists.", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     // successfully added new item to the db

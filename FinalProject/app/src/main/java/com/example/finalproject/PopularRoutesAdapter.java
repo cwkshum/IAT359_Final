@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class PopularRoutesAdapter extends RecyclerView.Adapter<PopularRoutesAdapter.MyViewHolder> {
 
-    // Array list to store landmark information
+    // Array list to store popular route information
     public static ArrayList<String> popularRoutesInfoList;
     public static final int REQUEST_POPULARROUTEDETAIL = 4;
     Context context;
@@ -42,16 +42,16 @@ public class PopularRoutesAdapter extends RecyclerView.Adapter<PopularRoutesAdap
         // separate the stored route information
         String[] results = (popularRoutesInfoList.get(position).toString()).split("&");
 
-        // remove spaces from the landmark name
+        // remove spaces from the bikeway type
         String imageName = results[1].replaceAll("\\s+", "_").toLowerCase();
 
         // set the image
         holder.popularRouteImage.setImageResource(context.getResources().getIdentifier(imageName, "drawable", context.getPackageName()));
 
-        // Set the landmark name
+        // Set the route name
         holder.popularRouteName.setText(results[0]);
 
-        // display the landmark info
+        // display the bikeway type
         holder.popularRouteInfo.setText(results[1]);
 
     }
@@ -59,7 +59,7 @@ public class PopularRoutesAdapter extends RecyclerView.Adapter<PopularRoutesAdap
 
     @Override
     public int getItemCount() {
-        // the size of the landmark info array
+        // the size of the popular route info array
         return popularRoutesInfoList.size();
     }
 
@@ -89,10 +89,10 @@ public class PopularRoutesAdapter extends RecyclerView.Adapter<PopularRoutesAdap
         @Override
         public void onClick(View view) {
             // if the view was clicked
-            // get the landmark data from the arraylist based on the view position
+            // get the route data from the arraylist based on the view position
             String popularRouteData = popularRoutesInfoList.get(getLayoutPosition());
 
-            // start an explicit intent to the detailed landmark activity, sending the corresponding landmark data
+            // start an explicit intent to the detailed popular route activity, sending the corresponding route data
             Intent popularRouteDetail = new Intent(context, PopularRouteDetailActivity.class);
             popularRouteDetail.putExtra("popularRouteData", popularRouteData);
             ((Activity) context).startActivityForResult(popularRouteDetail, REQUEST_POPULARROUTEDETAIL);

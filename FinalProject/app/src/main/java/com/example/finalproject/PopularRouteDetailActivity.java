@@ -1,49 +1,23 @@
 package com.example.finalproject;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.hardware.Sensor;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.CancellationSignal;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.content.res.AppCompatResources;
-import androidx.core.app.ActivityCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONObject;
 
@@ -56,8 +30,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.Executor;
-import java.util.function.Consumer;
 
 public class PopularRouteDetailActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView popularRouteHeading, bikewayType, routeLength;
@@ -80,6 +52,7 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
         // access database
         db = new ChecklistDatabase(this);
 
+        // text views
         popularRouteHeading = (TextView) findViewById(R.id.popularRouteHeading);
         bikewayType = (TextView) findViewById(R.id.bikewayType);
         routeLength = (TextView) findViewById(R.id.routeLength);
@@ -90,7 +63,7 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
         startRouteButton = (Button) findViewById(R.id.startRouteButton);
         startRouteButton.setOnClickListener(this);
 
-        // add start route button
+        // add favourite route button
         favouriteRouteButton = (Button) findViewById(R.id.favouriteRouteButton);
         favouriteRouteButton.setOnClickListener(this);
 
@@ -106,24 +79,19 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
             String[] results = (popularRouteData.split("&"));
             name = results[0];
             type = results[1];
+
+            // convert length of route to km
             length = Float.parseFloat(results[2])/1000;
+
+            // get the start and end point
             String[] coordinates = (results[3].split("~"));
             startPoint = coordinates[0];
             endPoint = coordinates[1];
 
-
-//            for(int i = 0; i < coordinates.length; i++){
-//                String [] latlng = (coordinates[i].split(","));
-//                double lat = Double.parseDouble(latlng[0]);
-//                double lng = Double.parseDouble(latlng[1]);
-//                routePoints.add(new LatLng(lat, lng));
-//            }
-
-
-
+            // display the information
             popularRouteHeading.setText(name);
             bikewayType.setText(type);
-            routeLength.setText(length.toString());
+            routeLength.setText(length.toString() + " km");
 
             // remove spaces from the landmark name
             imageName = results[1].replaceAll("\\s+", "_").toLowerCase();
@@ -136,7 +104,6 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
         if(getIntent().hasExtra("fromFavourite")){
             fromFavourite = true;
         }
-
 
 
         if(db.checkFavouriteData(username, name, type)){
@@ -154,10 +121,12 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
 
     private void setFavouriteButtonState(){
         if(inFavourite){
+            // route has been favourited, change the heart icon to be filled in
             Drawable img = this.getResources().getDrawable(R.drawable.ic_favorite);
             favouriteRouteButton.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
 
         } else{
+            // route was not favourited, change the heart icon to be an outline
             Drawable img = this.getResources().getDrawable(R.drawable.ic_outline_favorite);
             favouriteRouteButton.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
         }
@@ -218,14 +187,11 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
         protected void onPostExecute(List<List<HashMap<String, String>>> result) {
             ArrayList<LatLng> points = null;
 
-            // quite if there are no results
+            // quit if there are no results
             if(result.size()<1){
                 Toast.makeText(getBaseContext(), "No Points", Toast.LENGTH_SHORT).show();
                 return;
             }
-
-            // store arraylist of coordinates in an arraylist
-//            ArrayList<ArrayList<LatLng>> routePointsArrayList =  new ArrayList<>();
 
             // Traversing through all the routes
             for(int i=0;i<result.size();i++){
@@ -252,13 +218,10 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
                     // add coordinates to the arraylist
                     points.add(position);
                 }
-
-                // add arraylist of the current route's coordinates into the arraylist
-//                routePointsArrayList.add(points);
-
             }
 
             if(fromFavourite){
+                // go to landing activity with the stored route data if the user came from favourite routes in the account activity
                 Intent popularRouteIntent = new Intent(getApplicationContext(), LandingActivity.class);
                 popularRouteIntent.putExtra("routePoints", points);
                 popularRouteIntent.putExtra("fromFavourite", true);
@@ -343,22 +306,23 @@ public class PopularRouteDetailActivity extends AppCompatActivity implements Vie
 
         if(view.getId() == R.id.favouriteRouteButton){
             if(inFavourite){
-                // remove
+                // remove route from favourites list
                 db.deleteFavourite(username, name, type);
                 inFavourite = false;
+                // change favourite button state
                 setFavouriteButtonState();
             } else{
-                // add
-
+                // add route to favourites list
                 // insert inputted data into the database
                 long id = db.insertFavouriteData(username, name, type);
 
                 if (id < 0) {
-                    // insert failed, do not send user back to Checklist Activity
+                    // insert failed
                     Toast.makeText(this, "Failed to save to favourites.", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     inFavourite = true;
+                    // change state of favourite button state if it was successfully added to db
                     setFavouriteButtonState();
                 }
             }

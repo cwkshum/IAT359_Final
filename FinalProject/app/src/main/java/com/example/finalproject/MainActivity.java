@@ -56,31 +56,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     // if noting has been entered, login button is not activated
                     loginButton.setEnabled(false);
                     loginButton.setTextColor(getResources().getColor(R.color.accent_green));
-                    Drawable loginButtonDrawable = loginButton.getBackground();
-                    loginButtonDrawable = DrawableCompat.wrap(loginButtonDrawable);
-                    DrawableCompat.setTint(loginButtonDrawable, getResources().getColor(R.color.white));
-                    loginButton.setBackground(loginButtonDrawable);
+                    loginButton.setBackgroundResource(R.drawable.secondary_button);
 
                     signupButton.setTextColor(getResources().getColor(R.color.white));
-                    Drawable signupButtonDrawable = signupButton.getBackground();
-                    signupButtonDrawable = DrawableCompat.wrap(signupButtonDrawable);
-                    DrawableCompat.setTint(signupButtonDrawable, getResources().getColor(R.color.accent_green));
-                    signupButton.setBackground(signupButtonDrawable);
+                    signupButton.setBackgroundResource(R.drawable.primary_button);
+
                 }
                 else{
                     // if text has been entered, login button is activated
                     loginButton.setEnabled(true);
                     loginButton.setTextColor(getResources().getColor(R.color.white));
-                    Drawable loginButtonDrawable = loginButton.getBackground();
-                    loginButtonDrawable = DrawableCompat.wrap(loginButtonDrawable);
-                    DrawableCompat.setTint(loginButtonDrawable, getResources().getColor(R.color.accent_green));
-                    loginButton.setBackground(loginButtonDrawable);
+                    loginButton.setBackgroundResource(R.drawable.primary_button);
 
                     signupButton.setTextColor(getResources().getColor(R.color.accent_green));
-                    Drawable signupButtonDrawable = signupButton.getBackground();
-                    signupButtonDrawable = DrawableCompat.wrap(signupButtonDrawable);
-                    DrawableCompat.setTint(signupButtonDrawable, getResources().getColor(R.color.white));
-                    signupButton.setBackground(signupButtonDrawable);
+                    signupButton.setBackgroundResource(R.drawable.secondary_button);
                 }
             }
 
@@ -104,31 +93,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     // if noting has been entered, login button is not activated
                     loginButton.setEnabled(false);
                     loginButton.setTextColor(getResources().getColor(R.color.accent_green));
-                    Drawable loginButtonDrawable = loginButton.getBackground();
-                    loginButtonDrawable = DrawableCompat.wrap(loginButtonDrawable);
-                    DrawableCompat.setTint(loginButtonDrawable, getResources().getColor(R.color.white));
-                    loginButton.setBackground(loginButtonDrawable);
+                    loginButton.setBackgroundResource(R.drawable.secondary_button);
 
                     signupButton.setTextColor(getResources().getColor(R.color.white));
-                    Drawable signupButtonDrawable = signupButton.getBackground();
-                    signupButtonDrawable = DrawableCompat.wrap(signupButtonDrawable);
-                    DrawableCompat.setTint(signupButtonDrawable, getResources().getColor(R.color.accent_green));
-                    signupButton.setBackground(signupButtonDrawable);
+                    signupButton.setBackgroundResource(R.drawable.primary_button);
+
                 }
                 else{
                     // if text has been entered, login button is activated
                     loginButton.setEnabled(true);
                     loginButton.setTextColor(getResources().getColor(R.color.white));
-                    Drawable loginButtonDrawable = loginButton.getBackground();
-                    loginButtonDrawable = DrawableCompat.wrap(loginButtonDrawable);
-                    DrawableCompat.setTint(loginButtonDrawable, getResources().getColor(R.color.accent_green));
-                    loginButton.setBackground(loginButtonDrawable);
+                    loginButton.setBackgroundResource(R.drawable.primary_button);
 
                     signupButton.setTextColor(getResources().getColor(R.color.accent_green));
-                    Drawable signupButtonDrawable = signupButton.getBackground();
-                    signupButtonDrawable = DrawableCompat.wrap(signupButtonDrawable);
-                    DrawableCompat.setTint(signupButtonDrawable, getResources().getColor(R.color.white));
-                    signupButton.setBackground(signupButtonDrawable);
+                    signupButton.setBackgroundResource(R.drawable.secondary_button);
                 }
             }
 

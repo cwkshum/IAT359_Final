@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class NewChecklistActivity extends Activity implements View.OnClickListener {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class NewChecklistActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText checklistNameEditText, checklistDescriptionEditText;
     private Button createChecklist;

@@ -13,4 +13,18 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="darkButton">
+        <item name="android:drawableTop">@drawable/darkmode_notactive</item>
+    </style>
+
+<!--    <style name="lightButton">-->
+<!--        <item name="android:drawableTop">@drawable/sun</item>-->
+<!--        <item name="android:drawableTint">#FFDE00</item>-->
+<!--        <item name="android:background">#19C3FB</item>-->
+<!--        <item name="android:textColor">#ECECEC</item>-->
+<!--    </style>-->
+
+
+
 </resources>

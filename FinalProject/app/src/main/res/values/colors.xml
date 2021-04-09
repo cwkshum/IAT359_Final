@@ -15,9 +15,15 @@
     <color name="accent_inactive">#C2CDD1</color>
 
 
-    <color name="background">#FFFFFFFF</color>
+    <color name="nightmodeback">#FFFFFFFF</color>
+    <color name= "nightActive">#BDBCBC</color>
+
     <color name="textColor">#000000</color>
 
     <color name="primaryTitleColor">#FF000000</color>
     <color name="primaryTitleColorNight">#FFFFFFFF</color>
+
+    <style name="menuTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/textColor</item>
+    </style>
 </resources>

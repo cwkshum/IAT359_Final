@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/CardView.Dark"
     android:orientation="vertical">
 
     <TableLayout
@@ -74,6 +75,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/textColor"
                 android:text="Previous Checklist Name"
                 android:backgroundTint="@color/accent_blue"/>
         </TableRow>
@@ -106,6 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Previous Checklist Description"
+                android:textColor="@color/textColor"
                 android:backgroundTint="@color/accent_blue"/>
         </TableRow>
 

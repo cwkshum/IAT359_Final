@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="lightButton">
+        <item name="android:drawableTop">@drawable/sun</item>
+        <item name="android:drawableTint">#FFDE00</item>
+        <item name="android:background">#19C3FB</item>
+        <item name="android:textColor">#FFFDB8</item>
+    </style>
+    <style name="darkbackground">
+        <item name="android:background">#FFFF</item>
+    </style>
+</resources>

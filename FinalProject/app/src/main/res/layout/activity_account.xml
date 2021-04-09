@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <TableLayout
         android:layout_width="match_parent"
@@ -146,8 +147,7 @@
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableTop="@drawable/sun"
-            android:background="#19C3FB"
+            style="@style/lightButton"
             android:text="Light Mode"></Button>
 
         <Button
@@ -156,10 +156,11 @@
             android:id="@+id/darkMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#212121"
-            android:drawableTop="@drawable/moon"
+            android:background="@color/nightActive"
             android:textColor="@color/white"
-            android:text="Dark Mode">
+            android:text="Dark Mode"
+            style="@style/darkButton"
+            >
 
         </Button>
 

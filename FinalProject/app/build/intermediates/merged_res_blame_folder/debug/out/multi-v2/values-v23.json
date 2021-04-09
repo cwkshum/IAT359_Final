@@ -34,6 +34,25 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\values-v23\\themes.xml",
+                    "from": {
+                        "startLines": "9,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "337,59",
+                        "endLines": "11,8",
+                        "endColumns": "12,12",
+                        "endOffsets": "434,331"
+                    },
+                    "to": {
+                        "startLines": "61,64",
+                        "startColumns": "4,4",
+                        "startOffsets": "4212,4312",
+                        "endLines": "63,69",
+                        "endColumns": "12,12",
+                        "endOffsets": "4307,4579"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Chamira\\.gradle\\caches\\transforms-2\\files-2.1\\a8a4fd2b2c3909bfe71257b0d5515dad\\material-1.3.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,6",

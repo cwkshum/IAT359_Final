@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v23\\values-night-v23.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\values-night-v23\\themes.xml",
+                    "from": {
+                        "startLines": "10,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "349,59",
+                        "endLines": "12,8",
+                        "endColumns": "12,12",
+                        "endOffsets": "448,341"
+                    },
+                    "to": {
+                        "startLines": "2,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,157",
+                        "endLines": "4,10",
+                        "endColumns": "12,12",
+                        "endOffsets": "152,434"
+                    }
+                }
+            ]
+        }
+    ]
+}

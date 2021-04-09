@@ -60,36 +60,36 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_outline_favorite.png"
     },
     {
-        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_checklist_row.xml.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\layout\\activity_checklist_row.xml"
     },
     {
-        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\menu_map_subactivity_menu.xml.flat",
-        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\menu\\map_subactivity_menu.xml"
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_baseline_edit_24.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_baseline_edit_24.png"
     },
     {
-        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_hastings_park.png.flat",
-        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\hastings_park.png"
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\menu_map_subactivity_menu.xml.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\menu\\map_subactivity_menu.xml"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_landmarks_row.xml.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\layout\\activity_landmarks_row.xml"
     },
     {
-        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_outline_landscape.png.flat",
-        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_outline_landscape.png"
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_hastings_park.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\hastings_park.png"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_outline_favorite.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_outline_favorite.png"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_outline_landscape.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_outline_landscape.png"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_sun.xml.flat",
@@ -128,12 +128,12 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_account.png"
     },
     {
-        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_checklist.png.flat",
-        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_checklist.png"
-    },
-    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_checklist.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_checklist.png"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_checklist.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_checklist.png"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
@@ -208,24 +208,24 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\shared_lanes.png"
     },
     {
-        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_outline_landscape.xml.flat",
-        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_outline_landscape.xml"
-    },
-    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_outline_landscape.xml.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_outline_landscape.xml"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_favouriterouterow.xml.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\layout\\activity_favouriterouterow.xml"
     },
     {
-        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_painted_lanes.png.flat",
-        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\painted_lanes.png"
-    },
-    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_editprofile.xml.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\layout\\activity_editprofile.xml"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_painted_lanes.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\painted_lanes.png"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_landscape.png.flat",
@@ -260,12 +260,12 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_profile.png.flat",
-        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\profile.png"
-    },
-    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_outline_landscape.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_outline_landscape.png"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_profile.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\profile.png"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
@@ -312,12 +312,12 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_delete.png"
     },
     {
-        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_resource.xml.flat",
-        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\layout\\activity_resource.xml"
-    },
-    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_arrow.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_resource.xml.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\layout\\activity_resource.xml"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
@@ -428,16 +428,16 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\layout\\activity_createroute.xml"
     },
     {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_local_street.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\local_street.png"
+    },
+    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\menu_my_menu.xml.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\menu\\my_menu.xml"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_baseline_edit_24.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_baseline_edit_24.png"
-    },
-    {
-        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_local_street.png.flat",
-        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\drawable-v24\\local_street.png"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_darkmode_notactive.xml.flat",
@@ -608,12 +608,12 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_outline_favorite.png"
     },
     {
-        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_landscape.png.flat",
-        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_landscape.png"
-    },
-    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_sun.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\sun.png"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_landscape.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_landscape.png"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
@@ -724,12 +724,12 @@
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\src\\main\\res\\layout\\activity_popularroutes.xml"
     },
     {
-        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_favorite.png.flat",
-        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_favorite.png"
-    },
-    {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_moon.png.flat",
         "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\moon.png"
+    },
+    {
+        "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_favorite.png.flat",
+        "source": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_favorite.png"
     },
     {
         "merged": "C:\\Users\\Chamira\\Documents\\IAT 359\\IAT359_Final\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_moon.xml.flat",

@@ -54,7 +54,7 @@
                     android:textStyle="bold"
                     android:text="Landmark Name"/>
 
-                <!--           landmark picture-->
+                <!-- landmark picture -->
                 <ImageView
                     android:id="@+id/landmarkImage"
                     android:layout_width="200dp"
@@ -66,7 +66,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:paddingTop="10dp"
+                    android:paddingTop="40dp"
                     android:paddingBottom="10dp"
                     android:layout_marginLeft="10dp"
                     android:textSize="14dp"
@@ -74,6 +74,7 @@
                     android:textStyle="bold"
                     android:text="Information"/>
 
+                <!-- Landmark Info -->
                 <TableRow
                     android:id="@+id/routeinfo"
                     android:layout_width="match_parent"
@@ -92,6 +93,7 @@
                         android:padding="2dp"
                         >
 
+                        <!-- Route Description -->
                         <TextView
                             android:id="@+id/routedescription"
                             android:layout_width="match_parent"
@@ -139,8 +141,9 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="100dp"
                     android:layout_marginRight="100dp"
-                    android:layout_marginTop="10dp"
-                    >
+                    android:layout_marginTop="30dp">
+
+                    <!-- Start Route Button -->
                     <Button
                         android:id="@+id/startRouteButton"
                         android:layout_width="0dp"
@@ -149,7 +152,7 @@
                         android:text="Start Route"
                         android:textSize="10dp"
                         android:textColor="#FFFFFF"
-                        android:backgroundTint="@color/accent_green"
+                        android:background="@drawable/primary_button"
                         android:stateListAnimator="@null"/>
                 </TableRow>
             </TableLayout>

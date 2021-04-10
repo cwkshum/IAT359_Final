@@ -11,8 +11,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class EditAccountActivity extends Activity implements View.OnClickListener {
+public class EditAccountActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText firstNameInput, lastNameInput, emailInput, usernameInput, passwordInput, confirmPasswordInput;
 

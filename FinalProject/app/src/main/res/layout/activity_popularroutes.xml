@@ -55,6 +55,7 @@
                     <EditText
                         android:id="@+id/searchInput"
                         android:layout_width="0dp"
+                        android:textColor="@color/textColor"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textSize="14dp"
@@ -74,11 +75,12 @@
                         android:stateListAnimator="@null"/>
                 </TableRow>
 
-                <!-- Available Routes Section-->
+                <!-- Bikeway Types Filter -->
                 <TableRow
                     android:layout_height="0dp"
                     android:layout_width="wrap_content"
-                    android:layout_weight="0.25">
+                    android:layout_weight="0.25"
+                    android:layout_marginBottom="8dp">
 
                     <Button
                         android:id="@+id/allBikewaysFilterButton"
@@ -88,7 +90,7 @@
                         android:text="All\nBikeways"
                         android:textSize="8dp"
                         android:textAllCaps="false"
-                        android:backgroundTint="@color/accent_green"
+                        android:background="@drawable/primary_button"
                         android:textColor="@android:color/white"
                         android:stateListAnimator="@null"/>
 
@@ -97,11 +99,11 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="10dp"
                         android:text="Local\nStreet"
                         android:textSize="8dp"
                         android:textAllCaps="false"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/secondary_button"
                         android:textColor="@color/accent_green"
                         android:stateListAnimator="@null"/>
 
@@ -110,11 +112,11 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="10dp"
                         android:text="Painted\nLanes"
                         android:textSize="8dp"
                         android:textAllCaps="false"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/secondary_button"
                         android:textColor="@color/accent_green"
                         android:stateListAnimator="@null"/>
 
@@ -123,11 +125,11 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="10dp"
                         android:text="Protected\nBike Lanes"
                         android:textSize="8dp"
                         android:textAllCaps="false"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/secondary_button"
                         android:textColor="@color/accent_green"
                         android:stateListAnimator="@null"/>
 
@@ -136,23 +138,23 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="10dp"
                         android:text="Shared\nLanes"
                         android:textSize="8dp"
                         android:textAllCaps="false"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/secondary_button"
                         android:textColor="@color/accent_green"
                         android:stateListAnimator="@null"/>
                 </TableRow>
 
-                <!-- Available Routes Section-->
+                <!-- Popular Routes Section-->
                 <TableRow
                     android:layout_height="0dp"
                     android:layout_width="wrap_content"
-                    android:layout_weight="0.20"
+                    android:layout_weight="0"
                     >
 
-                    <!-- Available Routes Label -->
+                    <!-- Popular Routes Label -->
                     <TextView
                         android:id="@+id/popularRoutesHeading"
                         android:layout_width="0dp"
@@ -165,12 +167,11 @@
                         android:text="Popular Routes Results"/>
                 </TableRow>
 
-                <!-- Available Routes -->
+                <!-- Popular Routes Display -->
                 <TableRow
                     android:layout_height="0dp"
-                    android:layout_weight="5.30"
-
-                    >
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="5.30">
 
                     <!-- RecyclerView -->
                     <androidx.recyclerview.widget.RecyclerView
@@ -183,7 +184,7 @@
         </TableRow>
 
 
-        <!--         Navigation-->
+        <!-- Navigation -->
 
         <TableRow
             android:layout_width="match_parent"
@@ -198,17 +199,17 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTint="#FFFFFF"
-                android:textColor="#FFFFFF"
+                android:drawableTop="@drawable/ic_outline_landscape"
+                android:gravity="center_horizontal"
+                android:text="Map"
+
+                android:drawableTint="@color/accent_inactive"
+                android:textColor="#C2CDD1"
                 android:textSize="10dp"
                 app:backgroundTint="#4D8FAC"
-                android:stateListAnimator="@null"
+                android:stateListAnimator="@null"/>
 
-                android:drawableTop="@drawable/ic_landscape"
-                android:gravity="center_horizontal"
-                android:text="Map"/>
-
-            <!--Checklist Button-->
+            <!-- Checklist Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/checklistNavigation"
                 style="@style/box_sky_blue"
@@ -225,7 +226,7 @@
                 app:backgroundTint="#4D8FAC"
                 android:stateListAnimator="@null"/>
 
-            <!--Resource Button-->
+            <!-- Resource Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/resourcesNavigation"
                 style="@style/box_sky_blue"
@@ -245,7 +246,7 @@
                 android:focusable="false"
                 android:cursorVisible="false"/>
 
-            <!--Account Button-->
+            <!-- Account Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/accountNavigation"
                 style="@style/box_sky_blue"

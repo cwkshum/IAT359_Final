@@ -60,6 +60,7 @@
                         android:layout_weight="1"
                         android:textSize="14dp"
                         android:hint="First Name"
+                        android:textColor="@color/textColor"
                         android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
 
@@ -77,6 +78,7 @@
                         android:layout_weight="1"
                         android:textSize="14dp"
                         android:hint="Last Name"
+                        android:textColor="@color/textColor"
                         android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
 
@@ -94,6 +96,7 @@
                         android:layout_weight="1"
                         android:textSize="14dp"
                         android:hint="Email"
+                        android:textColor="@color/textColor"
                         android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
 
@@ -110,6 +113,7 @@
                       android:layout_height="wrap_content"
                       android:layout_weight="1"
                       android:textSize="14dp"
+                      android:textColor="@color/textColor"
                       android:hint="Username"
                       android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
@@ -127,6 +131,7 @@
                       android:layout_height="wrap_content"
                       android:layout_weight="1"
                       android:textSize="14dp"
+                      android:textColor="@color/textColor"
                       android:hint="Password"
                       android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
@@ -142,6 +147,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textColor="@color/textColor"
                         android:textSize="14dp"
                         android:hint="Confirm Password"
                         android:backgroundTint="@color/accent_blue"/>
@@ -175,10 +181,8 @@
                         android:layout_weight="1"
                         android:text="Sign Up"
                         android:textSize="10dp"
-                        android:backgroundTint="@color/accent_green"
-                        android:textColor="@android:color/white"
-                        app:strokeColor="@color/accent_green"
-                        app:strokeWidth="2dp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/primary_button"
                         android:stateListAnimator="@null"/>
                 </TableRow>
 
@@ -195,9 +199,7 @@
                         android:text="Login"
                         android:textSize="10dp"
                         android:textColor="@color/accent_green"
-                        android:backgroundTint="@color/white"
-                        app:strokeColor="@color/accent_green"
-                        app:strokeWidth="2dp"
+                        android:background="@drawable/secondary_button"
                         android:stateListAnimator="@null"/>
                 </TableRow>
             </TableLayout>

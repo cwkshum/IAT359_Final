@@ -1066,6 +1066,7 @@ color design_fab_stroke_top_inner_color
 color design_fab_stroke_top_outer_color
 color design_icon_tint
 color design_snackbar_background_color
+color detailedTextColor
 color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
@@ -1780,10 +1781,12 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable painted_lanes
+drawable primary_button
 drawable profile
 drawable protected_bike_lanes
 drawable queen_elizabeth_park
 drawable science_world
+drawable secondary_button
 drawable shared_lanes
 drawable stanley_park
 drawable sun
@@ -2259,6 +2262,7 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tasksRecyclerView
+id temperatureTextView
 id terrain
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
@@ -2271,8 +2275,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textView3
-id textView4
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2618,6 +2620,7 @@ style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
 style Animation_MaterialComponents_BottomSheetDialog
 style AppTheme
+style AppTheme_ActionBarTheme
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog

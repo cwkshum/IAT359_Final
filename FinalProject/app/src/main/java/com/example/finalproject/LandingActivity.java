@@ -16,6 +16,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -630,8 +631,11 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             // show a warning to the user that it is dark outside
-            builder.setTitle("It's dark outside");
-            builder.setMessage("Ride with caution and utilize cycling lights or reflectives.");
+//            builder.setTitle("");
+            builder.setTitle(Html.fromHtml("<font color='#303030'>It's dark outside</font>"));
+            builder.setMessage(Html.fromHtml("<font color='#303030'>Ride with caution and utilize cycling lights or reflectives.</font>"));
+
+//            builder.setMessage("Ride with caution and utilize cycling lights or reflectives.");
 
             builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
                 @Override
@@ -647,8 +651,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             // show a warning to the user that it is hot outside
-            builder.setTitle("It's warm outside");
-            builder.setMessage("Make sure to stay hydrated during your trip.");
+            builder.setTitle(Html.fromHtml("<font color='#303030'>It's warm outside</font>"));
+            builder.setMessage(Html.fromHtml("<font color='#303030'>Make sure to stay hydrated during your trip.</font>"));
+//            builder.setTitle("It's warm outside");
+//            builder.setMessage("Make sure to stay hydrated during your trip.");
 
             builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
                 @Override
@@ -664,8 +670,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             // show a warning to the user that it is cold outside
-            builder.setTitle("It's cold outside");
-            builder.setMessage("Make sure to layer up for your trip.");
+            builder.setTitle(Html.fromHtml("<font color='#303030'>It's cold outside</font>"));
+            builder.setMessage(Html.fromHtml("<font color='#303030'>Make sure to layer up for your trip.</font>"));
+//            builder.setTitle("It's cold outside");
+//            builder.setMessage("Make sure to layer up for your trip.");
 
             builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
                 @Override

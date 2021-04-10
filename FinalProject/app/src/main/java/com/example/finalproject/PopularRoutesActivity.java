@@ -268,64 +268,44 @@ public class PopularRoutesActivity extends AppCompatActivity implements View.OnC
 
         // set all filter buttons to the unselected state
         allBikewaysFilterButton.setTextColor(getResources().getColor(R.color.accent_green));
-        Drawable allBikewaysButtonDrawable = allBikewaysFilterButton.getBackground();
-        allBikewaysButtonDrawable = DrawableCompat.wrap(allBikewaysButtonDrawable);
-        DrawableCompat.setTint(allBikewaysButtonDrawable, getResources().getColor(R.color.white));
-        allBikewaysFilterButton.setBackground(allBikewaysButtonDrawable);
+        allBikewaysFilterButton.setBackgroundResource(R.drawable.secondary_button);
 
         localStreetFilterButton.setTextColor(getResources().getColor(R.color.accent_green));
-        Drawable localStreetButtonDrawable = localStreetFilterButton.getBackground();
-        localStreetButtonDrawable = DrawableCompat.wrap(localStreetButtonDrawable);
-        DrawableCompat.setTint(localStreetButtonDrawable, getResources().getColor(R.color.white));
-        localStreetFilterButton.setBackground(localStreetButtonDrawable);
+        localStreetFilterButton.setBackgroundResource(R.drawable.secondary_button);
 
         paintedLanesFilterButton.setTextColor(getResources().getColor(R.color.accent_green));
-        Drawable paintedLanesButtonDrawable = paintedLanesFilterButton.getBackground();
-        paintedLanesButtonDrawable = DrawableCompat.wrap(paintedLanesButtonDrawable);
-        DrawableCompat.setTint(paintedLanesButtonDrawable, getResources().getColor(R.color.white));
-        paintedLanesFilterButton.setBackground(paintedLanesButtonDrawable);
+        paintedLanesFilterButton.setBackgroundResource(R.drawable.secondary_button);
 
         protectedLanesFilterButton.setTextColor(getResources().getColor(R.color.accent_green));
-        Drawable protectedLanesButtonDrawable = protectedLanesFilterButton.getBackground();
-        protectedLanesButtonDrawable = DrawableCompat.wrap(protectedLanesButtonDrawable);
-        DrawableCompat.setTint(protectedLanesButtonDrawable, getResources().getColor(R.color.white));
-        protectedLanesFilterButton.setBackground(protectedLanesButtonDrawable);
+        protectedLanesFilterButton.setBackgroundResource(R.drawable.secondary_button);
 
         sharedLanesFilterButton.setTextColor(getResources().getColor(R.color.accent_green));
-        Drawable sharedLanesButtonDrawable = sharedLanesFilterButton.getBackground();
-        sharedLanesButtonDrawable = DrawableCompat.wrap(sharedLanesButtonDrawable);
-        DrawableCompat.setTint(sharedLanesButtonDrawable, getResources().getColor(R.color.white));
-        sharedLanesFilterButton.setBackground(sharedLanesButtonDrawable);
+        sharedLanesFilterButton.setBackgroundResource(R.drawable.secondary_button);
 
         if(filterType == 1){
             // set the all bikeways filter button to be selected
             allBikewaysFilterButton.setTextColor(getResources().getColor(R.color.white));
-            DrawableCompat.setTint(allBikewaysButtonDrawable, getResources().getColor(R.color.accent_green));
-            allBikewaysFilterButton.setBackground(allBikewaysButtonDrawable);
+            allBikewaysFilterButton.setBackgroundResource(R.drawable.primary_button);
 
         } else if(filterType == 2){
             // set the local street filter button to be selected
             localStreetFilterButton.setTextColor(getResources().getColor(R.color.white));
-            DrawableCompat.setTint(localStreetButtonDrawable, getResources().getColor(R.color.accent_green));
-            localStreetFilterButton.setBackground(localStreetButtonDrawable);
+            localStreetFilterButton.setBackgroundResource(R.drawable.primary_button);
 
         } else if (filterType == 3){
             // set the painted lanes filter button to be selected
             paintedLanesFilterButton.setTextColor(getResources().getColor(R.color.white));
-            DrawableCompat.setTint(paintedLanesButtonDrawable, getResources().getColor(R.color.accent_green));
-            paintedLanesFilterButton.setBackground(paintedLanesButtonDrawable);
+            paintedLanesFilterButton.setBackgroundResource(R.drawable.primary_button);
 
         } else if (filterType == 4){
             // set the protected lanes filter button to be selected
             protectedLanesFilterButton.setTextColor(getResources().getColor(R.color.white));
-            DrawableCompat.setTint(protectedLanesButtonDrawable, getResources().getColor(R.color.accent_green));
-            protectedLanesFilterButton.setBackground(protectedLanesButtonDrawable);
+            protectedLanesFilterButton.setBackgroundResource(R.drawable.primary_button);
 
         } else if (filterType == 5){
             // set the shared lanes filter button to be selected
             sharedLanesFilterButton.setTextColor(getResources().getColor(R.color.white));
-            DrawableCompat.setTint(sharedLanesButtonDrawable, getResources().getColor(R.color.accent_green));
-            sharedLanesFilterButton.setBackground(sharedLanesButtonDrawable);
+            sharedLanesFilterButton.setBackgroundResource(R.drawable.primary_button);
         }
     }
 

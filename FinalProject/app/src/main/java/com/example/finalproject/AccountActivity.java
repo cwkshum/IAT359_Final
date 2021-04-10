@@ -58,29 +58,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         dark = (Button) findViewById(R.id.darkMode);
         dark.setOnClickListener(this);
 
-//        SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
-//
-//        light.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                SharedPreferences.Editor editor = sharedPrefs.edit();
-//                editor.putBoolean("darkMode", false);
-//                editor.commit();
-//            }
-//        });
-//
-//        dark.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//                SharedPreferences.Editor editor = sharedPrefs.edit();
-//                editor.putBoolean("darkMode", true);
-//                editor.commit();
-//            }
-//        });
-
-
         // Text view displays
         nameHeader = (TextView) findViewById(R.id.name);
         userHeader = (TextView) findViewById(R.id.username);
@@ -186,20 +163,14 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             moon.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
             dark.setCompoundDrawablesWithIntrinsicBounds(moon, null, null, null);
             dark.setTextColor(getResources().getColor(R.color.white));
-            Drawable darkButtonDrawable = dark.getBackground();
-            darkButtonDrawable = DrawableCompat.wrap(darkButtonDrawable);
-            DrawableCompat.setTint(darkButtonDrawable, getResources().getColor(R.color.accent_green));
-            dark.setBackground(darkButtonDrawable);
+            dark.setBackgroundResource(R.drawable.primary_button);
 
             // show that the light mode button is inactive
             Drawable sun = getResources().getDrawable(R.drawable.sun_notactive).mutate();
             sun.setColorFilter(getResources().getColor(R.color.accent_green), PorterDuff.Mode.SRC_ATOP);
             light.setCompoundDrawablesWithIntrinsicBounds(sun, null, null, null);
             light.setTextColor(getResources().getColor(R.color.accent_green));
-            Drawable lightButtonDrawable = light.getBackground();
-            lightButtonDrawable = DrawableCompat.wrap(lightButtonDrawable);
-            DrawableCompat.setTint(lightButtonDrawable, getResources().getColor(R.color.white));
-            light.setBackground(lightButtonDrawable);
+            light.setBackgroundResource(R.drawable.secondary_button);
 
         } else{
             // show that the light mode button is enabled
@@ -207,20 +178,14 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             sun.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
             light.setCompoundDrawablesWithIntrinsicBounds(sun, null, null, null);
             light.setTextColor(getResources().getColor(R.color.white));
-            Drawable lightButtonDrawable = light.getBackground();
-            lightButtonDrawable = DrawableCompat.wrap(lightButtonDrawable);
-            DrawableCompat.setTint(lightButtonDrawable, getResources().getColor(R.color.accent_green));
-            light.setBackground(lightButtonDrawable);
+            light.setBackgroundResource(R.drawable.primary_button);
 
             // show that the dark mode button is inactive
             Drawable moon = getResources().getDrawable(R.drawable.darkmode_notactive).mutate();
             moon.setColorFilter(getResources().getColor(R.color.accent_green), PorterDuff.Mode.SRC_ATOP);
             dark.setCompoundDrawablesWithIntrinsicBounds(moon, null, null, null);
             dark.setTextColor(getResources().getColor(R.color.accent_green));
-            Drawable darkButtonDrawable = dark.getBackground();
-            darkButtonDrawable = DrawableCompat.wrap(darkButtonDrawable);
-            DrawableCompat.setTint(darkButtonDrawable, getResources().getColor(R.color.white));
-            dark.setBackground(darkButtonDrawable);
+            dark.setBackgroundResource(R.drawable.secondary_button);
         }
 
     }

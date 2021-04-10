@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Bikeway Type: "
+                android:textColor="@color/detailedTextColor"
                 android:textSize="14dp"/>
         </TableRow>
 
@@ -59,6 +60,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/detailedTextColor"
                 android:text="Distance: "
                 android:textSize="14dp"/>
         </TableRow>
@@ -75,6 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Duration: "
+                android:textColor="@color/detailedTextColor"
                 android:textSize="14dp"/>
         </TableRow>
 

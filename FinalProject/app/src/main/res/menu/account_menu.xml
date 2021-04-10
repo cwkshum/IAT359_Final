@@ -2,8 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/editAccount"
-        android:color="@style/menuTextAppearance"
         android:title="Edit Account"/>
+
+
 
     <item
         android:id="@+id/logout"

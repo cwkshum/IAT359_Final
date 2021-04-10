@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -182,8 +183,11 @@ public class ChecklistActivity extends AppCompatActivity implements View.OnClick
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         // ask user if they want to delete all checklists
-        builder.setTitle("Delete All?");
-        builder.setMessage("Are you sure you want to delete all checklists?");
+        builder.setTitle(Html.fromHtml("<font color='#303030'>Delete All?</font>"));
+        // builder.setTitle("Delete All?");
+        //  builder.setMessage("Are you sure you want to delete all checklists?");
+        builder.setMessage(Html.fromHtml("<font color='#303030'>Are you sure you want to delete all checklists?</font>"));
+
 
         // if the user selects "Yes"
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {

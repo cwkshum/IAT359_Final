@@ -13,26 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
-        <!-- Logo -->
-<!--        <TableRow-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:layout_weight="0.2"-->
-<!--            android:gravity="center_horizontal|center_vertical">-->
-
-<!--            &lt;!&ndash; Logo Image &ndash;&gt;-->
-<!--            <ImageView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:adjustViewBounds="true"-->
-<!--                android:maxWidth="80dp"-->
-<!--                android:maxHeight="80dp"-->
-<!--                android:scaleType="fitCenter"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                android:layout_marginBottom="5dp"-->
-<!--                android:src="@drawable/vancitycyclinglogo" />-->
-<!--        </TableRow>-->
-
         <!-- Map Navigation Tabs-->
         <TableRow
             android:layout_width="wrap_content"
@@ -45,37 +25,37 @@
             <TextView
                 android:id="@+id/landmarksNavigation"
                 android:layout_width="0dp"
-                android:layout_height="31dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="Landmarks"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="12dp" />
+                android:textSize="14dp" />
 
             <!-- Create Route -->
             <TextView
                 android:id="@+id/createRouteNavigation"
                 android:layout_width="0dp"
-                android:layout_height="31dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="Create Route"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="12dp" />
+                android:textSize="14dp" />
 
             <!-- Popular Routes -->
             <TextView
                 android:id="@+id/popularRoutesNavigation"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="Popular Routes"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="12dp" />
+                android:textSize="14dp" />
         </TableRow>
 
         <!-- Map Display-->
@@ -85,87 +65,16 @@
             android:layout_weight="6.9"
             android:background="#4D8FAC">
 
-<!--                      <LinearLayout-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    >-->
-
-<!--                    <EditText-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:id="@+id/locationEditText"-->
-<!--                        android:hint="location" />-->
-
-<!--                    <Button-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Search"-->
-<!--                        android:id="@+id/locationButton"-->
-<!--                        android:onClick="geolocate"-->
-<!--                        android:nestedScrollingEnabled="false" />-->
-<!--                </LinearLayout>-->
-
-<!--                <LinearLayout-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    >-->
-
-<!--                    <EditText-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:id="@+id/latEditText"-->
-<!--                        android:hint="lat"-->
-<!--                        android:inputType="numberDecimal|numberSigned" />-->
-
-<!--                    <EditText-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:id="@+id/lngEditText"-->
-<!--                        android:hint="lng"-->
-<!--                        android:inputType="numberDecimal|numberSigned" />-->
-
-<!--                    <Button-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Search"-->
-<!--                        android:id="@+id/latLngButton"-->
-<!--                        android:onClick="geolocate" />-->
-<!--                </LinearLayout>-->
-
             <fragment xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:map="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/map"
                 android:name="com.google.android.gms.maps.MapFragment"
                 android:layout_width="wrap_content"
-                android:layout_height="600dp"
+                android:layout_height="700dp"
                 android:layout_weight="1" />
-
-
-            <!--        map:mapType = "hybrid"/>-->
-
-            <!--            map:cameraTargetLat = "49.1817465"-->
-            <!--            map:cameraTargetLng = "-122.849651"-->
-            <!--            map:cameraZoom = "15"-->
-            <!--        map:mapType = "satellite" />-->
-
-
-            <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
-            <!--    xmlns:tools="http://schemas.android.com/tools"-->
-            <!--    android:layout_width="0dp"-->
-            <!--    android:layout_height="match_parent"-->
-            <!--    android:layout_weight="1"-->
-            <!--    android:layout_marginTop="10dp"-->
-            <!--    android:id="@+id/map"-->
-            <!--    android:name="com.google.android.gms.maps.SupportMapFragment" />-->
         </TableRow>
 
-<!--         Navigation-->
-
+        <!-- Navigation -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -242,77 +151,5 @@
                 app:backgroundTint="#4D8FAC"
                 android:stateListAnimator="@null"/>
         </TableRow>
-<!--        <TableRow-->
-<!--            style="@style/box_sky_blue"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:layout_weight="0.2"-->
-<!--            android:paddingTop="10dp"-->
-
-<!--            android:paddingBottom="0dp">-->
-
-<!--            &lt;!&ndash; Landmarks &ndash;&gt;-->
-<!--            <TextView-->
-<!--                android:id="@+id/checklistNavigation"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center_horizontal"-->
-<!--                android:text="Landmarks"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                android:textSize="12dp" />-->
-
-<!--            &lt;!&ndash; Create Route &ndash;&gt;-->
-<!--            <TextView-->
-<!--                android:id="@+id/accountNavigation"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center_horizontal"-->
-<!--                android:text="Create Route"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                android:textSize="12dp" />-->
-
-<!--            &lt;!&ndash; Popular Routes &ndash;&gt;-->
-<!--            <TextView-->
-<!--                android:id="@+id/mapNavigation"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center_horizontal"-->
-<!--                android:text="Popular Routes"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                android:textSize="12dp" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/resourcesNavigation"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:background="@color/purple_200"-->
-<!--                android:backgroundTint="@color/purple_200"-->
-<!--                android:gravity="center_horizontal"-->
-<!--                android:text="Popular Routes"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                android:textSize="12dp" />-->
-<!--        </TableRow>-->
     </TableLayout>
 </RelativeLayout>
-
-    <!--<TableRow-->
-    <!--    android:id="@+id/tr_wrapper"-->
-    <!--    android:layout_width="match_parent"-->
-    <!--    android:layout_height="match_parent">-->
-
-    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-    <!--        android:id="@+id/bottom_nav"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_alignParentBottom="true"-->
-    <!--        app:itemBackground="@color/black"-->
-    <!--        app:itemIconTint="#fff"-->
-    <!--        app:menu="@menu/nav_menu"-->
-
-    <!--        />-->
-    <!--</TableRow>-->

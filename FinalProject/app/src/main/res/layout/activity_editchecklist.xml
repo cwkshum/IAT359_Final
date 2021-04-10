@@ -126,8 +126,8 @@
                 android:layout_weight="1"
                 android:layout_marginHorizontal="8dp"
                 android:text="Update"
-                android:backgroundTint="#4D8FAC"
-                android:textColor="#FFFFFF" />
+                android:background="@color/accent_green"
+                android:textColor="@color/white" />
         </TableRow>
 
         <TableRow
@@ -144,43 +144,8 @@
                 android:layout_weight="1"
                 android:layout_marginHorizontal="8dp"
                 android:text="Delete"
-                android:backgroundTint="#67BD24"
-                android:textColor="#FFFFFF" />
+                android:background="@drawable/secondary_button"
+                android:textColor="@color/accent_green" />
         </TableRow>
-
-<!--        &lt;!&ndash;Update Checklist Button&ndash;&gt;-->
-<!--        <Button-->
-<!--            android:id="@+id/updateButton"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="70dp"-->
-<!--            android:layout_marginTop="40dp"-->
-<!--            android:layout_marginHorizontal="8dp"-->
-<!--            android:text="Update"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textAllCaps="false"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            android:backgroundTint="#4D8FAC"-->
-<!--            android:textColor="#FFFFFF" />-->
-
-<!--        &lt;!&ndash;Delete Checklist Button&ndash;&gt;-->
-<!--        <Button-->
-<!--            android:id="@+id/deleteButton"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="70dp"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:layout_marginHorizontal="8dp"-->
-<!--            android:text="Delete"-->
-<!--            android:textAllCaps="false"-->
-<!--            android:textSize="20sp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            android:backgroundTint="#67BD24"-->
-<!--            android:textColor="#FFFFFF"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/update_button" />-->
-
-        <!--        </TableRow>-->
-
-
     </TableLayout>
 </LinearLayout>

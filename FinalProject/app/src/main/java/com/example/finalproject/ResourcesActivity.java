@@ -293,6 +293,7 @@ public class ResourcesActivity extends AppCompatActivity implements SensorEventL
     public void onLocationChanged(Location location) {
         TextView txt = (TextView) this.findViewById(R.id.speedValue);
 
+        // display the speed of the user
         if (location == null) {
             txt.setText("-.- km/h");
         } else {
@@ -318,6 +319,7 @@ public class ResourcesActivity extends AppCompatActivity implements SensorEventL
     private void locationConnect() {
         LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
+        // check if connection for location is granted
         if (lm != null) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;
@@ -326,10 +328,4 @@ public class ResourcesActivity extends AppCompatActivity implements SensorEventL
         }
 
     }
-
-
-
-
-
-
 }

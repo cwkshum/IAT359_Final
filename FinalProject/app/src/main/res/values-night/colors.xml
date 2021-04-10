@@ -18,6 +18,8 @@
 
     <color name="nightmodeback">#303030</color>
     <color name="textColor">#FFFFFF</color>
+    <color name="detailedTextColor">#919597</color>
+
 
     <color name="primaryTitleColor">#FF000000</color>
     <color name="primaryTitleColorNight">#FFFFFFFF</color>

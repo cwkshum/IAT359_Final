@@ -13,6 +13,7 @@
         android:layout_weight="7">
 
         <!-- Logo -->
+
         <TableRow
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
@@ -31,50 +32,6 @@
                 android:layout_marginBottom="5dp"
                 android:src="@drawable/vancitycyclinglogo" />
         </TableRow>
-
-        <!-- Map Navigation Tabs-->
-<!--        <TableRow-->
-<!--            android:layout_height="0dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_weight="0.2"-->
-<!--            android:background="#4D8FAC"-->
-<!--            android:paddingTop="15dp"-->
-<!--            android:paddingBottom="15dp">-->
-
-<!--            &lt;!&ndash; Landmarks &ndash;&gt;-->
-<!--            <TextView-->
-<!--                android:id="@+id/landmarksNavigation"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:text="Landmarks"-->
-<!--                android:textSize="12dp"-->
-<!--                android:textColor="#C2CDD1"-->
-<!--                android:gravity="center_horizontal"/>-->
-
-<!--            &lt;!&ndash; Create Route &ndash;&gt;-->
-<!--            <TextView-->
-<!--                android:id="@+id/createRouteNavigation"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:text="Create Route"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textSize="12dp"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                android:gravity="center_horizontal"/>-->
-
-<!--            &lt;!&ndash; Popular Routes &ndash;&gt;-->
-<!--            <TextView-->
-<!--                android:id="@+id/popularRoutesNavigation"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:text="Popular Routes"-->
-<!--                android:textSize="12dp"-->
-<!--                android:textColor="#C2CDD1"-->
-<!--                android:gravity="center_horizontal"/>-->
-<!--        </TableRow>-->
 
         <!-- Activity Content-->
         <TableRow
@@ -119,6 +76,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textColor="@color/textColor"
                         android:textSize="14dp"
                         android:hint="Starting Street"
                         android:backgroundTint="@color/accent_blue"/>
@@ -156,6 +114,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textSize="14dp"
+                        android:textColor="@color/textColor"
                         android:hint="Ending Street"
                         android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
@@ -233,8 +192,8 @@
                 android:gravity="center_horizontal"
                 android:text="Map"
 
-                android:drawableTint="#FFFFFF"
-                android:textColor="#ffffffff"
+                android:drawableTint="@color/accent_inactive"
+                android:textColor="#C2CDD1"
                 android:textSize="10dp"
                 app:backgroundTint="#4D8FAC"
                 android:stateListAnimator="@null"/>

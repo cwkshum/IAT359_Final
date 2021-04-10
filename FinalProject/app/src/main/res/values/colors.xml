@@ -19,6 +19,8 @@
     <color name= "nightActive">#BDBCBC</color>
 
     <color name="textColor">#000000</color>
+    <color name="detailedTextColor">#919597</color>
+
 
     <color name="primaryTitleColor">#FF000000</color>
     <color name="primaryTitleColorNight">#FFFFFFFF</color>

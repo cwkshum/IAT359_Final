@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.text.Html;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -39,8 +40,10 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
             AlertDialog.Builder builder = new AlertDialog.Builder(adapter.getContext());
 
             // ask the user if it wants to delete the task
-            builder.setTitle("Delete Task");
-            builder.setMessage("Are you sure you want to delete this Task?");
+//            builder.setTitle("Delete Task");
+//            builder.setMessage("Are you sure you want to delete this Task?");
+            builder.setTitle(Html.fromHtml("<font color='#303030'>Delete Task</font>"));
+            builder.setMessage(Html.fromHtml("<font color='#303030'>Are you sure you want to delete this Task?</font>"));
 
             // user selects "Confirm"
             builder.setPositiveButton("Confirm",

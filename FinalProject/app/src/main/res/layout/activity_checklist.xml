@@ -57,23 +57,12 @@
             android:layout_height="0dp"
             android:layout_weight="4">
 
-
             <!--Recycler view for checklist created-->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/table"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 />
-            <!--            android:id="@+id/recyclerView"-->
-            <!--            android:paddingTop="?attr/actionBarSize"-->
-            <!--            android:layout_width="409dp"-->
-            <!--            android:layout_height="729dp"-->
-            <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--            app:layout_constraintEnd_toEndOf="parent"-->
-            <!--            app:layout_constraintStart_toStartOf="parent"-->
-            <!--            app:layout_constraintTop_toTopOf="parent"-->
-
-
         </TableRow>
 
         <!--Button to create another checklist-->
@@ -89,22 +78,6 @@
             android:backgroundTint="@color/accent_green"
             app:borderWidth="0dp"
             app:srcCompat="@drawable/add"/>
-
-
-        <!--        <TableRow-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            android:layout_weight="0.1">-->
-        <!--            <Button-->
-        <!--                android:id="@+id/addNewChecklistButton"-->
-        <!--                android:layout_width="0dp"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_weight="1"-->
-        <!--                android:text="+"-->
-        <!--                android:textSize="22dp"-->
-        <!--                android:textColor="@android:color/white"-->
-        <!--                android:backgroundTint="#67BD24"/>-->
-        <!--        </TableRow>-->
 
         <!-- Navigation -->
         <TableRow

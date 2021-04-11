@@ -123,7 +123,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="m/s"
+                android:text="0.00 km/h"
                 android:textColor="@color/textColor"
                 android:textSize="14dp" />
 

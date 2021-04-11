@@ -6,11 +6,8 @@ com/example/finalproject/MainActivity.java
 com/example/finalproject/PopularRoutesActivity.java
  com.example.finalproject.PopularRoutesActivity
  com.example.finalproject.PopularRoutesActivity$FindPopularRoute
-com/example/finalproject/LandmarkDetailActivity.java
- com.example.finalproject.LandmarkDetailActivity
- com.example.finalproject.LandmarkDetailActivity$1
- com.example.finalproject.LandmarkDetailActivity$ParserTask
- com.example.finalproject.LandmarkDetailActivity$ReadDirectionsJSONDataTask
+com/example/finalproject/DetailChecklistActivity.java
+ com.example.finalproject.DetailChecklistActivity
 com/example/finalproject/FavouriteRouteAdapter.java
  com.example.finalproject.FavouriteRouteAdapter
  com.example.finalproject.FavouriteRouteAdapter$MyViewHolder
@@ -84,6 +81,18 @@ com/example/finalproject/ResourcesActivity.java
  com.example.finalproject.ResourcesActivity
  com.example.finalproject.ResourcesActivity$1
  com.example.finalproject.ResourcesActivity$ReadWeatherJSONDataTask
+com/example/finalproject/RecyclerItemTouchHelper.java
+ com.example.finalproject.RecyclerItemTouchHelper
+ com.example.finalproject.RecyclerItemTouchHelper$1
+ com.example.finalproject.RecyclerItemTouchHelper$2
+com/example/finalproject/LandmarksActivity.java
+ com.example.finalproject.LandmarksActivity
+ com.example.finalproject.LandmarksActivity$FindLandmark
+com/example/finalproject/LandmarkDetailActivity.java
+ com.example.finalproject.LandmarkDetailActivity
+ com.example.finalproject.LandmarkDetailActivity$1
+ com.example.finalproject.LandmarkDetailActivity$ParserTask
+ com.example.finalproject.LandmarkDetailActivity$ReadDirectionsJSONDataTask
 com/example/finalproject/LandingActivity.java
  com.example.finalproject.LandingActivity
  com.example.finalproject.LandingActivity$1
@@ -94,12 +103,3 @@ com/example/finalproject/LandingActivity.java
  com.example.finalproject.LandingActivity$6
  com.example.finalproject.LandingActivity$CreateRoute
  com.example.finalproject.LandingActivity$FindLandmark
-com/example/finalproject/LandmarksActivity.java
- com.example.finalproject.LandmarksActivity
- com.example.finalproject.LandmarksActivity$FindLandmark
-com/example/finalproject/RecyclerItemTouchHelper.java
- com.example.finalproject.RecyclerItemTouchHelper
- com.example.finalproject.RecyclerItemTouchHelper$1
- com.example.finalproject.RecyclerItemTouchHelper$2
-com/example/finalproject/DetailChecklistActivity.java
- com.example.finalproject.DetailChecklistActivity

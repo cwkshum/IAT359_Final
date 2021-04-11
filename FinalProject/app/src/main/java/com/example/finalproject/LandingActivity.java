@@ -595,8 +595,12 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         // ask user if they want to clear route
-        builder.setTitle("Delete Route?");
-        builder.setMessage("Are you sure you want to delete route on map?");
+        builder.setTitle(Html.fromHtml("<font color='#303030'>Delete Route?</font>"));
+        builder.setMessage(Html.fromHtml("<font color='#303030'>Are you sure you want to delete route on map?</font>"));
+
+//        builder.setTitle("Delete Route?");
+//
+//        builder.setMessage("Are you sure you want to delete route on map?");
 
         // if the user selects "Yes"
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {

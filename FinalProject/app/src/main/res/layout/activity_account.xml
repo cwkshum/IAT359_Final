@@ -179,7 +179,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="59dp"
             android:background="#4D8FAC">
 
             <!--Map Button-->

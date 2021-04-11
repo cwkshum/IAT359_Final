@@ -60,7 +60,7 @@
                         android:layout_weight="1"
                         android:textSize="14dp"
                         android:hint="First Name"
-                        android:textColor="@color/textColor"
+                        android:textColor="@color/black"
                         android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
 
@@ -78,7 +78,7 @@
                         android:layout_weight="1"
                         android:textSize="14dp"
                         android:hint="Last Name"
-                        android:textColor="@color/textColor"
+                        android:textColor="@color/black"
                         android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
 
@@ -96,7 +96,7 @@
                         android:layout_weight="1"
                         android:textSize="14dp"
                         android:hint="Email"
-                        android:textColor="@color/textColor"
+                        android:textColor="@color/black"
                         android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
 
@@ -113,7 +113,7 @@
                       android:layout_height="wrap_content"
                       android:layout_weight="1"
                       android:textSize="14dp"
-                      android:textColor="@color/textColor"
+                      android:textColor="@color/black"
                       android:hint="Username"
                       android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
@@ -131,7 +131,7 @@
                       android:layout_height="wrap_content"
                       android:layout_weight="1"
                       android:textSize="14dp"
-                      android:textColor="@color/textColor"
+                      android:textColor="@color/black"
                       android:hint="Password"
                       android:backgroundTint="@color/accent_blue"/>
                 </TableRow>
@@ -147,7 +147,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textColor="@color/textColor"
+                        android:textColor="@color/black"
                         android:textSize="14dp"
                         android:hint="Confirm Password"
                         android:backgroundTint="@color/accent_blue"/>

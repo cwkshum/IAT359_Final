@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -174,8 +175,10 @@ public class FavouriteRouteAdapter extends RecyclerView.Adapter<FavouriteRouteAd
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
             // ask user if they want to remove route from their favourites
-            builder.setTitle("Remove route from your favourites?");
-            builder.setMessage("Are you sure you want to remove " + name + "?");
+            builder.setTitle(Html.fromHtml("<font color='#303030'>Remove route from your favourites?</font>"));
+
+          //  builder.setTitle("Remove route from your favourites?");
+            builder.setMessage(Html.fromHtml("<font color='#303030'> Are you sure you want to remove " + name + "?</font>"));
 
             // if the user selects "Yes"
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {

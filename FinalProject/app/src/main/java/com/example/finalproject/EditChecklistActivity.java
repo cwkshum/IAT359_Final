@@ -3,6 +3,7 @@ package com.example.finalproject;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,8 +59,12 @@ public class EditChecklistActivity extends AppCompatActivity implements View.OnC
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         // ask user if they want to delete the checklist
-        builder.setTitle("Delete " + checklistName + " ?");
-        builder.setMessage("Are you sure you want to delete " + checklistName + " ?");
+        builder.setTitle(Html.fromHtml("<font color='#303030'>Delete " + checklistName + " ?</font>"));
+        builder.setMessage(Html.fromHtml("<font color='#303030'>Are you sure you want to delete " + checklistName + " ?</font>"));
+//
+//        builder.setTitle(Html.fromHtml("<font color='#303030'></font>"));
+//        builder.setMessage(Html.fromHtml("<font color='#303030'>Are you sure you want to delete all checklists?</font>"));
+
 
         // if user selects "Yes"
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
